@@ -91,7 +91,7 @@ function Register() {
                                 sx={{mt: 3, mb: 2}}>
                             Register
                         </Button>
-                        <Link href="#" variant="body2" sx={{mb: 3}}>
+                        <Link href="/login" variant="body2" sx={{mb: 3}}>
                             Already have an account? Sign in
                         </Link>
                     </Box>
