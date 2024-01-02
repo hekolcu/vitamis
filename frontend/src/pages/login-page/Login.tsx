@@ -4,11 +4,17 @@ import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import {useNavigate} from "react-router-dom";
 
 function Login(){
+    const navigate = useNavigate();
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         // Handle the form submission logic here
+    };
+
+    const navigateCreateProfile = () => {
+        navigate('/createProfile');
     };
 
     return (
@@ -47,6 +53,7 @@ function Login(){
                     variant="contained"
                     sx={{mt: 3, mb: 2}}
                     color="warning"
+                    onClick={navigateCreateProfile}
                 >
                     Sign In
                 </Button>
