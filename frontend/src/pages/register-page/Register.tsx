@@ -65,7 +65,7 @@ function Register(){
             <img src="/vitamis_icon_192.png" alt="My Icon"
                  style={{maxHeight: '50px', marginBottom: '16px'}}/>
             <Typography component="h1" variant="h5">
-                VITAMIS SIGN IN
+                VITAMIS REGISTER
             </Typography>
             <TabContext value={tabValue}>
                 <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
