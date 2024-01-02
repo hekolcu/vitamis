@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, {useState} from 'react';
 import {
     Box,
     Tab,
@@ -7,12 +7,13 @@ import {
     Button,
     Typography,
     Link,
-    Paper,
 } from '@mui/material';
-import { TabContext, TabPanel } from '@mui/lab';
+import {TabContext, TabPanel} from '@mui/lab';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import {useNavigate} from "react-router-dom";
 
-function Register(){
+function Register() {
+    const navigate = useNavigate();
     const [tabValue, setTabValue] = useState('1');
 
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -36,7 +37,7 @@ function Register(){
     }
 
     function TabPanel(props: TabPanelProps) {
-        const { children, value, index, ...other } = props;
+        const {children, value, index, ...other} = props;
 
         return (
             <Typography
@@ -59,6 +60,9 @@ function Register(){
         };
     }
 
+    const navigateSuccesfulRegister = () => {
+        navigate('/confirmation');
+    };
 
     return (
         <Box sx={{mt: 8, mx: 4, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -75,7 +79,7 @@ function Register(){
                     </Tabs>
                 </Box>
                 <TabPanel value={tabValue} index="1">
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1}} maxWidth="sm">
+                    <Box component="form" onSubmit={handleSubmit} noValidate maxWidth="sm">
                         <TextField required fullWidth label="Name" margin="normal" variant="standard"/>
                         <TextField required fullWidth label="Surname" margin="normal" variant="standard"/>
                         <TextField required fullWidth type="email" label="Email" margin="normal" variant="standard"/>
@@ -83,21 +87,24 @@ function Register(){
                                    variant="standard"/>
                         <TextField required fullWidth type="password" label="Re-enter password" margin="normal"
                                    variant="standard"/>
-                        <Button type="submit" fullWidth variant="contained" color="warning" sx={{mt: 3, mb: 2}}>
+                        <Button type="submit" fullWidth variant="contained" color="warning" size="large"
+                                sx={{mt: 3, mb: 2}}>
                             Register
                         </Button>
-                        <Link href="#" variant="body2">
+                        <Link href="#" variant="body2" sx={{mb: 3}}>
                             Already have an account? Sign in
                         </Link>
                     </Box>
                 </TabPanel>
                 <TabPanel value={tabValue} index="2">
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1}} maxWidth="sm">
+                    <Box component="form" onSubmit={handleSubmit} noValidate maxWidth="sm">
                         <TextField required fullWidth label="Name" margin="normal" variant="standard"/>
                         <TextField required fullWidth label="Surname" margin="normal" variant="standard"/>
                         <TextField required fullWidth type="email" label="Email" margin="normal" variant="standard"/>
-                        <TextField required fullWidth type="password" label="Password" margin="normal" variant="standard"/>
-                        <TextField required fullWidth type="password" label="Re-enter password" margin="normal" variant="standard"/>
+                        <TextField required fullWidth type="password" label="Password" margin="normal"
+                                   variant="standard"/>
+                        <TextField required fullWidth type="password" label="Re-enter password" margin="normal"
+                                   variant="standard"/>
                         <input
                             accept="image/png, image/jpeg, application/pdf"
                             style={{display: 'none'}}
@@ -107,14 +114,22 @@ function Register(){
                             onChange={handleFileChange}
                         />
                         <label htmlFor="raised-button-file">
-                            <Button component="span" variant="contained" startIcon={<CloudUploadIcon/>} sx={{mt: 2}}>
-                                Upload file
+                            <Button component="span" variant="contained" startIcon={<CloudUploadIcon/>} sx={{mt: 1}}>
+                                Upload Diploma
                             </Button>
                         </label>
-                        <Button type="submit" fullWidth variant="contained" color="warning" sx={{mt: 3, mb: 2}}>
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="warning"
+                            size="large"
+                            sx={{mt: 3, mb: 2}}
+                            onClick={navigateSuccesfulRegister}
+                        >
                             Register
                         </Button>
-                        <Link href="/login" variant="body2">
+                        <Link href="/login" variant="body2" sx={{mb: 3}}>
                             Already have an account? Sign in
                         </Link>
                     </Box>
