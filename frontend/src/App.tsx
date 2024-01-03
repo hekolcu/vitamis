@@ -9,6 +9,7 @@ import UserDashboard from "./pages/user-dashboard-page/UserDashboard";
 import Logout from "./pages/log-out-page/Logout";
 import {User} from "./types/User";
 
+
 function App() {
 
     const [user, setUser] = React.useState<User | null>(null);
