@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -28,25 +29,22 @@ namespace VitamisAPI.Data
         public string Username { get; set; }
 
         [Required]
-        [StringLength(255)]
+        [StringLength(64)]
         public string Password { get; set; }
 
         [Required]
+        [DefaultValue(UserType.Advisee)]
         public UserType UserType { get; set; }
 
         [Required]
-        [StringLength(100)]
+        [StringLength(256)]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
-        public Gender Gender { get; set; }
+        public Gender? Gender { get; set; }
 
-        [Required]
         [Column(TypeName = "date")]
-        public DateTime DateOfBirth { get; set; }
-
-        public string HealthConditions { get; set; }
+        public DateTime? DateOfBirth { get; set; }
 
         // Additional logic or methods
     }
