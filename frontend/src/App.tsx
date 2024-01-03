@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import LandingPage from "./pages/landing-page/LandingPage";
+import Login from "./pages/login-page/Login";
+import Register from "./pages/register-page/Register";
+import SuccessfulRegister from "./pages/register-page/SuccessfulRegister";
+import ProfileCreation from "./pages/profile-creation/ProfileCreation";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+          <Routes>
+              <Route index path="/" element={<LandingPage />} />
+              <Route index path="/login" element={<Login />} />
+              <Route index path="/register" element={<Register />} />
+              <Route index path="/confirmation" element={<SuccessfulRegister />} />
+              <Route index path="/createProfile" element={<ProfileCreation />} />
+          </Routes>
+      </BrowserRouter>
   );
 }
 
