@@ -75,7 +75,24 @@ builder.Services.AddAuthorization(options =>
                 c.Type == "UserType" && c.Value == UserType.Advisee.ToString())));
 });
 
+// Uncomment below line if inserting vitamin reference data for the first time.
+// builder.Services.AddScoped<VitaminReferenceDataLoader>();
+
 var app = builder.Build();
+
+// Uncomment below line if inserting vitamin reference data for the first time.
+// using (var scope = app.Services.CreateScope())
+// {
+//     try
+//     {
+//         scope.ServiceProvider.GetRequiredService<VitaminReferenceDataLoader>()
+//             .LoadVitaminData();
+//     }
+//     catch (Exception ex)
+//     {
+//         Console.WriteLine(ex.ToString());
+//     }
+// }
 
 app.UseAuthentication();
 app.UseAuthorization();
