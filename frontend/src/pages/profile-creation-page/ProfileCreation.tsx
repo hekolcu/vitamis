@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Box } from '@mui/material';
+import {useNavigate} from "react-router-dom";
 
 
 function ProfileCreation() {
+    const navigate = useNavigate();
     // States for each form field
     const [height, setHeight] = useState('');
     const [weight, setWeight] = useState('');
@@ -18,6 +20,11 @@ function ProfileCreation() {
         // Handle the form submission
         // send a POST request to server with the form data
     };
+
+    const navigateUserDashboard = () => {
+        navigate('/dashboard');
+    };
+
     return (
         <Container maxWidth="xs">
             <Box my={4} display="flex" flexDirection="column" justifyContent="center">
@@ -93,7 +100,13 @@ function ProfileCreation() {
                     </Select>
                 </FormControl>
 
-                <Button variant="contained" color="warning" size="large" fullWidth sx={{mt:5}}>
+                <Button
+                    variant="contained"
+                    color="warning"
+                    size="large"
+                    fullWidth sx={{mt:5}}
+                    onClick={navigateUserDashboard}
+                >
                     Create Profile
                 </Button>
             </Box>
