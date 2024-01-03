@@ -19,7 +19,8 @@ namespace VitamisAPI.Data
         public VitaminReferenceGroup VitaminReferenceGroup { get; set; }
 
         [Required]
-        public double Amount { get; set; }
+        [StringLength(50)]
+        public string Amount { get; set; }
 
         [Required]
         [StringLength(50)]

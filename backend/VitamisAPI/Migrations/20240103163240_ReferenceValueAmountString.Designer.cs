@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VitamisAPI.Data;
 
@@ -10,9 +11,11 @@ using VitamisAPI.Data;
 namespace VitamisAPI.Migrations
 {
     [DbContext(typeof(VitamisDbContext))]
-    partial class VitamisDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240103163240_ReferenceValueAmountString")]
+    partial class ReferenceValueAmountString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,8 +100,7 @@ namespace VitamisAPI.Migrations
 
                     b.Property<string>("Amount")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("GroupID")
                         .HasColumnType("int");

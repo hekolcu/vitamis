@@ -8,6 +8,16 @@ public class VitamisDbContext: DbContext
     {
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // Enforce uniqueness on the Name property of the Vitamin entity
+        modelBuilder.Entity<Vitamin>()
+            .HasIndex(v => v.Name)
+            .IsUnique();
+    }
+    
     public DbSet<User> Users { get; set; }
     public DbSet<Vitamin> Vitamins { get; set; }
     public DbSet<VitaminReferenceGroup> VitaminReferenceGroups { get; set; }
