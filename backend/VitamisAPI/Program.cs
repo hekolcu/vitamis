@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.OpenApi.Models;
 using VitamisAPI;
 using VitamisAPI.Data;
+using VitamisAPI.Data.LoadData;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -74,8 +75,12 @@ builder.Services.AddAuthorization(options =>
                 c.Type == "UserType" && c.Value == UserType.Advisee.ToString())));
 });
 
-var app = builder.Build();
+VitaminReferenceDataLoader.LoadVitaminData(
+    new VitamisDbContext(new DbContextOptions<VitamisDbContext>()), 
+    "Data/LoadData/ReferenceTable.json");
 
+var app = builder.Build();
+app.Services.GetService(Type.GetType(""))
 app.UseAuthentication();
 app.UseAuthorization();
 

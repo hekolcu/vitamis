@@ -9,4 +9,8 @@ public class VitamisDbContext: DbContext
     }
 
     public DbSet<User> Users { get; set; }
+    public DbSet<Vitamin> Vitamins { get; set; }
+    public DbSet<VitaminReferenceGroup> VitaminReferenceGroups { get; set; }
+    public DbSet<VitaminReferenceValue> VitaminReferenceValues { get; set; }
+
 }
