@@ -6,7 +6,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import {useNavigate} from "react-router-dom";
 
-function Login(){
+interface LogInProps {
+    onLogin: () => void; // or more specific type, if needed
+}
+
+function Login(props: LogInProps){
+    React.useEffect(props.onLogin)
     const navigate = useNavigate();
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();

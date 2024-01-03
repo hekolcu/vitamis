@@ -4,7 +4,7 @@ import VitamisAppBar from "../../components/app-bar/VitamisAppBar";
 function LandingPage() {
     return (
         <div>
-            <VitamisAppBar/>
+            <VitamisAppBar user={null}/>
             <Container maxWidth="xl" style={{
                 backgroundImage: "url('landing_page_bg.png')",
                 backgroundSize: 'cover',
