@@ -75,12 +75,8 @@ builder.Services.AddAuthorization(options =>
                 c.Type == "UserType" && c.Value == UserType.Advisee.ToString())));
 });
 
-VitaminReferenceDataLoader.LoadVitaminData(
-    new VitamisDbContext(new DbContextOptions<VitamisDbContext>()), 
-    "Data/LoadData/ReferenceTable.json");
-
 var app = builder.Build();
-app.Services.GetService(Type.GetType(""))
+
 app.UseAuthentication();
 app.UseAuthorization();
 
