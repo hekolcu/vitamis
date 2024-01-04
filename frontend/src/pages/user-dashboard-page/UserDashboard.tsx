@@ -3,6 +3,7 @@ import VitamisAppBar from "../../components/app-bar/VitamisAppBar";
 import {User} from "../../types/User";
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography} from '@mui/material';
 import Box from "@mui/material/Box";
+import VitamisSideBar from "../../components/app-bar/VitamisSideBar"
 
 
 // Define the type for a single vitamin
@@ -42,6 +43,7 @@ function UserDashboard(props: UserDashboardProps) {
     return (
         <div>
             <VitamisAppBar user={props.user}/>
+            <VitamisSideBar user={props.user}/>
             <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh" flexDirection="column">
                 <TableContainer component={Paper} sx={{
                     mb: 5,
