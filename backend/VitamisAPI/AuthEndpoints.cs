@@ -16,7 +16,7 @@ public static class AuthEndpoints
         {
             var newUser = new User
             {
-                Username = request.Username,
+                Fullname = request.Fullname,
                 Password = BCrypt.Net.BCrypt.HashPassword(request.Password),
                 Email = request.Email
             };
@@ -38,7 +38,7 @@ public static class AuthEndpoints
 
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Name, user.Fullname),
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.Role, user.UserType.ToString()),
             };
@@ -67,8 +67,8 @@ public static class AuthEndpoints
     private class RegistrationRequest
     {
         [Required]
-        [StringLength(50)]
-        public string Username { get; set; }
+        [StringLength(100)]
+        public string Fullname { get; set; }
 
         [Required]
         [StringLength(255)]

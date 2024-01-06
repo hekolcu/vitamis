@@ -19,14 +19,22 @@ namespace VitamisAPI.Data
         Female
     }
 
+    // New enum for Sun Exposure
+    public enum SunExposure
+    {
+        Low,
+        Moderate,
+        High
+    }
+
     public class User
     {
         [Key]
         public int UserId { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Username { get; set; }
+        [StringLength(100)]
+        public string Fullname { get; set; }
 
         [Required]
         [StringLength(64)]
@@ -46,6 +54,17 @@ namespace VitamisAPI.Data
         [Column(TypeName = "date")]
         public DateTime? DateOfBirth { get; set; }
 
-        // Additional logic or methods
+        [Required]
+        public double? Height { get; set; }
+
+        [Required]
+        public double? Weight { get; set; }
+
+        [StringLength(100)]
+        public string? Disease { get; set; }
+
+        public SunExposure? SunExposure { get; set; }
+
+        public bool? Smoking { get; set; }
     }
 }
