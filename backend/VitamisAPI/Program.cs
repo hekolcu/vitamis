@@ -80,7 +80,7 @@ builder.Services.AddAuthorization(options =>
 
 var app = builder.Build();
 
-// Uncomment below line if inserting vitamin reference data for the first time.
+// Uncomment below lines if inserting vitamin reference data for the first time.
 // using (var scope = app.Services.CreateScope())
 // {
 //     try
@@ -108,5 +108,6 @@ app.UseHttpsRedirection();
 
 app.MapAuthEndpoints(configuration, jwtKey);
 app.MapUserEndpoints();
+app.MapRecommendationEndpoints();
 
 app.Run();
