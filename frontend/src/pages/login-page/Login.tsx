@@ -5,17 +5,36 @@ import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import {useNavigate} from "react-router-dom";
+import {login} from "../../utils/VitamisApiFunctions";
+import {useAuth} from "../../App";
 
 interface LogInProps {
     onLogin: () => void; // or more specific type, if needed
 }
 
 function Login(props: LogInProps){
-    React.useEffect(props.onLogin)
     const navigate = useNavigate();
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const { setToken } = useAuth();
+
+    React.useEffect(() => {
+        props.onLogin();
+    }, []);
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        // Handle the form submission logic here
+
+        const formData = new FormData(event.currentTarget);
+        const loginData = {
+            email: formData.get('email'),
+            password: formData.get('password'),
+        };
+
+        const response = await login(loginData)
+
+        if(response.token != null){
+            props.onLogin();
+            setToken(response.token);
+        }
     };
 
     const navigateCreateProfile = () => {

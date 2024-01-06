@@ -11,6 +11,7 @@ import {
 import {TabContext, TabPanel} from '@mui/lab';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import {useNavigate} from "react-router-dom";
+import {registerUser} from "../../utils/VitamisApiFunctions";
 
 function Register() {
     const navigate = useNavigate();
@@ -20,10 +21,27 @@ function Register() {
         setTabValue(newValue);
     };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        // Here you would handle the form submission
+
+        const formData = new FormData(event.currentTarget);
+        const name = formData.get('name') as string;
+        const surname = formData.get('surname') as string;
+
+        const registrationData = {
+            fullname: `${name} ${surname}`,
+            email: formData.get('email'),
+            password: formData.get('password'),
+        };
+
+        const response = await registerUser(registrationData)
+
+        if (response){
+            navigateSuccesfulRegister();
+        }
     };
+
+
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files ? event.target.files[0] : null;
