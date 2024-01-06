@@ -3,7 +3,7 @@ import VitamisAppBar from "../../components/app-bar/VitamisAppBar";
 import {User} from "../../types/User";
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography} from '@mui/material';
 import Box from "@mui/material/Box";
-import VitamisSideBar from "../../components/app-bar/VitamisSideBar"
+import VitamisSideBar from "../../components/side-bar/VitamisSideBar"
 
 
 // Define the type for a single vitamin
