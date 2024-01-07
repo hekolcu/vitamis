@@ -16,7 +16,7 @@ var jwtKey = configuration["Jwt:Key"] ?? "3TpEoLQix6jIwu7plzczjXj6eGni+Wlcq6ojcS
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
 {
-    option.SwaggerDoc("v1", new OpenApiInfo { Title = "Test API", Version = "v1" });
+    option.SwaggerDoc("v1", new OpenApiInfo { Title = "VitamisApi", Version = "v0.2" });
     option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -75,6 +75,16 @@ builder.Services.AddAuthorization(options =>
                 c.Type == "UserType" && c.Value == UserType.Advisee.ToString())));
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(corsPolicyBuilder =>
+    {
+        corsPolicyBuilder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 // Uncomment below line if inserting vitamin reference data for the first time.
 // builder.Services.AddScoped<VitaminReferenceDataLoader>();
 
@@ -94,17 +104,23 @@ var app = builder.Build();
 //     }
 // }
 
+app.UseCors();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// if (app.Environment.IsDevelopment())
+// {
+//     app.UseSwagger();
+//     app.UseSwaggerUI();
+// }
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+
+app.MapGet("/health", () => Results.Json(new { Message="healthy" }));
 
 app.MapAuthEndpoints(configuration, jwtKey);
 app.MapUserEndpoints();
