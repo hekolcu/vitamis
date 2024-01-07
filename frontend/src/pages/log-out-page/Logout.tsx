@@ -1,16 +1,22 @@
 import * as React from 'react';
 import {Box, Button, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
+import {useVitamisContext} from "../../App";
 
 interface LogoutProps {
-    onLogout: () => void; // or more specific type, if needed
+    // onLogout: () => void; // or more specific type, if needed
 }
 
 function Logout(props: LogoutProps){
-    React.useEffect(props.onLogout)
+    const { setUser } = useVitamisContext();
     const navigate = useNavigate();
 
-    const navigateDashboard = () => {
+    React.useEffect(() => {
+        setUser(null);
+        localStorage.removeItem('token');
+    }, []);
+
+    const navigateLandingPage = () => {
         navigate('/');
     };
 
@@ -35,7 +41,7 @@ function Logout(props: LogoutProps){
                 variant="contained"
                 color="warning"
                 sx={{mt: 2}}
-                onClick={navigateDashboard}
+                onClick={navigateLandingPage}
             >
                 Go to Dashboard
             </Button>

@@ -4,22 +4,36 @@ import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import {login} from "../../utils/VitamisApiFunctions";
+import {useVitamisContext} from "../../App";
 import {useNavigate} from "react-router-dom";
 
-interface LogInProps {
-    onLogin: () => void; // or more specific type, if needed
-}
+function Login(){
+    const { setToken, user } = useVitamisContext();
 
-function Login(props: LogInProps){
-    React.useEffect(props.onLogin)
     const navigate = useNavigate();
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        // Handle the form submission logic here
-    };
 
-    const navigateCreateProfile = () => {
-        navigate('/createProfile');
+    React.useEffect(() => {
+        console.log(user);
+        if (user?.gender != null && user.dateOfBirth != null){
+            navigate('/dashboard');
+        }
+    }, [user]);
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.currentTarget);
+        const loginData = {
+            email: formData.get('email'),
+            password: formData.get('password'),
+        };
+
+        const response = await login(loginData)
+
+        if(response.token != null){
+            setToken(response.token);
+        }
     };
 
     return (
@@ -58,7 +72,6 @@ function Login(props: LogInProps){
                     variant="contained"
                     sx={{mt: 3, mb: 2}}
                     color="warning"
-                    onClick={navigateCreateProfile}
                 >
                     Sign In
                 </Button>
