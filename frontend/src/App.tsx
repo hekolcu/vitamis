@@ -10,48 +10,53 @@ import Logout from "./pages/log-out-page/Logout";
 import {User} from "./types/User";
 import {getUserDetails} from "./utils/VitamisApiFunctions";
 
-interface AuthContextType {
+interface VitamisContext {
     token: string | null;
-    setToken: (token: string | null) => void
+    setToken: (token: string | null) => void;
+    user: User | null;
+    setUser: (user: User | null) => void;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const VitamisContext = createContext<VitamisContext | undefined>(undefined);
 
 function App() {
 
-    const [token, setToken] = useState<string | null>(null);
+    const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
 
-    const [user, setUser] = React.useState<User | null>(null);
+    const [user, setUser] = useState<User | null>(null);
 
-    // Simulate signing in a user
-    const signInUser = async () => {
-        if (token != null) setUser(await getUserDetails(token));
-    };
+    React.useEffect(() => {
+        if (token) {
+            localStorage.setItem('token', token);
+            (async () => setUser(await getUserDetails(token)))();
+        } else {
+            localStorage.removeItem('token');
+        }
+    }, [token]);
 
-    // Simulate signing out a user
-    const signOutUser = () => {
-        setUser(null);
-    };
+    React.useEffect(() => {
+        console.log(user);
+    }, [user]);
 
   return (
-      <AuthContext.Provider value={{ token, setToken }} >
+      <VitamisContext.Provider value={{ token, setToken, user, setUser }} >
           <BrowserRouter>
               <Routes>
                   <Route index path="/" element={<LandingPage />} />
-                  <Route index path="/login" element={<Login onLogin={signInUser}/>} />
+                  <Route index path="/login" element={<Login />} />
                   <Route index path="/register" element={<Register />} />
                   <Route index path="/confirmation" element={<SuccessfulRegister />} />
                   <Route index path="/createProfile" element={<ProfileCreation />} />
-                  <Route index path="/dashboard" element={<UserDashboard user={user} />} />
-                  <Route index path="/logout" element={<Logout onLogout={signOutUser} />} />
+                  <Route index path="/dashboard" element={<UserDashboard />} />
+                  <Route index path="/logout" element={<Logout />} />
               </Routes>
           </BrowserRouter>
-      </AuthContext.Provider>
+      </VitamisContext.Provider>
   );
 }
 
-export const useAuth = () => {
-    const context = useContext(AuthContext);
+export const useVitamisContext = () => {
+    const context = useContext(VitamisContext);
     if(!context){
         throw new Error("Used in auth provider");
     }

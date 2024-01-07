@@ -98,10 +98,10 @@ function Register() {
                 </Box>
                 <TabPanel value={tabValue} index="1">
                     <Box component="form" onSubmit={handleSubmit} noValidate maxWidth="sm">
-                        <TextField required fullWidth label="Name" margin="normal" variant="standard"/>
-                        <TextField required fullWidth label="Surname" margin="normal" variant="standard"/>
-                        <TextField required fullWidth type="email" label="Email" margin="normal" variant="standard"/>
-                        <TextField required fullWidth type="password" label="Password" margin="normal"
+                        <TextField required fullWidth label="Name" name="name" margin="normal" variant="standard"/>
+                        <TextField required fullWidth label="Surname" name="surname" margin="normal" variant="standard"/>
+                        <TextField required fullWidth type="email" label="Email" name="email" margin="normal" variant="standard"/>
+                        <TextField required fullWidth type="password" label="Password" name="password" margin="normal"
                                    variant="standard"/>
                         <TextField required fullWidth type="password" label="Re-enter password" margin="normal"
                                    variant="standard"/>
@@ -116,10 +116,10 @@ function Register() {
                 </TabPanel>
                 <TabPanel value={tabValue} index="2">
                     <Box component="form" onSubmit={handleSubmit} noValidate maxWidth="sm">
-                        <TextField required fullWidth label="Name" margin="normal" variant="standard"/>
-                        <TextField required fullWidth label="Surname" margin="normal" variant="standard"/>
-                        <TextField required fullWidth type="email" label="Email" margin="normal" variant="standard"/>
-                        <TextField required fullWidth type="password" label="Password" margin="normal"
+                        <TextField required fullWidth label="Name" name="name" margin="normal" variant="standard"/>
+                        <TextField required fullWidth label="Surname" name="surname" margin="normal" variant="standard"/>
+                        <TextField required fullWidth type="email" label="Email" name="email" margin="normal" variant="standard"/>
+                        <TextField required fullWidth type="password" label="Password" name="password" margin="normal"
                                    variant="standard"/>
                         <TextField required fullWidth type="password" label="Re-enter password" margin="normal"
                                    variant="standard"/>

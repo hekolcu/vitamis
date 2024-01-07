@@ -33,7 +33,9 @@ async  function login(loginData: any): Promise<{token: string | null}> {
         });
 
         if (response.ok) {
-            return await response.json();
+            const body = await  response.json();
+            console.log(body);
+            return body
         } else {
             return {token: null};
         }

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import VitamisAppBar from "../../components/app-bar/VitamisAppBar";
-import {User} from "../../types/User";
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography} from '@mui/material';
 import Box from "@mui/material/Box";
+import {useVitamisContext} from "../../App";
 
 
 // Define the type for a single vitamin
@@ -13,12 +13,13 @@ type Vitamin = {
 };
 
 interface UserDashboardProps {
-    user: User | null;
+    // user: User | null;
 }
 
 function UserDashboard(props: UserDashboardProps) {
     const [tableName, setTableName] = React.useState<string>("")
     const [vitamins, setVitamins] = React.useState<Vitamin[]>([]);
+    // const { user } = useVitamisContext();
 
     React.useEffect(() => {
         setTableName("Erkek 65-70");
@@ -41,7 +42,7 @@ function UserDashboard(props: UserDashboardProps) {
 
     return (
         <div>
-            <VitamisAppBar user={props.user}/>
+            <VitamisAppBar />
             <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh" flexDirection="column">
                 <TableContainer component={Paper} sx={{
                     mb: 5,

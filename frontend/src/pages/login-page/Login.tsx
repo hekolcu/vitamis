@@ -6,19 +6,15 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import {useNavigate} from "react-router-dom";
 import {login} from "../../utils/VitamisApiFunctions";
-import {useAuth} from "../../App";
+import {useVitamisContext} from "../../App";
 
 interface LogInProps {
-    onLogin: () => void; // or more specific type, if needed
+    // onLogin: () => void; // or more specific type, if needed
 }
 
 function Login(props: LogInProps){
     const navigate = useNavigate();
-    const { setToken } = useAuth();
-
-    React.useEffect(() => {
-        props.onLogin();
-    }, []);
+    const { setToken, user } = useVitamisContext();
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -32,13 +28,13 @@ function Login(props: LogInProps){
         const response = await login(loginData)
 
         if(response.token != null){
-            props.onLogin();
             setToken(response.token);
+            if (user?.gender != null && user.dateOfBirth != null){
+                navigate('/dashboard');
+            }else{
+                navigate('/createProfile');
+            }
         }
-    };
-
-    const navigateCreateProfile = () => {
-        navigate('/createProfile');
     };
 
     return (
@@ -77,7 +73,6 @@ function Login(props: LogInProps){
                     variant="contained"
                     sx={{mt: 3, mb: 2}}
                     color="warning"
-                    onClick={navigateCreateProfile}
                 >
                     Sign In
                 </Button>

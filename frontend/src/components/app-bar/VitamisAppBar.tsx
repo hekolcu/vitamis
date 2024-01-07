@@ -6,14 +6,19 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
-import {User} from "../../types/User";
+import {useVitamisContext} from "../../App";
 
 interface VitamisAppBarProps {
-    user: User | null;
+    // user: User | null;
 }
 
 function VitamisAppBar(props: VitamisAppBarProps)  {
     const navigate = useNavigate();
+    const { user } = useVitamisContext()
+
+    React.useEffect(() => {
+        console.log(user);
+    }, [user]);
 
     const navigateLogin = () => {
         navigate('/login');
@@ -55,10 +60,10 @@ function VitamisAppBar(props: VitamisAppBarProps)  {
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}></Box>
 
                     <Box sx={{flexGrow: 0}}>
-                        {props.user ? (
+                        {user ? (
                             <div>
                                 <Typography sx={{display: 'inline-block', mr: 2}}>
-                                    {props.user.email}
+                                    {user.email}
                                 </Typography>
                                 <Button
                                     variant="outlined"

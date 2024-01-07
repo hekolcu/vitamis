@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Box } from '@mui/material';
 import {useNavigate} from "react-router-dom";
+import {useVitamisContext} from "../../App";
 
+const getCurrentDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+    const day = String(today.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
+};
 
 function ProfileCreation() {
     const navigate = useNavigate();
-    // States for each form field
     const [height, setHeight] = useState('');
     const [weight, setWeight] = useState('');
-    const [dateOfBirth, setDateOfBirth] = useState('');
+    const [dateOfBirth, setDateOfBirth] = useState(getCurrentDate());
     const [disease, setDisease] = useState('');
     const [sunExposure, setSunExposure] = useState('');
     const [smoking, setSmoking] = useState('');
     const [gender, setGender] = useState('');
+    const { user } = useVitamisContext()
 
-    // Function to handle form submission
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        // Handle the form submission
-        // send a POST request to server with the form data
-    };
+    React.useEffect(() => {
+        console.log(user);
+    }, [user]);
 
     const navigateUserDashboard = () => {
         navigate('/dashboard');
@@ -37,21 +43,44 @@ function ProfileCreation() {
                     PROFILE CREATION
                 </Typography>
 
-                <TextField label="Height" margin="normal" fullWidth variant="standard" required/>
-                <TextField label="Weight" margin="normal" fullWidth variant="standard" required/>
-                <TextField label="Disease" margin="normal" fullWidth variant="standard"/>
+                <TextField
+                    label="Height"
+                    margin="normal"
+                    fullWidth
+                    variant="standard"
+                    required
+                    value={height}
+                    onChange={(event) => setHeight(event.target.value)}
+                />
+                <TextField
+                    label="Weight"
+                    margin="normal"
+                    fullWidth
+                    variant="standard"
+                    required
+                    value={weight}
+                    onChange={(event) => setWeight(event.target.value)}/>
+                <TextField
+                    label="Disease"
+                    margin="normal"
+                    fullWidth
+                    variant="standard"
+                    value={disease}
+                    onChange={(event) => setDisease(event.target.value)}
+                />
 
                 <TextField
                     required
                     variant="standard"
                     label="Date of birth"
                     type="date"
-                    defaultValue="2024-01-01"
                     margin="normal"
                     fullWidth
                     InputLabelProps={{
                         shrink: true,
                     }}
+                    value={dateOfBirth}
+                    onChange={(event) => setDateOfBirth(event.target.value)}
                 />
 
                 <FormControl fullWidth margin="normal">
@@ -61,8 +90,8 @@ function ProfileCreation() {
                         labelId="sunExp-label"
                         id="sunExp-select"
                         label="Sun Exposure"
-                        // value={activity}
-                        // onChange={handleActivityChange}
+                        value={sunExposure}
+                        onChange={(event) => setSunExposure(event.target.value)}
                     >
                         <MenuItem value="Low">Low</MenuItem>
                         <MenuItem value="Moderate">Moderate</MenuItem>
@@ -77,8 +106,8 @@ function ProfileCreation() {
                         labelId="smoking-label"
                         id="smoking-select"
                         label="Smoking"
-                        // value={activity}
-                        // onChange={handleActivityChange}
+                        value={smoking}
+                        onChange={(event) => setSmoking(event.target.value)}
                     >
                         <MenuItem value="Yes">Yes</MenuItem>
                         <MenuItem value="No">No</MenuItem>
@@ -92,8 +121,8 @@ function ProfileCreation() {
                         labelId="gender-label"
                         id="gender-select"
                         label="Gender"
-                        // value={activity}
-                        // onChange={handleActivityChange}
+                        value={gender}
+                        onChange={(event) => setGender(event.target.value)}
                     >
                         <MenuItem value="Male">Male</MenuItem>
                         <MenuItem value="Female">Female</MenuItem>
