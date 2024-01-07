@@ -1,7 +1,7 @@
 import {User} from "../types/User";
 import {VitaminRecommendation} from "../types/VitaminRecommendation";
 
-const api = 'https://api.vitamis.hekolcu.com:8080/';
+const api = 'https://api.vitamis.hekolcu.com/';
 
 async function registerUser(registrationData: any): Promise<boolean> {
     const endpoint = api + 'auth/register';
