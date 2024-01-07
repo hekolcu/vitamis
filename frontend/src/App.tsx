@@ -34,10 +34,6 @@ function App() {
         }
     }, [token]);
 
-    React.useEffect(() => {
-        console.log(user);
-    }, [user]);
-
   return (
       <VitamisContext.Provider value={{ token, setToken, user, setUser }} >
           <BrowserRouter>

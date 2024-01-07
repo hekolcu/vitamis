@@ -1,4 +1,5 @@
 import {User} from "../types/User";
+import {VitaminRecommendation} from "../types/VitaminRecommendation";
 
 const api = 'http://api.vitamis.hekolcu.com:8080/';
 
@@ -66,4 +67,58 @@ async  function getUserDetails(token: string): Promise<User | null> {
     }
 }
 
-export {login , registerUser, getUserDetails};
+async function updateProfile(token: string, user: {
+    gender: string,// male, female
+    dateOfBirth: string,// yyyy-mm-dd
+    height: number,// cm
+    weight: number,// kg
+    disease: string,
+    sunExposure: string,// low, moderate, high
+    smoking: boolean
+}): Promise<boolean> {
+    const endpoint = api + "user/details"
+
+    try {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(user),
+        });
+
+        return response.ok;
+    } catch (error) {
+        return false;
+    }
+}
+
+// get api + recommendations/vitamins + token
+async function getRecommendations(token: string): Promise<{
+    groupName: string;
+    recommendedVitamins: VitaminRecommendation[];
+} | null> {
+    const endpoint = api + "recommendations/vitamins"
+
+    try {
+        const response = await fetch(endpoint, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (response.ok) {
+            return await response.json();
+        } else {
+            return null;
+        }
+    } catch (error) {
+        return null;
+    }
+}
+
+
+export {login , registerUser, getUserDetails, updateProfile, getRecommendations};

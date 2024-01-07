@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Select, MenuItem, FormControl, InputLabel, Box } from '@mui/material';
 import {useNavigate} from "react-router-dom";
 import {useVitamisContext} from "../../App";
+import {updateProfile} from "../../utils/VitamisApiFunctions";
 
 const getCurrentDate = () => {
     const today = new Date();
@@ -14,22 +15,43 @@ const getCurrentDate = () => {
 
 function ProfileCreation() {
     const navigate = useNavigate();
-    const [height, setHeight] = useState('');
-    const [weight, setWeight] = useState('');
-    const [dateOfBirth, setDateOfBirth] = useState(getCurrentDate());
+    const [height, setHeight] = useState<string | null>(null);
+    const [weight, setWeight] = useState<string | null>(null);
+    const [dateOfBirth, setDateOfBirth] = useState<string>(getCurrentDate());
     const [disease, setDisease] = useState('');
     const [sunExposure, setSunExposure] = useState('');
     const [smoking, setSmoking] = useState('');
-    const [gender, setGender] = useState('');
-    const { user } = useVitamisContext()
+    const [gender, setGender] = useState<string | null>(null);
+    const { token, user } = useVitamisContext()
 
     React.useEffect(() => {
-        console.log(user);
+        if (user?.dateOfBirth != null && user.gender != null) {
+            navigate('/dashboard');
+        }
     }, [user]);
 
-    const navigateUserDashboard = () => {
-        navigate('/dashboard');
-    };
+    function createProfile() {
+        if (height &&
+            weight &&
+            dateOfBirth != getCurrentDate() &&
+            gender &&
+            token
+        ) {
+            updateProfile(token, {
+                gender: gender,
+                dateOfBirth: dateOfBirth,
+                height: +height,
+                weight: +weight,
+                disease: disease,
+                sunExposure: sunExposure,
+                smoking: smoking == "Yes"
+            }).then(r => {
+                if (r) {
+                    navigate('/dashboard');
+                }
+            });
+        }
+    }
 
     return (
         <Container maxWidth="xs">
@@ -134,7 +156,7 @@ function ProfileCreation() {
                     color="warning"
                     size="large"
                     fullWidth sx={{mt:5}}
-                    onClick={navigateUserDashboard}
+                    onClick={createProfile}
                 >
                     Create Profile
                 </Button>

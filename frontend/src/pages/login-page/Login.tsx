@@ -4,17 +4,21 @@ import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import {useNavigate} from "react-router-dom";
 import {login} from "../../utils/VitamisApiFunctions";
 import {useVitamisContext} from "../../App";
+import {useNavigate} from "react-router-dom";
 
-interface LogInProps {
-    // onLogin: () => void; // or more specific type, if needed
-}
-
-function Login(props: LogInProps){
-    const navigate = useNavigate();
+function Login(){
     const { setToken, user } = useVitamisContext();
+
+    const navigate = useNavigate();
+
+    React.useEffect(() => {
+        console.log(user);
+        if (user?.gender != null && user.dateOfBirth != null){
+            navigate('/dashboard');
+        }
+    }, [user]);
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -29,11 +33,6 @@ function Login(props: LogInProps){
 
         if(response.token != null){
             setToken(response.token);
-            if (user?.gender != null && user.dateOfBirth != null){
-                navigate('/dashboard');
-            }else{
-                navigate('/createProfile');
-            }
         }
     };
 
