@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZN2fP8el9ziNg6Hn68RcY0jlxSk4jAU8mf4rG/zE2MzyaywaHePxu5BRKZSPBtYZWEJzvOzi/Ahs1cHYrDvD1g==",
+  "dgSpecHash": "h83Sck/6tXhhUeY/HtT3S+wosIN4vmXenRT1JrNbM6+gkRjYz6ym9jcR++qZVhVHLNNN069xTb+inCht8y/X6w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\vitamis\\frontendTest\\VitamisFrontendTest\\VitamisFrontendTest\\VitamisFrontendTest.csproj",
+  "projectFilePath": "C:\\Users\\user\\vitamis\\frontendTest\\VitamisFrontendTest\\VitamisFrontendTest\\frontendTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\anglesharp\\1.0.4\\anglesharp.1.0.4.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\dnsclient\\1.2.0\\dnsclient.1.2.0.nupkg.sha512",

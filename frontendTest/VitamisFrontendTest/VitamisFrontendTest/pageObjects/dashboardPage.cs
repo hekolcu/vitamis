@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace VitamisFrontendTest.pageObjects
+namespace frontendTest.pageObjects
 {
     public class dashboardPage
     {

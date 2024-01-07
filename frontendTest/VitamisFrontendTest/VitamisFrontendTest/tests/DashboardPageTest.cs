@@ -1,4 +1,4 @@
-﻿using VitamisFrontendTest.utilities;
+﻿using frontendTest.utilities;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using WebDriverManager.DriverConfigs.Impl;
 using System.Threading;
 using OpenQA.Selenium.Interactions;
-using VitamisFrontendTest.pageObjects;
+using frontendTest.pageObjects;
 
-namespace VitamisFrontendTest.tests
+namespace frontendTest.tests
 {
     public class DashboardPageTest : Base
     {

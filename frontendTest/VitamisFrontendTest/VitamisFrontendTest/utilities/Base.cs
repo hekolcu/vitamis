@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebDriverManager.DriverConfigs.Impl;
 
-namespace VitamisFrontendTest.utilities
+namespace frontendTest.utilities
 {
     public class Base
     {

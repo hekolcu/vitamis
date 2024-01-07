@@ -10008,9 +10008,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\vitamis\\frontendTest\\VitamisFrontendTest\\VitamisFrontendTest\\VitamisFrontendTest.csproj",
-      "projectName": "VitamisFrontendTest",
-      "projectPath": "C:\\Users\\user\\vitamis\\frontendTest\\VitamisFrontendTest\\VitamisFrontendTest\\VitamisFrontendTest.csproj",
+      "projectUniqueName": "C:\\Users\\user\\vitamis\\frontendTest\\VitamisFrontendTest\\VitamisFrontendTest\\frontendTest.csproj",
+      "projectName": "frontendTest",
+      "projectPath": "C:\\Users\\user\\vitamis\\frontendTest\\VitamisFrontendTest\\VitamisFrontendTest\\frontendTest.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\user\\vitamis\\frontendTest\\VitamisFrontendTest\\VitamisFrontendTest\\obj\\",
       "projectStyle": "PackageReference",
