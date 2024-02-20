@@ -43,7 +43,7 @@ namespace frontendTest.utilities
             InitBrowser(browserName);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Manage().Window.Maximize();
-            driver.Url = "https://vitamis.hekolcu.com/";
+            driver.Url = "http://localhost:3000/";
 
         }
 
