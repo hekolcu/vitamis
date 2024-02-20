@@ -134,22 +134,5 @@ namespace frontendTest.pageObjects
         {
             return createBtn;
         }
-        /*
-        public SelectElement sunExDropdown()
-        {
-            SelectElement sunExDropdown = new SelectElement(sunEx);
-            return sunExDropdown;
-        }
-        public SelectElement smokingDropdown()
-        {
-            SelectElement smokingDropdown = new SelectElement(smoking);
-            return smokingDropdown;
-        }
-        public SelectElement genderDropdown()
-        {
-            SelectElement genderDropdown = new SelectElement(gender);
-            return genderDropdown;
-        }
-        */
     }
 }

@@ -23,7 +23,7 @@ namespace frontendTest.tests
             loginPage loginPage = new loginPage(getDriver());
             landingPage.getLoginBtn().Click();
             string loginUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/login", loginUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/login", loginUrl);
             String forgotPassText=loginPage.getForgotPass().Text;
             String signInText = loginPage.getVitamisSignInText().Text;
             String signUpText = loginPage.getSignUp().Text;
@@ -32,17 +32,17 @@ namespace frontendTest.tests
             Assert.AreEqual("Don't have an account? Sign Up", signUpText);
             loginPage.getForgotPass().Click();
             String forgotUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/login#", forgotUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/login#", forgotUrl);
             driver.Navigate().Back();
             loginPage.getSignUp().Click();
             string signUpUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/register", signUpUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/register/", signUpUrl);
             driver.Navigate().Back();
             loginPage.getEmail().SendKeys("example@email.com");
             loginPage.getPassword().SendKeys("password");
             loginPage.getSignInBtn().Click();
             string signInUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/createProfile", signInUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/createProfile", signInUrl);
 
 
         }
