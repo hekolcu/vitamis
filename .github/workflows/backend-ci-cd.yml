@@ -22,10 +22,10 @@ jobs:
       - name: Get New Connection String
         id: get_connection_string
         run: |
-          cd backend/VitamisAPI
           echo "::set-output name=connection_string::${{ secrets.PROD_CONNECTION_STRING }}"
       - name: Update Connection String
         run: |
+          cd backend/VitamisAPI
           sed -i 's|"DefaultConnection":.*|"DefaultConnection": "${{ steps.get_connection_string.outputs.connection_string }}"|g' appsettings.json
       - name: Build, tag, and push image to Amazon ECR
         env:
