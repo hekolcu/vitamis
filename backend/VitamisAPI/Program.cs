@@ -88,6 +88,11 @@ builder.Services.AddCors(options =>
 // Uncomment below line if inserting vitamin reference data for the first time.
 // builder.Services.AddScoped<VitaminReferenceDataLoader>();
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(8080);  // Listen on port 8080 on any IP address
+});
+
 var app = builder.Build();
 
 // Uncomment below lines if inserting vitamin reference data for the first time.
