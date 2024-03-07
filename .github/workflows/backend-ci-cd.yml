@@ -21,7 +21,9 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
       - name: Get New Connection String
         id: get_connection_string
-        run: echo "::set-output name=connection_string::${{ secrets.PROD_CONNECTION_STRING }}"
+        run: |
+          cd backend/VitamisAPI
+          echo "::set-output name=connection_string::${{ secrets.PROD_CONNECTION_STRING }}"
       - name: Update Connection String
         run: |
           sed -i 's|"DefaultConnection":.*|"DefaultConnection": "${{ steps.get_connection_string.outputs.connection_string }}"|g' appsettings.json
@@ -31,6 +33,7 @@ jobs:
           ECR_REPOSITORY: vitamisapi
           IMAGE_TAG: latest
         run: |
+          cd backend/VitamisAPI
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
       - name: Deploy to EC2 via SSH
