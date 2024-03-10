@@ -85,23 +85,27 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Uncomment below line if inserting vitamin reference data for the first time.
-// builder.Services.AddScoped<VitaminReferenceDataLoader>();
-
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.ListenAnyIP(8080);  // Listen on port 8080 on any IP address
 });
 
+// Uncomment below lines if inserting data for the first time.
+// builder.Services.AddScoped<VitaminReferenceDataLoader>();
+// builder.Services.AddScoped<FoodVitaminAndNutritionalDataLoader>();
+
 var app = builder.Build();
 
-// Uncomment below lines if inserting vitamin reference data for the first time.
+// Uncomment below lines if inserting data for the first time.
 // using (var scope = app.Services.CreateScope())
 // {
 //     try
 //     {
 //         scope.ServiceProvider.GetRequiredService<VitaminReferenceDataLoader>()
 //             .LoadVitaminData();
+//
+//         scope.ServiceProvider.GetRequiredService<FoodVitaminAndNutritionalDataLoader>()
+//             .LoadFoodData();
 //     }
 //     catch (Exception ex)
 //     {

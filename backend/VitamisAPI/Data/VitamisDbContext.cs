@@ -16,11 +16,23 @@ public class VitamisDbContext: DbContext
         modelBuilder.Entity<Vitamin>()
             .HasIndex(v => v.Name)
             .IsUnique();
+
+        modelBuilder.Entity<Food>()
+            .HasIndex(v => v.Name)
+            .IsUnique();
+        
+        modelBuilder.Entity<Nutrient>()
+            .HasIndex(v => v.Name)
+            .IsUnique();
     }
     
     public DbSet<User> Users { get; set; }
     public DbSet<Vitamin> Vitamins { get; set; }
     public DbSet<VitaminReferenceGroup> VitaminReferenceGroups { get; set; }
     public DbSet<VitaminReferenceValue> VitaminReferenceValues { get; set; }
+    public DbSet<Food> Foods { get; set; }
+    public DbSet<Nutrient> Nutrients { get; set; }
+    public DbSet<FoodNutrition> FoodNutritions { get; set; }
+    public DbSet<FoodVitamin> FoodVitamins { get; set; }
 
 }
