@@ -21,10 +21,9 @@ export function UpdatePasswordForm(): React.JSX.Element {
     >
       <Card>
         <CardHeader subheader="Update password" title="Password" />
-        <Divider />
         <CardContent>
-          <Stack spacing={3} sx={{ maxWidth: 'sm' }}>
-            <FormControl fullWidth>
+          <Stack spacing={1} >
+            <FormControl fullWidth >
               <InputLabel>Password</InputLabel>
               <OutlinedInput label="Password" name="password" type="password" />
             </FormControl>
@@ -34,9 +33,8 @@ export function UpdatePasswordForm(): React.JSX.Element {
             </FormControl>
           </Stack>
         </CardContent>
-        <Divider />
-        <CardActions sx={{ justifyContent: 'flex-end' }}>
-          <Button variant="contained">Update</Button>
+        <CardActions sx={{ justifyContent: 'end' }}>
+          <Button variant="contained" color="warning">Update</Button>
         </CardActions>
       </Card>
     </form>

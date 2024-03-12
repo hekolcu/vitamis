@@ -36,8 +36,8 @@ export function MobileNav({ open, onClose }: MobileNavProps): React.JSX.Element 
           '--MobileNav-background': 'var(--mui-palette-neutral-950)',
           '--MobileNav-color': 'var(--mui-palette-common-white)',
           '--NavItem-color': 'var(--mui-palette-neutral-300)',
-          '--NavItem-hover-background': 'rgba(255, 255, 255, 0.04)',
-          '--NavItem-active-background': 'var(--mui-palette-primary-main)',
+          '--NavItem-hover-background': 'rgba(255, 255, 255, 0.09)',
+          '--NavItem-active-background': 'var(--mui-palette-warning-main)',
           '--NavItem-active-color': 'var(--mui-palette-primary-contrastText)',
           '--NavItem-disabled-color': 'var(--mui-palette-neutral-500)',
           '--NavItem-icon-color': 'var(--mui-palette-neutral-400)',
@@ -59,9 +59,9 @@ export function MobileNav({ open, onClose }: MobileNavProps): React.JSX.Element 
     >
       <Stack spacing={2} sx={{ p: 3 }}>
         <Box component={RouterLink} href={paths.home} sx={{ display: 'inline-flex' }}>
-          <Logo color="light" height={32} width={122} />
+          <Logo color="light" height={32} width={50} />
         </Box>
-        <Box
+        {/* <Box
           sx={{
             alignItems: 'center',
             backgroundColor: 'var(--mui-palette-neutral-950)',
@@ -81,13 +81,13 @@ export function MobileNav({ open, onClose }: MobileNavProps): React.JSX.Element 
             </Typography>
           </Box>
           <CaretUpDownIcon />
-        </Box>
+        </Box> */}
       </Stack>
-      <Divider sx={{ borderColor: 'var(--mui-palette-neutral-700)' }} />
-      <Box component="nav" sx={{ flex: '1 1 auto', p: '12px' }}>
+      {/* <Divider sx={{ borderColor: 'var(--mui-palette-neutral-700)' }} /> */}
+      <Box component="nav" color={'warning'} sx={{ flex: '1 1 auto', p: '12px' }}>
         {renderNavItems({ pathname, items: navItems })}
       </Box>
-      <Divider sx={{ borderColor: 'var(--mui-palette-neutral-700)' }} />
+      {/* <Divider sx={{ borderColor: 'var(--mui-palette-neutral-700)' }} />
       <Stack spacing={2} sx={{ p: '12px' }}>
         <div>
           <Typography color="var(--mui-palette-neutral-100)" variant="subtitle2">
@@ -116,7 +116,7 @@ export function MobileNav({ open, onClose }: MobileNavProps): React.JSX.Element 
         >
           Pro version
         </Button>
-      </Stack>
+      </Stack> */}
     </Drawer>
   );
 }
