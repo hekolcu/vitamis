@@ -118,12 +118,6 @@ app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Configure the HTTP request pipeline.
-// if (app.Environment.IsDevelopment())
-// {
-//     app.UseSwagger();
-//     app.UseSwaggerUI();
-// }
 app.UseSwagger();
 app.UseSwaggerUI();
 
@@ -134,5 +128,6 @@ app.MapGet("/health", () => Results.Json(new { Message="healthy" }));
 app.MapAuthEndpoints(configuration, jwtKey);
 app.MapUserEndpoints();
 app.MapRecommendationEndpoints();
+app.MapFoodEndpoints();
 
 app.Run();
