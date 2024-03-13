@@ -22,17 +22,21 @@ import { paths } from '@/paths';
 import { authClient } from '@/lib/auth/client';
 import { useUser } from '@/hooks/use-user';
 
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+
 const schema = zod.object({
   firstName: zod.string().min(1, { message: 'First name is required' }),
   lastName: zod.string().min(1, { message: 'Last name is required' }),
   email: zod.string().min(1, { message: 'Email is required' }).email(),
   password: zod.string().min(6, { message: 'Password should be at least 6 characters' }),
   terms: zod.boolean().refine((value) => value, 'You must accept the terms and conditions'),
+  document: zod.any().optional(), // Considering file upload is optional
 });
 
 type Values = zod.infer<typeof schema>;
 
-const defaultValues = { firstName: '', lastName: '', email: '', password: '', terms: false } satisfies Values;
+const defaultValues = { firstName: '', lastName: '', email: '', password: '', terms: false, document: undefined } satisfies Values;
 
 export function SignUpForm(): React.JSX.Element {
   const router = useRouter();
@@ -70,6 +74,12 @@ export function SignUpForm(): React.JSX.Element {
     [checkSession, router, setError]
   );
 
+  const [tabIndex, setTabIndex] = React.useState(0);
+
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    setTabIndex(newValue);
+  };
+
   return (
     <Stack spacing={3}>
       <Stack spacing={1}>
@@ -81,76 +91,170 @@ export function SignUpForm(): React.JSX.Element {
           </Link>
         </Typography>
       </Stack>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Stack spacing={2}>
-          <Controller
+
+      <Tabs value={tabIndex} onChange={handleTabChange} aria-label="sign-up form tabs">
+        <Tab label="ADVISEE" />
+        <Tab label="DIETITIAN" />
+      </Tabs>
+
+      {/* You can now conditionally render form sections based on the selected tab */}
+      {tabIndex === 0 && (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Stack spacing={2}>
+            <Controller
+              control={control}
+              name="firstName"
+              render={({ field }) => (
+                <FormControl error={Boolean(errors.firstName)}>
+                  <InputLabel>First name</InputLabel>
+                  <OutlinedInput {...field} label="First name" />
+                  {errors.firstName ? <FormHelperText>{errors.firstName.message}</FormHelperText> : null}
+                </FormControl>
+              )}
+            />
+            <Controller
+              control={control}
+              name="lastName"
+              render={({ field }) => (
+                <FormControl error={Boolean(errors.firstName)}>
+                  <InputLabel>Last name</InputLabel>
+                  <OutlinedInput {...field} label="Last name" />
+                  {errors.firstName ? <FormHelperText>{errors.firstName.message}</FormHelperText> : null}
+                </FormControl>
+              )}
+            />
+            <Controller
+              control={control}
+              name="email"
+              render={({ field }) => (
+                <FormControl error={Boolean(errors.email)}>
+                  <InputLabel>Email address</InputLabel>
+                  <OutlinedInput {...field} label="Email address" type="email" />
+                  {errors.email ? <FormHelperText>{errors.email.message}</FormHelperText> : null}
+                </FormControl>
+              )}
+            />
+            <Controller
+              control={control}
+              name="password"
+              render={({ field }) => (
+                <FormControl error={Boolean(errors.password)}>
+                  <InputLabel>Password</InputLabel>
+                  <OutlinedInput {...field} label="Password" type="password" />
+                  {errors.password ? <FormHelperText>{errors.password.message}</FormHelperText> : null}
+                </FormControl>
+              )}
+            />
+            <Controller
+              control={control}
+              name="terms"
+              render={({ field }) => (
+                <div>
+                  <FormControlLabel
+                    control={<Checkbox {...field} />}
+                    label={
+                      <React.Fragment>
+                        I have read the <Link>terms and conditions</Link>
+                      </React.Fragment>
+                    }
+                  />
+                  {errors.terms ? <FormHelperText error>{errors.terms.message}</FormHelperText> : null}
+                </div>
+              )}
+            />
+            {errors.root ? <Alert color="error">{errors.root.message}</Alert> : null}
+            <Button disabled={isPending} type="submit" color="warning" variant="contained">
+              Sign up
+            </Button>
+          </Stack>
+        </form>
+      )}
+      {tabIndex === 1 && (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {/* Dietitian Tab Content */}
+          <Stack spacing={2}>
+            <Controller
+              control={control}
+              name="firstName"
+              render={({ field }) => (
+                <FormControl error={Boolean(errors.firstName)}>
+                  <InputLabel>First name</InputLabel>
+                  <OutlinedInput {...field} label="First name" />
+                  {errors.firstName ? <FormHelperText>{errors.firstName.message}</FormHelperText> : null}
+                </FormControl>
+              )}
+            />
+            <Controller
+              control={control}
+              name="lastName"
+              render={({ field }) => (
+                <FormControl error={Boolean(errors.firstName)}>
+                  <InputLabel>Last name</InputLabel>
+                  <OutlinedInput {...field} label="Last name" />
+                  {errors.firstName ? <FormHelperText>{errors.firstName.message}</FormHelperText> : null}
+                </FormControl>
+              )}
+            />
+            <Controller
+              control={control}
+              name="email"
+              render={({ field }) => (
+                <FormControl error={Boolean(errors.email)}>
+                  <InputLabel>Email address</InputLabel>
+                  <OutlinedInput {...field} label="Email address" type="email" />
+                  {errors.email ? <FormHelperText>{errors.email.message}</FormHelperText> : null}
+                </FormControl>
+              )}
+            />
+            <Controller
+              control={control}
+              name="password"
+              render={({ field }) => (
+                <FormControl error={Boolean(errors.password)}>
+                  <InputLabel>Password</InputLabel>
+                  <OutlinedInput {...field} label="Password" type="password" />
+                  {errors.password ? <FormHelperText>{errors.password.message}</FormHelperText> : null}
+                </FormControl>
+              )}
+            />
+            <Controller
+              control={control}
+              name="terms"
+              render={({ field }) => (
+                <div>
+                  <FormControlLabel
+                    control={<Checkbox {...field} />}
+                    label={
+                      <React.Fragment>
+                        I have read the <Link>terms and conditions</Link>
+                      </React.Fragment>
+                    }
+                  />
+                  {errors.terms ? <FormHelperText error>{errors.terms.message}</FormHelperText> : null}
+                </div>
+              )}
+            />
+            <Controller
             control={control}
-            name="firstName"
-            render={({ field }) => (
-              <FormControl error={Boolean(errors.firstName)}>
-                <InputLabel>First name</InputLabel>
-                <OutlinedInput {...field} label="First name" />
-                {errors.firstName ? <FormHelperText>{errors.firstName.message}</FormHelperText> : null}
+            name="document"
+            render={({ field: { ref, ...field } }) => (
+              <FormControl error={Boolean(errors.document)}>
+                <Button variant="contained" component="label">
+                  Upload Document
+                  <input {...field} type="file" hidden onChange={(e) => field.onChange(e.target.files[0])} />
+                </Button>
+                {errors.document ? <FormHelperText>{errors.document.message}</FormHelperText> : null}
               </FormControl>
             )}
           />
-          <Controller
-            control={control}
-            name="lastName"
-            render={({ field }) => (
-              <FormControl error={Boolean(errors.firstName)}>
-                <InputLabel>Last name</InputLabel>
-                <OutlinedInput {...field} label="Last name" />
-                {errors.firstName ? <FormHelperText>{errors.firstName.message}</FormHelperText> : null}
-              </FormControl>
-            )}
-          />
-          <Controller
-            control={control}
-            name="email"
-            render={({ field }) => (
-              <FormControl error={Boolean(errors.email)}>
-                <InputLabel>Email address</InputLabel>
-                <OutlinedInput {...field} label="Email address" type="email" />
-                {errors.email ? <FormHelperText>{errors.email.message}</FormHelperText> : null}
-              </FormControl>
-            )}
-          />
-          <Controller
-            control={control}
-            name="password"
-            render={({ field }) => (
-              <FormControl error={Boolean(errors.password)}>
-                <InputLabel>Password</InputLabel>
-                <OutlinedInput {...field} label="Password" type="password" />
-                {errors.password ? <FormHelperText>{errors.password.message}</FormHelperText> : null}
-              </FormControl>
-            )}
-          />
-          <Controller
-            control={control}
-            name="terms"
-            render={({ field }) => (
-              <div>
-                <FormControlLabel
-                  control={<Checkbox {...field} />}
-                  label={
-                    <React.Fragment>
-                      I have read the <Link>terms and conditions</Link>
-                    </React.Fragment>
-                  }
-                />
-                {errors.terms ? <FormHelperText error>{errors.terms.message}</FormHelperText> : null}
-              </div>
-            )}
-          />
-          {errors.root ? <Alert color="error">{errors.root.message}</Alert> : null}
-          <Button disabled={isPending} type="submit" color="warning" variant="contained">
-            Sign up
-          </Button>
-        </Stack>
-      </form>
-      <Alert color="warning">Created users are not persisted</Alert>
+            {errors.root ? <Alert color="error">{errors.root.message}</Alert> : null}
+            <Button disabled={isPending} type="submit" color="warning" variant="contained">
+              Sign up
+            </Button>
+          </Stack>
+        </form>
+      )}
+      {/* <Alert color="warning">Created users are not persisted</Alert> */}
     </Stack>
   );
 }
