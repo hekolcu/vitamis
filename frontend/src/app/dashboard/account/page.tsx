@@ -16,10 +16,10 @@ export default function Page(): React.JSX.Element {
       <div>
         <Typography variant="h4">Account</Typography>
       </div>
-      <Grid container spacing={3}>
-        <Grid lg={4} md={6} xs={12}>
+      <Grid container spacing={3} direction="row" justifyContent="center" alignItems="center">
+        {/* <Grid lg={4} md={6} xs={12}>
           <AccountInfo />
-        </Grid>
+        </Grid> */}
         <Grid lg={8} md={6} xs={12}>
           <AccountDetailsForm />
         </Grid>
