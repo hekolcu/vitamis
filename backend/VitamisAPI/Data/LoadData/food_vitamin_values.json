@@ -1,0 +1,5033 @@
+[
+  {
+    "gida":"Ahududu",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"20,6",
+    "minimum":"12,4",
+    "maksimin":"30,7"
+  },
+  {
+    "gida":"Ahududu",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,032",
+    "minimum":"0,012",
+    "maksimin":"0,064"
+  },
+  {
+    "gida":"Ahududu",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"9",
+    "minimum":"7",
+    "maksimin":"10"
+  },
+  {
+    "gida":"Ahududu, dondurulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"14,2",
+    "minimum":"14,2",
+    "maksimin":"14,2"
+  },
+  {
+    "gida":"Ananas",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"59,3",
+    "minimum":"36,0",
+    "maksimin":"83,5"
+  },
+  {
+    "gida":"Ananas",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,125",
+    "minimum":"0,056",
+    "maksimin":"0,222"
+  },
+  {
+    "gida":"Ananas",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"7",
+    "minimum":"4",
+    "maksimin":"8"
+  },
+  {
+    "gida":"Antep f\u0131st\u0131\u011f\u0131, i\u00e7, kavlat\u0131lmam\u0131\u015f, taze",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"1,613",
+    "minimum":"1,517",
+    "maksimin":"1,670"
+  },
+  {
+    "gida":"Antep f\u0131st\u0131\u011f\u0131, i\u00e7, kavlat\u0131lmam\u0131\u015f, taze",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"1,48",
+    "minimum":"1,30",
+    "maksimin":"1,70"
+  },
+  {
+    "gida":"Antep f\u0131st\u0131\u011f\u0131, i\u00e7, kavlat\u0131lmam\u0131\u015f, taze",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"2,21",
+    "minimum":"1,94",
+    "maksimin":"2,53"
+  },
+  {
+    "gida":"Antep f\u0131st\u0131\u011f\u0131, i\u00e7, kavrulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"1,418",
+    "minimum":"1,418",
+    "maksimin":"1,418"
+  },
+  {
+    "gida":"Antep f\u0131st\u0131\u011f\u0131, i\u00e7, kavrulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"1,47",
+    "minimum":"1,47",
+    "maksimin":"1,47"
+  },
+  {
+    "gida":"Antep f\u0131st\u0131\u011f\u0131, i\u00e7, kavrulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"2,19",
+    "minimum":"2,19",
+    "maksimin":"2,19"
+  },
+  {
+    "gida":"Armut, k\u0131\u015fl\u0131k, Deveci \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,8",
+    "minimum":"4,0",
+    "maksimin":"5,6"
+  },
+  {
+    "gida":"Armut, k\u0131\u015fl\u0131k, Deveci \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,019",
+    "minimum":"0,012",
+    "maksimin":"0,033"
+  },
+  {
+    "gida":"Armut, k\u0131\u015fl\u0131k, Deveci \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"10",
+    "minimum":"5",
+    "maksimin":"23"
+  },
+  {
+    "gida":"Armut, yazl\u0131k, Santa Maria \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"3,5",
+    "minimum":"2,2",
+    "maksimin":"7,0"
+  },
+  {
+    "gida":"Armut, yazl\u0131k, Santa Maria \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,022",
+    "minimum":"0,009",
+    "maksimin":"0,033"
+  },
+  {
+    "gida":"Armut, yazl\u0131k, Santa Maria \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"4",
+    "minimum":"2",
+    "maksimin":"6"
+  },
+  {
+    "gida":"Atelmas\u0131",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"3,3",
+    "minimum":"3,3",
+    "maksimin":"3,3"
+  },
+  {
+    "gida":"Avokado",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"8,5",
+    "minimum":"8,4",
+    "maksimin":"8,6"
+  },
+  {
+    "gida":"Avokado",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,211",
+    "minimum":"0,203",
+    "maksimin":"0,220"
+  },
+  {
+    "gida":"Avokado",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"5",
+    "minimum":"5",
+    "maksimin":"5"
+  },
+  {
+    "gida":"Ayva, E\u015fme \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"15,2",
+    "minimum":"9,6",
+    "maksimin":"22,6"
+  },
+  {
+    "gida":"Ayva, E\u015fme \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,049",
+    "minimum":"0,021",
+    "maksimin":"0,074"
+  },
+  {
+    "gida":"Ayva, E\u015fme \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"8",
+    "minimum":"3",
+    "maksimin":"25"
+  },
+  {
+    "gida":"Badem, i\u00e7, kavulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,141",
+    "minimum":"0,112",
+    "maksimin":"0,177"
+  },
+  {
+    "gida":"Badem, i\u00e7, kavulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"24,79",
+    "minimum":"14,45",
+    "maksimin":"30,61"
+  },
+  {
+    "gida":"Badem, i\u00e7, kavulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"36,94",
+    "minimum":"21,53",
+    "maksimin":"45,61"
+  },
+  {
+    "gida":"Badem, kabuklu, tatl\u0131, \u00e7a\u011fla",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"6,6",
+    "minimum":"3,2",
+    "maksimin":"7,7"
+  },
+  {
+    "gida":"Badem, kabuklu, tatl\u0131, \u00e7a\u011fla",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,072",
+    "minimum":"0,021",
+    "maksimin":"0,129"
+  },
+  {
+    "gida":"Badem, kabuklu, tatl\u0131, \u00e7a\u011fla",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"35",
+    "minimum":"19",
+    "maksimin":"49"
+  },
+  {
+    "gida":"Badem, kabuklu, tatl\u0131, \u00e7a\u011fla",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"38,5",
+    "minimum":"38,5",
+    "maksimin":"38,5"
+  },
+  {
+    "gida":"Bergamot, meyve kabu\u011fu",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"39,9",
+    "minimum":"1,9",
+    "maksimin":"78,0"
+  },
+  {
+    "gida":"Bergamot, meyve kabu\u011fu",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,266",
+    "minimum":"0,165",
+    "maksimin":"0,366"
+  },
+  {
+    "gida":"Bergamot, meyve kabu\u011fu",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"2",
+    "minimum":"2",
+    "maksimin":"2"
+  },
+  {
+    "gida":"B\u00f6\u011f\u00fcrtlen",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"13,3",
+    "minimum":"11,1",
+    "maksimin":"15,9"
+  },
+  {
+    "gida":"B\u00f6\u011f\u00fcrtlen",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,040",
+    "minimum":"0,018",
+    "maksimin":"0,074"
+  },
+  {
+    "gida":"B\u00f6\u011f\u00fcrtlen",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"14",
+    "minimum":"9",
+    "maksimin":"20"
+  },
+  {
+    "gida":"Ceviz, i\u00e7, kuru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,549",
+    "minimum":"0,488",
+    "maksimin":"0,636"
+  },
+  {
+    "gida":"Ceviz, i\u00e7, kuru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"1,19",
+    "minimum":"0,97",
+    "maksimin":"1,44"
+  },
+  {
+    "gida":"Ceviz, i\u00e7, kuru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"1,78",
+    "minimum":"1,45",
+    "maksimin":"2,15"
+  },
+  {
+    "gida":"Ceviz, Pikan, kuru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,204",
+    "minimum":"0,188",
+    "maksimin":"0,219"
+  },
+  {
+    "gida":"Ceviz, Pikan, kuru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"1,28",
+    "minimum":"1,08",
+    "maksimin":"1,47"
+  },
+  {
+    "gida":"Ceviz, Pikan, kuru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"1,90",
+    "minimum":"1,61",
+    "maksimin":"2,19"
+  },
+  {
+    "gida":"\u00c7ilek",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"75,5",
+    "minimum":"65,3",
+    "maksimin":"83,8"
+  },
+  {
+    "gida":"\u00c7ilek",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,036",
+    "minimum":"0,016",
+    "maksimin":"0,046"
+  },
+  {
+    "gida":"\u00c7ilek",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"7",
+    "minimum":"5",
+    "maksimin":"11"
+  },
+  {
+    "gida":"\u00c7ilek, dondurulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"44,8",
+    "minimum":"44,8",
+    "maksimin":"44,8"
+  },
+  {
+    "gida":"Dut, beyaz, sofral\u0131k",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"12,3",
+    "minimum":"4,9",
+    "maksimin":"23,3"
+  },
+  {
+    "gida":"Dut, beyaz, sofral\u0131k",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,052",
+    "minimum":"0,014",
+    "maksimin":"0,107"
+  },
+  {
+    "gida":"Dut, beyaz, sofral\u0131k",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"4",
+    "minimum":"2",
+    "maksimin":"7"
+  },
+  {
+    "gida":"Elma, g\u00fczl\u00fck ve k\u0131\u015fl\u0131k, Fuji \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"7,3",
+    "minimum":"4,3",
+    "maksimin":"15,6"
+  },
+  {
+    "gida":"Elma, g\u00fczl\u00fck ve k\u0131\u015fl\u0131k, Fuji \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,036",
+    "minimum":"0,006",
+    "maksimin":"0,076"
+  },
+  {
+    "gida":"Elma, g\u00fczl\u00fck ve k\u0131\u015fl\u0131k, Fuji \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"6",
+    "minimum":"2",
+    "maksimin":"11"
+  },
+  {
+    "gida":"Elma, yazl\u0131k, Gala \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,5",
+    "minimum":"3,7",
+    "maksimin":"5,4"
+  },
+  {
+    "gida":"Elma, yazl\u0131k, Gala \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,038",
+    "minimum":"0,024",
+    "maksimin":"0,071"
+  },
+  {
+    "gida":"Elma, yazl\u0131k, Gala \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"7",
+    "minimum":"4",
+    "maksimin":"13"
+  },
+  {
+    "gida":"Erik, Avrupa erik grubu, kuru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,090",
+    "minimum":"0,060",
+    "maksimin":"0,114"
+  },
+  {
+    "gida":"Erik, Avrupa erik Grubu, Stanley \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"3,9",
+    "minimum":"1,2",
+    "maksimin":"5,5"
+  },
+  {
+    "gida":"Erik, Avrupa erik Grubu, Stanley \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,065",
+    "minimum":"0,032",
+    "maksimin":"0,117"
+  },
+  {
+    "gida":"Erik, Avrupa erik Grubu, Stanley \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"35",
+    "minimum":"11",
+    "maksimin":"55"
+  },
+  {
+    "gida":"Erik, Japon erik grubu, Black Amber \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,8",
+    "minimum":"4,0",
+    "maksimin":"6,0"
+  },
+  {
+    "gida":"Erik, Japon erik grubu, Black Amber \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,048",
+    "minimum":"0,025",
+    "maksimin":"0,070"
+  },
+  {
+    "gida":"Erik, Japon erik grubu, Black Amber \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"18",
+    "minimum":"9",
+    "maksimin":"36"
+  },
+  {
+    "gida":"F\u0131nd\u0131k ezmesi, \u015feker ilaveli",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"11,49",
+    "minimum":"11,49",
+    "maksimin":"11,49"
+  },
+  {
+    "gida":"F\u0131nd\u0131k ezmesi, \u015feker ilaveli",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"17,12",
+    "minimum":"17,12",
+    "maksimin":"17,12"
+  },
+  {
+    "gida":"F\u0131nd\u0131k i\u00e7, beyazlat\u0131lm\u0131\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,515",
+    "minimum":"0,423",
+    "maksimin":"0,624"
+  },
+  {
+    "gida":"F\u0131nd\u0131k i\u00e7, beyazlat\u0131lm\u0131\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"23,65",
+    "minimum":"19,27",
+    "maksimin":"27,54"
+  },
+  {
+    "gida":"F\u0131nd\u0131k i\u00e7, beyazlat\u0131lm\u0131\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"35,24",
+    "minimum":"28,71",
+    "maksimin":"41,03"
+  },
+  {
+    "gida":"F\u0131nd\u0131k kremas\u0131, kakaolu",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"8,55",
+    "minimum":"8,55",
+    "maksimin":"8,55"
+  },
+  {
+    "gida":"F\u0131nd\u0131k kremas\u0131, kakaolu",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"12,74",
+    "minimum":"12,74",
+    "maksimin":"12,74"
+  },
+  {
+    "gida":"F\u0131nd\u0131k, i\u00e7, kavrulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,450",
+    "minimum":"0,450",
+    "maksimin":"0,450"
+  },
+  {
+    "gida":"F\u0131nd\u0131k, i\u00e7, kavrulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"18,93",
+    "minimum":"18,93",
+    "maksimin":"18,93"
+  },
+  {
+    "gida":"F\u0131nd\u0131k, i\u00e7, kavrulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"28,21",
+    "minimum":"28,21",
+    "maksimin":"28,21"
+  },
+  {
+    "gida":"Geleboru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"46,0",
+    "minimum":"15,6",
+    "maksimin":"64,2"
+  },
+  {
+    "gida":"Geleboru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,056",
+    "minimum":"0,033",
+    "maksimin":"0,097"
+  },
+  {
+    "gida":"Geleboru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"11",
+    "minimum":"3",
+    "maksimin":"24"
+  },
+  {
+    "gida":"Greyfurt, Alt\u0131ntop, Rio Red",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"36,0",
+    "minimum":"31,7",
+    "maksimin":"42,4"
+  },
+  {
+    "gida":"Greyfurt, Alt\u0131ntop, Rio Red",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,062",
+    "minimum":"0,013",
+    "maksimin":"0,121"
+  },
+  {
+    "gida":"Greyfurt, Alt\u0131ntop, Rio Red",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"96",
+    "minimum":"56",
+    "maksimin":"127"
+  },
+  {
+    "gida":"Greyfurt, Alt\u0131ntop, Star Ruby",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"36,9",
+    "minimum":"29,3",
+    "maksimin":"40,9"
+  },
+  {
+    "gida":"Greyfurt, Alt\u0131ntop, Star Ruby",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,053",
+    "minimum":"0,010",
+    "maksimin":"0,109"
+  },
+  {
+    "gida":"Greyfurt, Alt\u0131ntop, Star Ruby",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"65",
+    "minimum":"54",
+    "maksimin":"76"
+  },
+  {
+    "gida":"\u0130\u011fde, k\u00fclt\u00fcr, kuru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,291",
+    "minimum":"0,222",
+    "maksimin":"0,382"
+  },
+  {
+    "gida":"\u0130ncir, Bursa Siyah\u0131",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"2,1",
+    "minimum":"1,3",
+    "maksimin":"3,3"
+  },
+  {
+    "gida":"\u0130ncir, Bursa Siyah\u0131",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,174",
+    "minimum":"0,031",
+    "maksimin":"0,488"
+  },
+  {
+    "gida":"\u0130ncir, Bursa Siyah\u0131",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"11",
+    "minimum":"9",
+    "maksimin":"13"
+  },
+  {
+    "gida":"Karayemi\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"2,3",
+    "minimum":"2,0",
+    "maksimin":"2,6"
+  },
+  {
+    "gida":"Karayemi\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,066",
+    "minimum":"0,062",
+    "maksimin":"0,069"
+  },
+  {
+    "gida":"Karayemi\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"2",
+    "minimum":"0",
+    "maksimin":"3"
+  },
+  {
+    "gida":"Kay\u0131s\u0131 \u00e7ekirde\u011fi, i\u00e7",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"2,05",
+    "minimum":"1,64",
+    "maksimin":"2,69"
+  },
+  {
+    "gida":"Kay\u0131s\u0131 \u00e7ekirde\u011fi, i\u00e7",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"3,05",
+    "minimum":"2,44",
+    "maksimin":"4,01"
+  },
+  {
+    "gida":"Kay\u0131s\u0131 suyu",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"8,8",
+    "minimum":"8,8",
+    "maksimin":"8,8"
+  },
+  {
+    "gida":"Kay\u0131s\u0131, erkenci, sofral\u0131k , Tyrinthe",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"8,5",
+    "minimum":"7,3",
+    "maksimin":"9,6"
+  },
+  {
+    "gida":"Kay\u0131s\u0131, erkenci, sofral\u0131k , Tyrinthe",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,063",
+    "minimum":"0,052",
+    "maksimin":"0,075"
+  },
+  {
+    "gida":"Kay\u0131s\u0131, erkenci, sofral\u0131k , Tyrinthe",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"67",
+    "minimum":"14",
+    "maksimin":"118"
+  },
+  {
+    "gida":"Kay\u0131s\u0131, Hac\u0131halilo\u011flu, g\u00fcnkurusu ",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,110",
+    "minimum":"0,077",
+    "maksimin":"0,150"
+  },
+  {
+    "gida":"Kay\u0131s\u0131, Hac\u0131halilo\u011flu, g\u00fcnkurusu ",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"279",
+    "minimum":"196",
+    "maksimin":"363"
+  },
+  {
+    "gida":"Kay\u0131s\u0131, Hac\u0131halilo\u011flu, k\u00fck\u00fcrtl\u00fc, kuru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,061",
+    "minimum":"0,030",
+    "maksimin":"0,107"
+  },
+  {
+    "gida":"Kay\u0131s\u0131, Hac\u0131halilo\u011flu, k\u00fck\u00fcrtl\u00fc, kuru",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"188",
+    "minimum":"157",
+    "maksimin":"221"
+  },
+  {
+    "gida":"Kebere",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"61,6",
+    "minimum":"61,6",
+    "maksimin":"61,6"
+  },
+  {
+    "gida":"Kebere",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"32",
+    "minimum":"32",
+    "maksimin":"32"
+  },
+  {
+    "gida":"Kestane",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"37,4",
+    "minimum":"30,1",
+    "maksimin":"48,6"
+  },
+  {
+    "gida":"Kestane",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,263",
+    "minimum":"0,203",
+    "maksimin":"0,316"
+  },
+  {
+    "gida":"Kestane",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"24",
+    "minimum":"24",
+    "maksimin":"24"
+  },
+  {
+    "gida":"Kestane",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"0,41",
+    "minimum":"0,29",
+    "maksimin":"0,48"
+  },
+  {
+    "gida":"Kestane",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"0,60",
+    "minimum":"0,43",
+    "maksimin":"0,72"
+  },
+  {
+    "gida":"Kiraz, beyaz, Starks Gold \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"5,0",
+    "minimum":"4,0",
+    "maksimin":"5,6"
+  },
+  {
+    "gida":"Kiraz, beyaz, Starks Gold \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,041",
+    "minimum":"0,006",
+    "maksimin":"0,088"
+  },
+  {
+    "gida":"Kiraz, beyaz, Starks Gold \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"11",
+    "minimum":"6",
+    "maksimin":"26"
+  },
+  {
+    "gida":"Kiraz, k\u0131rm\u0131z\u0131, Ziraat 0900 Napolyon \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"6,6",
+    "minimum":"5,5",
+    "maksimin":"7,9"
+  },
+  {
+    "gida":"Kiraz, k\u0131rm\u0131z\u0131, Ziraat 0900 Napolyon \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,033",
+    "minimum":"0,012",
+    "maksimin":"0,074"
+  },
+  {
+    "gida":"Kiraz, k\u0131rm\u0131z\u0131, Ziraat 0900 Napolyon \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"12",
+    "minimum":"7",
+    "maksimin":"24"
+  },
+  {
+    "gida":"Kivi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"60,1",
+    "minimum":"42,8",
+    "maksimin":"70,8"
+  },
+  {
+    "gida":"Kivi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,096",
+    "minimum":"0,059",
+    "maksimin":"0,138"
+  },
+  {
+    "gida":"Kivi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"11",
+    "minimum":"10",
+    "maksimin":"13"
+  },
+  {
+    "gida":"K\u0131z\u0131lc\u0131k",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"66,2",
+    "minimum":"60,2",
+    "maksimin":"75,6"
+  },
+  {
+    "gida":"K\u0131z\u0131lc\u0131k",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,043",
+    "minimum":"0,015",
+    "maksimin":"0,077"
+  },
+  {
+    "gida":"K\u0131z\u0131lc\u0131k",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"12",
+    "minimum":"5",
+    "maksimin":"46"
+  },
+  {
+    "gida":"Limon, Interdonato",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"44,1",
+    "minimum":"35,6",
+    "maksimin":"66,8"
+  },
+  {
+    "gida":"Limon, Interdonato",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,070",
+    "minimum":"0,049",
+    "maksimin":"0,087"
+  },
+  {
+    "gida":"Limon, K\u00fctdiken",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"42,1",
+    "minimum":"39,1",
+    "maksimin":"45,1"
+  },
+  {
+    "gida":"Limon, K\u00fctdiken",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,066",
+    "minimum":"0,043",
+    "maksimin":"0,088"
+  },
+  {
+    "gida":"Limon, K\u00fctdiken",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"3",
+    "minimum":"1",
+    "maksimin":"4"
+  },
+  {
+    "gida":"Limon, Meyer",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"24,3",
+    "minimum":"19,8",
+    "maksimin":"28,8"
+  },
+  {
+    "gida":"Limon, Meyer",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,052",
+    "minimum":"0,043",
+    "maksimin":"0,061"
+  },
+  {
+    "gida":"Limon, Meyer",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"4",
+    "minimum":"1",
+    "maksimin":"6"
+  },
+  {
+    "gida":"Mandarin, Klemantin",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"42,4",
+    "minimum":"41,4",
+    "maksimin":"43,3"
+  },
+  {
+    "gida":"Mandarin, Klemantin",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,086",
+    "minimum":"0,028",
+    "maksimin":"0,140"
+  },
+  {
+    "gida":"Mandarin, Klemantin",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"17",
+    "minimum":"17",
+    "maksimin":"17"
+  },
+  {
+    "gida":"Mandarin, Nova",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"43,1",
+    "minimum":"33,3",
+    "maksimin":"49,7"
+  },
+  {
+    "gida":"Mandarin, Nova",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,057",
+    "minimum":"0,049",
+    "maksimin":"0,067"
+  },
+  {
+    "gida":"Mandarin, Nova",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"4",
+    "minimum":"4",
+    "maksimin":"5"
+  },
+  {
+    "gida":"Mandarin, Okitsu Wase",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"24,5",
+    "minimum":"16,4",
+    "maksimin":"29,7"
+  },
+  {
+    "gida":"Mandarin, Okitsu Wase",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,058",
+    "minimum":"0,016",
+    "maksimin":"0,134"
+  },
+  {
+    "gida":"Mandarin, Okitsu Wase",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"6",
+    "minimum":"3",
+    "maksimin":"11"
+  },
+  {
+    "gida":"Mandarin, Ovari Satsuma",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"26,7",
+    "minimum":"23,5",
+    "maksimin":"31,7"
+  },
+  {
+    "gida":"Mandarin, Ovari Satsuma",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,067",
+    "minimum":"0,026",
+    "maksimin":"0,121"
+  },
+  {
+    "gida":"Mandarin, Ovari Satsuma",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"6",
+    "minimum":"2",
+    "maksimin":"11"
+  },
+  {
+    "gida":"Muz, Anamur \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"8,6",
+    "minimum":"6,9",
+    "maksimin":"10,4"
+  },
+  {
+    "gida":"Muz, Anamur \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,349",
+    "minimum":"0,310",
+    "maksimin":"0,373"
+  },
+  {
+    "gida":"Muz, Anamur \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"13",
+    "minimum":"13",
+    "maksimin":"13"
+  },
+  {
+    "gida":"Muz, \u0130thal \u00e7e\u015fit",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"9,5",
+    "minimum":"6,2",
+    "maksimin":"14,7"
+  },
+  {
+    "gida":"Muz, \u0130thal \u00e7e\u015fit",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,321",
+    "minimum":"0,288",
+    "maksimin":"0,344"
+  },
+  {
+    "gida":"Muz, \u0130thal \u00e7e\u015fit",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"9",
+    "minimum":"6",
+    "maksimin":"11"
+  },
+  {
+    "gida":"Nar suyu",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"0,4",
+    "minimum":"0,4",
+    "maksimin":"0,4"
+  },
+  {
+    "gida":"Nar, Hicaz \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"7,0",
+    "minimum":"4,3",
+    "maksimin":"9,6"
+  },
+  {
+    "gida":"Nar, Hicaz \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,055",
+    "minimum":"0,032",
+    "maksimin":"0,085"
+  },
+  {
+    "gida":"Nar, Hicaz \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"3",
+    "minimum":"1",
+    "maksimin":"5"
+  },
+  {
+    "gida":"Nektarin, Big Top \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"5,4",
+    "minimum":"4,1",
+    "maksimin":"6,8"
+  },
+  {
+    "gida":"Nektarin, Big Top \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,022",
+    "minimum":"0,010",
+    "maksimin":"0,042"
+  },
+  {
+    "gida":"Nektarin, Big Top \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"12",
+    "minimum":"5",
+    "maksimin":"18"
+  },
+  {
+    "gida":"Portakal suyu",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"46,8",
+    "minimum":"46,8",
+    "maksimin":"46,8"
+  },
+  {
+    "gida":"Portakal suyu, konsantre",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"71,2",
+    "minimum":"71,2",
+    "maksimin":"71,2"
+  },
+  {
+    "gida":"Portakal, Navelina G\u00f6bekli \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"42,9",
+    "minimum":"42,6",
+    "maksimin":"43,1"
+  },
+  {
+    "gida":"Portakal, Navelina G\u00f6bekli \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,051",
+    "minimum":"0,048",
+    "maksimin":"0,053"
+  },
+  {
+    "gida":"Portakal, Navelina G\u00f6bekli \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"5",
+    "minimum":"4",
+    "maksimin":"5"
+  },
+  {
+    "gida":"Portakal, Valensiya \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"47,4",
+    "minimum":"40,0",
+    "maksimin":"57,5"
+  },
+  {
+    "gida":"Portakal, Valensiya \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,066",
+    "minimum":"0,032",
+    "maksimin":"0,088"
+  },
+  {
+    "gida":"Portakal, Valensiya \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"6",
+    "minimum":"4",
+    "maksimin":"7"
+  },
+  {
+    "gida":"Portakal, Washington Navel g\u00f6bekli portakal\u0131",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"45,3",
+    "minimum":"40,8",
+    "maksimin":"55,7"
+  },
+  {
+    "gida":"Portakal, Washington Navel g\u00f6bekli portakal\u0131",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,099",
+    "minimum":"0,044",
+    "maksimin":"0,147"
+  },
+  {
+    "gida":"Portakal, Washington Navel g\u00f6bekli portakal\u0131",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"4",
+    "minimum":"3",
+    "maksimin":"5"
+  },
+  {
+    "gida":"\u015eeftali, erkenci",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"8,4",
+    "minimum":"6,7",
+    "maksimin":"10,1"
+  },
+  {
+    "gida":"\u015eeftali, erkenci",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,032",
+    "minimum":"0,015",
+    "maksimin":"0,070"
+  },
+  {
+    "gida":"\u015eeftali, erkenci",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"16",
+    "minimum":"9",
+    "maksimin":"20"
+  },
+  {
+    "gida":"\u015eeftali, J. Hale \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"6,4",
+    "minimum":"4,7",
+    "maksimin":"7,5"
+  },
+  {
+    "gida":"\u015eeftali, J. Hale \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,026",
+    "minimum":"0,004",
+    "maksimin":"0,054"
+  },
+  {
+    "gida":"\u015eeftali, J. Hale \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"21",
+    "minimum":"13",
+    "maksimin":"34"
+  },
+  {
+    "gida":"Trabzon hurmas\u0131, meyve et rengi kahverengi, karars\u0131z",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"7,0",
+    "minimum":"6,6",
+    "maksimin":"7,3"
+  },
+  {
+    "gida":"Trabzon hurmas\u0131, meyve et rengi kahverengi, karars\u0131z",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,046",
+    "minimum":"0,022",
+    "maksimin":"0,073"
+  },
+  {
+    "gida":"Trabzon hurmas\u0131, meyve et rengi kahverengi, karars\u0131z",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"13",
+    "minimum":"11",
+    "maksimin":"14"
+  },
+  {
+    "gida":"Trabzon hurmas\u0131, meyve et rengi sar\u0131, kararl\u0131",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"8,9",
+    "minimum":"6,4",
+    "maksimin":"13,1"
+  },
+  {
+    "gida":"Trabzon hurmas\u0131, meyve et rengi sar\u0131, kararl\u0131",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,035",
+    "minimum":"0,022",
+    "maksimin":"0,053"
+  },
+  {
+    "gida":"Trabzon hurmas\u0131, meyve et rengi sar\u0131, kararl\u0131",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"21",
+    "minimum":"11",
+    "maksimin":"30"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz \u015farapl\u0131k, Narince \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"3,7",
+    "minimum":"2,3",
+    "maksimin":"5,1"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz \u015farapl\u0131k, Narince \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,066",
+    "minimum":"0,048",
+    "maksimin":"0,084"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz \u015farapl\u0131k, Narince \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"5",
+    "minimum":"3",
+    "maksimin":"6"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz, erkenci, Yalova \u0130ncisi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,9",
+    "minimum":"3,6",
+    "maksimin":"8,1"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz, erkenci, Yalova \u0130ncisi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,050",
+    "minimum":"0,018",
+    "maksimin":"0,071"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz, erkenci, Yalova \u0130ncisi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"8",
+    "minimum":"3",
+    "maksimin":"14"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz, ge\u00e7 mevsim, M\u00fc\u015fk\u00fcle \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"3,5",
+    "minimum":"0,0",
+    "maksimin":"6,1"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz, ge\u00e7 mevsim, M\u00fc\u015fk\u00fcle \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,052",
+    "minimum":"0,032",
+    "maksimin":"0,078"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz, ge\u00e7 mevsim, M\u00fc\u015fk\u00fcle \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"9",
+    "minimum":"6",
+    "maksimin":"12"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz, orta mevsim, Razaki \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,8",
+    "minimum":"2,4",
+    "maksimin":"6,3"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz, orta mevsim, Razaki \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,054",
+    "minimum":"0,030",
+    "maksimin":"0,074"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, beyaz, orta mevsim, Razaki \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"8",
+    "minimum":"3",
+    "maksimin":"11"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, k\u0131rm\u0131z\u0131 \u015farapl\u0131k, Kalecik Karas\u0131 \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"3,7",
+    "minimum":"2,7",
+    "maksimin":"4,6"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, k\u0131rm\u0131z\u0131 \u015farapl\u0131k, Kalecik Karas\u0131 \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,073",
+    "minimum":"0,046",
+    "maksimin":"0,095"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, k\u0131rm\u0131z\u0131 \u015farapl\u0131k, Kalecik Karas\u0131 \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"6",
+    "minimum":"4",
+    "maksimin":"10"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, renkli, erkenci, Kardinal \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"5,4",
+    "minimum":"3,3",
+    "maksimin":"8,7"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, renkli, erkenci, Kardinal \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,063",
+    "minimum":"0,034",
+    "maksimin":"0,079"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, renkli, erkenci, Kardinal \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"7",
+    "minimum":"4",
+    "maksimin":"12"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, renkli, ge\u00e7 mevsim, H\u00f6n\u00fcs\u00fc \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"3,9",
+    "minimum":"3,9",
+    "maksimin":"3,9"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, renkli, ge\u00e7 mevsim, H\u00f6n\u00fcs\u00fc \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,044",
+    "minimum":"0,033",
+    "maksimin":"0,056"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, renkli, ge\u00e7 mevsim, H\u00f6n\u00fcs\u00fc \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"8",
+    "minimum":"8",
+    "maksimin":"9"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, renkli, orta mevsim, Alphonse Lavalle \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,7",
+    "minimum":"3,5",
+    "maksimin":"6,9"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, renkli, orta mevsim, Alphonse Lavalle \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,052",
+    "minimum":"0,029",
+    "maksimin":"0,070"
+  },
+  {
+    "gida":"\u00dcz\u00fcm, renkli, orta mevsim, Alphonse Lavalle \u00e7e\u015fidi",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"14",
+    "minimum":"3",
+    "maksimin":"44"
+  },
+  {
+    "gida":"Vi\u015fne, dondurulmu\u015f",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"3,7",
+    "minimum":"3,7",
+    "maksimin":"3,7"
+  },
+  {
+    "gida":"Vi\u015fne, K\u00fctahya",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,2",
+    "minimum":"2,1",
+    "maksimin":"8,6"
+  },
+  {
+    "gida":"Vi\u015fne, K\u00fctahya",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,010",
+    "minimum":"0,007",
+    "maksimin":"0,012"
+  },
+  {
+    "gida":"Vi\u015fne, K\u00fctahya",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"32",
+    "minimum":"27",
+    "maksimin":"38"
+  },
+  {
+    "gida":"Yaban mersini (mavi yemi\u015f)",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"21,9",
+    "minimum":"20,5",
+    "maksimin":"23,6"
+  },
+  {
+    "gida":"Yaban mersini (mavi yemi\u015f)",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,077",
+    "minimum":"0,073",
+    "maksimin":"0,079"
+  },
+  {
+    "gida":"Yaban mersini (mavi yemi\u015f)",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"8",
+    "minimum":"5",
+    "maksimin":"12"
+  },
+  {
+    "gida":"Yenid\u00fcnya",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,2",
+    "minimum":"3,0",
+    "maksimin":"5,4"
+  },
+  {
+    "gida":"Yenid\u00fcnya",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,048",
+    "minimum":"0,029",
+    "maksimin":"0,067"
+  },
+  {
+    "gida":"Yenid\u00fcnya",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"176",
+    "minimum":"129",
+    "maksimin":"223"
+  },
+  {
+    "gida":"Zeytin ezmesi, siyah",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"0,44",
+    "minimum":"0,44",
+    "maksimin":"0,44"
+  },
+  {
+    "gida":"Zeytin ezmesi, siyah",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"0,66",
+    "minimum":"0,66",
+    "maksimin":"0,66"
+  },
+  {
+    "gida":"Zeytin, siyah, salamura",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"10,54",
+    "minimum":"10,54",
+    "maksimin":"10,54"
+  },
+  {
+    "gida":"Zeytin, siyah, salamura",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"15,70",
+    "minimum":"15,70",
+    "maksimin":"15,70"
+  },
+  {
+    "gida":"Zeytin, siyah, sele",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"7,33",
+    "minimum":"7,33",
+    "maksimin":"7,33"
+  },
+  {
+    "gida":"Zeytin, siyah, sele",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"10,92",
+    "minimum":"10,92",
+    "maksimin":"10,92"
+  },
+  {
+    "gida":"Zeytin, ye\u015fil, kokteyl, biberli",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"5,10",
+    "minimum":"5,10",
+    "maksimin":"5,10"
+  },
+  {
+    "gida":"Zeytin, ye\u015fil, kokteyl, biberli",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"7,60",
+    "minimum":"7,60",
+    "maksimin":"7,60"
+  },
+  {
+    "gida":"Zeytin, ye\u015fil, salamura",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"2,91",
+    "minimum":"2,91",
+    "maksimin":"2,91"
+  },
+  {
+    "gida":"Zeytin, ye\u015fil, salamura",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"4,34",
+    "minimum":"4,34",
+    "maksimin":"4,34"
+  },
+  {
+    "gida":"Zingit",
+    "grup":"Meyve ve meyve \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"9,4",
+    "minimum":"9,4",
+    "maksimin":"9,4"
+  },
+  {
+    "gida":"Acur",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"8,7",
+    "minimum":"2,1",
+    "maksimin":"21,3"
+  },
+  {
+    "gida":"Acur",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,064",
+    "minimum":"0,051",
+    "maksimin":"0,090"
+  },
+  {
+    "gida":"Acur",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"9",
+    "minimum":"8",
+    "maksimin":"12"
+  },
+  {
+    "gida":"Acur",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"22,8",
+    "minimum":"11,9",
+    "maksimin":"42,5"
+  },
+  {
+    "gida":"Ak sirken",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"10,2",
+    "minimum":"10,2",
+    "maksimin":"10,2"
+  },
+  {
+    "gida":"Ak sirken",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"186",
+    "minimum":"186",
+    "maksimin":"186"
+  },
+  {
+    "gida":"Alag\u00f6me\u00e7",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"10,2",
+    "minimum":"10,2",
+    "maksimin":"10,2"
+  },
+  {
+    "gida":"Alag\u00f6me\u00e7",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"270",
+    "minimum":"270",
+    "maksimin":"270"
+  },
+  {
+    "gida":"Bakla",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"29,0",
+    "minimum":"20,9",
+    "maksimin":"36,9"
+  },
+  {
+    "gida":"Bakla",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,178",
+    "minimum":"0,094",
+    "maksimin":"0,219"
+  },
+  {
+    "gida":"Bakla",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"37",
+    "minimum":"25",
+    "maksimin":"49"
+  },
+  {
+    "gida":"Bakla",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"90,9",
+    "minimum":"58,6",
+    "maksimin":"150,1"
+  },
+  {
+    "gida":"Bamya",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"18,2",
+    "minimum":"5,2",
+    "maksimin":"25,4"
+  },
+  {
+    "gida":"Bamya",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,183",
+    "minimum":"0,126",
+    "maksimin":"0,303"
+  },
+  {
+    "gida":"Bamya",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"30",
+    "minimum":"21",
+    "maksimin":"37"
+  },
+  {
+    "gida":"Bamya",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"61,7",
+    "minimum":"46,7",
+    "maksimin":"78,8"
+  },
+  {
+    "gida":"Bamya, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"14,5",
+    "minimum":"14,5",
+    "maksimin":"14,5"
+  },
+  {
+    "gida":"Bamya, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,099",
+    "minimum":"0,099",
+    "maksimin":"0,099"
+  },
+  {
+    "gida":"Bezelye",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"28,1",
+    "minimum":"17,9",
+    "maksimin":"40,7"
+  },
+  {
+    "gida":"Bezelye",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,116",
+    "minimum":"0,095",
+    "maksimin":"0,190"
+  },
+  {
+    "gida":"Bezelye",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"25",
+    "minimum":"5",
+    "maksimin":"39"
+  },
+  {
+    "gida":"Bezelye",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"43,9",
+    "minimum":"5,9",
+    "maksimin":"78,7"
+  },
+  {
+    "gida":"Bezelye, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"22,6",
+    "minimum":"22,6",
+    "maksimin":"22,6"
+  },
+  {
+    "gida":"Bezelye, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,069",
+    "minimum":"0,069",
+    "maksimin":"0,069"
+  },
+  {
+    "gida":"Bezelye, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,171",
+    "minimum":"0,154",
+    "maksimin":"0,204"
+  },
+  {
+    "gida":"Biber, \u00c7arliston tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"80,0",
+    "minimum":"56,4",
+    "maksimin":"104,2"
+  },
+  {
+    "gida":"Biber, \u00c7arliston tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,308",
+    "minimum":"0,170",
+    "maksimin":"0,454"
+  },
+  {
+    "gida":"Biber, \u00c7arliston tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"8",
+    "minimum":"6",
+    "maksimin":"11"
+  },
+  {
+    "gida":"Biber, \u00c7arliston tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"6,3",
+    "minimum":"3,1",
+    "maksimin":"9,0"
+  },
+  {
+    "gida":"Biber, dolma",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"109,7",
+    "minimum":"85,3",
+    "maksimin":"124,8"
+  },
+  {
+    "gida":"Biber, dolma",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,303",
+    "minimum":"0,216",
+    "maksimin":"0,394"
+  },
+  {
+    "gida":"Biber, dolma",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"16",
+    "minimum":"9",
+    "maksimin":"25"
+  },
+  {
+    "gida":"Biber, dolma",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"6,4",
+    "minimum":"3,6",
+    "maksimin":"9,9"
+  },
+  {
+    "gida":"Biber, k\u0131rm\u0131z\u0131, California Wonder tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"150,7",
+    "minimum":"139,0",
+    "maksimin":"170,2"
+  },
+  {
+    "gida":"Biber, k\u0131rm\u0131z\u0131, California Wonder tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,438",
+    "minimum":"0,298",
+    "maksimin":"0,596"
+  },
+  {
+    "gida":"Biber, k\u0131rm\u0131z\u0131, California Wonder tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"101",
+    "minimum":"40",
+    "maksimin":"202"
+  },
+  {
+    "gida":"Biber, k\u0131rm\u0131z\u0131, California Wonder tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"4,9",
+    "minimum":"4,5",
+    "maksimin":"5,2"
+  },
+  {
+    "gida":"Biber, sar\u0131, California Wonder tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"125,9",
+    "minimum":"97,3",
+    "maksimin":"169,2"
+  },
+  {
+    "gida":"Biber, sar\u0131, California Wonder tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,274",
+    "minimum":"0,223",
+    "maksimin":"0,337"
+  },
+  {
+    "gida":"Biber, sar\u0131, California Wonder tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"33",
+    "minimum":"14",
+    "maksimin":"60"
+  },
+  {
+    "gida":"Biber, sar\u0131, California Wonder tipi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"1,6",
+    "minimum":"0,0",
+    "maksimin":"2,8"
+  },
+  {
+    "gida":"Biber, sivri",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"82,8",
+    "minimum":"64,8",
+    "maksimin":"106,4"
+  },
+  {
+    "gida":"Biber, sivri",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,368",
+    "minimum":"0,304",
+    "maksimin":"0,408"
+  },
+  {
+    "gida":"Biber, sivri",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"24",
+    "minimum":"16",
+    "maksimin":"36"
+  },
+  {
+    "gida":"Biber, sivri",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"10,1",
+    "minimum":"2,6",
+    "maksimin":"12,2"
+  },
+  {
+    "gida":"Biber, s\u00fcs, tur\u015fuluk",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"146,8",
+    "minimum":"107,1",
+    "maksimin":"174,7"
+  },
+  {
+    "gida":"Biber, s\u00fcs, tur\u015fuluk",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,750",
+    "minimum":"0,375",
+    "maksimin":"1,333"
+  },
+  {
+    "gida":"Biber, s\u00fcs, tur\u015fuluk",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"45",
+    "minimum":"17",
+    "maksimin":"71"
+  },
+  {
+    "gida":"Biber, s\u00fcs, tur\u015fuluk",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"12,8",
+    "minimum":"6,3",
+    "maksimin":"23,4"
+  },
+  {
+    "gida":"B\u00f6r\u00fclce",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"25,1",
+    "minimum":"11,8",
+    "maksimin":"37,6"
+  },
+  {
+    "gida":"B\u00f6r\u00fclce",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,128",
+    "minimum":"0,071",
+    "maksimin":"0,172"
+  },
+  {
+    "gida":"B\u00f6r\u00fclce",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"56",
+    "minimum":"31",
+    "maksimin":"83"
+  },
+  {
+    "gida":"B\u00f6r\u00fclce",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"126,3",
+    "minimum":"51,8",
+    "maksimin":"188,8"
+  },
+  {
+    "gida":"Brokoli",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"107,6",
+    "minimum":"90,8",
+    "maksimin":"122,6"
+  },
+  {
+    "gida":"Brokoli",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,227",
+    "minimum":"0,100",
+    "maksimin":"0,367"
+  },
+  {
+    "gida":"Brokoli",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"83",
+    "minimum":"58",
+    "maksimin":"115"
+  },
+  {
+    "gida":"Brokoli",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"110,8",
+    "minimum":"104,3",
+    "maksimin":"117,5"
+  },
+  {
+    "gida":"\u00c7iri\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"130,0",
+    "minimum":"130,0",
+    "maksimin":"130,0"
+  },
+  {
+    "gida":"\u00c7iri\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"129",
+    "minimum":"129",
+    "maksimin":"129"
+  },
+  {
+    "gida":"\u00c7oban \u00e7antas\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"62,7",
+    "minimum":"62,7",
+    "maksimin":"62,7"
+  },
+  {
+    "gida":"\u00c7oban \u00e7antas\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"159",
+    "minimum":"159",
+    "maksimin":"159"
+  },
+  {
+    "gida":"Deli kereviz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"75,0",
+    "minimum":"75,0",
+    "maksimin":"75,0"
+  },
+  {
+    "gida":"Deli maydanoz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"29,4",
+    "minimum":"29,4",
+    "maksimin":"29,4"
+  },
+  {
+    "gida":"Deli maydanoz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"224",
+    "minimum":"224",
+    "maksimin":"224"
+  },
+  {
+    "gida":"Deniz b\u00f6r\u00fclcesi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"10,6",
+    "minimum":"10,6",
+    "maksimin":"10,6"
+  },
+  {
+    "gida":"Deniz b\u00f6r\u00fclcesi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"142",
+    "minimum":"142",
+    "maksimin":"142"
+  },
+  {
+    "gida":"Dereotu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"100,9",
+    "minimum":"81,5",
+    "maksimin":"118,1"
+  },
+  {
+    "gida":"Dereotu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,201",
+    "minimum":"0,079",
+    "maksimin":"0,344"
+  },
+  {
+    "gida":"Dereotu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"680",
+    "minimum":"362",
+    "maksimin":"890"
+  },
+  {
+    "gida":"Dereotu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"407,4",
+    "minimum":"326,9",
+    "maksimin":"474,1"
+  },
+  {
+    "gida":"Dikenucu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"2,0",
+    "minimum":"2,0",
+    "maksimin":"2,0"
+  },
+  {
+    "gida":"Dikenucu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"80",
+    "minimum":"80",
+    "maksimin":"80"
+  },
+  {
+    "gida":"Dolamba\u00e7",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"36,5",
+    "minimum":"36,5",
+    "maksimin":"36,5"
+  },
+  {
+    "gida":"Dolamba\u00e7",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"170",
+    "minimum":"170",
+    "maksimin":"170"
+  },
+  {
+    "gida":"Domates sal\u00e7as\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"16,5",
+    "minimum":"16,5",
+    "maksimin":"16,5"
+  },
+  {
+    "gida":"Domates sal\u00e7as\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"131",
+    "minimum":"131",
+    "maksimin":"131"
+  },
+  {
+    "gida":"Domates suyu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"8,1",
+    "minimum":"8,1",
+    "maksimin":"8,1"
+  },
+  {
+    "gida":"Domates, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"32,6",
+    "minimum":"26,3",
+    "maksimin":"38,7"
+  },
+  {
+    "gida":"Domates, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"112",
+    "minimum":"99",
+    "maksimin":"120"
+  },
+  {
+    "gida":"Domates, sofral\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"19,8",
+    "minimum":"14,3",
+    "maksimin":"28,3"
+  },
+  {
+    "gida":"Domates, sofral\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,076",
+    "minimum":"0,048",
+    "maksimin":"0,113"
+  },
+  {
+    "gida":"Domates, sofral\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"51",
+    "minimum":"23",
+    "maksimin":"67"
+  },
+  {
+    "gida":"Domates, sofral\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"3,3",
+    "minimum":"0,0",
+    "maksimin":"4,4"
+  },
+  {
+    "gida":"Domates, sofral\u0131k, kiraz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"24,3",
+    "minimum":"14,8",
+    "maksimin":"36,5"
+  },
+  {
+    "gida":"Domates, sofral\u0131k, kiraz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,083",
+    "minimum":"0,051",
+    "maksimin":"0,107"
+  },
+  {
+    "gida":"Domates, sofral\u0131k, kiraz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"63",
+    "minimum":"40",
+    "maksimin":"91"
+  },
+  {
+    "gida":"Domates, sofral\u0131k, kiraz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"3,7",
+    "minimum":"2,4",
+    "maksimin":"6,1"
+  },
+  {
+    "gida":"Ebeg\u00fcmeci",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"44,9",
+    "minimum":"17,5",
+    "maksimin":"98,0"
+  },
+  {
+    "gida":"Ebeg\u00fcmeci",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,263",
+    "minimum":"0,209",
+    "maksimin":"0,332"
+  },
+  {
+    "gida":"Ebeg\u00fcmeci",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"880",
+    "minimum":"581",
+    "maksimin":"1137"
+  },
+  {
+    "gida":"Ebeg\u00fcmeci",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"804,2",
+    "minimum":"652,7",
+    "maksimin":"956,7"
+  },
+  {
+    "gida":"Ecib\u00fcc\u00fc",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"35,0",
+    "minimum":"35,0",
+    "maksimin":"35,0"
+  },
+  {
+    "gida":"Ecib\u00fcc\u00fc",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"303",
+    "minimum":"303",
+    "maksimin":"303"
+  },
+  {
+    "gida":"Enginar",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"9,6",
+    "minimum":"9,2",
+    "maksimin":"9,9"
+  },
+  {
+    "gida":"Enginar",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,078",
+    "minimum":"0,052",
+    "maksimin":"0,110"
+  },
+  {
+    "gida":"Enginar",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"4",
+    "minimum":"3",
+    "maksimin":"8"
+  },
+  {
+    "gida":"Enginar",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"0,8",
+    "minimum":"0,8",
+    "maksimin":"0,9"
+  },
+  {
+    "gida":"Enginar, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"7,8",
+    "minimum":"7,8",
+    "maksimin":"7,8"
+  },
+  {
+    "gida":"Enginar, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,038",
+    "minimum":"0,038",
+    "maksimin":"0,038"
+  },
+  {
+    "gida":"E\u015fek turpu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"10,2",
+    "minimum":"10,2",
+    "maksimin":"10,2"
+  },
+  {
+    "gida":"E\u015fek turpu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"70",
+    "minimum":"70",
+    "maksimin":"70"
+  },
+  {
+    "gida":"Fasulye",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"16,0",
+    "minimum":"12,2",
+    "maksimin":"18,3"
+  },
+  {
+    "gida":"Fasulye",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,086",
+    "minimum":"0,072",
+    "maksimin":"0,101"
+  },
+  {
+    "gida":"Fasulye",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"26",
+    "minimum":"20",
+    "maksimin":"33"
+  },
+  {
+    "gida":"Fasulye",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"53,3",
+    "minimum":"2,8",
+    "maksimin":"110,1"
+  },
+  {
+    "gida":"Fasulye, dermason, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,467",
+    "minimum":"0,467",
+    "maksimin":"0,467"
+  },
+  {
+    "gida":"Fasulye, dermason, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"0,38",
+    "minimum":"0,38",
+    "maksimin":"0,38"
+  },
+  {
+    "gida":"Fasulye, dermason, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"0,57",
+    "minimum":"0,57",
+    "maksimin":"0,57"
+  },
+  {
+    "gida":"Fasulye, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"12,6",
+    "minimum":"12,6",
+    "maksimin":"12,6"
+  },
+  {
+    "gida":"Fasulye, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,100",
+    "minimum":"0,100",
+    "maksimin":"0,100"
+  },
+  {
+    "gida":"Havu\u00e7, siyah",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,072",
+    "minimum":"0,064",
+    "maksimin":"0,079"
+  },
+  {
+    "gida":"Havu\u00e7, siyah",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"0",
+    "minimum":"0",
+    "maksimin":"0"
+  },
+  {
+    "gida":"Havu\u00e7, turuncu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"5,2",
+    "minimum":"3,1",
+    "maksimin":"8,0"
+  },
+  {
+    "gida":"Havu\u00e7, turuncu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,093",
+    "minimum":"0,006",
+    "maksimin":"0,134"
+  },
+  {
+    "gida":"Havu\u00e7, turuncu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"624",
+    "minimum":"386",
+    "maksimin":"829"
+  },
+  {
+    "gida":"Havu\u00e7, turuncu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"3,6",
+    "minimum":"2,6",
+    "maksimin":"5,4"
+  },
+  {
+    "gida":"Helevan",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"32,4",
+    "minimum":"32,4",
+    "maksimin":"32,4"
+  },
+  {
+    "gida":"Helevan",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"347",
+    "minimum":"347",
+    "maksimin":"347"
+  },
+  {
+    "gida":"Hindiba",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,7",
+    "minimum":"4,7",
+    "maksimin":"4,7"
+  },
+  {
+    "gida":"Is\u0131rgan",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"74,7",
+    "minimum":"39,5",
+    "maksimin":"97,7"
+  },
+  {
+    "gida":"Is\u0131rgan",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,179",
+    "minimum":"0,084",
+    "maksimin":"0,322"
+  },
+  {
+    "gida":"Is\u0131rgan",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"653",
+    "minimum":"548",
+    "maksimin":"794"
+  },
+  {
+    "gida":"Is\u0131rgan",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"429,0",
+    "minimum":"373,9",
+    "maksimin":"491,2"
+  },
+  {
+    "gida":"Ispanak",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"35,7",
+    "minimum":"27,5",
+    "maksimin":"54,0"
+  },
+  {
+    "gida":"Ispanak",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,249",
+    "minimum":"0,177",
+    "maksimin":"0,302"
+  },
+  {
+    "gida":"Ispanak",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"666",
+    "minimum":"594",
+    "maksimin":"750"
+  },
+  {
+    "gida":"Ispanak",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"336,4",
+    "minimum":"183,0",
+    "maksimin":"546,2"
+  },
+  {
+    "gida":"Ispanak, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"19,7",
+    "minimum":"19,7",
+    "maksimin":"19,7"
+  },
+  {
+    "gida":"Ispanak, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,160",
+    "minimum":"0,160",
+    "maksimin":"0,160"
+  },
+  {
+    "gida":"Ispanak, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"426,0",
+    "minimum":"426,0",
+    "maksimin":"426,0"
+  },
+  {
+    "gida":"Kabak \u00e7ekirde\u011fi, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,158",
+    "minimum":"0,158",
+    "maksimin":"0,158"
+  },
+  {
+    "gida":"Kabak \u00e7ekirde\u011fi, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini",
+    "birim":"\u03b1-TE",
+    "ortalama":"2,38",
+    "minimum":"2,38",
+    "maksimin":"2,38"
+  },
+  {
+    "gida":"Kabak \u00e7ekirde\u011fi, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"E vitamini, IU",
+    "birim":"IU",
+    "ortalama":"3,55",
+    "minimum":"3,55",
+    "maksimin":"3,55"
+  },
+  {
+    "gida":"Kabak, k\u0131\u015fl\u0131k, balkaba\u011f\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"13,8",
+    "minimum":"11,1",
+    "maksimin":"18,0"
+  },
+  {
+    "gida":"Kabak, k\u0131\u015fl\u0131k, balkaba\u011f\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,112",
+    "minimum":"0,078",
+    "maksimin":"0,214"
+  },
+  {
+    "gida":"Kabak, k\u0131\u015fl\u0131k, balkaba\u011f\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"343",
+    "minimum":"197",
+    "maksimin":"550"
+  },
+  {
+    "gida":"Kabak, k\u0131\u015fl\u0131k, balkaba\u011f\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"3,4",
+    "minimum":"0,0",
+    "maksimin":"6,3"
+  },
+  {
+    "gida":"Kabak, k\u0131\u015fl\u0131k, kestane",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"18,1",
+    "minimum":"11,9",
+    "maksimin":"24,5"
+  },
+  {
+    "gida":"Kabak, k\u0131\u015fl\u0131k, kestane",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,173",
+    "minimum":"0,056",
+    "maksimin":"0,258"
+  },
+  {
+    "gida":"Kabak, k\u0131\u015fl\u0131k, kestane",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"338",
+    "minimum":"208",
+    "maksimin":"435"
+  },
+  {
+    "gida":"Kabak, k\u0131\u015fl\u0131k, kestane",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"4,4",
+    "minimum":"1,8",
+    "maksimin":"7,0"
+  },
+  {
+    "gida":"Kabak, yazl\u0131k, koyu ye\u015fil",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"14,0",
+    "minimum":"10,2",
+    "maksimin":"18,3"
+  },
+  {
+    "gida":"Kabak, yazl\u0131k, koyu ye\u015fil",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,100",
+    "minimum":"0,040",
+    "maksimin":"0,220"
+  },
+  {
+    "gida":"Kabak, yazl\u0131k, koyu ye\u015fil",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"16",
+    "minimum":"4",
+    "maksimin":"33"
+  },
+  {
+    "gida":"Kabak, yazl\u0131k, koyu ye\u015fil",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"27,5",
+    "minimum":"3,0",
+    "maksimin":"40,4"
+  },
+  {
+    "gida":"Kabak, yazl\u0131k, sak\u0131z, a\u00e7\u0131k ye\u015fil",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"14,9",
+    "minimum":"11,6",
+    "maksimin":"18,6"
+  },
+  {
+    "gida":"Kabak, yazl\u0131k, sak\u0131z, a\u00e7\u0131k ye\u015fil",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,071",
+    "minimum":"0,049",
+    "maksimin":"0,087"
+  },
+  {
+    "gida":"Kabak, yazl\u0131k, sak\u0131z, a\u00e7\u0131k ye\u015fil",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"10",
+    "minimum":"4",
+    "maksimin":"24"
+  },
+  {
+    "gida":"Kabak, yazl\u0131k, sak\u0131z, a\u00e7\u0131k ye\u015fil",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"22,3",
+    "minimum":"15,3",
+    "maksimin":"31,7"
+  },
+  {
+    "gida":"Kaldirik",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"2,6",
+    "minimum":"2,6",
+    "maksimin":"2,6"
+  },
+  {
+    "gida":"Kaldirik",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"105",
+    "minimum":"105",
+    "maksimin":"105"
+  },
+  {
+    "gida":"Karakavuk",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"32,2",
+    "minimum":"32,2",
+    "maksimin":"32,2"
+  },
+  {
+    "gida":"Karakavuk",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"124",
+    "minimum":"124",
+    "maksimin":"124"
+  },
+  {
+    "gida":"Karnabahar",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"45,3",
+    "minimum":"42,7",
+    "maksimin":"51,8"
+  },
+  {
+    "gida":"Karnabahar",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,149",
+    "minimum":"0,045",
+    "maksimin":"0,269"
+  },
+  {
+    "gida":"Karnabahar",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"4",
+    "minimum":"3",
+    "maksimin":"5"
+  },
+  {
+    "gida":"Karnabahar",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"19,1",
+    "minimum":"16,5",
+    "maksimin":"20,5"
+  },
+  {
+    "gida":"Karpuz, \u00e7ekirdekli",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"6,5",
+    "minimum":"4,3",
+    "maksimin":"8,3"
+  },
+  {
+    "gida":"Karpuz, \u00e7ekirdekli",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,053",
+    "minimum":"0,023",
+    "maksimin":"0,084"
+  },
+  {
+    "gida":"Karpuz, \u00e7ekirdekli",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"32",
+    "minimum":"11",
+    "maksimin":"95"
+  },
+  {
+    "gida":"Karpuz, \u00e7ekirdekli, Diyarbak\u0131r",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"9,9",
+    "minimum":"8,3",
+    "maksimin":"11,4"
+  },
+  {
+    "gida":"Karpuz, \u00e7ekirdekli, Diyarbak\u0131r",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,042",
+    "minimum":"0,031",
+    "maksimin":"0,052"
+  },
+  {
+    "gida":"Karpuz, \u00e7ekirdekli, Diyarbak\u0131r",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"35",
+    "minimum":"30",
+    "maksimin":"41"
+  },
+  {
+    "gida":"Karpuz, \u00e7ekirdeksiz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"6,9",
+    "minimum":"5,2",
+    "maksimin":"8,2"
+  },
+  {
+    "gida":"Karpuz, \u00e7ekirdeksiz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,103",
+    "minimum":"0,063",
+    "maksimin":"0,166"
+  },
+  {
+    "gida":"Karpuz, \u00e7ekirdeksiz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"42",
+    "minimum":"11",
+    "maksimin":"81"
+  },
+  {
+    "gida":"Kavun, k\u0131\u015fl\u0131k K\u0131rka\u011fa\u00e7",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"18,8",
+    "minimum":"9,5",
+    "maksimin":"31,4"
+  },
+  {
+    "gida":"Kavun, k\u0131\u015fl\u0131k K\u0131rka\u011fa\u00e7",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,061",
+    "minimum":"0,024",
+    "maksimin":"0,104"
+  },
+  {
+    "gida":"Kavun, k\u0131\u015fl\u0131k K\u0131rka\u011fa\u00e7",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"3",
+    "minimum":"2",
+    "maksimin":"6"
+  },
+  {
+    "gida":"Kavun, yazl\u0131k, \u00e7itili kavun, Kantalop",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"21,2",
+    "minimum":"13,9",
+    "maksimin":"33,0"
+  },
+  {
+    "gida":"Kavun, yazl\u0131k, \u00e7itili kavun, Kantalop",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,100",
+    "minimum":"0,034",
+    "maksimin":"0,218"
+  },
+  {
+    "gida":"Kavun, yazl\u0131k, \u00e7itili kavun, Kantalop",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"6",
+    "minimum":"4",
+    "maksimin":"9"
+  },
+  {
+    "gida":"Kaya koru\u011fu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"10,2",
+    "minimum":"10,2",
+    "maksimin":"10,2"
+  },
+  {
+    "gida":"Kaya koru\u011fu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"74",
+    "minimum":"74",
+    "maksimin":"74"
+  },
+  {
+    "gida":"Kaymac\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"210",
+    "minimum":"210",
+    "maksimin":"210"
+  },
+  {
+    "gida":"Ke\u00e7i aya\u011f\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"37,0",
+    "minimum":"37,0",
+    "maksimin":"37,0"
+  },
+  {
+    "gida":"Kenger",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"1,9",
+    "minimum":"1,9",
+    "maksimin":"1,9"
+  },
+  {
+    "gida":"Kereviz, k\u00f6k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"11,2",
+    "minimum":"8,5",
+    "maksimin":"13,5"
+  },
+  {
+    "gida":"Kereviz, k\u00f6k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,233",
+    "minimum":"0,153",
+    "maksimin":"0,274"
+  },
+  {
+    "gida":"Kereviz, k\u00f6k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"3",
+    "minimum":"2",
+    "maksimin":"3"
+  },
+  {
+    "gida":"Kereviz, k\u00f6k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"115,6",
+    "minimum":"106,1",
+    "maksimin":"119,3"
+  },
+  {
+    "gida":"Kereviz, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"19,9",
+    "minimum":"12,6",
+    "maksimin":"30,7"
+  },
+  {
+    "gida":"Kereviz, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,132",
+    "minimum":"0,064",
+    "maksimin":"0,187"
+  },
+  {
+    "gida":"Kereviz, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"119",
+    "minimum":"61",
+    "maksimin":"199"
+  },
+  {
+    "gida":"K\u0131y\u0131 pancar\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"18,3",
+    "minimum":"18,3",
+    "maksimin":"18,3"
+  },
+  {
+    "gida":"K\u0131y\u0131 pancar\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"313",
+    "minimum":"313",
+    "maksimin":"313"
+  },
+  {
+    "gida":"Ku\u015fkonmaz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"30,3",
+    "minimum":"17,4",
+    "maksimin":"41,1"
+  },
+  {
+    "gida":"Ku\u015fkonmaz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,118",
+    "minimum":"0,036",
+    "maksimin":"0,186"
+  },
+  {
+    "gida":"Ku\u015fkonmaz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"23",
+    "minimum":"7",
+    "maksimin":"38"
+  },
+  {
+    "gida":"Ku\u015fkonmaz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"62,9",
+    "minimum":"54,9",
+    "maksimin":"72,2"
+  },
+  {
+    "gida":"Kuzukemirdi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"18,2",
+    "minimum":"18,2",
+    "maksimin":"18,2"
+  },
+  {
+    "gida":"Labada",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"24,9",
+    "minimum":"24,9",
+    "maksimin":"24,9"
+  },
+  {
+    "gida":"Labada",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"30",
+    "minimum":"30",
+    "maksimin":"30"
+  },
+  {
+    "gida":"Lahana, beyaz, ba\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"37,2",
+    "minimum":"28,3",
+    "maksimin":"44,2"
+  },
+  {
+    "gida":"Lahana, beyaz, ba\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,091",
+    "minimum":"0,035",
+    "maksimin":"0,145"
+  },
+  {
+    "gida":"Lahana, beyaz, ba\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"10",
+    "minimum":"5",
+    "maksimin":"17"
+  },
+  {
+    "gida":"Lahana, beyaz, ba\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"82,6",
+    "minimum":"61,5",
+    "maksimin":"99,2"
+  },
+  {
+    "gida":"Lahana, Br\u00fcksel",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"109,1",
+    "minimum":"99,5",
+    "maksimin":"130,5"
+  },
+  {
+    "gida":"Lahana, Br\u00fcksel",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,175",
+    "minimum":"0,081",
+    "maksimin":"0,285"
+  },
+  {
+    "gida":"Lahana, Br\u00fcksel",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"27",
+    "minimum":"17",
+    "maksimin":"48"
+  },
+  {
+    "gida":"Lahana, Br\u00fcksel",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"190,7",
+    "minimum":"154,8",
+    "maksimin":"218,4"
+  },
+  {
+    "gida":"Lahana, kara",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"97,2",
+    "minimum":"77,0",
+    "maksimin":"117,8"
+  },
+  {
+    "gida":"Lahana, kara",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,158",
+    "minimum":"0,088",
+    "maksimin":"0,288"
+  },
+  {
+    "gida":"Lahana, kara",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"415",
+    "minimum":"362",
+    "maksimin":"508"
+  },
+  {
+    "gida":"Lahana, kara",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"713,0",
+    "minimum":"325,3",
+    "maksimin":"1060,7"
+  },
+  {
+    "gida":"Lahana, k\u0131rm\u0131z\u0131, ba\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"66,4",
+    "minimum":"48,1",
+    "maksimin":"86,5"
+  },
+  {
+    "gida":"Lahana, k\u0131rm\u0131z\u0131, ba\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,107",
+    "minimum":"0,043",
+    "maksimin":"0,192"
+  },
+  {
+    "gida":"Lahana, k\u0131rm\u0131z\u0131, ba\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"15",
+    "minimum":"11",
+    "maksimin":"16"
+  },
+  {
+    "gida":"Lahana, k\u0131rm\u0131z\u0131, ba\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"37,6",
+    "minimum":"24,2",
+    "maksimin":"48,4"
+  },
+  {
+    "gida":"Mad\u0131mak",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"23,5",
+    "minimum":"23,5",
+    "maksimin":"23,5"
+  },
+  {
+    "gida":"Mad\u0131mak",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"187",
+    "minimum":"187",
+    "maksimin":"187"
+  },
+  {
+    "gida":"Mantar, beyaz \u015fapkal\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,8",
+    "minimum":"0,4",
+    "maksimin":"8,7"
+  },
+  {
+    "gida":"Mantar, beyaz \u015fapkal\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,072",
+    "minimum":"0,036",
+    "maksimin":"0,099"
+  },
+  {
+    "gida":"Mantar, beyaz \u015fapkal\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"2",
+    "minimum":"0",
+    "maksimin":"4"
+  },
+  {
+    "gida":"Mantar, beyaz \u015fapkal\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-2 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"1,0",
+    "minimum":"0,0",
+    "maksimin":"2,2"
+  },
+  {
+    "gida":"Marul, ba\u015f salata, Iceberg",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"3,7",
+    "minimum":"0,7",
+    "maksimin":"5,5"
+  },
+  {
+    "gida":"Marul, ba\u015f salata, Iceberg",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,060",
+    "minimum":"0,026",
+    "maksimin":"0,165"
+  },
+  {
+    "gida":"Marul, ba\u015f salata, Iceberg",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"25",
+    "minimum":"14",
+    "maksimin":"59"
+  },
+  {
+    "gida":"Marul, ba\u015f salata, Iceberg",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"68,6",
+    "minimum":"50,7",
+    "maksimin":"104,1"
+  },
+  {
+    "gida":"Marul, k\u0131v\u0131rc\u0131k, salata",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"6,6",
+    "minimum":"3,5",
+    "maksimin":"9,0"
+  },
+  {
+    "gida":"Marul, k\u0131v\u0131rc\u0131k, salata",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,061",
+    "minimum":"0,051",
+    "maksimin":"0,072"
+  },
+  {
+    "gida":"Marul, k\u0131v\u0131rc\u0131k, salata",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"109",
+    "minimum":"62",
+    "maksimin":"152"
+  },
+  {
+    "gida":"Marul, k\u0131v\u0131rc\u0131k, salata",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"136,8",
+    "minimum":"94,8",
+    "maksimin":"207,7"
+  },
+  {
+    "gida":"Marul, uzun yaprakl\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,8",
+    "minimum":"2,2",
+    "maksimin":"7,7"
+  },
+  {
+    "gida":"Marul, uzun yaprakl\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,057",
+    "minimum":"0,031",
+    "maksimin":"0,084"
+  },
+  {
+    "gida":"Marul, uzun yaprakl\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"67",
+    "minimum":"34",
+    "maksimin":"86"
+  },
+  {
+    "gida":"Marul, uzun yaprakl\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"108,1",
+    "minimum":"48,8",
+    "maksimin":"199,3"
+  },
+  {
+    "gida":"Maydanoz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"188,9",
+    "minimum":"161,5",
+    "maksimin":"203,1"
+  },
+  {
+    "gida":"Maydanoz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,105",
+    "minimum":"0,035",
+    "maksimin":"0,167"
+  },
+  {
+    "gida":"Maydanoz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"772",
+    "minimum":"525",
+    "maksimin":"995"
+  },
+  {
+    "gida":"Maydanoz",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"376,0",
+    "minimum":"216,5",
+    "maksimin":"842,4"
+  },
+  {
+    "gida":"M\u0131s\u0131r, tatl\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"7,9",
+    "minimum":"4,7",
+    "maksimin":"10,1"
+  },
+  {
+    "gida":"M\u0131s\u0131r, tatl\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,333",
+    "minimum":"0,180",
+    "maksimin":"0,554"
+  },
+  {
+    "gida":"M\u0131s\u0131r, tatl\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"7",
+    "minimum":"5",
+    "maksimin":"9"
+  },
+  {
+    "gida":"M\u0131s\u0131r, tatl\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"1,9",
+    "minimum":"0,0",
+    "maksimin":"4,7"
+  },
+  {
+    "gida":"M\u0131s\u0131r, tatl\u0131, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"5,2",
+    "minimum":"5,2",
+    "maksimin":"5,2"
+  },
+  {
+    "gida":"M\u0131s\u0131r, tatl\u0131, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,251",
+    "minimum":"0,251",
+    "maksimin":"0,251"
+  },
+  {
+    "gida":"Nane",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"25,7",
+    "minimum":"13,3",
+    "maksimin":"33,9"
+  },
+  {
+    "gida":"Nane",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,261",
+    "minimum":"0,064",
+    "maksimin":"0,548"
+  },
+  {
+    "gida":"Nane",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"597",
+    "minimum":"413",
+    "maksimin":"905"
+  },
+  {
+    "gida":"Nane",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"1090,5",
+    "minimum":"1003,1",
+    "maksimin":"1197,4"
+  },
+  {
+    "gida":"Nohut, ha\u015flanm\u0131\u015f, konserve",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,320",
+    "minimum":"0,320",
+    "maksimin":"0,320"
+  },
+  {
+    "gida":"Pancar, k\u0131rm\u0131z\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"8,2",
+    "minimum":"3,9",
+    "maksimin":"11,0"
+  },
+  {
+    "gida":"Pancar, k\u0131rm\u0131z\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,048",
+    "minimum":"0,040",
+    "maksimin":"0,062"
+  },
+  {
+    "gida":"Pancar, k\u0131rm\u0131z\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"7",
+    "minimum":"0",
+    "maksimin":"20"
+  },
+  {
+    "gida":"Pancar, k\u0131rm\u0131z\u0131, yemeklik, Leyla",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"5,4",
+    "minimum":"4,1",
+    "maksimin":"7,0"
+  },
+  {
+    "gida":"Pancar, k\u0131rm\u0131z\u0131, yemeklik, Leyla",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,040",
+    "minimum":"0,030",
+    "maksimin":"0,053"
+  },
+  {
+    "gida":"Pancar, k\u0131rm\u0131z\u0131, yemeklik, Leyla",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"3",
+    "minimum":"2",
+    "maksimin":"4"
+  },
+  {
+    "gida":"Pancar, \u015feker",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"4,9",
+    "minimum":"4,2",
+    "maksimin":"5,6"
+  },
+  {
+    "gida":"Pancar, \u015feker",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,033",
+    "minimum":"0,030",
+    "maksimin":"0,038"
+  },
+  {
+    "gida":"Pancar, \u015feker",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"3",
+    "minimum":"3",
+    "maksimin":"3"
+  },
+  {
+    "gida":"Patates, k\u0131zartmal\u0131k, dondurulmu\u015f",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"11,7",
+    "minimum":"11,7",
+    "maksimin":"11,7"
+  },
+  {
+    "gida":"Patates, ni\u015fastal\u0131k, beyaz etli, Lady Rosetta, Hermes",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"24,2",
+    "minimum":"16,4",
+    "maksimin":"35,6"
+  },
+  {
+    "gida":"Patates, ni\u015fastal\u0131k, beyaz etli, Lady Rosetta, Hermes",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,170",
+    "minimum":"0,064",
+    "maksimin":"0,289"
+  },
+  {
+    "gida":"Patates, ni\u015fastal\u0131k, beyaz etli, Lady Rosetta, Hermes",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"2",
+    "minimum":"1",
+    "maksimin":"5"
+  },
+  {
+    "gida":"Patates, ni\u015fastal\u0131k, beyaz etli, Lady Rosetta, Hermes",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"0,8",
+    "minimum":"0,0",
+    "maksimin":"1,4"
+  },
+  {
+    "gida":"Patates, sofral\u0131k, sar\u0131, Marfona, Granola, Marabel",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"24,0",
+    "minimum":"15,8",
+    "maksimin":"33,2"
+  },
+  {
+    "gida":"Patates, sofral\u0131k, sar\u0131, Marfona, Granola, Marabel",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,120",
+    "minimum":"0,080",
+    "maksimin":"0,187"
+  },
+  {
+    "gida":"Patates, sofral\u0131k, sar\u0131, Marfona, Granola, Marabel",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"6",
+    "minimum":"1",
+    "maksimin":"22"
+  },
+  {
+    "gida":"Patates, sofral\u0131k, sar\u0131, Marfona, Granola, Marabel",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"0,0",
+    "minimum":"0,0",
+    "maksimin":"0,0"
+  },
+  {
+    "gida":"Patl\u0131can, uzun",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"3,7",
+    "minimum":"2,2",
+    "maksimin":"6,6"
+  },
+  {
+    "gida":"Patl\u0131can, uzun",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,079",
+    "minimum":"0,049",
+    "maksimin":"0,107"
+  },
+  {
+    "gida":"Patl\u0131can, uzun",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"7",
+    "minimum":"4",
+    "maksimin":"15"
+  },
+  {
+    "gida":"Patl\u0131can, uzun",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"6,0",
+    "minimum":"0,0",
+    "maksimin":"8,9"
+  },
+  {
+    "gida":"Patl\u0131can, yuvarlak, Topan",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"3,6",
+    "minimum":"2,5",
+    "maksimin":"5,2"
+  },
+  {
+    "gida":"Patl\u0131can, yuvarlak, Topan",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,059",
+    "minimum":"0,046",
+    "maksimin":"0,079"
+  },
+  {
+    "gida":"Patl\u0131can, yuvarlak, Topan",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"4",
+    "minimum":"2",
+    "maksimin":"8"
+  },
+  {
+    "gida":"Patl\u0131can, yuvarlak, Topan",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"6,1",
+    "minimum":"0,0",
+    "maksimin":"10,1"
+  },
+  {
+    "gida":"Paz\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"28,3",
+    "minimum":"21,0",
+    "maksimin":"46,1"
+  },
+  {
+    "gida":"Paz\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,156",
+    "minimum":"0,111",
+    "maksimin":"0,202"
+  },
+  {
+    "gida":"Paz\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"334",
+    "minimum":"268",
+    "maksimin":"394"
+  },
+  {
+    "gida":"Paz\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"431,9",
+    "minimum":"226,2",
+    "maksimin":"711,7"
+  },
+  {
+    "gida":"P\u0131rasa",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"22,3",
+    "minimum":"17,1",
+    "maksimin":"27,8"
+  },
+  {
+    "gida":"P\u0131rasa",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,132",
+    "minimum":"0,090",
+    "maksimin":"0,196"
+  },
+  {
+    "gida":"P\u0131rasa",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"15",
+    "minimum":"7",
+    "maksimin":"47"
+  },
+  {
+    "gida":"P\u0131rasa",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"60,8",
+    "minimum":"55,6",
+    "maksimin":"64,8"
+  },
+  {
+    "gida":"Rezene, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"76,9",
+    "minimum":"48,6",
+    "maksimin":"98,0"
+  },
+  {
+    "gida":"Rezene, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,102",
+    "minimum":"0,034",
+    "maksimin":"0,206"
+  },
+  {
+    "gida":"Rezene, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"312",
+    "minimum":"193",
+    "maksimin":"549"
+  },
+  {
+    "gida":"Rezene, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"482,6",
+    "minimum":"475,7",
+    "maksimin":"487,5"
+  },
+  {
+    "gida":"Roka",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"109,4",
+    "minimum":"73,1",
+    "maksimin":"134,5"
+  },
+  {
+    "gida":"Roka",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,140",
+    "minimum":"0,117",
+    "maksimin":"0,178"
+  },
+  {
+    "gida":"Roka",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"237",
+    "minimum":"167",
+    "maksimin":"310"
+  },
+  {
+    "gida":"Roka",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"383,7",
+    "minimum":"305,5",
+    "maksimin":"437,9"
+  },
+  {
+    "gida":"Salatal\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"11,0",
+    "minimum":"7,8",
+    "maksimin":"16,1"
+  },
+  {
+    "gida":"Salatal\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,039",
+    "minimum":"0,036",
+    "maksimin":"0,041"
+  },
+  {
+    "gida":"Salatal\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"9",
+    "minimum":"4",
+    "maksimin":"20"
+  },
+  {
+    "gida":"Salatal\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"11,7",
+    "minimum":"2,6",
+    "maksimin":"31,6"
+  },
+  {
+    "gida":"\u015ealgam",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"25,3",
+    "minimum":"22,4",
+    "maksimin":"26,9"
+  },
+  {
+    "gida":"\u015ealgam",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,188",
+    "minimum":"0,092",
+    "maksimin":"0,344"
+  },
+  {
+    "gida":"\u015ealgam",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"2",
+    "minimum":"1",
+    "maksimin":"3"
+  },
+  {
+    "gida":"\u015ealgam",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"1,5",
+    "minimum":"1,5",
+    "maksimin":"1,5"
+  },
+  {
+    "gida":"Sar\u0131msak, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"28,2",
+    "minimum":"16,6",
+    "maksimin":"35,1"
+  },
+  {
+    "gida":"Sar\u0131msak, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,208",
+    "minimum":"0,137",
+    "maksimin":"0,316"
+  },
+  {
+    "gida":"Sar\u0131msak, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"18",
+    "minimum":"8",
+    "maksimin":"24"
+  },
+  {
+    "gida":"Sar\u0131msak, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"122,2",
+    "minimum":"118,7",
+    "maksimin":"125,8"
+  },
+  {
+    "gida":"Sar\u0131msak, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"10,9",
+    "minimum":"7,9",
+    "maksimin":"15,8"
+  },
+  {
+    "gida":"Sar\u0131msak, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"1,146",
+    "minimum":"0,528",
+    "maksimin":"1,542"
+  },
+  {
+    "gida":"Sar\u0131msak, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"2",
+    "minimum":"2",
+    "maksimin":"3"
+  },
+  {
+    "gida":"Sar\u0131msak, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"1,2",
+    "minimum":"0,0",
+    "maksimin":"3,0"
+  },
+  {
+    "gida":"Semizotu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"24,6",
+    "minimum":"21,0",
+    "maksimin":"26,9"
+  },
+  {
+    "gida":"Semizotu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,160",
+    "minimum":"0,106",
+    "maksimin":"0,200"
+  },
+  {
+    "gida":"Semizotu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"300",
+    "minimum":"191",
+    "maksimin":"453"
+  },
+  {
+    "gida":"Semizotu",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"303,4",
+    "minimum":"277,1",
+    "maksimin":"353,6"
+  },
+  {
+    "gida":"\u015eevketi bostan",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"20,4",
+    "minimum":"20,4",
+    "maksimin":"20,4"
+  },
+  {
+    "gida":"So\u011fan, mor, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"6,8",
+    "minimum":"3,8",
+    "maksimin":"8,8"
+  },
+  {
+    "gida":"So\u011fan, mor, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,106",
+    "minimum":"0,035",
+    "maksimin":"0,210"
+  },
+  {
+    "gida":"So\u011fan, mor, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"5",
+    "minimum":"2",
+    "maksimin":"10"
+  },
+  {
+    "gida":"So\u011fan, mor, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"0,7",
+    "minimum":"0,0",
+    "maksimin":"2,3"
+  },
+  {
+    "gida":"So\u011fan, sar\u0131, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"6,5",
+    "minimum":"4,9",
+    "maksimin":"8,0"
+  },
+  {
+    "gida":"So\u011fan, sar\u0131, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,117",
+    "minimum":"0,037",
+    "maksimin":"0,192"
+  },
+  {
+    "gida":"So\u011fan, sar\u0131, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"4",
+    "minimum":"2",
+    "maksimin":"6"
+  },
+  {
+    "gida":"So\u011fan, sar\u0131, kuru",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"0,6",
+    "minimum":"0,0",
+    "maksimin":"1,7"
+  },
+  {
+    "gida":"So\u011fan, taze, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"21,0",
+    "minimum":"18,5",
+    "maksimin":"25,3"
+  },
+  {
+    "gida":"So\u011fan, taze, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,107",
+    "minimum":"0,064",
+    "maksimin":"0,134"
+  },
+  {
+    "gida":"So\u011fan, taze, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"142",
+    "minimum":"95",
+    "maksimin":"289"
+  },
+  {
+    "gida":"So\u011fan, taze, k\u00f6k, sap",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"92,0",
+    "minimum":"66,0",
+    "maksimin":"107,1"
+  },
+  {
+    "gida":"Su teresi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"16,6",
+    "minimum":"16,6",
+    "maksimin":"16,6"
+  },
+  {
+    "gida":"Su teresi",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"300",
+    "minimum":"300",
+    "maksimin":"300"
+  },
+  {
+    "gida":"Sunbala",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"83,1",
+    "minimum":"83,1",
+    "maksimin":"83,1"
+  },
+  {
+    "gida":"Sunbala",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"33",
+    "minimum":"33",
+    "maksimin":"33"
+  },
+  {
+    "gida":"Tekesakal\u0131",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"29,5",
+    "minimum":"29,5",
+    "maksimin":"29,5"
+  },
+  {
+    "gida":"Tere",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"85,4",
+    "minimum":"49,9",
+    "maksimin":"133,4"
+  },
+  {
+    "gida":"Tere",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,218",
+    "minimum":"0,148",
+    "maksimin":"0,373"
+  },
+  {
+    "gida":"Tere",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"330",
+    "minimum":"153",
+    "maksimin":"602"
+  },
+  {
+    "gida":"Tere",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"410,4",
+    "minimum":"323,5",
+    "maksimin":"578,7"
+  },
+  {
+    "gida":"Turp, F\u0131nd\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"21,1",
+    "minimum":"15,4",
+    "maksimin":"26,4"
+  },
+  {
+    "gida":"Turp, F\u0131nd\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,092",
+    "minimum":"0,046",
+    "maksimin":"0,186"
+  },
+  {
+    "gida":"Turp, F\u0131nd\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"4",
+    "minimum":"2",
+    "maksimin":"6"
+  },
+  {
+    "gida":"Turp, F\u0131nd\u0131k",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"0,4",
+    "minimum":"0,0",
+    "maksimin":"0,9"
+  },
+  {
+    "gida":"Turp, k\u0131rm\u0131z\u0131 iri",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"19,2",
+    "minimum":"16,1",
+    "maksimin":"23,6"
+  },
+  {
+    "gida":"Turp, k\u0131rm\u0131z\u0131 iri",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,055",
+    "minimum":"0,038",
+    "maksimin":"0,073"
+  },
+  {
+    "gida":"Turp, k\u0131rm\u0131z\u0131 iri",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"3",
+    "minimum":"3",
+    "maksimin":"4"
+  },
+  {
+    "gida":"Turp, k\u0131rm\u0131z\u0131 iri",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"1,9",
+    "minimum":"1,2",
+    "maksimin":"3,0"
+  },
+  {
+    "gida":"Turp, siyah",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"C vitamini",
+    "birim":"mg",
+    "ortalama":"17,8",
+    "minimum":"14,3",
+    "maksimin":"23,9"
+  },
+  {
+    "gida":"Turp, siyah",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"B-6 vitamini, toplam",
+    "birim":"mg",
+    "ortalama":"0,101",
+    "minimum":"0,086",
+    "maksimin":"0,120"
+  },
+  {
+    "gida":"Turp, siyah",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"A vitamini",
+    "birim":"RE",
+    "ortalama":"3",
+    "minimum":"1",
+    "maksimin":"6"
+  },
+  {
+    "gida":"Turp, siyah",
+    "grup":"Sebze ve sebze \u00fcr\u00fcnleri",
+    "bilesen":"K-1 vitamini",
+    "birim":"\u00b5g",
+    "ortalama":"1,7",
+    "minimum":"1,4",
+    "maksimin":"2,0"
+  }
+]

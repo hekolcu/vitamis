@@ -11,6 +11,7 @@ import {
 import {TabContext, TabPanel} from '@mui/lab';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import {useNavigate} from "react-router-dom";
+import {registerUser} from "../../utils/VitamisApiFunctions";
 
 function Register() {
     const navigate = useNavigate();
@@ -20,10 +21,27 @@ function Register() {
         setTabValue(newValue);
     };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        // Here you would handle the form submission
+
+        const formData = new FormData(event.currentTarget);
+        const name = formData.get('name') as string;
+        const surname = formData.get('surname') as string;
+
+        const registrationData = {
+            fullname: `${name} ${surname}`,
+            email: formData.get('email'),
+            password: formData.get('password'),
+        };
+
+        const response = await registerUser(registrationData)
+
+        if (response){
+            navigateSuccesfulRegister();
+        }
     };
+
+
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files ? event.target.files[0] : null;
@@ -80,10 +98,10 @@ function Register() {
                 </Box>
                 <TabPanel value={tabValue} index="1">
                     <Box component="form" onSubmit={handleSubmit} noValidate maxWidth="sm">
-                        <TextField required fullWidth label="Name" margin="normal" variant="standard"/>
-                        <TextField required fullWidth label="Surname" margin="normal" variant="standard"/>
-                        <TextField required fullWidth type="email" label="Email" margin="normal" variant="standard"/>
-                        <TextField required fullWidth type="password" label="Password" margin="normal"
+                        <TextField required fullWidth label="Name" name="name" margin="normal" variant="standard"/>
+                        <TextField required fullWidth label="Surname" name="surname" margin="normal" variant="standard"/>
+                        <TextField required fullWidth type="email" label="Email" name="email" margin="normal" variant="standard"/>
+                        <TextField required fullWidth type="password" label="Password" name="password" margin="normal"
                                    variant="standard"/>
                         <TextField required fullWidth type="password" label="Re-enter password" margin="normal"
                                    variant="standard"/>
@@ -98,10 +116,10 @@ function Register() {
                 </TabPanel>
                 <TabPanel value={tabValue} index="2">
                     <Box component="form" onSubmit={handleSubmit} noValidate maxWidth="sm">
-                        <TextField required fullWidth label="Name" margin="normal" variant="standard"/>
-                        <TextField required fullWidth label="Surname" margin="normal" variant="standard"/>
-                        <TextField required fullWidth type="email" label="Email" margin="normal" variant="standard"/>
-                        <TextField required fullWidth type="password" label="Password" margin="normal"
+                        <TextField required fullWidth label="Name" name="name" margin="normal" variant="standard"/>
+                        <TextField required fullWidth label="Surname" name="surname" margin="normal" variant="standard"/>
+                        <TextField required fullWidth type="email" label="Email" name="email" margin="normal" variant="standard"/>
+                        <TextField required fullWidth type="password" label="Password" name="password" margin="normal"
                                    variant="standard"/>
                         <TextField required fullWidth type="password" label="Re-enter password" margin="normal"
                                    variant="standard"/>

@@ -10,6 +10,14 @@ namespace VitamisAPI.Data.LoadData
         public VitaminReferenceDataLoader(VitamisDbContext dbContext)
         {
             _dbContext = dbContext;
+            _dbContext.VitaminReferenceValues.RemoveRange(_dbContext.VitaminReferenceValues);
+            _dbContext.SaveChanges();
+            
+            _dbContext.VitaminReferenceGroups.RemoveRange(_dbContext.VitaminReferenceGroups);
+            _dbContext.SaveChanges();
+            
+            _dbContext.Vitamins.RemoveRange(_dbContext.Vitamins);
+            _dbContext.SaveChanges();
         }
         
         public void LoadVitaminData()

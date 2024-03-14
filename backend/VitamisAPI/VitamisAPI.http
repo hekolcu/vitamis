@@ -1,4 +1,4 @@
-@VitamisAPI_HostAddress = http://localhost:5066
+@VitamisAPI_HostAddress = http://localhost:8080
 
 GET {{VitamisAPI_HostAddress}}/weatherforecast/
 Accept: application/json

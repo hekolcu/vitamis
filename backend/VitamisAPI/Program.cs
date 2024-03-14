@@ -16,7 +16,7 @@ var jwtKey = configuration["Jwt:Key"] ?? "3TpEoLQix6jIwu7plzczjXj6eGni+Wlcq6ojcS
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
 {
-    option.SwaggerDoc("v1", new OpenApiInfo { Title = "Test API", Version = "v1" });
+    option.SwaggerDoc("v1", new OpenApiInfo { Title = "VitamisApi", Version = "v0.2" });
     option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -75,18 +75,37 @@ builder.Services.AddAuthorization(options =>
                 c.Type == "UserType" && c.Value == UserType.Advisee.ToString())));
 });
 
-// Uncomment below line if inserting vitamin reference data for the first time.
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(corsPolicyBuilder =>
+    {
+        corsPolicyBuilder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(8080);  // Listen on port 8080 on any IP address
+});
+
+// Uncomment below lines if inserting data for the first time.
 // builder.Services.AddScoped<VitaminReferenceDataLoader>();
+// builder.Services.AddScoped<FoodVitaminAndNutritionalDataLoader>();
 
 var app = builder.Build();
 
-// Uncomment below line if inserting vitamin reference data for the first time.
+// Uncomment below lines if inserting data for the first time.
 // using (var scope = app.Services.CreateScope())
 // {
 //     try
 //     {
 //         scope.ServiceProvider.GetRequiredService<VitaminReferenceDataLoader>()
 //             .LoadVitaminData();
+//
+//         scope.ServiceProvider.GetRequiredService<FoodVitaminAndNutritionalDataLoader>()
+//             .LoadFoodData();
 //     }
 //     catch (Exception ex)
 //     {
@@ -94,19 +113,21 @@ var app = builder.Build();
 //     }
 // }
 
+app.UseCors();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
+app.MapGet("/health", () => Results.Json(new { Message="healthy" }));
+
 app.MapAuthEndpoints(configuration, jwtKey);
 app.MapUserEndpoints();
+app.MapRecommendationEndpoints();
+app.MapFoodEndpoints();
 
 app.Run();
