@@ -2,9 +2,11 @@
 
 import * as React from 'react';
 
-import type { User } from '@/types/user';
+import type { User } from '@/types/User';
 import { authClient } from '@/lib/auth/client';
 import { logger } from '@/lib/default-logger';
+
+import { useRouter } from 'next/router';
 
 export interface UserContextValue {
   user: User | null;
@@ -33,13 +35,14 @@ export function UserProvider({ children }: UserProviderProps): React.JSX.Element
       if (error) {
         logger.error(error);
         setState((prev) => ({ ...prev, user: null, error: 'Something went wrong', isLoading: false }));
+        useRouter().push('/auth/sign-in');
         return;
       }
 
       setState((prev) => ({ ...prev, user: data ?? null, error: null, isLoading: false }));
     } catch (err) {
       logger.error(err);
-      setState((prev) => ({ ...prev, user: null, error: 'Something went wrong', isLoading: false }));
+      setState((prev) => ({ ...prev, user: null, error: null, isLoading: false }));
     }
   }, []);
 
