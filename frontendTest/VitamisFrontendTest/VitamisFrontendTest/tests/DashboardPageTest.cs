@@ -27,18 +27,18 @@ namespace frontendTest.tests
             landingPage.getLoginBtn().Click();
             loginPage.getSignInBtn().Click();
             string profileUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/createProfile", profileUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/createProfile", profileUrl);
             profileCreationPage.getCreateBtn().Click();
             string dashboardUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/dashboard", dashboardUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/dashboard", dashboardUrl);
             dashboardPage.getSignOutBtn().Click();
             string logoutUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/logout", logoutUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/logout", logoutUrl);
             string logoutText = "You successfully signing out !";
             Assert.AreEqual(dashboardPage.getLogoutText().Text, logoutText);
             dashboardPage.getDashboardBtn().Click();
             string mainUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/", mainUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/", mainUrl);
         }
 
     }

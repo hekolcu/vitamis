@@ -26,7 +26,7 @@ namespace frontendTest.tests
             landingPage.getLoginBtn().Click();
             loginPage.getSignInBtn().Click();
             string profileUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/createProfile", profileUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/createProfile", profileUrl);
             String vitamisProfileCreationText = profileCreationPage.getVitamisProfileCreationText().Text;
             Assert.AreEqual("PROFILE CREATION", vitamisProfileCreationText);
             profileCreationPage.getHeight().SendKeys("180");
@@ -78,7 +78,7 @@ namespace frontendTest.tests
             }
             profileCreationPage.getCreateBtn().Click();
             string dashboardUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/dashboard", dashboardUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/dashboard", dashboardUrl);
 
 
 

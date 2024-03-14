@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebDriverManager.DriverConfigs.Impl;
 
+
 namespace frontendTest.utilities
 {
     public class Base
@@ -27,7 +28,7 @@ namespace frontendTest.utilities
         {
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
-            String reportPath = projectDirectory + "//index.html";
+            String reportPath = projectDirectory + "//index.html";     
             var htmlReporter = new ExtentHtmlReporter(reportPath);
             extent = new ExtentReports();
             extent.AttachReporter(htmlReporter);
@@ -43,7 +44,7 @@ namespace frontendTest.utilities
             InitBrowser(browserName);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             driver.Manage().Window.Maximize();
-            driver.Url = "http://localhost:3000/";
+            driver.Url = "https://vitamis.hekolcu.com/";
 
         }
 

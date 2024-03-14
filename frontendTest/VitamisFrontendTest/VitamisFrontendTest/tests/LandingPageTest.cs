@@ -29,15 +29,15 @@ namespace frontendTest.tests
             Assert.AreEqual("REGISTER", registerText);
             landingPage.getLoginBtn().Click();
             string loginUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/login", loginUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/login", loginUrl);
             driver.Navigate().Back();
             landingPage.getRegisterBtn().Click();
             string registerUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/register", registerUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/register", registerUrl);
             driver.Navigate().Back();
             landingPage.getVitamisText().Click();
             string currentUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/", currentUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/", currentUrl);
             driver.Navigate().Back();
 
 

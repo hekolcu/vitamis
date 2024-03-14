@@ -23,12 +23,12 @@ namespace frontendTest.tests
             registerPage registerPage = new registerPage(getDriver());
             landingPage.getRegisterBtn().Click();
             string registerUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/register", registerUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/register", registerUrl);
             String vitamisRegisterText = registerPage.getVitamisRegisterText().Text;
             Assert.AreEqual("VITAMIS REGISTER", vitamisRegisterText);
             registerPage.getSignIn().Click();
             string signInUrl = driver.Url;
-            Assert.AreEqual("http://localhost:3000/login", signInUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/login/", signInUrl);
             driver.Navigate().Back();
             registerPage.getDietitianTab().Click();
             registerPage.getAdviseeTab().Click();
@@ -45,7 +45,7 @@ namespace frontendTest.tests
             string confUrl = driver.Url;
             string thankTxt = registerPage.getThanksTxt().Text;
             string confTxt = registerPage.getConfTxt().Text;
-            Assert.AreEqual("http://localhost:3000/confirmation", confUrl);
+            Assert.AreEqual("https://vitamis.hekolcu.com/confirmation", confUrl);
             Assert.AreEqual("Thank you for your registration", thankTxt);
             Assert.AreEqual("We will keep you posted when the confirmation is done in 48 hours", confTxt);
             registerPage.getBackBtn().Click();

@@ -71,7 +71,7 @@ namespace frontendTest.pageObjects
         [FindsBy(How = How.XPath, Using = "(//h1[normalize-space()='Thank you for your registration'])[1]")]
         private IWebElement thanksTxt;
 
-        [FindsBy(How = How.XPath, Using = "(//p[@class='MuiTypography-root MuiTypography-body1 css-1pnmrwp-MuiTypography-root'])[1]")]
+        [FindsBy(How = How.XPath, Using = "//p")]
         private IWebElement confTxt;
 
         [FindsBy(How = How.XPath, Using = "(//a[normalize-space()='Already have an account? Sign in'])[1]")]
