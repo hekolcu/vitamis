@@ -43,6 +43,12 @@ export function GuestGuard({ children }: GuestGuardProps): React.JSX.Element | n
     // eslint-disable-next-line react-hooks/exhaustive-deps -- Expected
   }, [user, error, isLoading]);
 
+  React.useEffect(() => {
+    if (user && (user.gender === '' || user.dateOfBirth === '' || user.disease === '' || user.smoking === '' || user.sunExposure )) {
+      router.push('/dashboard/account');
+    }
+  }, [user, router]);
+
   if (isChecking) {
     return null;
   }

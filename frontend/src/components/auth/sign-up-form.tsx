@@ -235,18 +235,18 @@ export function SignUpForm(): React.JSX.Element {
               )}
             />
             <Controller
-            control={control}
-            name="document"
-            render={({ field: { ref, ...field } }) => (
-              <FormControl error={Boolean(errors.document)}>
-                <Button variant="contained" component="label">
-                  Upload Document
-                  <input {...field} type="file" hidden onChange={(e) => field.onChange(e.target.files[0])} />
-                </Button>
-                {errors.document ? <FormHelperText>{errors.document.message}</FormHelperText> : null}
-              </FormControl>
-            )}
-          />
+              control={control}
+              name="document"
+              render={({ field: { ref, ...field } }) => (
+                <FormControl error={Boolean(errors.document)}>
+                  <Button variant="contained" component="label">
+                    Upload Document
+                    <input {...field} type="file" hidden onChange={(e) => field.onChange(e.target.files[0])} />
+                  </Button>
+                  {errors.document ? <FormHelperText>{errors.document.message}</FormHelperText> : null}
+                </FormControl>
+              )}
+            />
             {errors.root ? <Alert color="error">{errors.root.message}</Alert> : null}
             <Button disabled={isPending} type="submit" color="warning" variant="contained">
               Sign up
