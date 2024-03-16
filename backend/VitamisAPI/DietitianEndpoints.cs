@@ -1,6 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using VitamisAPI.Data;
 
 namespace VitamisAPI
@@ -14,57 +17,49 @@ namespace VitamisAPI
             DietitianMapGroup
                 .MapGet("/details", async (VitamisDbContext db, HttpContext httpContext) =>
                 {
-                    var DietitianName = httpContext.User.FindFirst(ClaimTypes.Name)?.Value;
+                    var dietitians = await db.Dietitians
+                        .Select(d => new { d.Id, d.Name })
+                        .ToListAsync();
 
-                    if (string.IsNullOrEmpty(DietitianName))
-                    {
-                        return Results.Unauthorized();
-                    }
-
-                    var Dietitian = await db.Dietitians
-                        .Where(u => u.Name == DietitianName)
-                        .Select(u => new
-                        {
-                            u.Name
-                        })
-                        .FirstOrDefaultAsync();
-
-                    if (Dietitian == null)
-                    {
-                        return Results.NotFound("Dietitian not found.");
-                    }
-
-                    return Results.Ok(Dietitian);
+                    return Results.Ok(dietitians);
                 })
                 .RequireAuthorization();
 
             DietitianMapGroup
-                .MapPost("/details", async (VitamisDbContext db, HttpContext httpContext, DietitianUpdateModel updateModel) =>
+                .MapPost("/create", async (VitamisDbContext db, HttpContext httpContext, DietitianCreateModel createModel) =>
                 {
-                    var DietitianName = httpContext.User.FindFirst(ClaimTypes.Name)?.Value;
+                    var dietitian = new Dietitian { Name = createModel.Name };
 
-                    if (string.IsNullOrEmpty(DietitianName))
-                    {
-                        return Results.Unauthorized();
-                    }
+                    await db.Dietitians.AddAsync(dietitian);
+                    await db.SaveChangesAsync();
 
-                    var Dietitian = await db.Dietitians
-                        .Where(u => u.Name == DietitianName)
-                        .FirstOrDefaultAsync();
+                    return Results.Created($"/Dietitian/details/{dietitian.Id}", dietitian);
+                })
+                .RequireAuthorization();
 
-                    if (Dietitian == null)
+            DietitianMapGroup
+                .MapPut("/update/{id}", async (VitamisDbContext db, HttpContext httpContext, int id, DietitianUpdateModel updateModel) =>
+                {
+                    var dietitian = await db.Dietitians.FindAsync(id);
+
+                    if (dietitian == null)
                     {
                         return Results.NotFound("Dietitian not found.");
                     }
-                    
-                    Dietitian.Name = updateModel.Name;
 
-                    db.Dietitians.Update(Dietitian);
+                    dietitian.Name = updateModel.Name;
+
+                    db.Dietitians.Update(dietitian);
                     await db.SaveChangesAsync();
 
                     return Results.Ok("Dietitian details updated successfully.");
                 })
                 .RequireAuthorization();
+        }
+
+        public class DietitianCreateModel
+        {
+            public string Name { get; set; }
         }
 
         public class DietitianUpdateModel
