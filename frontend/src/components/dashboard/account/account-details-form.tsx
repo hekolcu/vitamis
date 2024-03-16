@@ -17,7 +17,8 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Unstable_Grid2';
 import { Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
-
+import { updateProfile } from '../../../lib/auth/auth-utils';
+import { useUser } from '@/hooks/use-user';
 
 // const states = [
 //   { value: 'alabama', label: 'Alabama' },
@@ -27,40 +28,59 @@ import Stack from '@mui/material/Stack';
 // ] as const;
 
 export function AccountDetailsForm(): React.JSX.Element {
+  const { user } = useUser();
 
   const [formValues, setFormValues] = React.useState({
-    height: '',
-    weight: '',
-    dob: '',
-    disease: '',
-    sunExposure: '',
-    smoking: '',
-    gender: '',
+    height: user?.height ? user.height.toString() : '',
+    weight: user?.weight ? user.weight.toString() : '',
+    dob: user?.dateOfBirth ? user.dateOfBirth.split('T')[0] : '',
+    disease: user?.disease ? user.disease : '',
+    sunExposure: user?.sunExposure ? user.sunExposure : '',
+    smoking: user?.smoking ? user.smoking ? 'Yes' : 'No' : '',
+    gender: user?.gender ? user.gender : '',
   });
 
   // Handle changes in form inputs
-  const handleChange = (prop) => (event) => {
-    setFormValues({ ...formValues, [prop]: event.target.value });
+  const handleChange = (prop: string) => (event: string) => {
+    setFormValues({ ...formValues, [prop]: event});
   };
 
   // Handle form submission
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     console.log(formValues);
-    // Here you would typically handle the submission e.g., send data to an API
+    const token = localStorage.getItem('custom-auth-token');
+    if (token === null) {
+      // Handle token not found
+      return;
+    }
+
+    updateProfile(token, {
+      gender: formValues.gender,
+      height: +formValues.height,
+      weight: +formValues.weight,
+      disease: formValues.disease,
+      sunExposure: formValues.sunExposure,
+      smoking: formValues.smoking === 'Yes' ? true : false,
+      dateOfBirth: formValues.dob,
+    }).then((response) => {
+      console.log(response);
+      return response;
+    }).catch((error) => {
+      console.error(error);
+      return false;
+    });
   };
 
   return (
     <form
-      onSubmit={(event) => {
-        event.preventDefault();
-      }}
+      onSubmit={handleSubmit}
     >
       <Card>
         <CardHeader subheader="The information can be edited" title="Profile" />
         {/* <Divider /> */}
         <CardContent>
-          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             {/* Height field */}
             <Grid xs={6}>
               <FormControl fullWidth required>
@@ -68,7 +88,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                 <OutlinedInput
                   id="height"
                   value={formValues.height}
-                  onChange={handleChange('height')}
+                  onChange={(e) => handleChange('height')(e.target.value)}
                   endAdornment={<InputAdornment position="end">cm</InputAdornment>}
                   label="Height"
                   type="number"
@@ -82,7 +102,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                 <OutlinedInput
                   id="weight"
                   value={formValues.weight}
-                  onChange={handleChange('weight')}
+                  onChange={(e) => handleChange('weight')(e.target.value)}
                   endAdornment={<InputAdornment position="end">kg</InputAdornment>}
                   label="Weight"
                   type="number"
@@ -97,7 +117,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   label="Date of Birth"
                   type="date"
                   value={formValues.dob}
-                  onChange={handleChange('dob')}
+                  onChange={(e) => handleChange('dob')(e.target.value)}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -113,7 +133,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   id="gender"
                   value={formValues.gender}
                   label="Gender"
-                  onChange={handleChange('gender')}
+                  onChange={(e) => handleChange('gender')(e.target.value)}
                 >
                   <MenuItem value={'Male'}>Male</MenuItem>
                   <MenuItem value={'Female'}>Female</MenuItem>
@@ -129,7 +149,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   id="sun-exposure"
                   value={formValues.sunExposure}
                   label="Sun Exposure"
-                  onChange={handleChange('sunExposure')}
+                  onChange={(e) => handleChange('sunExposure')(e.target.value)}
                 >
                   <MenuItem value={'Low'}>Low</MenuItem>
                   <MenuItem value={'Moderate'}>Moderate</MenuItem>
@@ -146,7 +166,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   id="smoking"
                   value={formValues.smoking}
                   label="Smoking"
-                  onChange={handleChange('smoking')}
+                  onChange={(e) => handleChange('smoking')(e.target.value)}
                 >
                   <MenuItem value={'Yes'}>Yes</MenuItem>
                   <MenuItem value={'No'}>No</MenuItem>
@@ -160,7 +180,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                 <OutlinedInput
                   id="disease"
                   value={formValues.disease}
-                  onChange={handleChange('disease')}
+                  onChange={(e)=> handleChange('disease')(e.target.value)}
                   label="Disease"
                 />
               </FormControl>

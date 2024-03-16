@@ -1,7 +1,7 @@
 'use client';
 
 import type { User } from '@/types/User';
-import { login, registerUser, getUserDetails, updateProfile } from './auth-utils';
+import { login, registerUser, getUserDetails } from './auth-utils';
 
 // const user = {
 //   id: 'USR-000',

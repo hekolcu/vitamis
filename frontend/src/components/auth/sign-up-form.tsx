@@ -241,9 +241,9 @@ export function SignUpForm(): React.JSX.Element {
                 <FormControl error={Boolean(errors.document)}>
                   <Button variant="contained" component="label">
                     Upload Document
-                    <input {...field} type="file" hidden onChange={(e) => field.onChange(e.target.files[0])} />
+                    {/* <input {...field} type="file" hidden onChange={(e) => field.onChange(e.target.files[0])} /> */}
                   </Button>
-                  {errors.document ? <FormHelperText>{errors.document.message}</FormHelperText> : null}
+                  {/* {errors.document ? <FormHelperText>{errors.document.message}</FormHelperText> : null} */}
                 </FormControl>
               )}
             />
