@@ -19,12 +19,12 @@ import { Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
 
 
-const states = [
-  { value: 'alabama', label: 'Alabama' },
-  { value: 'new-york', label: 'New York' },
-  { value: 'san-francisco', label: 'San Francisco' },
-  { value: 'los-angeles', label: 'Los Angeles' },
-] as const;
+// const states = [
+//   { value: 'alabama', label: 'Alabama' },
+//   { value: 'new-york', label: 'New York' },
+//   { value: 'san-francisco', label: 'San Francisco' },
+//   { value: 'los-angeles', label: 'Los Angeles' },
+// ] as const;
 
 export function AccountDetailsForm(): React.JSX.Element {
 
@@ -60,9 +60,9 @@ export function AccountDetailsForm(): React.JSX.Element {
         <CardHeader subheader="The information can be edited" title="Profile" />
         {/* <Divider /> */}
         <CardContent>
-          <Grid container spacing={3}>
+          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             {/* Height field */}
-            <Grid md={6} xs={12}>
+            <Grid xs={6}>
               <FormControl fullWidth required>
                 <InputLabel htmlFor="height">Height</InputLabel>
                 <OutlinedInput
@@ -76,7 +76,7 @@ export function AccountDetailsForm(): React.JSX.Element {
               </FormControl>
             </Grid>
             {/* Weight field */}
-            <Grid md={6} xs={12}>
+            <Grid xs={6}>
               <FormControl fullWidth required>
                 <InputLabel htmlFor="weight">Weight</InputLabel>
                 <OutlinedInput
@@ -90,7 +90,7 @@ export function AccountDetailsForm(): React.JSX.Element {
               </FormControl>
             </Grid>
             {/* Date of Birth field */}
-            <Grid md={6} xs={12}>
+            <Grid xs={6}>
               <FormControl fullWidth required>
                 <TextField
                   id="dob"
@@ -104,21 +104,25 @@ export function AccountDetailsForm(): React.JSX.Element {
                 />
               </FormControl>
             </Grid>
-            {/* Disease field */}
-            <Grid md={6} xs={12}>
+            {/* Gender field */}
+            <Grid xs={6}>
               <FormControl fullWidth required>
-                <InputLabel htmlFor="disease">Disease</InputLabel>
-                <OutlinedInput
-                  id="disease"
-                  value={formValues.disease}
-                  onChange={handleChange('disease')}
-                  label="Disease"
-                />
+                <InputLabel id="gender-label">Gender</InputLabel>
+                <Select
+                  labelId="gender-label"
+                  id="gender"
+                  value={formValues.gender}
+                  label="Gender"
+                  onChange={handleChange('gender')}
+                >
+                  <MenuItem value={'Male'}>Male</MenuItem>
+                  <MenuItem value={'Female'}>Female</MenuItem>
+                </Select>
               </FormControl>
             </Grid>
             {/* Sun exposure field */}
-            <Grid md={6} xs={12}>
-              <FormControl fullWidth required>
+            <Grid xs={6}>
+              <FormControl fullWidth>
                 <InputLabel id="sun-exposure-label">Sun Exposure</InputLabel>
                 <Select
                   labelId="sun-exposure-label"
@@ -134,8 +138,8 @@ export function AccountDetailsForm(): React.JSX.Element {
               </FormControl>
             </Grid>
             {/* Smoking field */}
-            <Grid md={6} xs={12}>
-              <FormControl fullWidth required>
+            <Grid xs={6}>
+              <FormControl fullWidth>
                 <InputLabel id="smoking-label">Smoking</InputLabel>
                 <Select
                   labelId="smoking-label"
@@ -149,20 +153,16 @@ export function AccountDetailsForm(): React.JSX.Element {
                 </Select>
               </FormControl>
             </Grid>
-            {/* Gender field */}
-            <Grid md={6} xs={12}>
-              <FormControl fullWidth required>
-                <InputLabel id="gender-label">Gender</InputLabel>
-                <Select
-                  labelId="gender-label"
-                  id="gender"
-                  value={formValues.gender}
-                  label="Gender"
-                  onChange={handleChange('gender')}
-                >
-                  <MenuItem value={'Male'}>Male</MenuItem>
-                  <MenuItem value={'Female'}>Female</MenuItem>
-                </Select>
+            {/* Disease field */}
+            <Grid md={12} xs={12}>
+              <FormControl fullWidth>
+                <InputLabel htmlFor="disease">Disease</InputLabel>
+                <OutlinedInput
+                  id="disease"
+                  value={formValues.disease}
+                  onChange={handleChange('disease')}
+                  label="Disease"
+                />
               </FormControl>
             </Grid>
           </Grid>

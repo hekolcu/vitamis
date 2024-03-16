@@ -14,7 +14,7 @@ export default function Page(): React.JSX.Element {
     <div>
       <Typography variant="h4">Settings</Typography>
 
-      <Stack direction="column" justifyContent="center" alignItems="center" spacing={2}>
+      <Stack direction="column" justifyContent="center" alignItems="center" spacing={3}>
 
         {/* <Notifications /> */}
         <UpdatePasswordForm />
