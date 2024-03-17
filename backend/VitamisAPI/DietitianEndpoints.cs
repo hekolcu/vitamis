@@ -22,8 +22,7 @@ namespace VitamisAPI
                         .ToListAsync();
 
                     return Results.Ok(dietitians);
-                })
-                .RequireAuthorization();
+                });
 
             DietitianMapGroup
                 .MapPost("/create", async (VitamisDbContext db, HttpContext httpContext, DietitianCreateModel createModel) =>
@@ -34,8 +33,8 @@ namespace VitamisAPI
                     await db.SaveChangesAsync();
 
                     return Results.Created($"/Dietitian/details/{dietitian.Id}", dietitian);
-                })
-                .RequireAuthorization();
+                });
+
 
             DietitianMapGroup
                 .MapPut("/update/{id}", async (VitamisDbContext db, HttpContext httpContext, int id, DietitianUpdateModel updateModel) =>
@@ -53,8 +52,7 @@ namespace VitamisAPI
                     await db.SaveChangesAsync();
 
                     return Results.Ok("Dietitian details updated successfully.");
-                })
-                .RequireAuthorization();
+                });
         }
 
         public class DietitianCreateModel
