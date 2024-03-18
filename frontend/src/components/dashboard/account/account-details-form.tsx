@@ -20,6 +20,7 @@ import Stack from '@mui/material/Stack';
 import { updateProfile } from '../../../lib/auth/auth-utils';
 import { useUser } from '@/hooks/use-user';
 import { logger } from '@/lib/default-logger';
+import { Snackbar, Alert } from '@mui/material';
 
 // const states = [
 //   { value: 'alabama', label: 'Alabama' },
@@ -41,9 +42,15 @@ export function AccountDetailsForm(): React.JSX.Element {
     gender: user?.gender ? user.gender : '',
   });
 
+  const [snackbarOpen, setSnackbarOpen] = React.useState(false);
+
   // Handle changes in form inputs
   const handleChange = (prop: string) => (event: string) => {
-    setFormValues({ ...formValues, [prop]: event});
+    setFormValues({ ...formValues, [prop]: event });
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackbarOpen(false);
   };
 
   // Handle form submission
@@ -64,6 +71,7 @@ export function AccountDetailsForm(): React.JSX.Element {
       smoking: formValues.smoking === 'Yes',
       dateOfBirth: formValues.dob,
     }).then((response) => {
+      setSnackbarOpen(true); 
       logger.debug(response);
       return response;
     }).catch((error) => {
@@ -88,7 +96,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                 <OutlinedInput
                   id="height"
                   value={formValues.height}
-                  onChange={(e) => {handleChange('height')(e.target.value)}}
+                  onChange={(e) => { handleChange('height')(e.target.value) }}
                   endAdornment={<InputAdornment position="end">cm</InputAdornment>}
                   label="Height"
                   type="number"
@@ -102,7 +110,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                 <OutlinedInput
                   id="weight"
                   value={formValues.weight}
-                  onChange={(e) => {handleChange('weight')(e.target.value)}}
+                  onChange={(e) => { handleChange('weight')(e.target.value) }}
                   endAdornment={<InputAdornment position="end">kg</InputAdornment>}
                   label="Weight"
                   type="number"
@@ -117,7 +125,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   label="Date of Birth"
                   type="date"
                   value={formValues.dob}
-                  onChange={(e) => {handleChange('dob')(e.target.value)}}
+                  onChange={(e) => { handleChange('dob')(e.target.value) }}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -133,7 +141,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   id="gender"
                   value={formValues.gender}
                   label="Gender"
-                  onChange={(e) => {handleChange('gender')(e.target.value)}}
+                  onChange={(e) => { handleChange('gender')(e.target.value) }}
                 >
                   <MenuItem value='Male'>Male</MenuItem>
                   <MenuItem value='Female'>Female</MenuItem>
@@ -149,7 +157,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   id="sun-exposure"
                   value={formValues.sunExposure}
                   label="Sun Exposure"
-                  onChange={(e) => {handleChange('sunExposure')(e.target.value)}}
+                  onChange={(e) => { handleChange('sunExposure')(e.target.value) }}
                 >
                   <MenuItem value='Low'>Low</MenuItem>
                   <MenuItem value='Moderate'>Moderate</MenuItem>
@@ -166,7 +174,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   id="smoking"
                   value={formValues.smoking}
                   label="Smoking"
-                  onChange={(e) => {handleChange('smoking')(e.target.value)}}
+                  onChange={(e) => { handleChange('smoking')(e.target.value) }}
                 >
                   <MenuItem value='Yes'>Yes</MenuItem>
                   <MenuItem value='No'>No</MenuItem>
@@ -180,7 +188,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                 <OutlinedInput
                   id="disease"
                   value={formValues.disease}
-                  onChange={(e)=> {handleChange('disease')(e.target.value)}}
+                  onChange={(e) => { handleChange('disease')(e.target.value) }}
                   label="Disease"
                 />
               </FormControl>
@@ -200,6 +208,16 @@ export function AccountDetailsForm(): React.JSX.Element {
           </Stack>
         </CardActions>
       </Card>
+      <Snackbar open={snackbarOpen} autoHideDuration={4000} onClose={handleCloseSnackbar} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity="success"
+          variant="filled"
+          sx={{ bgcolor: 'green', color: 'white'}}
+        >
+          Saved Successfully!
+        </Alert>
+      </Snackbar>
     </form>
   );
 }
