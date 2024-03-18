@@ -1,9 +1,32 @@
-import {User} from "../../types/User";
+import { User } from "../../types/User";
 // import {VitaminRecommendation} from "../types/VitaminRecommendation";
 
 const api = 'https://api.vitamis.hekolcu.com/';
 
-async function registerUser(registrationData: any): Promise<boolean> {
+interface RegistrationData {
+    fullname: string;
+    email: string;
+    password: string;
+}
+
+interface LoginData {
+    email: string;
+    password: string;
+}
+
+interface ResponseBody {
+    fullname: string;
+    email: string;
+    gender?: string;
+    dateOfBirth?: string;
+    height?: number;
+    weight?: number;
+    disease?: string;
+    smoking?: boolean;
+    sunExposure?: string;
+  }
+
+async function registerUser(registrationData: RegistrationData): Promise<boolean> {
     const endpoint = api + 'auth/register';
     try {
         const response = await fetch(endpoint, {
@@ -21,7 +44,7 @@ async function registerUser(registrationData: any): Promise<boolean> {
     }
 }
 
-async  function login(loginData: any): Promise<{token: string | null}> {
+async function login(loginData: LoginData): Promise<{ token: string | null }> {
     const endpoint = api + "auth/login"
 
     try {
@@ -34,18 +57,18 @@ async  function login(loginData: any): Promise<{token: string | null}> {
         });
 
         if (response.ok) {
-            const body = await  response.json();
-            console.log(body);
+            const body: {token: string} = await response.json() as {token: string};
+            // console.log(body);
             return body
         } else {
-            return {token: null};
+            return { token: null };
         }
     } catch (error) {
-        return {token: null};
+        return { token: null };
     }
 }
 
-async  function getUserDetails(token: string): Promise<User | null> {
+async function getUserDetails(token: string): Promise<User | null> {
     const endpoint = api + "user/details"
 
     try {
@@ -58,8 +81,8 @@ async  function getUserDetails(token: string): Promise<User | null> {
         });
 
         if (response.ok) {
-            const responseBody = await response.json();
-            
+            const responseBody: ResponseBody = await response.json() as ResponseBody;
+
             // Construct a User object with all necessary properties, including defaults for id and avatar
             const userDetails: User = {
                 id: 'USR-000', // Default id
@@ -71,10 +94,10 @@ async  function getUserDetails(token: string): Promise<User | null> {
                 height: responseBody.height ?? null,
                 weight: responseBody.weight ?? null,
                 disease: responseBody.disease ?? null,
-                smoking: responseBody.smoking ?? null,
+                smoking: responseBody.smoking ? 'Yes' : 'No',
                 sunExposure: responseBody.sunExposure ?? null,
             };
-            
+
             return userDetails;
         } else {
             return null;
@@ -138,4 +161,4 @@ async function updateProfile(token: string, user: {
 // }
 
 
-export {login , registerUser, getUserDetails, updateProfile};
+export { login, registerUser, getUserDetails, updateProfile };

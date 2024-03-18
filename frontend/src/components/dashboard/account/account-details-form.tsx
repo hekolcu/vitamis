@@ -6,7 +6,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-import Divider from '@mui/material/Divider';
+// import Divider from '@mui/material/Divider';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
@@ -19,6 +19,7 @@ import { Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { updateProfile } from '../../../lib/auth/auth-utils';
 import { useUser } from '@/hooks/use-user';
+import { logger } from '@/lib/default-logger';
 
 // const states = [
 //   { value: 'alabama', label: 'Alabama' },
@@ -46,9 +47,8 @@ export function AccountDetailsForm(): React.JSX.Element {
   };
 
   // Handle form submission
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log(formValues);
     const token = localStorage.getItem('custom-auth-token');
     if (token === null) {
       // Handle token not found
@@ -57,17 +57,17 @@ export function AccountDetailsForm(): React.JSX.Element {
 
     updateProfile(token, {
       gender: formValues.gender,
-      height: +formValues.height,
-      weight: +formValues.weight,
+      height: Number(formValues.height),
+      weight: Number(formValues.weight),
       disease: formValues.disease,
       sunExposure: formValues.sunExposure,
-      smoking: formValues.smoking === 'Yes' ? true : false,
+      smoking: formValues.smoking === 'Yes',
       dateOfBirth: formValues.dob,
     }).then((response) => {
-      console.log(response);
+      logger.debug(response);
       return response;
     }).catch((error) => {
-      console.error(error);
+      logger.error(error);
       return false;
     });
   };
@@ -88,7 +88,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                 <OutlinedInput
                   id="height"
                   value={formValues.height}
-                  onChange={(e) => handleChange('height')(e.target.value)}
+                  onChange={(e) => {handleChange('height')(e.target.value)}}
                   endAdornment={<InputAdornment position="end">cm</InputAdornment>}
                   label="Height"
                   type="number"
@@ -102,7 +102,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                 <OutlinedInput
                   id="weight"
                   value={formValues.weight}
-                  onChange={(e) => handleChange('weight')(e.target.value)}
+                  onChange={(e) => {handleChange('weight')(e.target.value)}}
                   endAdornment={<InputAdornment position="end">kg</InputAdornment>}
                   label="Weight"
                   type="number"
@@ -117,7 +117,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   label="Date of Birth"
                   type="date"
                   value={formValues.dob}
-                  onChange={(e) => handleChange('dob')(e.target.value)}
+                  onChange={(e) => {handleChange('dob')(e.target.value)}}
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -133,10 +133,10 @@ export function AccountDetailsForm(): React.JSX.Element {
                   id="gender"
                   value={formValues.gender}
                   label="Gender"
-                  onChange={(e) => handleChange('gender')(e.target.value)}
+                  onChange={(e) => {handleChange('gender')(e.target.value)}}
                 >
-                  <MenuItem value={'Male'}>Male</MenuItem>
-                  <MenuItem value={'Female'}>Female</MenuItem>
+                  <MenuItem value='Male'>Male</MenuItem>
+                  <MenuItem value='Female'>Female</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -149,11 +149,11 @@ export function AccountDetailsForm(): React.JSX.Element {
                   id="sun-exposure"
                   value={formValues.sunExposure}
                   label="Sun Exposure"
-                  onChange={(e) => handleChange('sunExposure')(e.target.value)}
+                  onChange={(e) => {handleChange('sunExposure')(e.target.value)}}
                 >
-                  <MenuItem value={'Low'}>Low</MenuItem>
-                  <MenuItem value={'Moderate'}>Moderate</MenuItem>
-                  <MenuItem value={'High'}>High</MenuItem>
+                  <MenuItem value='Low'>Low</MenuItem>
+                  <MenuItem value='Moderate'>Moderate</MenuItem>
+                  <MenuItem value='High'>High</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -166,10 +166,10 @@ export function AccountDetailsForm(): React.JSX.Element {
                   id="smoking"
                   value={formValues.smoking}
                   label="Smoking"
-                  onChange={(e) => handleChange('smoking')(e.target.value)}
+                  onChange={(e) => {handleChange('smoking')(e.target.value)}}
                 >
-                  <MenuItem value={'Yes'}>Yes</MenuItem>
-                  <MenuItem value={'No'}>No</MenuItem>
+                  <MenuItem value='Yes'>Yes</MenuItem>
+                  <MenuItem value='No'>No</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -180,7 +180,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                 <OutlinedInput
                   id="disease"
                   value={formValues.disease}
-                  onChange={(e)=> handleChange('disease')(e.target.value)}
+                  onChange={(e)=> {handleChange('disease')(e.target.value)}}
                   label="Disease"
                 />
               </FormControl>

@@ -19,6 +19,7 @@ export function GuestGuard({ children }: GuestGuardProps): React.JSX.Element | n
 
   const checkPermissions = async (): Promise<void> => {
     if (isLoading) {
+      
       return;
     }
 
