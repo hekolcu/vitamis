@@ -14,7 +14,7 @@ interface LoginData {
     password: string;
 }
 
-interface ResponseBody {
+interface GetUserDetailResponseBody {
     fullname: string;
     email: string;
     gender?: string;
@@ -22,7 +22,7 @@ interface ResponseBody {
     height?: number;
     weight?: number;
     disease?: string;
-    smoking?: boolean;
+    smoking?: string;
     sunExposure?: string;
   }
 
@@ -81,7 +81,7 @@ async function getUserDetails(token: string): Promise<User | null> {
         });
 
         if (response.ok) {
-            const responseBody: ResponseBody = await response.json() as ResponseBody;
+            const responseBody: GetUserDetailResponseBody = await response.json() as GetUserDetailResponseBody;
 
             // Construct a User object with all necessary properties, including defaults for id and avatar
             const userDetails: User = {
@@ -94,7 +94,7 @@ async function getUserDetails(token: string): Promise<User | null> {
                 height: responseBody.height ?? null,
                 weight: responseBody.weight ?? null,
                 disease: responseBody.disease ?? null,
-                smoking: responseBody.smoking ? 'Yes' : 'No',
+                smoking: responseBody.smoking ?? null,
                 sunExposure: responseBody.sunExposure ?? null,
             };
 
@@ -114,7 +114,7 @@ async function updateProfile(token: string, user: {
     weight: number,// kg
     disease: string,
     sunExposure: string,// low, moderate, high
-    smoking: boolean
+    smoking: boolean,// Yes, No
 }): Promise<boolean> {
     const endpoint = api + "user/details"
 

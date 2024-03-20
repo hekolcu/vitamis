@@ -25,13 +25,17 @@ import { Snackbar, Alert } from '@mui/material';
 export function AccountDetailsForm(): React.JSX.Element {
   const { user } = useUser();
 
+  React.useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   const [formValues, setFormValues] = React.useState({
     height: user?.height ? user.height.toString() : '',
     weight: user?.weight ? user.weight.toString() : '',
     dob: user?.dateOfBirth ? user.dateOfBirth.split('T')[0] : '',
     disease: user?.disease ? user.disease : '',
     sunExposure: user?.sunExposure ? user.sunExposure : '',
-    smoking: user?.smoking ? user.smoking ? 'Yes' : 'No' : '',
+    smoking: user?.smoking ?? '',
     gender: user?.gender ? user.gender : '',
   });
 
