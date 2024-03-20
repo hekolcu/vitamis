@@ -51,8 +51,11 @@ export function SideNav(): React.JSX.Element {
       }}
     >
       <Stack spacing={2} sx={{ p: 3 }}>
-        <Box component={RouterLink} href={paths.home} sx={{ display: 'inline-flex' }}>
+        <Box component={RouterLink} href={paths.home} sx={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
           <Logo color="light" height={32} width={50} />
+          <Typography variant="h6" sx={{ color: '#fb9c0c', marginLeft: 1 }}>
+            VITAMIS
+          </Typography>
         </Box>
         {/* <Box
           sx={{
@@ -143,11 +146,11 @@ function NavItem({ disabled, external, href, icon, matcher, pathname, title }: N
       <Box
         {...(href
           ? {
-              component: external ? 'a' : RouterLink,
-              href,
-              target: external ? '_blank' : undefined,
-              rel: external ? 'noreferrer' : undefined,
-            }
+            component: external ? 'a' : RouterLink,
+            href,
+            target: external ? '_blank' : undefined,
+            rel: external ? 'noreferrer' : undefined,
+          }
           : { role: 'button' })}
         sx={{
           alignItems: 'center',
