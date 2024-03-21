@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using VitamisAPI.Data;
@@ -27,13 +29,18 @@ namespace VitamisAPI
             DietitianMapGroup
                 .MapPost("/create", async (VitamisDbContext db, HttpContext httpContext, DietitianCreateModel createModel) =>
                 {
-                    var dietitian = new Dietitian { Name = createModel.Name };
+                    var dietitian = new Dietitian { 
+                        Name = createModel.Name, 
+                    };
 
                     await db.Dietitians.AddAsync(dietitian);
                     await db.SaveChangesAsync();
 
                     return Results.Created($"/Dietitian/details/{dietitian.Id}", dietitian);
                 });
+
+           
+
 
 
             DietitianMapGroup
@@ -53,11 +60,26 @@ namespace VitamisAPI
 
                     return Results.Ok("Dietitian details updated successfully.");
                 });
+
+            DietitianMapGroup.MapPost("/upload_DietitianFile", async (IFormFile file) =>
+            {
+                if (file.ContentType == "application/pdf")
+                {
+                    // Do something with the file
+                    using var stream = File.OpenWrite(file.FileName);
+                    await file.CopyToAsync(stream);
+                    return Results.Ok(file.FileName);
+                }
+                else
+                    return Results.BadRequest("File must be a PDF.");
+                
+            }).DisableAntiforgery();
         }
 
         public class DietitianCreateModel
         {
             public string Name { get; set; }
+
         }
 
         public class DietitianUpdateModel
