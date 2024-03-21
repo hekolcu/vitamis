@@ -66,7 +66,8 @@ namespace VitamisAPI
                 if (file.ContentType == "application/pdf")
                 {
                     // Do something with the file
-                    using var stream = File.OpenWrite(file.FileName);
+                    var filePath = Path.Combine("DietitianDocuments", file.FileName);
+                    using var stream = File.OpenWrite(filePath);
                     await file.CopyToAsync(stream);
                     return Results.Ok(file.FileName);
                 }

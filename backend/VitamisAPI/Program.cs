@@ -125,6 +125,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/health", () => Results.Json(new { Message="healthy" }));
 
+
 app.MapAuthEndpoints(configuration, jwtKey);
 app.MapUserEndpoints();
 app.MapDietitianEndpoints();
