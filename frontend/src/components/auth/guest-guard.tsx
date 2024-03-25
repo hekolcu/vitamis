@@ -45,7 +45,7 @@ export function GuestGuard({ children }: GuestGuardProps): React.JSX.Element | n
   }, [user, error, isLoading]);
 
   React.useEffect(() => {
-    if (user && (user.gender === '' || user.dateOfBirth === '' || user.disease === '' || user.smoking === '' || user.sunExposure )) {
+    if (user && (user.gender === '' || user.dateOfBirth === '' )) {
       router.push('/dashboard/account');
     }
   }, [user, router]);
