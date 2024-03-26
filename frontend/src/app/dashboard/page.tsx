@@ -3,14 +3,12 @@ import type { Metadata } from 'next';
 import Grid from '@mui/material/Unstable_Grid2';
 import dayjs from 'dayjs';
 import { config } from '@/config';
-// import { Budget } from '@/components/dashboard/overview/budget';
 import { LatestOrders } from '@/components/dashboard/overview/latest-orders';
 import VitaminRefTable from '@/components/dashboard/overview/vitamin-ref-table';
 import { Sales } from '@/components/dashboard/overview/sales';
-// import { TasksProgress } from '@/components/dashboard/overview/tasks-progress';
-// import { TotalCustomers } from '@/components/dashboard/overview/total-customers';
-// import { TotalProfit } from '@/components/dashboard/overview/total-profit';
 import { Traffic } from '@/components/dashboard/overview/traffic';
+import { VitaminGaugeChart } from '@/components/dashboard/overview/vitamin-gauge-chart';
+import { Box, Typography } from '@mui/material';
 
 export const metadata = { title: `Overview | Dashboard | ${config.site.name}` } satisfies Metadata;
 
@@ -18,20 +16,48 @@ export default function Page(): React.JSX.Element {
 
   return (
     <Grid container spacing={3}>
-      <Grid lg={3} sm={6} xs={12}>
-        {/* <Budget diff={12} trend="up" sx={{ height: '100%' }} value="$24k" /> */}
-      </Grid>
-      <Grid lg={3} sm={6} xs={12}>
-        {/* <TotalCustomers diff={16} trend="down" sx={{ height: '100%' }} value="1.6k" /> */}
-      </Grid>
-      <Grid lg={3} sm={6} xs={12}>
-        {/* <TasksProgress sx={{ height: '100%' }} value={75.5} /> */}
+      <Typography variant="h6" sx={{ mb: 3 }}>Daily Intake</Typography>
 
-      </Grid>
-      <Grid lg={3} sm={6} xs={12}>
-        {/* <TotalProfit sx={{ height: '100%' }} value="$15k" /> */}
-
-      </Grid>
+      {/* Wrap the Gauge Chart components in a Box for horizontal scrolling */}
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'nowrap',
+          overflowX: 'scroll',
+          width: '100%',
+          mb: 3,
+          '& > div': {
+            flex: '0 0 auto', // Prevent flex items from growing or shrinking
+            width: 'calc(20% - 16px)', // 20% of the container width minus grid spacing
+          },
+          '-webkit-overflow-scrolling': 'touch', // Smooth scrolling on iOS devices
+          scrollbarWidth: 'none',  // Hide scrollbar for Firefox
+          '&::-webkit-scrollbar': {
+            display: 'none',  // Hide scrollbar for Chrome, Safari and Opera
+          },
+        }}
+      >
+        {Array.from({ length: 8 }).map((_, index) => (
+          <Grid key={index} xs={12} lg={3}>
+            <VitaminGaugeChart />
+          </Grid>
+        ))}
+        {/* <Grid lg={3} sm={6} xs={12}>
+          <VitaminGaugeChart />
+        </Grid>
+        <Grid lg={3} sm={6} xs={12}>
+          <VitaminGaugeChart />
+        </Grid>
+        <Grid lg={3} sm={6} xs={12}>
+          <VitaminGaugeChart />
+        </Grid>
+        <Grid lg={3} sm={6} xs={12}>
+          <VitaminGaugeChart />
+        </Grid>
+        <Grid lg={3} sm={6} xs={12}>
+          <VitaminGaugeChart />
+        </Grid> */}
+      </Box>
       <Grid lg={8} xs={12}>
         <Sales
           chartSeries={[
@@ -45,7 +71,7 @@ export default function Page(): React.JSX.Element {
         <Traffic chartSeries={[16, 22, 62]} labels={['Vegetable', 'Fruit', 'Meal']} sx={{ height: '100%' }} />
       </Grid>
       <Grid lg={6} xs={12}>
-        <VitaminRefTable/>
+        <VitaminRefTable />
       </Grid>
       <Grid lg={6} xs={12}>
         <LatestOrders
