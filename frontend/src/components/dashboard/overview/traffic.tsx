@@ -13,7 +13,6 @@ import { Carrot as CarrotIcon } from '@phosphor-icons/react/dist/ssr/Carrot';
 import {OrangeSlice as OrangeSliceIcon} from '@phosphor-icons/react/dist/ssr/OrangeSlice';
 import {CookingPot as CookingPotIcon} from '@phosphor-icons/react/dist/ssr/CookingPot';
 import type { ApexOptions } from 'apexcharts';
-
 import { Chart } from '@/components/core/chart';
 
 const iconMapping = { Vegetable: CarrotIcon, Fruit: OrangeSliceIcon, Meal: CookingPotIcon } as Record<string, Icon>;
