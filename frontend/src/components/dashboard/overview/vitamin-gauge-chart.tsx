@@ -2,20 +2,24 @@
 
 import React, { useRef } from 'react';
 import ApexCharts, { ApexOptions } from 'apexcharts';
-import { Card, CardHeader, CardContent, Stack, useTheme } from '@mui/material';
+import { Card, CardHeader, CardContent, Stack, useTheme, Typography } from '@mui/material';
 import { Chart } from '@/components/core/chart';
 // import { margin } from '@mui/system';
 import ReactApexChart from 'react-apexcharts';
 
-export function VitaminGaugeChart(): React.JSX.Element {
+interface VitaminGaugeChartProps {
+    name: string;
+    series: number;
+}
+
+export function VitaminGaugeChart({ name, series }: VitaminGaugeChartProps): React.JSX.Element {
     const chartRef = useRef(null);
 
     const chartOptions = {
         chart: {
-            height: 280,
             type: "radialBar",
         },
-        series: [65],
+        series: [series],
         colors: ["#ff8400"],
         plotOptions: {
             radialBar: {
@@ -31,7 +35,7 @@ export function VitaminGaugeChart(): React.JSX.Element {
                         show: false,
                     },
                     value: {
-                        fontSize: "30px",
+                        fontSize: "15px",
                         show: true
                     }
                 }
@@ -53,18 +57,31 @@ export function VitaminGaugeChart(): React.JSX.Element {
     };
 
     return (
-        // <Card sx={{}}>
-        //     <CardHeader title="Daily Intakes" />
-        //     <CardContent sx={{ padding: '20px'}}>
+        // <Card sx={{
+        //     boxShadow: 'none', // Removes any shadow
+        //     margin: 0,
+        //     borderRadius: 0, // Removes border radius if you want sharp corners
+        //     '&:before': { // Removes pseudo-elements that might cause a shadow
+        //         display: 'none',
+        //     }
+        // }}>
+        //     <CardContent >
         //         {/* <Chart height="100%" options={chartOptions} series={[10]} type="donut" width="100%" /> */}
-        //         <div id="chart2">
-        //             <ReactApexChart options={chartOptions} series={chartOptions.series} type="radialBar" height={280} />
-        //         </div>
+        //         <ReactApexChart options={chartOptions} series={chartOptions.series} type="radialBar" />
+        //         <Typography variant="body2" align="center" sx={{ mt: 1 }}>Vitamin A</Typography>
         //     </CardContent>
         // </Card>
-
-        <div id="chart2">
-            <ReactApexChart options={chartOptions} series={chartOptions.series} type="radialBar" height={280} />
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            alignItems: 'center', // This will center your chart and text horizontally
+            justifyContent: 'center', // This will center your chart and text vertically
+            padding: '18px', // You can adjust padding as needed
+            boxShadow: 'none', // Ensures no shadow
+        }}>
+            <ReactApexChart options={chartOptions} series={chartOptions.series} type="radialBar" />
+            <Typography variant="body2" align="center" sx={{ mt: 1 }}>{name}</Typography>
         </div>
     );
 };

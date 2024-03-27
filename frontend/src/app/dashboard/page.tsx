@@ -13,22 +13,34 @@ import { Box, Typography } from '@mui/material';
 export const metadata = { title: `Overview | Dashboard | ${config.site.name}` } satisfies Metadata;
 
 export default function Page(): React.JSX.Element {
-
+  const vitaminValues = [
+    { name: 'Vitamin A', value: 15 },
+    { name: 'Vitamin B6', value: 75 },
+    { name: 'Vitamin E', value: 55 },
+    { name: 'Vitamin K', value: 85 },
+    { name: 'Vitamin B12', value: 95 },
+    { name: 'Vitamin C', value: 25 },
+    { name: 'Vitamin D', value: 100 },
+    { name: 'Vitamin B', value: 75 },
+  ];
   return (
     <Grid container spacing={3}>
       <Typography variant="h6" sx={{ mb: 3 }}>Daily Intake</Typography>
-
       {/* Wrap the Gauge Chart components in a Box for horizontal scrolling */}
       <Box
         sx={{
           display: 'flex',
+          flexDirection: 'row',
           flexWrap: 'nowrap',
           overflowX: 'scroll',
+          overflowY: 'hidden', // Prevent vertical scrolling
           width: '100%',
           mb: 3,
+          p: 0,
           '& > div': {
             flex: '0 0 auto', // Prevent flex items from growing or shrinking
-            width: 'calc(20% - 16px)', // 20% of the container width minus grid spacing
+            padding: 0, // Add padding to each item
+            // width: 'calc(20% - 16px)', // 20% of the container width minus grid spacing
           },
           '-webkit-overflow-scrolling': 'touch', // Smooth scrolling on iOS devices
           scrollbarWidth: 'none',  // Hide scrollbar for Firefox
@@ -37,26 +49,11 @@ export default function Page(): React.JSX.Element {
           },
         }}
       >
-        {Array.from({ length: 8 }).map((_, index) => (
-          <Grid key={index} xs={12} lg={3}>
-            <VitaminGaugeChart />
+        {vitaminValues.map((value, index) => (
+          <Grid key={index} xs={6} sm={4} lg={3} sx={{ padding: 0, margin: -3 }}>
+            <VitaminGaugeChart name={value.name} series={value.value} />
           </Grid>
         ))}
-        {/* <Grid lg={3} sm={6} xs={12}>
-          <VitaminGaugeChart />
-        </Grid>
-        <Grid lg={3} sm={6} xs={12}>
-          <VitaminGaugeChart />
-        </Grid>
-        <Grid lg={3} sm={6} xs={12}>
-          <VitaminGaugeChart />
-        </Grid>
-        <Grid lg={3} sm={6} xs={12}>
-          <VitaminGaugeChart />
-        </Grid>
-        <Grid lg={3} sm={6} xs={12}>
-          <VitaminGaugeChart />
-        </Grid> */}
       </Box>
       <Grid lg={8} xs={12}>
         <Sales
