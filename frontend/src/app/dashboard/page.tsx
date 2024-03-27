@@ -25,7 +25,7 @@ export default function Page(): React.JSX.Element {
   ];
   return (
     <Grid container spacing={3}>
-      <Typography variant="h6" sx={{ mb: 3 }}>Daily Intake</Typography>
+      <Typography variant="h6" sx={{ mb: 3, pl: 4 }}>Daily Intake</Typography>
       {/* Wrap the Gauge Chart components in a Box for horizontal scrolling */}
       <Box
         sx={{
