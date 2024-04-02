@@ -6,19 +6,18 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-// import Divider from '@mui/material/Divider';
 import FormControl from '@mui/material/FormControl';
-import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Unstable_Grid2';
-import { Alert, Container, Dialog, DialogActions, DialogContent, DialogTitle, Snackbar, Typography, styled } from '@mui/material';
+import { Dialog, DialogActions, DialogContent, DialogTitle, Typography, styled } from '@mui/material';
 import Stack from '@mui/material/Stack';
-import { logger } from '@/lib/default-logger';
 import { FoodItem } from '@/types/FoodItem';
+import Divider from '@mui/material/Divider';
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -33,6 +32,8 @@ export function AddFoodForm(): React.JSX.Element {
 
     const [foodItem, setFoodItem] = React.useState<FoodItem>({
       name: '',
+      id: '',
+      group:'',
       vitamins: [{vitamin: '', unit: '', average:0, minimum: 0, maximum:0}]
     });
 
@@ -50,7 +51,7 @@ export function AddFoodForm(): React.JSX.Element {
       // Check if every field is filled
       const isAnyVitaminFilled = updatedVitamins.every(
       vitamin => vitamin.vitamin !== '' && vitamin.unit !== '' && vitamin.average !== 0 && vitamin.minimum !== 0 && vitamin.maximum !== 0
-      ) && foodItem.name !== '';
+      ) && foodItem.name !== '' && foodItem.group !== '';
       setIsVitaminFilled(isAnyVitaminFilled);
     };
     
@@ -80,7 +81,7 @@ export function AddFoodForm(): React.JSX.Element {
     })
   );
 
-  setFoodItem({ ...foodItem, name: '', vitamins: clearedVitamins });
+  //setFoodItem({ ...foodItem, name: '', group:'', vitamins: clearedVitamins });
 
   setIsVitaminFilled(false);
     
@@ -112,6 +113,32 @@ export function AddFoodForm(): React.JSX.Element {
                 />
               </FormControl>
             </Grid>
+            <Grid xs={12}>
+              <FormControl fullWidth>
+                <InputLabel htmlFor="name">Group Name</InputLabel>
+                <Select
+                  label="Group Name"
+                  id="groupname"
+                  value={foodItem.group}
+                  onChange={(e) => setFoodItem({ ...foodItem, group: e.target.value })}
+                >
+                  <MenuItem value="Süt ve süt ürünleri">Süt ve süt ürünleri</MenuItem>
+                  <MenuItem value="Yumurta ve yumurta ürünleri">Yumurta ve yumurta ürünleri</MenuItem>
+                  <MenuItem value="Et ve et ürünleri">Et ve et ürünleri</MenuItem>
+                  <MenuItem value="Balık ve su ürünleri">Balık ve su ürünleri</MenuItem>
+                  <MenuItem value="Sıvı ve katı yağlar">Sıvı ve katı yağlar</MenuItem>
+                  <MenuItem value="Tahıl ve tahıl ürünleri">Tahıl ve tahıl ürünleri</MenuItem>
+                  <MenuItem value="Yağlı tohumlar ve kuru baklagiller">Yağlı tohumlar ve kuru baklagiller</MenuItem>
+                  <MenuItem value="Sebze ve sebze ürünleri">Sebze ve sebze ürünleri</MenuItem>
+                  <MenuItem value="Meyve ve meyve ürünleri">Meyve ve meyve ürünleri</MenuItem>
+                  <MenuItem value="Şeker ve şekerli ürünler">Şeker ve şekerli ürünler</MenuItem>
+                  <MenuItem value="İçecekler">İçecekler</MenuItem>
+                  <MenuItem value="Muhtelif gıda">Muhtelif gıda</MenuItem>
+                  <MenuItem value="Geleneksel gıdalar">Geleneksel gıdalar</MenuItem>
+                  <MenuItem value="Özel beslenme amaçlı gıdalar">Özel beslenme amaçlı gıdalar</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
             {foodItem.vitamins.map((vitamin, index) => (
               <React.Fragment key={index}>
                 <Grid xs={12}>
@@ -132,13 +159,19 @@ export function AddFoodForm(): React.JSX.Element {
                           <MenuItem value="Vitamin B-3">Vitamin B-3</MenuItem>
                           <MenuItem value="Vitamin B-5">Vitamin B-5</MenuItem>
                           <MenuItem value="Vitamin B-6">Vitamin B-6</MenuItem>
+                          <MenuItem value="Vitamin B-6, toplam">Vitamin B-6, toplam</MenuItem>
                           <MenuItem value="Vitamin B-7">Vitamin B-7</MenuItem>
                           <MenuItem value="Vitamin B-9">Vitamin B-9</MenuItem>
                           <MenuItem value="Vitamin B-12">Vitamin B-12</MenuItem>
                           <MenuItem value="Vitamin C">Vitamin C</MenuItem>
                           <MenuItem value="Vitamin D">Vitamin D</MenuItem>
+                          <MenuItem value="Vitamin D, IU">Vitamin D, IU</MenuItem>
+                          <MenuItem value="Vitamin D-3">Vitamin D-3</MenuItem>
                           <MenuItem value="Vitamin E">Vitamin E</MenuItem>
+                          <MenuItem value="Vitamin E, IU">Vitamin E, IU</MenuItem>
                           <MenuItem value="Vitamin K">Vitamin K</MenuItem>
+                          <MenuItem value="Vitamin K-1">Vitamin K-1</MenuItem>
+                          <MenuItem value="Vitamin K-2">Vitamin K-2</MenuItem>
                           <MenuItem value="Vitamin P">Vitamin P</MenuItem>
 
                         </Select>
@@ -223,15 +256,19 @@ export function AddFoodForm(): React.JSX.Element {
         Food Item Submitted For Confirmation Successfully!
         </DialogTitle>
         <DialogContent dividers>
-    {foodItems.length > 0 && ( // Check if foodItems array is not empty
+    {foodItem !== null && (
       <React.Fragment>
         <Typography gutterBottom>
-          Food Name: {foodItems[0].name}
+          Food Name: {foodItem.name}<br/> Food Group: {foodItem.group}
         </Typography>
-        {foodItems[0].vitamins.map((vitamin, index) => (
-          <Typography key={index} gutterBottom>
+        <Divider/>
+        {foodItem.vitamins.map((vitamin, index) => (
+          <Grid key={index}>
+          <Typography gutterBottom>
             Vitamin: {vitamin.vitamin}<br/> Unit: {vitamin.unit}<br/> Average: {vitamin.average}<br/> Minimum: {vitamin.minimum}<br/> Maximum: {vitamin.maximum}
           </Typography>
+          <Divider/>
+          </Grid>
         ))}
       </React.Fragment>
     )}
