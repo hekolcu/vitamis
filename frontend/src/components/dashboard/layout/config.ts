@@ -7,6 +7,7 @@ export const navItems = [
   // { key: 'integrations', title: 'Integrations', href: paths.dashboard.integrations, icon: 'plugs-connected' },
   { key: 'settings', title: 'Settings', href: paths.dashboard.settings, icon: 'gear-six' },
   { key: 'account', title: 'Account', href: paths.dashboard.account, icon: 'user' },
-  {key: 'add-food', title: 'Add Food', href: paths.dashboard.add_food, icon: 'plus-square'}
+  {key: 'add-food', title: 'Add Food', href: paths.dashboard.add_food, icon: 'plus-square'},
+  {key: 'seatch-food', title: 'Search Food', href: paths.dashboard.search_food, icon: 'search'},
   // { key: 'error', title: 'Error', href: paths.errors.notFound, icon: 'x-square' },
 ] satisfies NavItemConfig[];

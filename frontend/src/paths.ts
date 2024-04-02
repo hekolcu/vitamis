@@ -8,6 +8,7 @@ export const paths = {
     // integrations: '/dashboard/integrations',
     settings: '/dashboard/settings',
     add_food: '/dashboard/add-food',
+    search_food: '/dashboard/search-food'
   },
   errors: { notFound: '/errors/not-found' },
 } as const;
