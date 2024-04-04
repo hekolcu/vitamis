@@ -64,5 +64,8 @@ namespace VitamisAPI.Data
         public SunExposure? SunExposure { get; set; }
 
         public bool? Smoking { get; set; }
+        
+
+
     }
 }
