@@ -88,7 +88,35 @@ public static class UserEndpoints
                 return Results.Ok("User details updated successfully.");
             })
             .RequireAuthorization();
+
+        userMapGroup
+                 .MapDelete("/delete", async (VitamisDbContext db, HttpContext httpContext) =>
+                 {
+                     var userEmail = httpContext.User.FindFirst(ClaimTypes.Email)?.Value;
+
+                     if (string.IsNullOrEmpty(userEmail))
+                     {
+                         return Results.Unauthorized();
+                     }
+
+                     var user = await db.Users
+                         .Where(u => u.Email == userEmail)
+                         .FirstOrDefaultAsync();
+
+                     if (user == null)
+                     {
+                         return Results.NotFound("User not found.");
+                     }
+
+                     db.Users.Remove(user);
+                     await db.SaveChangesAsync();
+
+                     return Results.Ok("User account deleted successfully.");
+                 })
+                 .RequireAuthorization();
     }
+}
+
 
     public class UserUpdateModel
     {
@@ -100,4 +128,4 @@ public static class UserEndpoints
         public string? SunExposure { get; set; }
         public bool? Smoking { get; set; }
     }
-}
+
