@@ -3,7 +3,7 @@ using System.Security.Claims;
 
 namespace VitamisAPI;
 
-public class NutritionTrackingEndpoints
+public static class NutritionTrackingEndpoints
 {
     public static void MapTrackingEndpoints(this WebApplication app)
     {
