@@ -129,5 +129,6 @@ app.MapAuthEndpoints(configuration, jwtKey);
 app.MapUserEndpoints();
 app.MapRecommendationEndpoints();
 app.MapFoodEndpoints();
+app.MapTrackingEndpoints();
 
 app.Run();

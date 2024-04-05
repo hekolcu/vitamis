@@ -1,3 +1,5 @@
+using VitamisAPI.Data.Tracking;
+
 namespace VitamisAPI.Data;
 
 using Microsoft.EntityFrameworkCore;
@@ -34,5 +36,5 @@ public class VitamisDbContext: DbContext
     public DbSet<Nutrient> Nutrients { get; set; }
     public DbSet<FoodNutrition> FoodNutritions { get; set; }
     public DbSet<FoodVitamin> FoodVitamins { get; set; }
-
+    public DbSet<FoodIntakeRecord> FoodIntakeRecords { get; set; }
 }
