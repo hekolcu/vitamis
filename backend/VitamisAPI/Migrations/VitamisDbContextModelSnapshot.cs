@@ -19,6 +19,24 @@ namespace VitamisAPI.Migrations
                 .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("VitamisAPI.Data.FileNames", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("IsUploaded")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DietitianFileNames");
+                });
+
             modelBuilder.Entity("VitamisAPI.Data.Food", b =>
                 {
                     b.Property<int>("FoodID")

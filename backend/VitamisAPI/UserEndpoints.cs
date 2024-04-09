@@ -10,7 +10,7 @@ public static class UserEndpoints
     public static void MapUserEndpoints(this WebApplication app)
     {
         var userMapGroup = app.MapGroup("/user");
-        
+
         userMapGroup
             .MapGet("/details", async (VitamisDbContext db, HttpContext httpContext) =>
             {
@@ -45,7 +45,7 @@ public static class UserEndpoints
                 return Results.Ok(user);
             })
             .RequireAuthorization();
-        
+
         userMapGroup
             .MapPost("/details", async (VitamisDbContext db, HttpContext httpContext, UserUpdateModel updateModel) =>
             {
@@ -66,12 +66,12 @@ public static class UserEndpoints
                 }
 
                 // Updating the user details
-                if(Enum.TryParse<Gender>(updateModel.Gender, true, out var genderEnum)) 
+                if (Enum.TryParse<Gender>(updateModel.Gender, true, out var genderEnum))
                 {
                     user.Gender = genderEnum;
                 }
 
-                if(Enum.TryParse<SunExposure>(updateModel.SunExposure, true, out var sunExposureEnum)) 
+                if (Enum.TryParse<SunExposure>(updateModel.SunExposure, true, out var sunExposureEnum))
                 {
                     user.SunExposure = sunExposureEnum;
                 }
@@ -90,33 +90,32 @@ public static class UserEndpoints
             .RequireAuthorization();
 
         userMapGroup
-                 .MapDelete("/delete", async (VitamisDbContext db, HttpContext httpContext) =>
-                 {
-                     var userEmail = httpContext.User.FindFirst(ClaimTypes.Email)?.Value;
+               .MapDelete("/delete", async (VitamisDbContext db, HttpContext httpContext) =>
+               {
+                   var userEmail = httpContext.User.FindFirst(ClaimTypes.Email)?.Value;
 
-                     if (string.IsNullOrEmpty(userEmail))
-                     {
-                         return Results.Unauthorized();
-                     }
+                   if (string.IsNullOrEmpty(userEmail))
+                   {
+                       return Results.Unauthorized();
+                   }
 
-                     var user = await db.Users
-                         .Where(u => u.Email == userEmail)
-                         .FirstOrDefaultAsync();
+                   var user = await db.Users
+                       .Where(u => u.Email == userEmail)
+                       .FirstOrDefaultAsync();
 
-                     if (user == null)
-                     {
-                         return Results.NotFound("User not found.");
-                     }
+                   if (user == null)
+                   {
+                       return Results.NotFound("User not found.");
+                   }
 
-                     db.Users.Remove(user);
-                     await db.SaveChangesAsync();
+                   db.Users.Remove(user);
+                   await db.SaveChangesAsync();
 
-                     return Results.Ok("User account deleted successfully.");
-                 })
-                 .RequireAuthorization();
+                   return Results.Ok("User account deleted successfully.");
+               })
+               .RequireAuthorization();
     }
 }
-
 
     public class UserUpdateModel
     {
@@ -128,4 +127,3 @@ public static class UserEndpoints
         public string? SunExposure { get; set; }
         public bool? Smoking { get; set; }
     }
-

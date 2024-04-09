@@ -25,21 +25,25 @@ namespace VitamisAPI
                     file.ContentType == "image/jpeg" ||
                     file.ContentType == "image/png")
                 {
-                   
+
                     var filePath = Path.Combine("DietitianDocuments", file.FileName);
                     using var stream = File.OpenWrite(filePath);
                     await file.CopyToAsync(stream);
 
-                   var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+                    var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
 
-                   var dietitian = await db.Dietitians
-                                            .Include(d => d.User)
-                                            .FirstOrDefaultAsync(d => d.Email == userEmail);
+                    var user = await db.Users.FirstOrDefaultAsync(d => d.Email == userEmail);
 
-                   if (dietitian != null && dietitian.User.UserType == UserType.Dietitian)
-                   {
-                        dietitian.DietitianFileName = file.FileName;
-                        dietitian.IsUploaded = true;
+                    if (user != null 
+                    /*&& user.UserType == UserType.Dietitian*/)
+                    {
+                        // Update the database with filename and IsUploaded property set to true
+                        var newFileEntry = new FileNames
+                        {
+                            FileName = file.FileName,
+                            IsUploaded = true
+                        };
+                        db.DietitianFileNames.Add(newFileEntry);
                         await db.SaveChangesAsync();
                     }
                     else
@@ -47,11 +51,11 @@ namespace VitamisAPI
                         return Results.BadRequest("User is not a dietitian.");
                     }
 
-                    return Results.Ok(file.FileName);
+                    return Results.Ok(new { FileName = file.FileName, IsUploaded = true });
                 }
                 else
                 {
-                    return Results.BadRequest("File must be a PDF, JPEG or PNG.");
+                    return Results.BadRequest("File must be a PDF, JPEG, or PNG.");
                 }
             }).DisableAntiforgery();
 

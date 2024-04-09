@@ -53,9 +53,9 @@ namespace VitamisAPI.Data
 
         [Column(TypeName = "date")]
         public DateTime? DateOfBirth { get; set; }
-        
+
         public double? Height { get; set; }
-        
+
         public double? Weight { get; set; }
 
         [StringLength(100)]
@@ -64,7 +64,7 @@ namespace VitamisAPI.Data
         public SunExposure? SunExposure { get; set; }
 
         public bool? Smoking { get; set; }
-        
+
 
 
     }

@@ -20,7 +20,8 @@ public static class AuthEndpoints
             {
                 Fullname = request.Fullname,
                 Password = BCrypt.Net.BCrypt.HashPassword(request.Password),
-                Email = request.Email
+                Email = request.Email,
+                
             };
 
             db.Users.Add(newUser);
