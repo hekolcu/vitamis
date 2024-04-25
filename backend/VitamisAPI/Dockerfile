@@ -20,5 +20,4 @@ RUN dotnet publish "VitamisAPI.csproj" -c $BUILD_CONFIGURATION -o /app/publish /
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-RUN mkdir /app/Data/DieticianDocuments
 ENTRYPOINT ["dotnet", "VitamisAPI.dll"]
