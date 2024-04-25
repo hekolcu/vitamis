@@ -40,7 +40,7 @@ public static class DietitianEndpoints
                         
                         var fileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
                         
-                        var filePath = Path.Combine("Data", "DietitianDocuments", fileName);
+                        var filePath = Path.Combine("Data", "DieticianDocuments", fileName);
                         await using var stream = File.OpenWrite(filePath);
                         await file.CopyToAsync(stream);
                         
@@ -92,7 +92,7 @@ public static class DietitianEndpoints
                     return Results.NotFound("Dietitian details not found.");
                 }
 
-                var filePath = Path.Combine("Data", "DietitianDocuments", dietitianDetails.DietitianFileName);
+                var filePath = Path.Combine("Data", "DieticianDocuments", dietitianDetails.DietitianFileName);
                 var stream = File.OpenRead(filePath);
 
                 return Results.File(stream, "application/pdf");
