@@ -15,14 +15,18 @@ public class FoodIntakeRecord
     public User User { get; set; }
 
     [Required]
-    [ForeignKey("FoodVitamin")]
+    [ForeignKey("Food")]
     public int FoodId { get; set; }
     public Food Food { get; set; }
     
+    // [Required]
+    // [DefaultValue(1)]
+    // [Range(0.01, double.MaxValue, ErrorMessage = "Portion must be positive")]
+    // public double Portion { get; set; }
+    // use amount in grams instead of portion
     [Required]
-    [DefaultValue(1)]
-    [Range(0.01, double.MaxValue, ErrorMessage = "Portion must be positive")]
-    public double Portion { get; set; }
+    [Range(0.01, double.MaxValue, ErrorMessage = "Amount must be positive")]
+    public double Amount { get; set; }
 
     [Required]
     public DateTime Date { get; set; } 

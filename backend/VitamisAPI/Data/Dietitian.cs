@@ -1,10 +1,22 @@
-﻿namespace VitamisAPI.Data
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace VitamisAPI.Data
 {
-    public class Dietitian : User
+    public class DietitianDetails
     {
+        [Key]
+        public int DietitianDetailsId { get; set; }
+        
         public string  DietitianFileName { get; set; }
-        public bool IsUploaded { get; set; }
-        public List<User> Users { get; set; }
+        
+        [DefaultValue(false)]
+        public bool IsConfirmed { get; set; }
+        
+        public List<User> Advisees { get; set; }
+        
+        [ForeignKey("User")]
         public int UserId { get; set; }
         public User User { get; set; }
     }

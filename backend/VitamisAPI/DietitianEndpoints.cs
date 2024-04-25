@@ -1,60 +1,102 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using VitamisAPI.Data;
 
-namespace VitamisAPI
+namespace VitamisAPI;
+
+public static class DietitianEndpoints
 {
-    public static class DietitianEndpoints
+    public static void MapDietitianEndpoints(this WebApplication app)
     {
-        public static void MapDietitianEndpoints(this WebApplication app)
-        {
-            var DietitianMapGroup = app.MapGroup("/Dietitian");
+        var dietitianMapGroup = app.MapGroup("/dietitian");
 
-            DietitianMapGroup.MapPost("/upload_DietitianFile", async (IFormFile file, VitamisDbContext db, HttpContext context) =>
-            {
-                if (file.ContentType == "application/pdf" ||
-                    file.ContentType == "image/jpeg" ||
-                    file.ContentType == "image/png")
+        dietitianMapGroup.MapPost("/upload-certificate",
+                async (IFormFile file, VitamisDbContext db, HttpContext context) =>
                 {
-                   
-                    var filePath = Path.Combine("DietitianDocuments", file.FileName);
-                    using var stream = File.OpenWrite(filePath);
-                    await file.CopyToAsync(stream);
-
-                   var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
-
-                   var dietitian = await db.Dietitians
-                                            .Include(d => d.User)
-                                            .FirstOrDefaultAsync(d => d.Email == userEmail);
-
-                   if (dietitian != null && dietitian.User.UserType == UserType.Dietitian)
-                   {
-                        dietitian.DietitianFileName = file.FileName;
-                        dietitian.IsUploaded = true;
-                        await db.SaveChangesAsync();
-                    }
-                    else
+                    if (file.ContentType == "application/pdf" ||
+                        file.ContentType == "image/jpeg" ||
+                        file.ContentType == "image/png")
                     {
-                        return Results.BadRequest("User is not a dietitian.");
+                        var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+
+                        if (string.IsNullOrEmpty(userEmail))
+                        {
+                            return Results.Unauthorized();
+                        }
+
+                        var user = await db.Users
+                            .Where(u => u.Email == userEmail)
+                            .FirstOrDefaultAsync();
+
+                        if (user == null)
+                        {
+                            return Results.NotFound("User not found.");
+                        }
+                        
+                        // if (user.UserType == UserType.Dietitian)
+                        // {
+                        //     return Results.BadRequest("User is already a dietitian. Cannot upload certificate again.");
+                        // }
+                        
+                        var fileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
+                        
+                        var filePath = Path.Combine("DietitianDocuments", fileName);
+                        await using var stream = File.OpenWrite(filePath);
+                        await file.CopyToAsync(stream);
+                        
+                        user.UserType = UserType.Dietitian;
+
+                        db.DietitianDetails.Add(new DietitianDetails
+                        {
+                            User = user,
+                            DietitianFileName = fileName,
+                            IsConfirmed = false,
+                        });
+                        
+                        await db.SaveChangesAsync();
+
+                        return Results.Ok();
                     }
 
-                    return Results.Ok(file.FileName);
-                }
-                else
-                {
                     return Results.BadRequest("File must be a PDF, JPEG or PNG.");
                 }
-            }).DisableAntiforgery();
+            )
+            .DisableAntiforgery()
+            .RequireAuthorization();
+        
+        dietitianMapGroup.MapGet("/get-certificate",
+            async (VitamisDbContext db, HttpContext context) =>
+            {
+                var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
 
-        }
+                if (string.IsNullOrEmpty(userEmail))
+                {
+                    return Results.Unauthorized();
+                }
+
+                var user = await db.Users
+                    .Where(u => u.Email == userEmail)
+                    .FirstOrDefaultAsync();
+
+                if (user == null)
+                {
+                    return Results.NotFound("User not found.");
+                }
+
+                var dietitianDetails = await db.DietitianDetails
+                    .Where(d => d.UserId == user.UserId)
+                    .FirstOrDefaultAsync();
+
+                if (dietitianDetails == null)
+                {
+                    return Results.NotFound("Dietitian details not found.");
+                }
+
+                var filePath = Path.Combine("DietitianDocuments", dietitianDetails.DietitianFileName);
+                var stream = File.OpenRead(filePath);
+
+                return Results.File(stream, "application/pdf");
+            })
+            .RequireAuthorization();
     }
 }
