@@ -33,6 +33,7 @@ public static class FoodEndpoints
 
             var foodDtOs = foods.Select(f => new FoodSearchResult 
             {
+                FoodId = f.FoodID,
                 Name = f.Name,
                 Category = f.Category,
                 Vitamins = f.FoodVitamins.Select(fv => new VitaminInfo
@@ -54,15 +55,16 @@ public static class FoodEndpoints
         .Produces<List<FoodSearchResult>>();
     }
     
-    private class FoodSearchResult
+    public class FoodSearchResult
     {
         public string Name { get; set; }
         public string Category { get; set; }
         public List<VitaminInfo> Vitamins { get; set; }
-        // ...
+        
+        public int FoodId { get; set; }
     }
 
-    private class VitaminInfo 
+    public class VitaminInfo 
     {
         public string Name { get; set; }
         public string Average { get; set; }

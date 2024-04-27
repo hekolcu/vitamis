@@ -19,11 +19,7 @@ public class FoodIntakeRecord
     public int FoodId { get; set; }
     public Food Food { get; set; }
     
-    // [Required]
-    // [DefaultValue(1)]
-    // [Range(0.01, double.MaxValue, ErrorMessage = "Portion must be positive")]
-    // public double Portion { get; set; }
-    // use amount in grams instead of portion
+    // amount in grams
     [Required]
     [Range(0.01, double.MaxValue, ErrorMessage = "Amount must be positive")]
     public double Amount { get; set; }

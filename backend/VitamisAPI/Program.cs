@@ -90,6 +90,11 @@ builder.WebHost.ConfigureKestrel(options =>
     options.ListenAnyIP(8080);  // Listen on port 8080 on any IP address
 });
 
+// builder.Services.AddLogging(logging =>
+// {
+//     logging.AddConsole();
+// });
+
 // Uncomment below lines if inserting data for the first time.
 // builder.Services.AddScoped<VitaminReferenceDataLoader>();
 // builder.Services.AddScoped<FoodVitaminAndNutritionalDataLoader>();
