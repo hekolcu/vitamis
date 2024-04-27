@@ -26,4 +26,6 @@ public class FoodIntakeRecord
 
     [Required]
     public DateTime Date { get; set; } 
+    
+    public virtual ICollection<IntakeReportFoodIntakeRecord> IntakeReportFoodIntakeRecords { get; set; }
 }

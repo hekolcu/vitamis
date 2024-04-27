@@ -137,5 +137,6 @@ app.MapDietitianEndpoints();
 app.MapRecommendationEndpoints();
 app.MapFoodEndpoints();
 app.MapTrackingEndpoints();
+app.MapReportEndpoints();
 
 app.Run();

@@ -26,6 +26,22 @@ public class VitamisDbContext: DbContext
         modelBuilder.Entity<Nutrient>()
             .HasIndex(v => v.Name)
             .IsUnique();
+        
+        modelBuilder.Entity<IntakeReportFoodIntakeRecord>()
+            .HasKey(irfir => new
+            {
+                irfir.IntakeReportId, irfir.FoodIntakeRecordId
+            });
+
+        modelBuilder.Entity<IntakeReportFoodIntakeRecord>()
+            .HasOne(irfir => irfir.IntakeReport)
+            .WithMany(ir => ir.IntakeReportFoodIntakeRecords)
+            .HasForeignKey(irfir => irfir.IntakeReportId);
+
+        modelBuilder.Entity<IntakeReportFoodIntakeRecord>()
+            .HasOne(irfir => irfir.FoodIntakeRecord)
+            .WithMany(fir => fir.IntakeReportFoodIntakeRecords)
+            .HasForeignKey(irfir => irfir.FoodIntakeRecordId);
     }
     
     public DbSet<User> Users { get; set; }
@@ -38,4 +54,6 @@ public class VitamisDbContext: DbContext
     public DbSet<FoodNutrition> FoodNutritions { get; set; }
     public DbSet<FoodVitamin> FoodVitamins { get; set; }
     public DbSet<FoodIntakeRecord> FoodIntakeRecords { get; set; }
+    public DbSet<IntakeReport> IntakeReports { get; set; }
+    public DbSet<IntakeReportFoodIntakeRecord> IntakeReportFoodIntakeRecords { get; set; }
 }

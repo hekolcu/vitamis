@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VitamisAPI.Data;
 
@@ -10,9 +11,11 @@ using VitamisAPI.Data;
 namespace VitamisAPI.Migrations
 {
     [DbContext(typeof(VitamisDbContext))]
-    partial class VitamisDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240427182750_IntakeReport")]
+    partial class IntakeReport
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,12 +176,17 @@ namespace VitamisAPI.Migrations
                     b.Property<int>("FoodId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("IntakeReportId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("FoodIntakeId");
 
                     b.HasIndex("FoodId");
+
+                    b.HasIndex("IntakeReportId");
 
                     b.HasIndex("UserId");
 
@@ -401,6 +409,10 @@ namespace VitamisAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("VitamisAPI.Data.Tracking.IntakeReport", null)
+                        .WithMany("FoodIntakeRecords")
+                        .HasForeignKey("IntakeReportId");
+
                     b.HasOne("VitamisAPI.Data.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -487,6 +499,8 @@ namespace VitamisAPI.Migrations
 
             modelBuilder.Entity("VitamisAPI.Data.Tracking.IntakeReport", b =>
                 {
+                    b.Navigation("FoodIntakeRecords");
+
                     b.Navigation("IntakeReportFoodIntakeRecords");
                 });
 #pragma warning restore 612, 618
