@@ -32,7 +32,6 @@ export function AddFoodForm(): React.JSX.Element {
 
     const [foodItem, setFoodItem] = React.useState<FoodItem>({
       name: '',
-      id: '',
       group:'',
       vitamins: [{vitamin: '', unit: '', average:0, minimum: 0, maximum:0}]
     });
@@ -40,15 +39,14 @@ export function AddFoodForm(): React.JSX.Element {
     const [foodItems, setFoodItems] = React.useState<FoodItem[]>([]);
 
     React.useEffect(() => {
-      console.log(foodItems); // Log the updated foodItems array
-    }, [foodItems]); // Log only when foodItems changes
+      console.log(foodItems);
+    }, [foodItems]); 
 
     const handleInputChange = (index: number, field: string, value: string | number) => {
       const updatedVitamins = [...foodItem.vitamins];
       updatedVitamins[index] = { ...updatedVitamins[index], [field]: value };
       setFoodItem({ ...foodItem, vitamins: updatedVitamins });
       
-      // Check if every field is filled
       const isAnyVitaminFilled = updatedVitamins.every(
       vitamin => vitamin.vitamin !== '' && vitamin.unit !== '' && vitamin.average !== 0 && vitamin.minimum !== 0 && vitamin.maximum !== 0
       ) && foodItem.name !== '' && foodItem.group !== '';
@@ -57,9 +55,12 @@ export function AddFoodForm(): React.JSX.Element {
     
   const handleDialogClose= () =>{
     setDialogOpen(false);
+    setIsVitaminFilled(true)
+  }
+  const handleDialogConfirm=() =>{
+    setDialogOpen(false);
     window.location.reload();
   }
-
     const [dialogOpen, setDialogOpen] = React.useState(false);
 
     const [isVitaminFilled, setIsVitaminFilled] = React.useState(false);
@@ -69,8 +70,7 @@ export function AddFoodForm(): React.JSX.Element {
       console.log(foodItem);
       setDialogOpen(true);
 
-      setFoodItems(prevFoodItems => [...prevFoodItems, foodItem]); // Append current foodItem to foodItems array
-        // Clearing the values of vitamins in foodItem state
+      setFoodItems(prevFoodItems => [...prevFoodItems, foodItem]); 
     const clearedVitamins = foodItem.vitamins.map(vitamin => ({
       ...vitamin,
       vitamin: '',
@@ -81,7 +81,6 @@ export function AddFoodForm(): React.JSX.Element {
     })
   );
 
-  //setFoodItem({ ...foodItem, name: '', group:'', vitamins: clearedVitamins });
 
   setIsVitaminFilled(false);
     
@@ -274,7 +273,10 @@ export function AddFoodForm(): React.JSX.Element {
     )}
   </DialogContent>
       <DialogActions>
-        <Button color= "warning" autoFocus onClick={handleDialogClose}>
+      <Button color= "warning" autoFocus onClick={handleDialogClose}>
+        Cancel
+        </Button>
+        <Button color= "warning" autoFocus onClick={handleDialogConfirm}>
         Confirm
         </Button>
       </DialogActions>

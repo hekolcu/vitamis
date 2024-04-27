@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\VitamisAPI",
-    "\\VitamisAPI\\Data"
+    "\\VitamisAPI\\Data",
+    "\\VitamisAPI\\Data\\LoadData"
   ],
-  "SelectedNode": "\\VitamisAPI\\FoodEndpoints.cs",
+  "SelectedNode": "\\VitamisAPI\\Data\\LoadData\\food_vitamin_values_modified.json",
   "PreviewInSolutionExplorer": false
 }
