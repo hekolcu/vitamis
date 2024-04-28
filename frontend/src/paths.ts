@@ -11,6 +11,7 @@ export const paths = {
     search_food: '/dashboard/search-food',
     confirm_food: '/dashboard/confirm-food',
     add_meal: '/dashboard/add-meal',
+    my_reports: '/dashboard/my-reports'
   },
   errors: { notFound: '/errors/not-found' },
 } as const;

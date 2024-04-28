@@ -11,5 +11,6 @@ export const navItems = [
   {key: 'search-food', title: 'Search Food', href: paths.dashboard.search_food, icon: 'search'},
   {key: 'confirm-food', title: 'Confirm Food', href: paths.dashboard.confirm_food, icon: 'confirm'},
   {key: 'add-meal', title: 'Add Meal', href: paths.dashboard.add_meal, icon: 'meal'},
+  {key: 'my-reports', title: 'My Reports', href: paths.dashboard.my_reports, icon: 'report'},
   // { key: 'error', title: 'Error', href: paths.errors.notFound, icon: 'x-square' },
 ] satisfies NavItemConfig[];

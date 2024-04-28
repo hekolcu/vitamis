@@ -5,6 +5,6 @@
     "\\VitamisAPI\\Data",
     "\\VitamisAPI\\Data\\LoadData"
   ],
-  "SelectedNode": "\\VitamisAPI\\Data\\LoadData\\food_vitamin_values_modified.json",
+  "SelectedNode": "\\VitamisAPI\\Data\\Food.cs",
   "PreviewInSolutionExplorer": false
 }

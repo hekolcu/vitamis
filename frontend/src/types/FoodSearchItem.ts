@@ -6,4 +6,5 @@ export type FoodSearchItem = {
         average: string | null;
         unit: string | null;
     }[];
+    foodId: number | null;
 };
