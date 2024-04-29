@@ -138,5 +138,6 @@ app.MapRecommendationEndpoints();
 app.MapFoodEndpoints();
 app.MapTrackingEndpoints();
 app.MapReportEndpoints();
+app.MapVitmainEndpoints();
 
 app.Run();

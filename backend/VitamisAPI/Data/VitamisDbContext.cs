@@ -56,4 +56,6 @@ public class VitamisDbContext: DbContext
     public DbSet<FoodIntakeRecord> FoodIntakeRecords { get; set; }
     public DbSet<IntakeReport> IntakeReports { get; set; }
     public DbSet<IntakeReportFoodIntakeRecord> IntakeReportFoodIntakeRecords { get; set; }
+    public DbSet<PendingFood> PendingFoods { get; set; }
+    public DbSet<PendingFoodVitamin> PendingFoodVitamins { get; set; }
 }
