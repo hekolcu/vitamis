@@ -29,18 +29,94 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 export function AddFoodForm(): React.JSX.Element {
+    const token = localStorage.getItem('custom-auth-token');
+    const [vitaminList, setVitaminList] = React.useState<string[]>([]); 
+
+    const addFood = async () =>{
+      try {
+        const response = await fetch('https://api.vitamis.hekolcu.com/food/add', {
+            method: 'POST',
+            headers: {
+                'accept': `*/*`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: foodItem.name,
+                category: foodItem.group,
+                vitamins: foodItem.vitamins.map(vitamin => ({
+                    name: vitamin.vitamin,
+                    average: vitamin.average,
+                    unit: vitamin.unit,
+                    minimum: vitamin.minimum,
+                    maximum: vitamin.maximum
+                }))
+            })
+        });
+
+        if (!response.ok) {
+            console.error('Failed to add food intake:', response.statusText);
+            return;
+        }
+
+        const data = await response.json();
+        console.log('Food intake added successfully:', data);
+    } catch (error) {
+        console.error('Error adding food intake:', error);
+    }
+    }
+
+
+    //
+    const getPendingList = async () =>{ 
+      try {
+        const response = await fetch('https://api.vitamis.hekolcu.com/food/pending/list', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json'
+            },
+            
+        });
+        if (!response.ok) {
+            console.error('Failed to retrieve list:', response.statusText);
+            return;
+        }
+        const data = await response.json();
+        console.log('Pending List:', data);
+          } catch (error) {
+        console.error('Error retrieving list:', error);
+        }
+    }
+    //
+
+    const getVitaminList = async () =>{ 
+      try {
+        const response = await fetch('https://api.vitamis.hekolcu.com/vitamin/list', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json'
+            },
+            
+        });
+        if (!response.ok) {
+            console.error('Failed to retrieve list:', response.statusText);
+            return;
+        }
+        const data = await response.json();
+        //console.log('List:', data);
+        setVitaminList(data);
+          } catch (error) {
+        console.error('Error retrieving list:', error);
+        }
+    }
+
 
     const [foodItem, setFoodItem] = React.useState<FoodItem>({
       name: '',
       group:'',
       vitamins: [{vitamin: '', unit: '', average:0, minimum: 0, maximum:0}]
     });
-
-    const [foodItems, setFoodItems] = React.useState<FoodItem[]>([]);
-
-    React.useEffect(() => {
-      console.log(foodItems);
-    }, [foodItems]); 
 
     const handleInputChange = (index: number, field: string, value: string | number) => {
       const updatedVitamins = [...foodItem.vitamins];
@@ -53,37 +129,14 @@ export function AddFoodForm(): React.JSX.Element {
       setIsVitaminFilled(isAnyVitaminFilled);
     };
     
-  const handleDialogClose= () =>{
-    setDialogOpen(false);
-    setIsVitaminFilled(true)
-  }
-  const handleDialogConfirm=() =>{
-    setDialogOpen(false);
-    window.location.reload();
-  }
-    const [dialogOpen, setDialogOpen] = React.useState(false);
+
 
     const [isVitaminFilled, setIsVitaminFilled] = React.useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();
       console.log(foodItem);
-      setDialogOpen(true);
-
-      setFoodItems(prevFoodItems => [...prevFoodItems, foodItem]); 
-    const clearedVitamins = foodItem.vitamins.map(vitamin => ({
-      ...vitamin,
-      vitamin: '',
-      unit: '',
-      average: 0,
-      minimum: 0,
-      maximum: 0
-    })
-  );
-
-
-  setIsVitaminFilled(false);
-    
+      addFood();    
     };
   
     const addVitamin = () => {
@@ -94,6 +147,11 @@ export function AddFoodForm(): React.JSX.Element {
 
       setIsVitaminFilled(false)
     };
+
+    React.useEffect(() => {
+      getVitaminList();
+      getPendingList();
+  }, []);
   
     return (
       <form onSubmit={handleSubmit}>
@@ -148,30 +206,13 @@ export function AddFoodForm(): React.JSX.Element {
                         <Select
                           labelId={`vitamin-name-${index}`}
                           label="Vitamin"
-                          value={vitamin.vitamin}
+                          value={vitamin.vitamin || ''}
                           onChange={(e) => handleInputChange(index, 'vitamin', e.target.value)}
                         
                         >
-                          <MenuItem value="Vitamin A">Vitamin A</MenuItem>
-                          <MenuItem value="Vitamin B-1">Vitamin B-1</MenuItem>
-                          <MenuItem value="Vitamin B-2">Vitamin B-2</MenuItem>
-                          <MenuItem value="Vitamin B-3">Vitamin B-3</MenuItem>
-                          <MenuItem value="Vitamin B-5">Vitamin B-5</MenuItem>
-                          <MenuItem value="Vitamin B-6">Vitamin B-6</MenuItem>
-                          <MenuItem value="Vitamin B-6, toplam">Vitamin B-6, toplam</MenuItem>
-                          <MenuItem value="Vitamin B-7">Vitamin B-7</MenuItem>
-                          <MenuItem value="Vitamin B-9">Vitamin B-9</MenuItem>
-                          <MenuItem value="Vitamin B-12">Vitamin B-12</MenuItem>
-                          <MenuItem value="Vitamin C">Vitamin C</MenuItem>
-                          <MenuItem value="Vitamin D">Vitamin D</MenuItem>
-                          <MenuItem value="Vitamin D, IU">Vitamin D, IU</MenuItem>
-                          <MenuItem value="Vitamin D-3">Vitamin D-3</MenuItem>
-                          <MenuItem value="Vitamin E">Vitamin E</MenuItem>
-                          <MenuItem value="Vitamin E, IU">Vitamin E, IU</MenuItem>
-                          <MenuItem value="Vitamin K">Vitamin K</MenuItem>
-                          <MenuItem value="Vitamin K-1">Vitamin K-1</MenuItem>
-                          <MenuItem value="Vitamin K-2">Vitamin K-2</MenuItem>
-                          <MenuItem value="Vitamin P">Vitamin P</MenuItem>
+                          {vitaminList.map((vitaminName, index) => (
+                    <MenuItem key={index} value={vitaminName}>{vitaminName}</MenuItem>
+                  ))}
 
                         </Select>
                       </FormControl>
@@ -246,41 +287,6 @@ export function AddFoodForm(): React.JSX.Element {
           </Stack>
           </CardActions>
         </Card>
-      <BootstrapDialog
-        aria-labelledby="customized-dialog-title"
-        open={dialogOpen}
-        
-      >
-        <DialogTitle sx={{ m: 0, p: 2, color:'#fa8805', bgcolor:'white'  }} id="customized-dialog-title">
-        Food Item Submitted For Confirmation Successfully!
-        </DialogTitle>
-        <DialogContent dividers>
-    {foodItem !== null && (
-      <React.Fragment>
-        <Typography gutterBottom>
-          Food Name: {foodItem.name}<br/> Food Group: {foodItem.group}
-        </Typography>
-        <Divider/>
-        {foodItem.vitamins.map((vitamin, index) => (
-          <Grid key={index}>
-          <Typography gutterBottom>
-            Vitamin: {vitamin.vitamin}<br/> Unit: {vitamin.unit}<br/> Average: {vitamin.average}<br/> Minimum: {vitamin.minimum}<br/> Maximum: {vitamin.maximum}
-          </Typography>
-          <Divider/>
-          </Grid>
-        ))}
-      </React.Fragment>
-    )}
-  </DialogContent>
-      <DialogActions>
-      <Button color= "warning" autoFocus onClick={handleDialogClose}>
-        Cancel
-        </Button>
-        <Button color= "warning" autoFocus onClick={handleDialogConfirm}>
-        Confirm
-        </Button>
-      </DialogActions>
-      </BootstrapDialog>
       </form>
     );
     

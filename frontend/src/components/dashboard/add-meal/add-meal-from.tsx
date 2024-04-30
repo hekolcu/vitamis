@@ -33,28 +33,6 @@ export function AddMealForm() {
         }
     };
 
-    const getList = async () => {
-        try {
-            const response = await fetch('https://api.vitamis.hekolcu.com/tracking/list', {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`, // Include your access token here
-                    'Content-Type': 'application/json'
-                },
-                // Additional options like credentials, mode, etc. if needed
-            });
-            if (!response.ok) {
-                // Handle non-OK responses here
-                console.error('Failed to retrieve list:', response.statusText);
-                return;
-            }
-            const data = await response.json();
-            // Handle the response data here
-            console.log('List:', data);
-        } catch (error) {
-            console.error('Error retrieving list:', error);
-        }
-    };
 
     const handleAddFoodIntake = async (foodId: number, amount: number) => {
         try {
@@ -64,15 +42,12 @@ export function AddMealForm() {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
-                // Additional options like credentials, mode, etc. if needed
             });
             if (!response.ok) {
-                // Handle non-OK responses here
                 console.error('Failed to add food intake:', response.statusText);
                 return;
             }
             const data = await response.json();
-            // Handle the response data here if needed
             console.log('Food intake added successfully:', data);
         } catch (error) {
             console.error('Error adding food intake:', error);
