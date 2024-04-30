@@ -131,7 +131,7 @@ export function ViewReport() {
                                         <ul>
                                             {record.vitaminSummaries.map((vitamin, index) => (
                                                 <li key={index}>
-                                                    {vitamin.name}: {vitamin.totalAmount} {vitamin.unit}
+                                                    {vitamin.name}: {vitamin.totalAmount?.toFixed(3)} {vitamin.unit}
                                                 </li>
                                             ))}
                                         </ul>
