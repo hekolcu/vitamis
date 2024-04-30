@@ -4,7 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <InvariantGlobalization>true</InvariantGlobalization>
+        <InvariantGlobalization>false</InvariantGlobalization>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
@@ -31,7 +31,11 @@
     </ItemGroup>
 
     <ItemGroup>
+<<<<<<< HEAD
       <Folder Include="DietitianDocuments\" />
+=======
+      <Folder Include="Migrations\" />
+>>>>>>> main
     </ItemGroup>
 
 </Project>

@@ -89,6 +89,7 @@ public static class UserEndpoints
             })
             .RequireAuthorization();
 
+<<<<<<< HEAD
         userMapGroup
                .MapDelete("/delete", async (VitamisDbContext db, HttpContext httpContext) =>
                {
@@ -114,6 +115,31 @@ public static class UserEndpoints
                    return Results.Ok("User account deleted successfully.");
                })
                .RequireAuthorization();
+=======
+        userMapGroup.MapDelete("", async (VitamisDbContext db, HttpContext context) =>
+        {
+            var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return Results.Unauthorized();
+            }
+
+            var user = await db.Users
+                .Where(u => u.Email == userEmail)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return Results.NotFound("User not found.");
+            }
+            
+            db.Users.Remove(user);
+            await db.SaveChangesAsync();
+            
+            return Results.Ok($"User \"{user.Fullname}\" deleted successfully.");
+        }).RequireAuthorization();
+>>>>>>> main
     }
 }
 
