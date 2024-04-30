@@ -39,7 +39,7 @@ const schema = zod.object({
 
 type Values = zod.infer<typeof schema>;
 
-const defaultValues: Values = { firstName: '', lastName: '', email: '', password: '', terms: false, document: undefined } satisfies Values;
+const defaultValues: Values = { firstName: '', lastName: '', email: '', password: '', terms: false } satisfies Values;
 
 const VisuallyHiddenInput = styled('input')({
   clip: 'rect(0 0 0 0)',

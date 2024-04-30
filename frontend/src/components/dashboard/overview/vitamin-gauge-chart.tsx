@@ -2,8 +2,7 @@
 
 import React, { useRef } from 'react';
 import ApexCharts, { ApexOptions } from 'apexcharts';
-import { Card, CardHeader, CardContent, Stack, useTheme, Typography } from '@mui/material';
-import { Chart } from '@/components/core/chart';
+import { useTheme, Typography } from '@mui/material';
 // import { margin } from '@mui/system';
 import ReactApexChart from 'react-apexcharts';
 
@@ -15,7 +14,7 @@ interface VitaminGaugeChartProps {
 export function VitaminGaugeChart({ name, series }: VitaminGaugeChartProps): React.JSX.Element {
     const chartRef = useRef(null);
 
-    const chartOptions = {
+    const chartOptions: ApexOptions = {
         chart: {
             type: "radialBar",
         },

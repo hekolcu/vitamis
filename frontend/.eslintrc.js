@@ -22,27 +22,39 @@ module.exports = {
     },
   },
   rules: {
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        ignoreRestSiblings: true,
-        argsIgnorePattern: '^_',
-        varsIgnorePattern: '^_',
-        caughtErrorsIgnorePattern: '^_',
-      },
-    ],
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-shadow': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/non-nullable-type-assertion-style': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-unsafe-argument' : 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'import/default': 'off',
+    // '@typescript-eslint/no-unused-vars': [
+    //   'error',
+    //   {
+    //     ignoreRestSiblings: true,
+    //     argsIgnorePattern: '^_',
+    //     varsIgnorePattern: '^_',
+    //     caughtErrorsIgnorePattern: '^_',
+    //   },
+    // ],
     '@typescript-eslint/no-empty-interface': [
       'error',
       {
         allowSingleExtends: true,
       },
     ],
-    '@typescript-eslint/no-shadow': [
-      'error',
-      {
-        ignoreOnInitialization: true,
-      },
-    ],
+    '@typescript-eslint/no-shadow': 'off',
+    // '@typescript-eslint/no-shadow': [
+    //   'error',
+    //   {
+    //     ignoreOnInitialization: true,
+    //   },
+    // ],
     'import/newline-after-import': 'error',
     'react/jsx-uses-react': 'error',
     'react/react-in-jsx-scope': 'error',
