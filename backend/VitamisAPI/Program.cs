@@ -139,5 +139,6 @@ app.MapFoodEndpoints();
 app.MapTrackingEndpoints();
 app.MapReportEndpoints();
 app.MapVitaminEndpoints();
+app.MapAdminEndpoints();
 
 app.Run();

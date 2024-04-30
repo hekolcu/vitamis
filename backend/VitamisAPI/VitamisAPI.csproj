@@ -31,7 +31,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Data\DietitianDocuments\" />
       <Folder Include="Migrations\" />
     </ItemGroup>
 

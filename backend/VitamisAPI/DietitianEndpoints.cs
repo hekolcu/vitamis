@@ -44,7 +44,7 @@ public static class DietitianEndpoints
                         await using var stream = File.OpenWrite(filePath);
                         await file.CopyToAsync(stream);
                         
-                        user.UserType = UserType.Dietitian;
+                        // user.UserType = UserType.Dietitian;
 
                         db.DietitianDetails.Add(new DietitianDetails
                         {
