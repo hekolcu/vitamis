@@ -6,7 +6,7 @@ namespace VitamisAPI;
 
 public static class VitaminEndpoints
 {
-    public static void MapVitmainEndpoints(this WebApplication app)
+    public static void MapVitaminEndpoints(this WebApplication app)
     {
         var vitaminMapGroup = app.MapGroup("/vitamin");
 
