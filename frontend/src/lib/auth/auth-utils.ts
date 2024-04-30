@@ -9,6 +9,10 @@ interface RegistrationData {
     password: string;
 }
 
+interface ExtendedRegistrationData {
+    file: File;
+}
+
 interface LoginData {
     email: string;
     password: string;
@@ -42,6 +46,23 @@ async function registerUser(registrationData: RegistrationData): Promise<boolean
                 'Access-Control-Request-Method': 'POST'
             },
             body: JSON.stringify(registrationData),
+        });
+
+        return response.ok;
+    } catch (error) {
+        return false;
+    }
+}
+
+async function uploadFile(registrationData: ExtendedRegistrationData): Promise<boolean> {
+    const endpoint = api + 'Dietitian/upload_DietitianFile';
+    const formData = new FormData();
+    formData.append('file', registrationData.file);
+
+    try {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            body: formData,
         });
 
         return response.ok;
@@ -167,5 +188,5 @@ async function getRecommendations(token: string): Promise<{
 }
 
 
-export { login, registerUser, getUserDetails, updateProfile, getRecommendations };
+export { login, registerUser, uploadFile, getUserDetails, updateProfile, getRecommendations };
 export type { RegistrationData, LoginData, VitaminRecommendation };

@@ -1,7 +1,7 @@
 'use client';
 
 import type { User } from '@/types/User';
-import { login, registerUser, getUserDetails } from './auth-utils';
+import { login, registerUser, getUserDetails, uploadFile } from './auth-utils';
 
 // const user = {
 //   id: 'USR-000',
@@ -93,6 +93,14 @@ class AuthClient {
   async signOut(): Promise<{ error?: string }> {
     localStorage.removeItem('custom-auth-token');
 
+    return {};
+  }
+
+  async uploadDieticianFile(file: File): Promise<{ error?: string }> {
+    const success = await uploadFile({file: file});
+    if (!success) {
+      return { error: 'Failed to upload file' };
+    }
     return {};
   }
 }

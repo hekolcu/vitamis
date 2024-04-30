@@ -55,6 +55,9 @@ export default function Page(): React.JSX.Element {
           </Grid>
         ))}
       </Box>
+      <Grid lg={4} md={6} xs={12}>
+        <Traffic chartSeries={[16, 22, 62]} labels={['Vegetable', 'Fruit', 'Meal']} sx={{ height: '100%' }} />
+      </Grid>
       <Grid lg={8} xs={12}>
         <Sales
           chartSeries={[
@@ -63,9 +66,6 @@ export default function Page(): React.JSX.Element {
           ]}
           sx={{ height: '100%' }}
         />
-      </Grid>
-      <Grid lg={4} md={6} xs={12}>
-        <Traffic chartSeries={[16, 22, 62]} labels={['Vegetable', 'Fruit', 'Meal']} sx={{ height: '100%' }} />
       </Grid>
       <Grid lg={6} xs={12}>
         <VitaminRefTable />

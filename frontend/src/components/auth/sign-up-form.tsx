@@ -17,6 +17,9 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { Controller, useForm } from 'react-hook-form';
 import { z as zod } from 'zod';
+import { styled } from '@mui/material/styles';
+
+//import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 import { paths } from '@/paths';
 import { authClient } from '@/lib/auth/client';
@@ -31,12 +34,24 @@ const schema = zod.object({
   email: zod.string().min(1, { message: 'Email is required' }).email(),
   password: zod.string().min(6, { message: 'Password should be at least 6 characters' }),
   terms: zod.boolean().refine((value) => value, 'You must accept the terms and conditions'),
-  document: zod.any().optional(), // Considering file upload is optional
+  // document: zod.any().optional(), // Considering file upload is optional
 });
 
 type Values = zod.infer<typeof schema>;
 
-const defaultValues = { firstName: '', lastName: '', email: '', password: '', terms: false, document: undefined } satisfies Values;
+const defaultValues: Values = { firstName: '', lastName: '', email: '', password: '', terms: false, document: undefined } satisfies Values;
+
+const VisuallyHiddenInput = styled('input')({
+  clip: 'rect(0 0 0 0)',
+  clipPath: 'inset(50%)',
+  height: 1,
+  overflow: 'hidden',
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  whiteSpace: 'nowrap',
+  width: 1,
+});
 
 export function SignUpForm(): React.JSX.Element {
   const router = useRouter();
@@ -44,11 +59,13 @@ export function SignUpForm(): React.JSX.Element {
   const { checkSession } = useUser();
 
   const [isPending, setIsPending] = React.useState<boolean>(false);
+  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
 
   const {
     control,
     handleSubmit,
     setError,
+    setValue,
     formState: { errors },
   } = useForm<Values>({ defaultValues, resolver: zodResolver(schema) });
 
@@ -62,6 +79,15 @@ export function SignUpForm(): React.JSX.Element {
         setError('root', { type: 'server', message: error });
         setIsPending(false);
         return;
+      }
+
+      if (tabIndex === 1) {
+        const { error } = await authClient.uploadDieticianFile(selectedFile!);
+        if (error) {
+          setError('root', { type: 'server', message: error });
+          setIsPending(false);
+          return;
+        }
       }
 
       // Refresh the auth state
@@ -234,19 +260,24 @@ export function SignUpForm(): React.JSX.Element {
                 </div>
               )}
             />
-            {/* <Controller
-              control={control}
-              name="document"
-              render={({ field: { ref, ...field } }) => (
-                <FormControl error={Boolean(errors.document)}>
-                  <Button variant="contained" component="label">
-                    Upload Document
-                    <input {...field} type="file" hidden onChange={(e) => field.onChange(e.target.files[0])} />
-                  </Button>
-                  {errors.document ? <FormHelperText>{errors.document.message}</FormHelperText> : null}
-                </FormControl>
-              )}
-            /> */}
+            <Button
+              component="label"
+              role={undefined}
+              variant="contained"
+              tabIndex={-1}
+              // startIcon={<CloudUploadIcon />}
+            >
+              Upload Document
+              <VisuallyHiddenInput
+                type="file"
+                hidden
+                onChange={(e: any) => {
+                  if (e.target.files) {
+                    setSelectedFile(e.target.files[0]);
+                  }
+                }}
+              />
+            </Button>
             {errors.root ? <Alert color="error">{errors.root.message}</Alert> : null}
             <Button disabled={isPending} type="submit" color="warning" variant="contained">
               Sign up
