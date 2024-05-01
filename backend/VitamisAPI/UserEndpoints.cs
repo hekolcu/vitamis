@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc;
 using VitamisAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -112,6 +113,43 @@ public static class UserEndpoints
             
             return Results.Ok($"User \"{user.Fullname}\" deleted successfully.");
         }).RequireAuthorization();
+
+        userMapGroup.MapGet("/search", async (VitamisDbContext db, HttpContext context, [FromQuery] string q) =>
+            {
+                var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+
+                if (string.IsNullOrEmpty(userEmail))
+                {
+                    return Results.Unauthorized();
+                }
+
+                var user = await db.Users
+                    .Where(u => u.Email == userEmail)
+                    .FirstOrDefaultAsync();
+
+                if (user == null)
+                {
+                    return Results.NotFound("User not found.");
+                }
+                
+                if (user.UserType != UserType.Dietitian && user.UserType != UserType.AcademicianDietitian && user.UserType != UserType.Admin)
+                {
+                    return Results.Unauthorized();
+                }
+                
+                var users = await db.Users
+                    .Where(u => u.Fullname.Contains(q))
+                    .Select(u => new
+                    {
+                        u.UserId,
+                        u.Fullname,
+                        u.Email,
+                    })
+                    .ToListAsync();
+                
+                return Results.Ok(users);
+            })
+            .RequireAuthorization();
     }
 
     public class UserUpdateModel
