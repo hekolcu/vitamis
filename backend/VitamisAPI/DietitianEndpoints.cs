@@ -283,31 +283,32 @@ public static class DietitianEndpoints
 
                 var relation = await db.AdviseeDietitianRelations
                     .Where(r => r.Dietitian.UserId == user.UserId && r.Advisee.UserId == userId)
+                    .Include(r => r.Advisee)
                     .FirstOrDefaultAsync();
 
-                if (relation == null) return Results.NotFound("Relation not found.");
+                if (relation == null) return Results.NotFound("Relation not found. Please add the advisee first.");
 
                 var today = DateTime.Today;
                 var records = await db.FoodIntakeRecords
-                    .Where(r => r.User.UserId == user.UserId && r.Date.Date == today)
+                    .Where(r => r.User.UserId == relation.Advisee.UserId && r.Date.Date == today)
                     .Include(r => r.Food).ThenInclude(f => f.FoodVitamins).ThenInclude(fv => fv.Vitamin)
                     .ToListAsync();
 
                 var vitaminSummaries = IntakeReport.CalculateVitaminSummaryFromFoodIntakeRecords(records);
 
-                if (user.DateOfBirth == null)
+                if (relation.Advisee.DateOfBirth == null)
                 {
-                    return Results.NotFound("User must register their date of birth");
+                    return Results.NotFound("Advisee must register their date of birth");
                 }
 
-                var age = today.Year - user.DateOfBirth?.Year ?? 0;
-                if (user.DateOfBirth?.Date > today.AddYears(-age)) age--;
+                var age = today.Year - relation.Advisee.DateOfBirth?.Year ?? 0;
+                if (relation.Advisee.DateOfBirth?.Date > today.AddYears(-age)) age--;
 
-                var genderString = user.Gender.HasValue ? user.Gender.Value.ToString() : string.Empty;
+                var genderString = relation.Advisee.Gender.HasValue ? relation.Advisee.Gender.Value.ToString() : string.Empty;
 
                 if (string.IsNullOrEmpty(genderString))
                 {
-                    return Results.NotFound("User must register their gender");
+                    return Results.NotFound("Advisee must register their gender");
                 }
 
                 var groupName = RecommendationEndpoints.DetermineGroupName(age, genderString);
