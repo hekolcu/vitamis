@@ -2,6 +2,7 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using VitamisAPI.Data;
+using VitamisAPI.Data.Tracking;
 
 namespace VitamisAPI;
 
@@ -129,5 +130,180 @@ public static class DietitianEndpoints
 
             return Results.Ok(dietitians);
         }).RequireAuthorization();
+
+        var adviseeManagementMapGroup = dietitianMapGroup.MapGroup("/advisee");
+        
+        adviseeManagementMapGroup.MapPost("/add",
+            async (VitamisDbContext db, HttpContext context, [FromBody] AdviseeRequest request) =>
+            {
+                var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+
+                if (string.IsNullOrEmpty(userEmail))
+                {
+                    return Results.Unauthorized();
+                }
+
+                var user = await db.Users
+                    .Where(u => u.Email == userEmail)
+                    .FirstOrDefaultAsync();
+
+                if (user == null)
+                {
+                    return Results.NotFound("User not found.");
+                }
+
+                if (user.UserType != UserType.Dietitian && user.UserType != UserType.AcademicianDietitian)
+                {
+                    return Results.Unauthorized();
+                }
+
+                var advisee = await db.Users
+                    .Where(u => u.UserId == request.UserId)
+                    .FirstOrDefaultAsync();
+
+                if (advisee == null)
+                {
+                    return Results.NotFound("Advisee not found.");
+                }
+
+                db.AdviseeDietitianRelations.Add(new AdviseeDietitianRelation
+                {
+                    Advisee = advisee,
+                    Dietitian = user,
+                    IsAccepted = true,// for now. Will change in the future as the user data should only be shared once the user accepts
+                    TimeStamp = DateTime.Now,
+                });
+                
+                await db.SaveChangesAsync();
+
+                return Results.Ok("Advisee added successfully.");
+            }).RequireAuthorization();
+
+        adviseeManagementMapGroup.MapGet("/list", async (VitamisDbContext db, HttpContext context) =>
+            {
+                var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+
+                if (string.IsNullOrEmpty(userEmail))
+                {
+                    return Results.Unauthorized();
+                }
+
+                var user = await db.Users
+                    .Where(u => u.Email == userEmail)
+                    .FirstOrDefaultAsync();
+
+                if (user == null)
+                {
+                    return Results.NotFound("User not found.");
+                }
+
+                if (user.UserType != UserType.Dietitian && user.UserType != UserType.AcademicianDietitian)
+                {
+                    return Results.Unauthorized();
+                }
+                
+                var advisees = await db.AdviseeDietitianRelations
+                    .Where(r => r.Dietitian.UserId == user.UserId)
+                    .Select(r => new
+                    {
+                        r.Advisee.UserId,
+                        r.Advisee.Fullname,
+                    })
+                    .ToListAsync();
+
+                return Results.Ok(advisees);
+            })
+            .RequireAuthorization();
+        
+        adviseeManagementMapGroup.MapGet("/remove", async (VitamisDbContext db, HttpContext context, [FromQuery] int userId) =>
+            {
+                var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+
+                if (string.IsNullOrEmpty(userEmail))
+                {
+                    return Results.Unauthorized();
+                }
+
+                var user = await db.Users
+                    .Where(u => u.Email == userEmail)
+                    .FirstOrDefaultAsync();
+
+                if (user == null)
+                {
+                    return Results.NotFound("User not found.");
+                }
+
+                if (user.UserType != UserType.Dietitian && user.UserType != UserType.AcademicianDietitian)
+                {
+                    return Results.Unauthorized();
+                }
+
+                var relation = await db.AdviseeDietitianRelations
+                    .Where(r => r.Dietitian.UserId == user.UserId && r.Advisee.UserId == userId)
+                    .FirstOrDefaultAsync();
+
+                if (relation == null)
+                {
+                    return Results.NotFound("Relation not found.");
+                }
+
+                db.AdviseeDietitianRelations.Remove(relation);
+                await db.SaveChangesAsync();
+
+                return Results.Ok("Relation removed successfully.");
+            })
+            .RequireAuthorization();
+
+        adviseeManagementMapGroup
+            .MapGet("/dailyReport", async (VitamisDbContext db, HttpContext context, [FromQuery] int userId) =>
+            {
+                var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+
+                if (string.IsNullOrEmpty(userEmail))
+                {
+                    return Results.Unauthorized();
+                }
+
+                var user = await db.Users
+                    .Where(u => u.Email == userEmail)
+                    .FirstOrDefaultAsync();
+
+                if (user == null)
+                {
+                    return Results.NotFound("User not found.");
+                }
+
+                if (user.UserType != UserType.Dietitian && user.UserType != UserType.AcademicianDietitian)
+                {
+                    return Results.Unauthorized();
+                }
+
+                var relation = await db.AdviseeDietitianRelations
+                    .Where(r => r.Dietitian.UserId == user.UserId && r.Advisee.UserId == userId)
+                    .FirstOrDefaultAsync();
+                
+                if (relation == null) return Results.NotFound("Relation not found.");
+                
+                var today = DateTime.Today;
+                var records = await db.FoodIntakeRecords
+                    .Where(r => r.User.UserId == userId && r.Date.Date == today.Date)
+                    .Include(r => r.Food).ThenInclude(f => f.FoodVitamins).ThenInclude(fv => fv.Vitamin)
+                    .ToListAsync();
+                
+                var vitaminSummaries = IntakeReport.CalculateVitaminSummaryFromFoodIntakeRecords(records);
+                
+                return Results.Ok(new ReportEndpoints.ReportResponse
+                {
+                    StartDate = today,
+                    EndDate = today,
+                    VitaminSummaries = vitaminSummaries
+                });
+            })
+            .RequireAuthorization();
+    }
+    
+    public class AdviseeRequest
+    {
+        public int UserId { get; set; }
     }
 }

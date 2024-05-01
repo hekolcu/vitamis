@@ -42,6 +42,12 @@ public class VitamisDbContext: DbContext
             .HasOne(irfir => irfir.FoodIntakeRecord)
             .WithMany(fir => fir.IntakeReportFoodIntakeRecords)
             .HasForeignKey(irfir => irfir.FoodIntakeRecordId);
+
+        modelBuilder.Entity<AdviseeDietitianRelation>()
+            .HasKey(adr => new
+            {
+                adr.AdviseeId, adr.DietitianId
+            });
     }
     
     public DbSet<User> Users { get; set; }
@@ -58,4 +64,5 @@ public class VitamisDbContext: DbContext
     public DbSet<IntakeReportFoodIntakeRecord> IntakeReportFoodIntakeRecords { get; set; }
     public DbSet<PendingFood> PendingFoods { get; set; }
     public DbSet<PendingFoodVitamin> PendingFoodVitamins { get; set; }
+    public DbSet<AdviseeDietitianRelation> AdviseeDietitianRelations { get; set; }
 }

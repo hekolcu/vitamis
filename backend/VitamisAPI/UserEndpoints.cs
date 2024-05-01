@@ -150,6 +150,37 @@ public static class UserEndpoints
                 return Results.Ok(users);
             })
             .RequireAuthorization();
+
+        userMapGroup.MapGet("/dietitians", async (VitamisDbContext db, HttpContext context) =>
+        {
+            var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return Results.Unauthorized();
+            }
+
+            var user = await db.Users
+                .Where(u => u.Email == userEmail)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return Results.NotFound("User not found.");
+            }
+            
+            var dietitianRelations = await db.AdviseeDietitianRelations
+                .Where(adr => adr.AdviseeId == user.UserId && adr.IsAccepted)
+                .Include(adr => adr.Dietitian)
+                .Select(adr => new
+                {
+                    adr.Dietitian.UserId,
+                    adr.Dietitian.Fullname,
+                })
+                .ToListAsync();
+            
+            return Results.Ok(dietitianRelations);
+        }).RequireAuthorization();
     }
 
     public class UserUpdateModel
