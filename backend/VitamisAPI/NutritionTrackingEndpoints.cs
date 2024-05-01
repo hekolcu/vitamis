@@ -218,20 +218,6 @@ public static class NutritionTrackingEndpoints
                 .Where(v => v.GroupID == group.GroupID)
                 .Include(v => v.Vitamin)
                 .ToListAsync();
-
-            var vitaminPercentages = vitaminSummaries.Select(vs =>
-            {
-                var recommended = recommendedVitamins.FirstOrDefault(rv => rv.Vitamin.Name == vs.Name);
-                var percentage = recommended != null ? (vs.TotalAmount / double.Parse(recommended.Amount)) * 100 : 0;
-
-                return new
-                {
-                    VitaminName = vs.Name,
-                    ConsumedAmount = vs.TotalAmount,
-                    RecommendedAmount = recommended?.Amount,
-                    Percentage = percentage
-                };
-            }).ToList();
             
             var allVitaminPercentages = recommendedVitamins.Select(rv =>
             {
