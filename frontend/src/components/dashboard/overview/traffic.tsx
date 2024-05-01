@@ -9,6 +9,7 @@ import { useTheme } from '@mui/material/styles';
 import type { SxProps } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import type { Icon } from '@phosphor-icons/react/dist/lib/types';
+
 import { Carrot as CarrotIcon } from '@phosphor-icons/react/dist/ssr/Carrot';
 import {OrangeSlice as OrangeSliceIcon} from '@phosphor-icons/react/dist/ssr/OrangeSlice';
 import {CookingPot as CookingPotIcon} from '@phosphor-icons/react/dist/ssr/CookingPot';
@@ -28,7 +29,7 @@ export function Traffic({ chartSeries, labels, sx }: TrafficProps): React.JSX.El
 
   return (
     <Card sx={sx}>
-      <CardHeader title="Daily Intake Balance" />
+      <CardHeader title="Daily Vitamin Intakes" />
       <CardContent>
         <Stack spacing={2}>
           <Chart height={300} options={chartOptions} series={chartSeries} type="donut" width="100%" />

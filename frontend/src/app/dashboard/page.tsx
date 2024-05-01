@@ -2,11 +2,17 @@ import * as React from 'react';
 import type { Metadata } from 'next';
 import Grid from '@mui/material/Unstable_Grid2';
 import dayjs from 'dayjs';
+
 import { config } from '@/config';
+import { Budget } from '@/components/dashboard/overview/budget';
 import { LatestOrders } from '@/components/dashboard/overview/latest-orders';
-import VitaminRefTable from '@/components/dashboard/overview/vitamin-ref-table';
+import { LatestProducts } from '@/components/dashboard/overview/latest-products';
 import { Sales } from '@/components/dashboard/overview/sales';
+import { TasksProgress } from '@/components/dashboard/overview/tasks-progress';
+import { TotalCustomers } from '@/components/dashboard/overview/total-customers';
+import { TotalProfit } from '@/components/dashboard/overview/total-profit';
 import { Traffic } from '@/components/dashboard/overview/traffic';
+import VitaminRefTable from '@/components/dashboard/overview/vitamin-ref-table';
 import { VitaminGaugeChart } from '@/components/dashboard/overview/vitamin-gauge-chart';
 import { Box, Typography } from '@mui/material';
 

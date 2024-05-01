@@ -49,12 +49,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-shadow': 'off',
-    // '@typescript-eslint/no-shadow': [
-    //   'error',
-    //   {
-    //     ignoreOnInitialization: true,
-    //   },
-    // ],
     'import/newline-after-import': 'error',
     'react/jsx-uses-react': 'error',
     'react/react-in-jsx-scope': 'error',
