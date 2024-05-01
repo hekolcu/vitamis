@@ -54,7 +54,7 @@ public static class NutritionTrackingEndpoints
                     NumberStyles.Any,
                     new CultureInfo("tr-TR"),
                     out var average);
-                
+
                 if (success)
                 {
                     double averageForAmount = average * amount / 100.0;
@@ -128,7 +128,7 @@ public static class NutritionTrackingEndpoints
                             NumberStyles.Any,
                             new CultureInfo("tr-TR"),
                             out var average);
-                        
+
                         if (success)
                         {
                             double averageForAmount = average * r.Amount / 100.0;
@@ -160,6 +160,94 @@ public static class NutritionTrackingEndpoints
                     Date = r.Date
                 };
             }));
+        }).RequireAuthorization();
+
+        trackingMapGroup.MapGet("/dailyReport", async (VitamisDbContext db, HttpContext httpContext) =>
+        {
+            var userEmail = httpContext.User.FindFirst(ClaimTypes.Email)?.Value;
+
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return Results.Unauthorized();
+            }
+
+            var user = await db.Users
+                .Where(u => u.Email == userEmail)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return Results.NotFound("User not found.");
+            }
+
+            var today = DateTime.Today;
+            var records = await db.FoodIntakeRecords
+                .Where(r => r.User.UserId == user.UserId && r.Date.Date == today)
+                .Include(r => r.Food).ThenInclude(f => f.FoodVitamins).ThenInclude(fv => fv.Vitamin)
+                .ToListAsync();
+
+            var vitaminSummaries = IntakeReport.CalculateVitaminSummaryFromFoodIntakeRecords(records);
+
+            if (user.DateOfBirth == null)
+            {
+                return Results.NotFound("User must register their date of birth");
+            }
+            
+            var age = today.Year - user.DateOfBirth?.Year ?? 0;
+            if (user.DateOfBirth?.Date > today.AddYears(-age)) age--;
+
+            var genderString = user.Gender.HasValue ? user.Gender.Value.ToString() : string.Empty;
+            
+            if (string.IsNullOrEmpty(genderString))
+            {
+                return Results.NotFound("User must register their gender");
+            }
+            
+            var groupName = RecommendationEndpoints.DetermineGroupName(age, genderString);
+
+            var group = await db.VitaminReferenceGroups
+                .Where(g => g.GroupName == groupName)
+                .FirstOrDefaultAsync();
+
+            if (group == null)
+            {
+                return Results.NotFound($"Vitamin reference group '{groupName}' not found.");
+            }
+
+            var recommendedVitamins = await db.VitaminReferenceValues
+                .Where(v => v.GroupID == group.GroupID)
+                .Include(v => v.Vitamin)
+                .ToListAsync();
+
+            var vitaminPercentages = vitaminSummaries.Select(vs =>
+            {
+                var recommended = recommendedVitamins.FirstOrDefault(rv => rv.Vitamin.Name == vs.Name);
+                var percentage = recommended != null ? (vs.TotalAmount / double.Parse(recommended.Amount)) * 100 : 0;
+
+                return new
+                {
+                    VitaminName = vs.Name,
+                    ConsumedAmount = vs.TotalAmount,
+                    RecommendedAmount = recommended?.Amount,
+                    Percentage = percentage
+                };
+            }).ToList();
+            
+            var allVitaminPercentages = recommendedVitamins.Select(rv =>
+            {
+                var consumed = vitaminSummaries.FirstOrDefault(vs => vs.Name == rv.Vitamin.Name);
+                var percentage = consumed != null ? (consumed.TotalAmount / double.Parse(rv.Amount)) * 100 : 0;
+
+                return new
+                {
+                    VitaminName = rv.Vitamin.Name,
+                    ConsumedAmount = consumed?.TotalAmount ?? 0,
+                    RecommendedAmount = rv.Amount,
+                    Percentage = percentage
+                };
+            }).ToList();
+
+            return Results.Ok(allVitaminPercentages);
         }).RequireAuthorization();
     }
 
