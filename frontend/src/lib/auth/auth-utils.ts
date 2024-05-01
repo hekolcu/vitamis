@@ -9,6 +9,10 @@ interface RegistrationData {
     password: string;
 }
 
+interface ExtendedRegistrationData {
+    file: File;
+}
+
 interface LoginData {
     email: string;
     password: string;
@@ -26,6 +30,12 @@ interface GetUserDetailResponseBody {
     sunExposure?: string;
   }
 
+interface VitaminRecommendation {
+    vitaminName: string;
+    amount: string;
+    unit: string;
+}
+
 async function registerUser(registrationData: RegistrationData): Promise<boolean> {
     const endpoint = api + 'auth/register';
     try {
@@ -36,6 +46,23 @@ async function registerUser(registrationData: RegistrationData): Promise<boolean
                 'Access-Control-Request-Method': 'POST'
             },
             body: JSON.stringify(registrationData),
+        });
+
+        return response.ok;
+    } catch (error) {
+        return false;
+    }
+}
+
+async function uploadFile(registrationData: ExtendedRegistrationData): Promise<boolean> {
+    const endpoint = api + 'Dietitian/upload_DietitianFile';
+    const formData = new FormData();
+    formData.append('file', registrationData.file);
+
+    try {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            body: formData,
         });
 
         return response.ok;
@@ -135,30 +162,31 @@ async function updateProfile(token: string, user: {
 }
 
 // get api + recommendations/vitamins + token
-// async function getRecommendations(token: string): Promise<{
-//     groupName: string;
-//     recommendedVitamins: VitaminRecommendation[];
-// } | null> {
-//     const endpoint = api + "recommendations/vitamins"
+async function getRecommendations(token: string): Promise<{
+    groupName: string;
+    recommendedVitamins: VitaminRecommendation[];
+} | null> {
+    const endpoint = api + "recommendations/vitamins"
 
-//     try {
-//         const response = await fetch(endpoint, {
-//             method: 'GET',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Authorization': `Bearer ${token}`
-//             }
-//         });
+    try {
+        const response = await fetch(endpoint, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
 
-//         if (response.ok) {
-//             return await response.json();
-//         } else {
-//             return null;
-//         }
-//     } catch (error) {
-//         return null;
-//     }
-// }
+        if (response.ok) {
+            return await response.json();
+        } else {
+            return null;
+        }
+    } catch (error) {
+        return null;
+    }
+}
 
 
-export { login, registerUser, getUserDetails, updateProfile };
+export { login, registerUser, uploadFile, getUserDetails, updateProfile, getRecommendations };
+export type { RegistrationData, LoginData, VitaminRecommendation };

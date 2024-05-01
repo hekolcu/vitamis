@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VitamisAPI.Data;
 
@@ -10,37 +11,16 @@ using VitamisAPI.Data;
 namespace VitamisAPI.Migrations
 {
     [DbContext(typeof(VitamisDbContext))]
-    partial class VitamisDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240405080931_kaan_missing_migration")]
+    partial class kaan_missing_migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("VitamisAPI.Data.DietitianDetails", b =>
-                {
-                    b.Property<int>("DietitianDetailsId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("DietitianFileName")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<bool>("IsConfirmed")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("DietitianDetailsId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("DietitianDetails");
-                });
 
             modelBuilder.Entity("VitamisAPI.Data.Food", b =>
                 {
@@ -158,77 +138,20 @@ namespace VitamisAPI.Migrations
                     b.ToTable("Nutrients");
                 });
 
-            modelBuilder.Entity("VitamisAPI.Data.PendingFood", b =>
-                {
-                    b.Property<int>("PendingFoodId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("PendingFoodId");
-
-                    b.ToTable("PendingFoods");
-                });
-
-            modelBuilder.Entity("VitamisAPI.Data.PendingFoodVitamin", b =>
-                {
-                    b.Property<int>("PendingFoodVitaminID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Average")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Maximum")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Minimum")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("PendingFoodId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Unit")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("VitaminId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PendingFoodVitaminID");
-
-                    b.HasIndex("PendingFoodId");
-
-                    b.HasIndex("VitaminId");
-
-                    b.ToTable("PendingFoodVitamins");
-                });
-
             modelBuilder.Entity("VitamisAPI.Data.Tracking.FoodIntakeRecord", b =>
                 {
                     b.Property<int>("FoodIntakeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<double>("Amount")
-                        .HasColumnType("double");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
 
                     b.Property<int>("FoodId")
                         .HasColumnType("int");
+
+                    b.Property<double>("Portion")
+                        .HasColumnType("double");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -242,43 +165,6 @@ namespace VitamisAPI.Migrations
                     b.ToTable("FoodIntakeRecords");
                 });
 
-            modelBuilder.Entity("VitamisAPI.Data.Tracking.IntakeReport", b =>
-                {
-                    b.Property<int>("IntakeReportId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("IntakeReportId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("IntakeReports");
-                });
-
-            modelBuilder.Entity("VitamisAPI.Data.Tracking.IntakeReportFoodIntakeRecord", b =>
-                {
-                    b.Property<int>("IntakeReportId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FoodIntakeRecordId")
-                        .HasColumnType("int");
-
-                    b.HasKey("IntakeReportId", "FoodIntakeRecordId");
-
-                    b.HasIndex("FoodIntakeRecordId");
-
-                    b.ToTable("IntakeReportFoodIntakeRecords");
-                });
-
             modelBuilder.Entity("VitamisAPI.Data.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -288,8 +174,13 @@ namespace VitamisAPI.Migrations
                     b.Property<DateTime?>("DateOfBirth")
                         .HasColumnType("date");
 
-                    b.Property<int?>("DietitianDetailsId")
+                    b.Property<int?>("DietitianUserId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("varchar(13)");
 
                     b.Property<string>("Disease")
                         .HasMaxLength(100)
@@ -330,9 +221,13 @@ namespace VitamisAPI.Migrations
 
                     b.HasKey("UserId");
 
-                    b.HasIndex("DietitianDetailsId");
+                    b.HasIndex("DietitianUserId");
 
                     b.ToTable("Users");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("VitamisAPI.Data.Vitamin", b =>
@@ -401,15 +296,23 @@ namespace VitamisAPI.Migrations
                     b.ToTable("VitaminReferenceValues");
                 });
 
-            modelBuilder.Entity("VitamisAPI.Data.DietitianDetails", b =>
+            modelBuilder.Entity("VitamisAPI.Data.Dietitian", b =>
                 {
-                    b.HasOne("VitamisAPI.Data.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasBaseType("VitamisAPI.Data.User");
 
-                    b.Navigation("User");
+                    b.Property<string>("DietitianFileName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("IsUploaded")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<int>("UserId1")
+                        .HasColumnType("int");
+
+                    b.HasIndex("UserId1");
+
+                    b.HasDiscriminator().HasValue("Dietitian");
                 });
 
             modelBuilder.Entity("VitamisAPI.Data.FoodNutrition", b =>
@@ -450,25 +353,6 @@ namespace VitamisAPI.Migrations
                     b.Navigation("Vitamin");
                 });
 
-            modelBuilder.Entity("VitamisAPI.Data.PendingFoodVitamin", b =>
-                {
-                    b.HasOne("VitamisAPI.Data.PendingFood", "PendingFood")
-                        .WithMany("PendingFoodVitamins")
-                        .HasForeignKey("PendingFoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VitamisAPI.Data.Vitamin", "Vitamin")
-                        .WithMany()
-                        .HasForeignKey("VitaminId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PendingFood");
-
-                    b.Navigation("Vitamin");
-                });
-
             modelBuilder.Entity("VitamisAPI.Data.Tracking.FoodIntakeRecord", b =>
                 {
                     b.HasOne("VitamisAPI.Data.Food", "Food")
@@ -488,41 +372,11 @@ namespace VitamisAPI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("VitamisAPI.Data.Tracking.IntakeReport", b =>
-                {
-                    b.HasOne("VitamisAPI.Data.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("VitamisAPI.Data.Tracking.IntakeReportFoodIntakeRecord", b =>
-                {
-                    b.HasOne("VitamisAPI.Data.Tracking.FoodIntakeRecord", "FoodIntakeRecord")
-                        .WithMany("IntakeReportFoodIntakeRecords")
-                        .HasForeignKey("FoodIntakeRecordId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VitamisAPI.Data.Tracking.IntakeReport", "IntakeReport")
-                        .WithMany("IntakeReportFoodIntakeRecords")
-                        .HasForeignKey("IntakeReportId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("FoodIntakeRecord");
-
-                    b.Navigation("IntakeReport");
-                });
-
             modelBuilder.Entity("VitamisAPI.Data.User", b =>
                 {
-                    b.HasOne("VitamisAPI.Data.DietitianDetails", null)
-                        .WithMany("Advisees")
-                        .HasForeignKey("DietitianDetailsId");
+                    b.HasOne("VitamisAPI.Data.Dietitian", null)
+                        .WithMany("Users")
+                        .HasForeignKey("DietitianUserId");
                 });
 
             modelBuilder.Entity("VitamisAPI.Data.VitaminReferenceValue", b =>
@@ -544,9 +398,15 @@ namespace VitamisAPI.Migrations
                     b.Navigation("VitaminReferenceGroup");
                 });
 
-            modelBuilder.Entity("VitamisAPI.Data.DietitianDetails", b =>
+            modelBuilder.Entity("VitamisAPI.Data.Dietitian", b =>
                 {
-                    b.Navigation("Advisees");
+                    b.HasOne("VitamisAPI.Data.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("VitamisAPI.Data.Food", b =>
@@ -556,19 +416,9 @@ namespace VitamisAPI.Migrations
                     b.Navigation("FoodVitamins");
                 });
 
-            modelBuilder.Entity("VitamisAPI.Data.PendingFood", b =>
+            modelBuilder.Entity("VitamisAPI.Data.Dietitian", b =>
                 {
-                    b.Navigation("PendingFoodVitamins");
-                });
-
-            modelBuilder.Entity("VitamisAPI.Data.Tracking.FoodIntakeRecord", b =>
-                {
-                    b.Navigation("IntakeReportFoodIntakeRecords");
-                });
-
-            modelBuilder.Entity("VitamisAPI.Data.Tracking.IntakeReport", b =>
-                {
-                    b.Navigation("IntakeReportFoodIntakeRecords");
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

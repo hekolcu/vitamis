@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VitamisAPI.Data;
 
@@ -10,9 +11,11 @@ using VitamisAPI.Data;
 namespace VitamisAPI.Migrations
 {
     [DbContext(typeof(VitamisDbContext))]
-    partial class VitamisDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240427184355_FixIntakeReport")]
+    partial class FixIntakeReport
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -156,63 +159,6 @@ namespace VitamisAPI.Migrations
                         .IsUnique();
 
                     b.ToTable("Nutrients");
-                });
-
-            modelBuilder.Entity("VitamisAPI.Data.PendingFood", b =>
-                {
-                    b.Property<int>("PendingFoodId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
-
-                    b.HasKey("PendingFoodId");
-
-                    b.ToTable("PendingFoods");
-                });
-
-            modelBuilder.Entity("VitamisAPI.Data.PendingFoodVitamin", b =>
-                {
-                    b.Property<int>("PendingFoodVitaminID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Average")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Maximum")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Minimum")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("PendingFoodId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Unit")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("VitaminId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PendingFoodVitaminID");
-
-                    b.HasIndex("PendingFoodId");
-
-                    b.HasIndex("VitaminId");
-
-                    b.ToTable("PendingFoodVitamins");
                 });
 
             modelBuilder.Entity("VitamisAPI.Data.Tracking.FoodIntakeRecord", b =>
@@ -450,25 +396,6 @@ namespace VitamisAPI.Migrations
                     b.Navigation("Vitamin");
                 });
 
-            modelBuilder.Entity("VitamisAPI.Data.PendingFoodVitamin", b =>
-                {
-                    b.HasOne("VitamisAPI.Data.PendingFood", "PendingFood")
-                        .WithMany("PendingFoodVitamins")
-                        .HasForeignKey("PendingFoodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("VitamisAPI.Data.Vitamin", "Vitamin")
-                        .WithMany()
-                        .HasForeignKey("VitaminId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PendingFood");
-
-                    b.Navigation("Vitamin");
-                });
-
             modelBuilder.Entity("VitamisAPI.Data.Tracking.FoodIntakeRecord", b =>
                 {
                     b.HasOne("VitamisAPI.Data.Food", "Food")
@@ -554,11 +481,6 @@ namespace VitamisAPI.Migrations
                     b.Navigation("FoodNutritions");
 
                     b.Navigation("FoodVitamins");
-                });
-
-            modelBuilder.Entity("VitamisAPI.Data.PendingFood", b =>
-                {
-                    b.Navigation("PendingFoodVitamins");
                 });
 
             modelBuilder.Entity("VitamisAPI.Data.Tracking.FoodIntakeRecord", b =>

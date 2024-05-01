@@ -26,7 +26,7 @@ export function AccountDetailsForm(): React.JSX.Element {
   const { user } = useUser();
 
   React.useEffect(() => {
-    console.log(user);
+    logger.debug(user);
   }, [user]);
 
   const [formValues, setFormValues] = React.useState({
