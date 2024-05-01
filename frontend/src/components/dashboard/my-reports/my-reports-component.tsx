@@ -124,20 +124,20 @@ export function ViewReport() {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {FoodIntakeReports.map((record, index) => (
-                                <TableRow key={index}>
-                                    <TableCell align="center">{record.startDate ? new Date(record.startDate).toLocaleDateString() : ''}</TableCell>
-                                    <TableCell align="center">
-                                        <ul>
-                                            {record.vitaminSummaries.map((vitamin, index) => (
-                                                <li key={index}>
-                                                    {vitamin.name}: {vitamin.totalAmount?.toFixed(3)} {vitamin.unit}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
+                        {FoodIntakeReports.map((record, index) => (
+                            <TableRow key={index}>
+                                <TableCell align="center">{record && record.startDate ? new Date(record.startDate).toLocaleDateString() : ''}</TableCell>
+                                <TableCell align="center">
+                                    <ul>
+                                        {record && record.vitaminSummaries && record.vitaminSummaries.map((vitamin, index) => (
+                                            <li key={index}>
+                                                {vitamin.name}: {vitamin.totalAmount?.toFixed(3)} {vitamin.unit}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </TableCell>
+                            </TableRow>
+                        ))}
                         </TableBody>
                     </Table>
                 </TableContainer>

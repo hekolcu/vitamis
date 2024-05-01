@@ -1,8 +1,8 @@
 export type FoodItem = {
     name: string;
-    group: string;
+    category: string;
     vitamins: {
-        vitamin: string;
+        name: string;
         unit: string;
         average: number;
         minimum: number;

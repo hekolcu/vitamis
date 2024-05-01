@@ -6,7 +6,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { config } from '@/config';
 import { FoodItem } from '@/types/FoodItem';
 import {ConfirmFoodForm} from '@/components/dashboard/confirm-food/confirm-food-form';
-
+/*
 const foodItems: FoodItem[] = [
     {
         name: 'Apple',
@@ -52,7 +52,7 @@ const foodItems: FoodItem[] = [
     },
     // Add more food items if needed
 ];
-
+*/
 export const metadata = { title: `Confirm Food | Dashboard | ${config.site.name}` } satisfies Metadata;
 
 export default function Page(): React.JSX.Element {
@@ -64,7 +64,7 @@ export default function Page(): React.JSX.Element {
         </div>
         <Grid container spacing={3} direction="row" justifyContent="center" alignItems="center">
           <Grid lg={8} md={6} xs={12}>
-            <ConfirmFoodForm foodItems={foodItems}/>
+            <ConfirmFoodForm/>
           </Grid>
         </Grid>
       </Stack>
