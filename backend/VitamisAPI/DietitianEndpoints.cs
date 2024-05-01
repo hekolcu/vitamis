@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc;
 using VitamisAPI.Data;
 
 namespace VitamisAPI;
@@ -98,5 +99,35 @@ public static class DietitianEndpoints
                 return Results.File(stream, "application/pdf");
             })
             .RequireAuthorization();
+        
+        dietitianMapGroup.MapGet("/search", async (VitamisDbContext db, HttpContext context, [FromQuery] string query) =>
+        {
+            var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return Results.Unauthorized();
+            }
+
+            var user = await db.Users
+                .Where(u => u.Email == userEmail)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return Results.NotFound("User not found.");
+            }
+
+            var dietitians = await db.Users
+                .Where(u => u.UserType == UserType.Dietitian && u.Fullname.Contains(query))
+                .Select(u => new
+                {
+                    u.UserId,
+                    u.Fullname,
+                })
+                .ToListAsync();
+
+            return Results.Ok(dietitians);
+        }).RequireAuthorization();
     }
 }
