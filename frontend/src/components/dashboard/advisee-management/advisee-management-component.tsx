@@ -17,10 +17,11 @@ import { Box, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Tab
 import Stack from '@mui/material/Stack';
 import { PendingFood } from '@/types/PendingFood';
 import Divider from '@mui/material/Divider';
-import { Check } from '@phosphor-icons/react';
+import { Check, Cross } from '@phosphor-icons/react';
 import { X } from '@phosphor-icons/react';
 import { UserSearchItem } from '@/types/UserSearchItem';
 import { AdviseeUser } from '@/types/AdviseeUser';
+import { NewspaperClipping } from '@phosphor-icons/react';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -36,11 +37,13 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 export function AdviseeManagement(): React.JSX.Element {
     const token = localStorage.getItem('custom-auth-token');
     const [dialogOpen, setDialogOpen] = React.useState(false);
+    const [dialogOpen2, setDialogOpen2] = React.useState(false);
     const [query, setQuery] = React.useState('');
     const [searchResults, setSearchResults] = React.useState<UserSearchItem[] | null>(null);
     const [selectedUser, setSelectedUser] = React.useState<UserSearchItem | null>(null);
     const [tabIndex, setTabIndex] = React.useState(0);
     const [adviseeList, setAdviseeList] = React.useState<AdviseeUser[]>([]);
+    const [selectedAdvisee, setSelectedAdvisee] = React.useState<AdviseeUser>();
 
     const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabIndex(newValue);
@@ -55,12 +58,13 @@ export function AdviseeManagement(): React.JSX.Element {
                     'Authorization': `Bearer ${token}`, 
                     'Content-Type': 'application/json'
                 },
+                body: JSON.stringify({ userId: userId })
             });
             if (!response.ok) {
                 return;
             }
         } catch (error) {
-            console.error('Error confirming food:', error);
+            console.error('Error adding user:', error);
         }
     }
 
@@ -81,9 +85,27 @@ export function AdviseeManagement(): React.JSX.Element {
         }
       };
 
-    const rejectPendingFood = async (pendingFoodId: number) => {
+
+    const getAdviseeList = async () =>{
         try {
-            const response = await fetch(`https://api.vitamis.hekolcu.com/food/pending/reject?pendingFoodId=${pendingFoodId}`, {
+            const response = await fetch('https://api.vitamis.hekolcu.com/dietitian/advisee/list', {
+              method: 'GET',
+              headers: {
+                  'Authorization': `Bearer ${token}`, 
+                  'Content-Type': 'application/json'
+              },
+              });
+            const data = await response.json();
+            setAdviseeList(data);
+            console.log(data);
+          } catch (error) {
+            console.error('Error fetching search results:', error);
+          }
+    };
+
+    const removeAdvisee = async (userId: number) => {
+        try {
+            const response = await fetch(`https://api.vitamis.hekolcu.com/dietitian/advisee/remove?userId=${userId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`, 
@@ -94,27 +116,44 @@ export function AdviseeManagement(): React.JSX.Element {
                 return;
             }
         } catch (error) {
-            console.error('Error rejecting food:', error);
+            console.error('Error removing advisee:', error);
         }
-    }
+    };
 
     const handleCheckButtonClick= (item: UserSearchItem) =>{
         setSelectedUser(item);
         setDialogOpen(true);
     }
-
+    const handleCrossButtonClick= (item: AdviseeUser) =>{
+        setSelectedAdvisee(item);
+        console.log(item.userId)
+        setDialogOpen2(true);
+    }
     const handleDialogClose= () =>{
         setDialogOpen(false);
       }
+      const handleDialogClose2= () =>{
+        setDialogOpen2(false);
+      }
       const handleDialogConfirm=(item: UserSearchItem) =>{
-        //
+        addAdvisee(item.userId)
         console.log(item.email)
-        //window.location.reload();
+        window.location.reload();
         setDialogOpen(false);
+      }
+      const handleDialogConfirm2=(item: AdviseeUser) =>{
+        console.log(item.userId)
+        removeAdvisee(item.userId)
+        window.location.reload();
+        setDialogOpen2(false);
+      }
+
+      const handleReportButton= (item: AdviseeUser) => {
+
       }
 
       React.useEffect(() => {
-        //getPendingList();
+        getAdviseeList();
 
     }, []);
 
@@ -126,6 +165,31 @@ export function AdviseeManagement(): React.JSX.Element {
             <Tab label="Add New Avisee" />
           </Tabs>
           </Box>
+          {tabIndex === 0 ? (
+      adviseeList.length > 0 ? (
+        adviseeList.map((item, index) => (
+          <Card key={index} sx={{ display: 'flex', marginBottom: '8px' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: '1' }}>
+              <CardContent>
+                <Typography component="div" variant="h5">
+                  {item.fullname}
+                </Typography>
+              </CardContent>
+              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <IconButton aria-label="check" className="checkmark-button" onClick={() => handleCrossButtonClick(item)}>
+                  <X />
+                </IconButton>
+                <IconButton aria-label="check" className="checkmark-button" onClick={() => handleReportButton(item)}>
+                  <NewspaperClipping/>
+                </IconButton>
+              </Box>
+            </Box>
+          </Card>
+        ))
+      ) : (
+        <Typography marginTop={5} align="center" variant="body1">No user was found</Typography>
+      )
+    ) : null}
           {tabIndex === 1 && (
             <Grid container spacing={3} direction="column" alignItems="center">
               <Grid xs={12} lg={8} md={8}>
@@ -171,6 +235,22 @@ export function AdviseeManagement(): React.JSX.Element {
       )
     ) : null}
       
+          <BootstrapDialog aria-labelledby="customized-dialog-title" open={dialogOpen2} onClose={handleDialogClose2}>
+            <DialogTitle sx={{ m: 0, p: 2, color: '#fa8805', bgcolor: 'white' }} id="customized-dialog-title">
+              Confirmation
+            </DialogTitle>
+            <DialogContent dividers>
+              <Typography>Do you want to remove this advisee?</Typography>
+            </DialogContent>
+            <DialogActions>
+              <Button color="warning" autoFocus onClick={handleDialogClose2}>
+                Cancel
+              </Button>
+              <Button color="warning" autoFocus onClick={() => handleDialogConfirm2(selectedAdvisee!)}>
+                Confirm
+              </Button>
+            </DialogActions>
+          </BootstrapDialog>
           <BootstrapDialog aria-labelledby="customized-dialog-title" open={dialogOpen} onClose={handleDialogClose}>
             <DialogTitle sx={{ m: 0, p: 2, color: '#fa8805', bgcolor: 'white' }} id="customized-dialog-title">
               Confirmation
