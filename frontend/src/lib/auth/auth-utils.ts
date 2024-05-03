@@ -188,5 +188,27 @@ async function getRecommendations(token: string): Promise<{
 }
 
 
-export { login, registerUser, uploadFile, getUserDetails, updateProfile, getRecommendations };
+async function getTrackingDaily(token: string): Promise<any | null> {
+    const endpoint = api + "tracking/dailyReport"
+
+    try {
+        const response = await fetch(endpoint, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (response.ok) {
+            return await response.json();
+        } else {
+            return null;
+        }
+    } catch (error) {
+        return null;
+    }
+}
+
+export { login, registerUser, uploadFile, getUserDetails, updateProfile, getRecommendations, getTrackingDaily };
 export type { RegistrationData, LoginData, VitaminRecommendation };
