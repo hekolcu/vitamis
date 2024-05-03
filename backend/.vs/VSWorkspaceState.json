@@ -3,8 +3,9 @@
     "",
     "\\VitamisAPI",
     "\\VitamisAPI\\Data",
+    "\\VitamisAPI\\Data\\DieticianDocuments",
     "\\VitamisAPI\\Data\\LoadData"
   ],
-  "SelectedNode": "\\VitamisAPI\\Data\\Food.cs",
+  "SelectedNode": "\\VitamisAPI\\FoodEndpoints.cs",
   "PreviewInSolutionExplorer": false
 }
