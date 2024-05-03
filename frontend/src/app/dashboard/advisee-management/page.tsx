@@ -12,7 +12,7 @@ export default function Page(): React.JSX.Element {
     return (
       <Stack spacing={3}>
         <div>
-          <Typography variant="h4" color={'#fa8805'} align='center'>Advisee Management</Typography>
+          <Typography variant="h4" color={'#fa8805'} align='center'>Danışman Yönetimi</Typography>
         </div>
         <Grid container spacing={3} direction="row" justifyContent="center" alignItems="center">
           <Grid lg={8} md={6} xs={12}>

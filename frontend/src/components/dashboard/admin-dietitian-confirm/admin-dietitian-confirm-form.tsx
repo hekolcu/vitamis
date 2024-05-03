@@ -37,6 +37,8 @@ export function ConfirmDietitianForm(): React.JSX.Element {
     const [dialogOpen, setDialogOpen] = React.useState(false);
     const [dialogOpen2, setDialogOpen2] = React.useState(false);
     const [pendingDietitianList,setPendingDietitianList ] = React.useState<PendingDietitian[]>([]);
+    const [certificateUrls, setCertificateUrls] = React.useState<Record<number, string>>({});
+    let diplomaFormat: string;
 
     const confirmDietitian = async (email: string) => {
         try {
@@ -80,7 +82,7 @@ export function ConfirmDietitianForm(): React.JSX.Element {
         }
     }
 
-    const getDietitianList = async () =>{ 
+    const getDietitianList = async () => { 
         try {
             const response = await fetch('https://api.vitamis.hekolcu.com/admin/dietitian/list', {
                 method: 'GET',
@@ -94,23 +96,54 @@ export function ConfirmDietitianForm(): React.JSX.Element {
                 return;
             }
             const data = await response.json();
-            console.log(data)
-
-            setPendingDietitianList(data)
-            console.log('Pending List:', pendingDietitianList);
+            console.log(data);
+            setPendingDietitianList(data);
+            fetchCertificates(data);
         } catch (error) {
             console.error('Error retrieving list:', error);
         }
-    }
+    };
 
-    const displayImage = (dietitianFileName: string) => {
-        
-        return (
-            
-            <iframe src={dietitianFileName} width="100%" height="500px" />
-            
-            );
-    }
+    const fetchCertificates = async (dietitians: PendingDietitian[]) => {
+        for (const dietitian of dietitians) {
+            try {
+                const response = await fetch(`https://api.vitamis.hekolcu.com/admin/dietitian/getCertificate?userId=${dietitian.userId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                });
+    
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch certificate for dietitian: ${dietitian.userId}`);
+                }
+    
+                const data = await response.blob();
+                const format = response.headers.get('Content-Type');
+                let url: string;
+                if (format === 'application/pdf') {
+                    url = URL.createObjectURL(data);
+                    diplomaFormat ="pdf";
+                } else if (format === 'image/jpeg') {
+                    diplomaFormat = "jpg";
+                    url = URL.createObjectURL(data);
+                } else if ( format === 'image/png') {
+                    url = URL.createObjectURL(data);
+                    diplomaFormat ="png";
+                }else {
+                    console.error('Unsupported certificate format:', format);
+                    continue;
+                }
+    
+                setCertificateUrls((prevUrls) => ({
+                    ...prevUrls,
+                    [dietitian.userId]: url,
+                }));
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    };
 
     const handleCheckButtonClick= (item: PendingDietitian) =>{
         setSelectedDietitian(item);
@@ -157,9 +190,17 @@ export function ConfirmDietitianForm(): React.JSX.Element {
                             <Typography variant="subtitle1" color="text.secondary" component="div">
                                 Email: {item.email}
                             </Typography>
-                            <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Diploma: {displayImage(item.dietitianFileName)}
-                            </Typography>
+                            {certificateUrls[item.userId] && (
+                                <Typography variant="subtitle1" color="text.secondary" component="div">
+                                    Diploma: <br></br>
+                                    {diplomaFormat === "jpg" ? (
+                                        <img src={certificateUrls[item.userId]} alt={item.fullname + " Diploma"} />
+                                    ) : (
+                                        
+                                        <iframe src={certificateUrls[item.userId]} width="100%" height="500px"></iframe>
+                                    )}
+                                </Typography>
+                            )}
                         </CardContent>
                         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                             <IconButton aria-label="check" className="checkmark-button" onClick={() => handleCheckButtonClick(item)}>

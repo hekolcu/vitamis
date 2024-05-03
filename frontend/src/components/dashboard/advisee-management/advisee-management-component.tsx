@@ -13,7 +13,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Unstable_Grid2';
-import { Box, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Tab, Tabs, Typography, styled } from '@mui/material';
+import { Box, Dialog, DialogActions, DialogProps, DialogContent, DialogTitle, IconButton, Tab, Tabs, Typography, styled, Table, TableHead, TableCell, TableRow, TableBody } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { PendingFood } from '@/types/PendingFood';
 import Divider from '@mui/material/Divider';
@@ -22,6 +22,7 @@ import { X } from '@phosphor-icons/react';
 import { UserSearchItem } from '@/types/UserSearchItem';
 import { AdviseeUser } from '@/types/AdviseeUser';
 import { NewspaperClipping } from '@phosphor-icons/react';
+import { DailyReport } from '@/types/DailyReport';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -38,12 +39,15 @@ export function AdviseeManagement(): React.JSX.Element {
     const token = localStorage.getItem('custom-auth-token');
     const [dialogOpen, setDialogOpen] = React.useState(false);
     const [dialogOpen2, setDialogOpen2] = React.useState(false);
+    const [dialogOpenReport, setDialogOpenReport] = React.useState(false);
     const [query, setQuery] = React.useState('');
     const [searchResults, setSearchResults] = React.useState<UserSearchItem[] | null>(null);
     const [selectedUser, setSelectedUser] = React.useState<UserSearchItem | null>(null);
     const [tabIndex, setTabIndex] = React.useState(0);
     const [adviseeList, setAdviseeList] = React.useState<AdviseeUser[]>([]);
     const [selectedAdvisee, setSelectedAdvisee] = React.useState<AdviseeUser>();
+    const [scroll, setScroll] = React.useState<DialogProps['scroll']>('paper');
+    const [dailyReport, setDailyReport] = React.useState<DailyReport[]>([]);
 
     const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabIndex(newValue);
@@ -120,6 +124,27 @@ export function AdviseeManagement(): React.JSX.Element {
         }
     };
 
+    const getDailyReport = async (userId: number) => {
+        try {
+            const response = await fetch(`https://api.vitamis.hekolcu.com/dietitian/advisee/dailyReport?userId=${userId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`, 
+                    'Content-Type': 'application/json'
+                },
+            });
+            const data = await response.json();
+            setDailyReport(data);
+            console.log(data);
+            
+            if (!response.ok) {
+                return;
+            }
+        } catch (error) {
+            console.error('Günlük rapora erişilemedi:', error);
+        }
+    };
+
     const handleCheckButtonClick= (item: UserSearchItem) =>{
         setSelectedUser(item);
         setDialogOpen(true);
@@ -149,9 +174,14 @@ export function AdviseeManagement(): React.JSX.Element {
       }
 
       const handleReportButton= (item: AdviseeUser) => {
-
+        getDailyReport(item.userId);
+        setDialogOpenReport(true);
+        setScroll("paper");
       }
-
+      const handleDialogCloseReport= () =>{
+        setDailyReport([]);
+        setDialogOpenReport(false);
+      }
       React.useEffect(() => {
         getAdviseeList();
 
@@ -161,8 +191,8 @@ export function AdviseeManagement(): React.JSX.Element {
         <>
         <Box display="flex" justifyContent="center">
           <Tabs value={tabIndex} onChange={handleTabChange} aria-label="sign-up form tabs">
-            <Tab label="My Advisees" />
-            <Tab label="Add New Avisee" />
+            <Tab label="Danışmanlarım" />
+            <Tab label="Yeni Danışman Ekle" />
           </Tabs>
           </Box>
           {tabIndex === 0 ? (
@@ -187,7 +217,7 @@ export function AdviseeManagement(): React.JSX.Element {
           </Card>
         ))
       ) : (
-        <Typography marginTop={5} align="center" variant="body1">No user was found</Typography>
+        <Typography marginTop={5} align="center" variant="body1">Kullanıcı Bulunamadı</Typography>
       )
     ) : null}
           {tabIndex === 1 && (
@@ -195,7 +225,7 @@ export function AdviseeManagement(): React.JSX.Element {
               <Grid xs={12} lg={8} md={8}>
                 <TextField
                   fullWidth
-                  label="Search Food"
+                  label="Kullanıcı Ara"
                   variant="outlined"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
@@ -203,7 +233,7 @@ export function AdviseeManagement(): React.JSX.Element {
               </Grid>
               <Grid>
                 <Button variant="contained" color="primary" onClick={handleSearch}>
-                  Search
+                  Ara
                 </Button>
               </Grid>
             </Grid>
@@ -231,7 +261,7 @@ export function AdviseeManagement(): React.JSX.Element {
           </Card>
         ))
       ) : (
-        <Typography marginTop={5} align="center" variant="body1">No user was found</Typography>
+        <Typography marginTop={5} align="center" variant="body1">Arama kriterlerine uyan bir kullanıcı bulunamadı</Typography>
       )
     ) : null}
       
@@ -240,7 +270,7 @@ export function AdviseeManagement(): React.JSX.Element {
               Confirmation
             </DialogTitle>
             <DialogContent dividers>
-              <Typography>Do you want to remove this advisee?</Typography>
+              <Typography>Bu danışmanı kaldırmak istiyor musunuz?</Typography>
             </DialogContent>
             <DialogActions>
               <Button color="warning" autoFocus onClick={handleDialogClose2}>
@@ -256,7 +286,7 @@ export function AdviseeManagement(): React.JSX.Element {
               Confirmation
             </DialogTitle>
             <DialogContent dividers>
-              <Typography>Do you want to add user as your advisee?</Typography>
+              <Typography>Bu kullanıcıyı danışman olarak eklemek istiyor musunuz?</Typography>
             </DialogContent>
             <DialogActions>
               <Button color="warning" autoFocus onClick={handleDialogClose}>
@@ -264,6 +294,44 @@ export function AdviseeManagement(): React.JSX.Element {
               </Button>
               <Button color="warning" autoFocus onClick={() => handleDialogConfirm(selectedUser!)}>
                 Confirm
+              </Button>
+            </DialogActions>
+          </BootstrapDialog>
+          <BootstrapDialog aria-labelledby="customized-dialog-title" open={dialogOpenReport} onClose={handleDialogCloseReport} >
+            <DialogTitle sx={{ m: 0, p: 2, color: '#fa8805', bgcolor: 'white' }} id="customized-dialog-title">
+              Günlük Rapor
+            </DialogTitle>
+            <DialogContent dividers={scroll === 'paper'}>
+            {dailyReport === null ? (
+                <Typography marginTop={5} align="center" variant="body1">Günlük rapor bulunamadı</Typography>
+            ) : Array.isArray(dailyReport) && dailyReport.length > 0 ? (
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Vitamin Adı</TableCell>
+                            <TableCell>Tüketilen Miktar</TableCell>
+                            <TableCell>Önerilen Miktar</TableCell>
+                            <TableCell>Yüzdelik Miktar</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {dailyReport.map((item, index) => (
+                            <TableRow key={index}>
+                                <TableCell>{item.vitaminName}</TableCell>
+                                <TableCell>{item.consumedAmount}</TableCell>
+                                <TableCell>{item.recommendedAmount}</TableCell>
+                                <TableCell>{item.percentage}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            ) : (
+                <Typography marginTop={5} align="center" variant="body1">Günlük rapor bulunamadı</Typography>
+            )}
+            </DialogContent>
+            <DialogActions>
+              <Button color="warning" autoFocus onClick={handleDialogCloseReport}>
+                Kapat
               </Button>
             </DialogActions>
           </BootstrapDialog>
