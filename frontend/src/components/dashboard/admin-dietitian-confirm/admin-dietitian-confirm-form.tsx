@@ -15,12 +15,10 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Unstable_Grid2';
 import { Box, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Typography, styled } from '@mui/material';
 import Stack from '@mui/material/Stack';
-import { PendingFood } from '@/types/PendingFood';
-import { FoodItem } from '@/types/FoodItem';
-import { FoodDB } from '@/types/FoodDb';
 import Divider from '@mui/material/Divider';
 import { Check } from '@phosphor-icons/react';
 import { X } from '@phosphor-icons/react';
+import { PendingDietitian } from '@/types/PendingDietitian';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -33,50 +31,60 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 
-export function ConfirmFoodForm(): React.JSX.Element {
+export function ConfirmDietitianForm(): React.JSX.Element {
     const token = localStorage.getItem('custom-auth-token');
-    const [selectedFoodItem, setSelectedFoodItem] = React.useState<PendingFood | null>(null);
+    const [selectedDietitian, setSelectedDietitian] = React.useState<PendingDietitian | null>(null);
     const [dialogOpen, setDialogOpen] = React.useState(false);
     const [dialogOpen2, setDialogOpen2] = React.useState(false);
-    const [pendingList,setPendingList ] = React.useState<PendingFood[]>([]);
+    const [pendingDietitianList,setPendingDietitianList ] = React.useState<PendingDietitian[]>([]);
+    const [certificateUrls, setCertificateUrls] = React.useState<Record<number, string>>({});
+    let diplomaFormat: string;
 
-    const confirmPendingFood = async (pendingFoodId: number) => {
+    const confirmDietitian = async (email: string) => {
         try {
-            const response = await fetch(`https://api.vitamis.hekolcu.com/food/pending/confirm?pendingFoodId=${pendingFoodId}`, {
-                method: 'GET',
+            const response = await fetch('https://api.vitamis.hekolcu.com/admin/dietitian/confirm', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email })
+            });
+            
+            if (!response.ok) {
+                console.error('Failed to confirm dietitian:', response.statusText);
+                return;
+            }
+            
+            console.log('Dietitian confirmed successfully');
+        } catch (error) {
+            console.error('Error confirming dietitian:', error);
+        }
+    };
+
+
+    const rejectDietitian = async (email: string) => {
+        try {
+            const response = await fetch('https://api.vitamis.hekolcu.com/admin/dietitian/reject', {
+                method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`, 
                     'Content-Type': 'application/json'
                 },
+                body: JSON.stringify({ email: email })
             });
             if (!response.ok) {
+                console.error('Failed to retrieve list:', response.statusText);
                 return;
             }
         } catch (error) {
-            console.error('Error confirming food:', error);
+            console.error('Error retrieving list:', error);
         }
     }
 
-    const rejectPendingFood = async (pendingFoodId: number) => {
+    const getDietitianList = async () => { 
         try {
-            const response = await fetch(`https://api.vitamis.hekolcu.com/food/pending/reject?pendingFoodId=${pendingFoodId}`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`, 
-                    'Content-Type': 'application/json'
-                },
-            });
-            if (!response.ok) {
-                return;
-            }
-        } catch (error) {
-            console.error('Error rejecting food:', error);
-        }
-    }
-
-    const getPendingList = async () =>{ 
-        try {
-            const response = await fetch('https://api.vitamis.hekolcu.com/food/pending/list', {
+            const response = await fetch('https://api.vitamis.hekolcu.com/admin/dietitian/list', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`, 
@@ -88,63 +96,70 @@ export function ConfirmFoodForm(): React.JSX.Element {
                 return;
             }
             const data = await response.json();
-            const formattedList = data.map((item: { name: any; category: any; vitamins: any[]; foodId: any; }) => ({
-                name: item.name,
-                category: item.category,
-                vitamins: item.vitamins.map(vitamin => ({
-                    name: vitamin.name,
-                    average: parseFloat(vitamin.average),
-                    unit: vitamin.unit,
-                    minimum: parseFloat(vitamin.minimum),
-                    maximum: parseFloat(vitamin.maximum)
-                })),
-                foodId: item.foodId
-            }));
-            setPendingList(formattedList)
-            console.log('Pending List:', formattedList);
+            console.log(data);
+            setPendingDietitianList(data);
+            fetchCertificates(data);
         } catch (error) {
             console.error('Error retrieving list:', error);
         }
-    }
-
-const generateId = (): string => {
-    const id = `MA-${currentIdCounter}`;
-    currentIdCounter++;
-    return id;
-};
-    const convertFoodItemToFoodDB = (foodItem: FoodItem): FoodDB[] => {
-        const foodDBArray: FoodDB[] = [];
-
-        foodItem.vitamins.forEach(vitamin => {
-            foodDBArray.push({
-                name: foodItem.name,
-                id: generateId(),
-                group: foodItem.group,
-                vitamin: vitamin.vitamin,
-                unit: vitamin.unit,
-                average: vitamin.average,
-                minimum: vitamin.minimum,
-                maximum: vitamin.maximum,
-            });
-        });
-
-        return foodDBArray;
     };
 
-    const handleCheckButtonClick= (item: PendingFood) =>{
-        setSelectedFoodItem(item);
+    const fetchCertificates = async (dietitians: PendingDietitian[]) => {
+        for (const dietitian of dietitians) {
+            try {
+                const response = await fetch(`https://api.vitamis.hekolcu.com/admin/dietitian/getCertificate?userId=${dietitian.userId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                });
+    
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch certificate for dietitian: ${dietitian.userId}`);
+                }
+    
+                const data = await response.blob();
+                const format = response.headers.get('Content-Type');
+                let url: string;
+                if (format === 'application/pdf') {
+                    url = URL.createObjectURL(data);
+                    diplomaFormat ="pdf";
+                } else if (format === 'image/jpeg') {
+                    diplomaFormat = "jpg";
+                    url = URL.createObjectURL(data);
+                } else if ( format === 'image/png') {
+                    url = URL.createObjectURL(data);
+                    diplomaFormat ="png";
+                }else {
+                    console.error('Unsupported certificate format:', format);
+                    continue;
+                }
+    
+                setCertificateUrls((prevUrls) => ({
+                    ...prevUrls,
+                    [dietitian.userId]: url,
+                }));
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    };
+
+    const handleCheckButtonClick= (item: PendingDietitian) =>{
+        setSelectedDietitian(item);
         setDialogOpen(true);
     }
-    const handleCrossButtonClick= (item: PendingFood) =>{
-        setSelectedFoodItem(item);
-        console.log(item.foodId)
+    const handleCrossButtonClick= (item: PendingDietitian) =>{
+        setSelectedDietitian(item);
+        console.log(item.email)
         setDialogOpen2(true);
     }
     const handleDialogClose= () =>{
         setDialogOpen(false);
       }
-      const handleDialogConfirm=(item: PendingFood) =>{
-        confirmPendingFood(item.foodId)
+      const handleDialogConfirm=(item: PendingDietitian) =>{
+        console.log(item.email)
+        confirmDietitian(item.email)
         window.location.reload();
         setDialogOpen(false);
       }
@@ -152,39 +167,40 @@ const generateId = (): string => {
       const handleDialogClose2= () =>{
         setDialogOpen2(false);
       }
-      const handleDialogConfirm2=(item: PendingFood) =>{
-        //console.log(item.foodId)
-        rejectPendingFood(item.foodId)
+      const handleDialogConfirm2=(item: PendingDietitian) =>{
+        //console.log(item.email)
+        rejectDietitian(item.email)
         window.location.reload();
         setDialogOpen2(false);
       }
 
       React.useEffect(() => {
-        getPendingList();
+        getDietitianList();
     }, []);
 
     return (
         <>
-            {pendingList.map((item: PendingFood) => (
-                <Card key={item.name} sx={{ display: 'flex', marginBottom: '8px' }}>
+            {pendingDietitianList.map((item: PendingDietitian) => (
+                <Card key={item.fullname} sx={{ display: 'flex', marginBottom: '8px' }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: '1' }}>
                         <CardContent>
                             <Typography component="div" variant="h5">
-                                {item.name}
+                                {item.fullname}
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Group: {item.category}
+                                Email: {item.email}
                             </Typography>
-                            <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Vitamins:
-                            </Typography>
-                            <ul>
-                                {item.vitamins.map((vitamin, index) => (
-                                    <li key={index}>
-                                        {vitamin.name} <br></br>Unit: ({vitamin.unit}) Avg: {vitamin.average} Min: {vitamin.minimum} Max: {vitamin.maximum}
-                                    </li>
-                                ))}
-                            </ul>
+                            {certificateUrls[item.userId] && (
+                                <Typography variant="subtitle1" color="text.secondary" component="div">
+                                    Diploma: <br></br>
+                                    {diplomaFormat === "jpg" || diplomaFormat === "png" ? (
+                                        <img src={certificateUrls[item.userId]} alt={item.fullname + " Diploma"} />
+                                    ) : (
+                                        
+                                        <iframe src={certificateUrls[item.userId]} width="100%" height="500px"></iframe>
+                                    )}
+                                </Typography>
+                            )}
                         </CardContent>
                         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                             <IconButton aria-label="check" className="checkmark-button" onClick={() => handleCheckButtonClick(item)}>
@@ -211,7 +227,7 @@ const generateId = (): string => {
                     <Button color="warning" autoFocus onClick={handleDialogClose}>
                         Cancel
                     </Button>
-                    <Button color="warning" autoFocus onClick={() => handleDialogConfirm(selectedFoodItem!)}>
+                    <Button color="warning" autoFocus onClick={() => handleDialogConfirm(selectedDietitian!)}>
                         Confirm
                     </Button>
                 </DialogActions>
@@ -227,7 +243,7 @@ const generateId = (): string => {
                     <Button color="warning" autoFocus onClick={handleDialogClose2}>
                         Cancel
                     </Button>
-                    <Button color="warning" autoFocus onClick={() => handleDialogConfirm2(selectedFoodItem!)}>
+                    <Button color="warning" autoFocus onClick={() => handleDialogConfirm2(selectedDietitian!)}>
                         Delete
                     </Button>
                 </DialogActions>

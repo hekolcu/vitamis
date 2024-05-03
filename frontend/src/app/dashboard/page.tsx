@@ -15,52 +15,17 @@ import { Traffic } from '@/components/dashboard/overview/traffic';
 import VitaminRefTable from '@/components/dashboard/overview/vitamin-ref-table';
 import { VitaminGaugeChart } from '@/components/dashboard/overview/vitamin-gauge-chart';
 import { Box, Typography } from '@mui/material';
+import { getTrackingDaily } from '@/lib/auth/auth-utils';
+import DailyVitaminGoalCompletion from '@/components/dashboard/overview/daily-vitamin-goal-gauge-chart';
 
 export const metadata = { title: `Overview | Dashboard | ${config.site.name}` } satisfies Metadata;
 
 export default function Page(): React.JSX.Element {
-  const vitaminValues = [
-    { name: 'Vitamin A', value: 15 },
-    { name: 'Vitamin B6', value: 75 },
-    { name: 'Vitamin E', value: 55 },
-    { name: 'Vitamin K', value: 85 },
-    { name: 'Vitamin B12', value: 95 },
-    { name: 'Vitamin C', value: 25 },
-    { name: 'Vitamin D', value: 100 },
-    { name: 'Vitamin B', value: 75 },
-  ];
   return (
     <Grid container spacing={3}>
       <Typography variant="h6" sx={{ mb: 3, pl: 4 }}>Daily Intake</Typography>
       {/* Wrap the Gauge Chart components in a Box for horizontal scrolling */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'nowrap',
-          overflowX: 'scroll',
-          overflowY: 'hidden', // Prevent vertical scrolling
-          width: '100%',
-          mb: 3,
-          p: 0,
-          '& > div': {
-            flex: '0 0 auto', // Prevent flex items from growing or shrinking
-            padding: 0, // Add padding to each item
-            // width: 'calc(20% - 16px)', // 20% of the container width minus grid spacing
-          },
-          '-webkit-overflow-scrolling': 'touch', // Smooth scrolling on iOS devices
-          scrollbarWidth: 'none',  // Hide scrollbar for Firefox
-          '&::-webkit-scrollbar': {
-            display: 'none',  // Hide scrollbar for Chrome, Safari and Opera
-          },
-        }}
-      >
-        {vitaminValues.map((value, index) => (
-          <Grid key={index} xs={6} sm={4} lg={3} sx={{ padding: 0, margin: -3 }}>
-            <VitaminGaugeChart name={value.name} series={value.value} />
-          </Grid>
-        ))}
-      </Box>
+      <DailyVitaminGoalCompletion />
       <Grid lg={4} md={6} xs={12}>
         <Traffic chartSeries={[16, 22, 62]} labels={['Vegetable', 'Fruit', 'Meal']} sx={{ height: '100%' }} />
       </Grid>
