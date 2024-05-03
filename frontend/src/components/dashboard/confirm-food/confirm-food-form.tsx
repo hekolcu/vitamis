@@ -3,41 +3,16 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardHeader from '@mui/material/CardHeader';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import Select from '@mui/material/Select';
-import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Unstable_Grid2';
-import { Box, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled } from '@mui/material';
-import Stack from '@mui/material/Stack';
+import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { PendingFood } from '@/types/PendingFood';
-import { FoodItem } from '@/types/FoodItem';
-import { FoodDB } from '@/types/FoodDb';
-import Divider from '@mui/material/Divider';
 import { Check } from '@phosphor-icons/react';
-import { X } from '@phosphor-icons/react';
-
-
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
-        padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-        padding: theme.spacing(1),
-    },
-}));
-
 
 export function ConfirmFoodForm(): React.JSX.Element {
     const token = localStorage.getItem('custom-auth-token');
     const [selectedFoodItem, setSelectedFoodItem] = React.useState<PendingFood | null>(null);
     const [dialogOpen, setDialogOpen] = React.useState(false);
-    const [dialogOpen2, setDialogOpen2] = React.useState(false);
     const [pendingList, setPendingList] = React.useState<PendingFood[]>([]);
 
     const confirmPendingFood = async (pendingFoodId: number) => {
@@ -107,38 +82,9 @@ export function ConfirmFoodForm(): React.JSX.Element {
         }
     }
 
-    const generateId = (): string => {
-        const id = `MA-${currentIdCounter}`;
-        currentIdCounter++;
-        return id;
-    };
-    const convertFoodItemToFoodDB = (foodItem: FoodItem): FoodDB[] => {
-        const foodDBArray: FoodDB[] = [];
-
-        foodItem.vitamins.forEach(vitamin => {
-            foodDBArray.push({
-                name: foodItem.name,
-                id: generateId(),
-                group: foodItem.group,
-                vitamin: vitamin.vitamin,
-                unit: vitamin.unit,
-                average: vitamin.average,
-                minimum: vitamin.minimum,
-                maximum: vitamin.maximum,
-            });
-        });
-
-        return foodDBArray;
-    };
-
     const handleCheckButtonClick = (item: PendingFood) => {
         setSelectedFoodItem(item);
         setDialogOpen(true);
-    }
-    const handleCrossButtonClick = (item: PendingFood) => {
-        setSelectedFoodItem(item);
-        console.log(item.foodId)
-        setDialogOpen2(true);
     }
     const handleDialogClose = () => {
         setDialogOpen(false);
@@ -147,16 +93,6 @@ export function ConfirmFoodForm(): React.JSX.Element {
         confirmPendingFood(item.foodId)
         window.location.reload();
         setDialogOpen(false);
-    }
-
-    const handleDialogClose2 = () => {
-        setDialogOpen2(false);
-    }
-    const handleDialogConfirm2 = (item: PendingFood) => {
-        //console.log(item.foodId)
-        rejectPendingFood(item.foodId)
-        window.location.reload();
-        setDialogOpen2(false);
     }
 
     React.useEffect(() => {
@@ -225,10 +161,10 @@ export function ConfirmFoodForm(): React.JSX.Element {
                     <Typography>Do you want to add this food item to the database?</Typography>
                 </DialogContent>
                 <DialogActions>
-                    <Button color="warning" autoFocus onClick={handleDialogClose}>
+                    <Button color="warning" onClick={handleDialogClose}>
                         Cancel
                     </Button>
-                    <Button color="warning" autoFocus onClick={handleDialogConfirm}>
+                    <Button color="warning" autoFocus onClick={() => handleDialogConfirm(selectedFoodItem!)}>
                         Confirm
                     </Button>
                 </DialogActions>
