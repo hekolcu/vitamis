@@ -35,10 +35,10 @@ public static class DietitianEndpoints
                             return Results.NotFound("User not found.");
                         }
 
-                        // if (user.UserType == UserType.Dietitian)
-                        // {
-                        //     return Results.BadRequest("User is already a dietitian. Cannot upload certificate again.");
-                        // }
+                        if (user.UserType == UserType.Admin || user.UserType == UserType.AcademicianDietitian || user.UserType == UserType.Dietitian)
+                        {
+                            return Results.BadRequest("User must be a normal user.");
+                        }
 
                         var fileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
 
