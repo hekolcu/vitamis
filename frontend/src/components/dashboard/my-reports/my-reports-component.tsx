@@ -20,7 +20,6 @@ import { CardContent, CardHeader } from '@mui/material';
 export function ViewReport() {
     const token = localStorage.getItem('custom-auth-token');
     const [FoodIntakeReports, setFoodIntakeReport] = React.useState<FoodIntakeReport[]>([]);
-
     const [FoodIntakeRecords, setFoodIntakeRecords] = React.useState<FoodIntakeRecord[]>([]);  
     const getList = async () => {
         try {
@@ -49,14 +48,11 @@ export function ViewReport() {
             const currentDate = new Date();
             const reportDataArray = [];
     
-            // Loop through the past seven days
             for (let i = 0; i < 7; i++) {
-                // Set start date to 00:00:00.000 of the current day
                 const startDate = new Date(currentDate);
                 startDate.setDate(currentDate.getDate() - i);
                 startDate.setHours(0, 0, 0, 0);
     
-                // Set end date to 23:59:59.999 of the current day
                 const endDate = new Date(startDate);
                 endDate.setHours(23, 59, 59, 999);
     
@@ -66,13 +62,12 @@ export function ViewReport() {
                 reportDataArray.push(await fetchReport(startDate, endDate));
             }
     
-            // Set the report data array
             setFoodIntakeReport(reportDataArray);
         } catch (error) {
             console.error('Error generating report:', error);
         }
     };
-    
+
     const fetchReport = async (startDate: Date, endDate: Date) => {
         try {
             const requestBody = {

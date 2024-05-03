@@ -15,10 +15,10 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Unstable_Grid2';
 import { Box, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Typography, styled } from '@mui/material';
 import Stack from '@mui/material/Stack';
-import { PendingFood } from '@/types/PendingFood';
 import Divider from '@mui/material/Divider';
 import { Check } from '@phosphor-icons/react';
 import { X } from '@phosphor-icons/react';
+import { PendingDietitian } from '@/types/PendingDietitian';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -31,50 +31,58 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 
-export function ConfirmFoodForm(): React.JSX.Element {
+export function ConfirmDietitianForm(): React.JSX.Element {
     const token = localStorage.getItem('custom-auth-token');
-    const [selectedFoodItem, setSelectedFoodItem] = React.useState<PendingFood | null>(null);
+    const [selectedDietitian, setSelectedDietitian] = React.useState<PendingDietitian | null>(null);
     const [dialogOpen, setDialogOpen] = React.useState(false);
     const [dialogOpen2, setDialogOpen2] = React.useState(false);
-    const [pendingList,setPendingList ] = React.useState<PendingFood[]>([]);
+    const [pendingDietitianList,setPendingDietitianList ] = React.useState<PendingDietitian[]>([]);
 
-    const confirmPendingFood = async (pendingFoodId: number) => {
+    const confirmDietitian = async (email: string) => {
         try {
-            const response = await fetch(`https://api.vitamis.hekolcu.com/food/pending/confirm?pendingFoodId=${pendingFoodId}`, {
-                method: 'GET',
+            const response = await fetch('https://api.vitamis.hekolcu.com/admin/dietitian/confirm', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email })
+            });
+            
+            if (!response.ok) {
+                console.error('Failed to confirm dietitian:', response.statusText);
+                return;
+            }
+            
+            console.log('Dietitian confirmed successfully');
+        } catch (error) {
+            console.error('Error confirming dietitian:', error);
+        }
+    };
+
+
+    const rejectDietitian = async (email: string) => {
+        try {
+            const response = await fetch('https://api.vitamis.hekolcu.com/admin/dietitian/reject', {
+                method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`, 
                     'Content-Type': 'application/json'
                 },
+                body: JSON.stringify({ email: email })
             });
             if (!response.ok) {
+                console.error('Failed to retrieve list:', response.statusText);
                 return;
             }
         } catch (error) {
-            console.error('Error confirming food:', error);
+            console.error('Error retrieving list:', error);
         }
     }
 
-    const rejectPendingFood = async (pendingFoodId: number) => {
+    const getDietitianList = async () =>{ 
         try {
-            const response = await fetch(`https://api.vitamis.hekolcu.com/food/pending/reject?pendingFoodId=${pendingFoodId}`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`, 
-                    'Content-Type': 'application/json'
-                },
-            });
-            if (!response.ok) {
-                return;
-            }
-        } catch (error) {
-            console.error('Error rejecting food:', error);
-        }
-    }
-
-    const getPendingList = async () =>{ 
-        try {
-            const response = await fetch('https://api.vitamis.hekolcu.com/food/pending/list', {
+            const response = await fetch('https://api.vitamis.hekolcu.com/admin/dietitian/list', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`, 
@@ -86,40 +94,39 @@ export function ConfirmFoodForm(): React.JSX.Element {
                 return;
             }
             const data = await response.json();
-            const formattedList = data.map((item: { name: any; category: any; vitamins: any[]; foodId: any; }) => ({
-                name: item.name,
-                category: item.category,
-                vitamins: item.vitamins.map(vitamin => ({
-                    name: vitamin.name,
-                    average: parseFloat(vitamin.average),
-                    unit: vitamin.unit,
-                    minimum: parseFloat(vitamin.minimum),
-                    maximum: parseFloat(vitamin.maximum)
-                })),
-                foodId: item.foodId
-            }));
-            setPendingList(formattedList)
-            console.log('Pending List:', formattedList);
+            console.log(data)
+
+            setPendingDietitianList(data)
+            console.log('Pending List:', pendingDietitianList);
         } catch (error) {
             console.error('Error retrieving list:', error);
         }
     }
 
+    const displayImage = (dietitianFileName: string) => {
+        
+        return (
+            
+            <iframe src={dietitianFileName} width="100%" height="500px" />
+            
+            );
+    }
 
-    const handleCheckButtonClick= (item: PendingFood) =>{
-        setSelectedFoodItem(item);
+    const handleCheckButtonClick= (item: PendingDietitian) =>{
+        setSelectedDietitian(item);
         setDialogOpen(true);
     }
-    const handleCrossButtonClick= (item: PendingFood) =>{
-        setSelectedFoodItem(item);
-        console.log(item.foodId)
+    const handleCrossButtonClick= (item: PendingDietitian) =>{
+        setSelectedDietitian(item);
+        console.log(item.email)
         setDialogOpen2(true);
     }
     const handleDialogClose= () =>{
         setDialogOpen(false);
       }
-      const handleDialogConfirm=(item: PendingFood) =>{
-        confirmPendingFood(item.foodId)
+      const handleDialogConfirm=(item: PendingDietitian) =>{
+        console.log(item.email)
+        confirmDietitian(item.email)
         window.location.reload();
         setDialogOpen(false);
       }
@@ -127,39 +134,32 @@ export function ConfirmFoodForm(): React.JSX.Element {
       const handleDialogClose2= () =>{
         setDialogOpen2(false);
       }
-      const handleDialogConfirm2=(item: PendingFood) =>{
-        //console.log(item.foodId)
-        rejectPendingFood(item.foodId)
+      const handleDialogConfirm2=(item: PendingDietitian) =>{
+        //console.log(item.email)
+        rejectDietitian(item.email)
         window.location.reload();
         setDialogOpen2(false);
       }
 
       React.useEffect(() => {
-        getPendingList();
+        getDietitianList();
     }, []);
 
     return (
         <>
-            {pendingList.map((item: PendingFood) => (
-                <Card key={item.name} sx={{ display: 'flex', marginBottom: '8px' }}>
+            {pendingDietitianList.map((item: PendingDietitian) => (
+                <Card key={item.fullname} sx={{ display: 'flex', marginBottom: '8px' }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: '1' }}>
                         <CardContent>
                             <Typography component="div" variant="h5">
-                                {item.name}
+                                {item.fullname}
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Group: {item.category}
+                                Email: {item.email}
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Vitamins:
+                                Diploma: {displayImage(item.dietitianFileName)}
                             </Typography>
-                            <ul>
-                                {item.vitamins.map((vitamin, index) => (
-                                    <li key={index}>
-                                        {vitamin.name} <br></br>Unit: ({vitamin.unit}) Avg: {vitamin.average} Min: {vitamin.minimum} Max: {vitamin.maximum}
-                                    </li>
-                                ))}
-                            </ul>
                         </CardContent>
                         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                             <IconButton aria-label="check" className="checkmark-button" onClick={() => handleCheckButtonClick(item)}>
@@ -186,7 +186,7 @@ export function ConfirmFoodForm(): React.JSX.Element {
                     <Button color="warning" autoFocus onClick={handleDialogClose}>
                         Cancel
                     </Button>
-                    <Button color="warning" autoFocus onClick={() => handleDialogConfirm(selectedFoodItem!)}>
+                    <Button color="warning" autoFocus onClick={() => handleDialogConfirm(selectedDietitian!)}>
                         Confirm
                     </Button>
                 </DialogActions>
@@ -202,7 +202,7 @@ export function ConfirmFoodForm(): React.JSX.Element {
                     <Button color="warning" autoFocus onClick={handleDialogClose2}>
                         Cancel
                     </Button>
-                    <Button color="warning" autoFocus onClick={() => handleDialogConfirm2(selectedFoodItem!)}>
+                    <Button color="warning" autoFocus onClick={() => handleDialogConfirm2(selectedDietitian!)}>
                         Delete
                     </Button>
                 </DialogActions>
