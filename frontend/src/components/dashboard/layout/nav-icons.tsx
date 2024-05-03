@@ -11,6 +11,7 @@ import { CheckSquare } from '@phosphor-icons/react';
 import { BowlFood } from '@phosphor-icons/react';
 import { Article } from '@phosphor-icons/react';
 import {Users} from '@phosphor-icons/react';
+import { UserList } from '@phosphor-icons/react';
 
 export const navIcons = {
   'chart-pie': ChartPieIcon,
@@ -23,6 +24,7 @@ export const navIcons = {
   'meal': BowlFood,
   'report': Article,
   'admin-confirm': Users,
+  'advisee-management': UserList,
   user: UserIcon,
   users: UsersIcon,
 } as Record<string, Icon>;

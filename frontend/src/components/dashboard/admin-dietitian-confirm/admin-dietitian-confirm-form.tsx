@@ -193,7 +193,7 @@ export function ConfirmDietitianForm(): React.JSX.Element {
                             {certificateUrls[item.userId] && (
                                 <Typography variant="subtitle1" color="text.secondary" component="div">
                                     Diploma: <br></br>
-                                    {diplomaFormat === "jpg" ? (
+                                    {diplomaFormat === "jpg" || diplomaFormat === "png" ? (
                                         <img src={certificateUrls[item.userId]} alt={item.fullname + " Diploma"} />
                                     ) : (
                                         

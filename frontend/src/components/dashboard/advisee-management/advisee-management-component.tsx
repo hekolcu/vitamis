@@ -191,8 +191,8 @@ export function AdviseeManagement(): React.JSX.Element {
         <>
         <Box display="flex" justifyContent="center">
           <Tabs value={tabIndex} onChange={handleTabChange} aria-label="sign-up form tabs">
-            <Tab label="Danışmanlarım" />
-            <Tab label="Yeni Danışman Ekle" />
+            <Tab label="Danışanlarım" />
+            <Tab label="Yeni Danışan Ekle" />
           </Tabs>
           </Box>
           {tabIndex === 0 ? (
