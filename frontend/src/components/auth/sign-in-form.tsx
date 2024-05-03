@@ -59,8 +59,11 @@ export function SignInForm(): React.JSX.Element {
         return;
       }
 
+      // Refresh the auth state
       await checkSession?.();
 
+      // UserProvider, for this case, will not refresh the router
+      // After refresh, GuestGuard will handle the redirect
       router.refresh();
     },
     [checkSession, router, setError]
