@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using VitamisAPI.Data;
 
@@ -40,6 +41,7 @@ public static class AdminEndpoints
                 .Where(d => !d.IsConfirmed)
                 .Select(d => new
                 {
+                    d.UserId,
                     d.User.Fullname,
                     d.User.Email,
                     d.DietitianFileName
@@ -157,6 +159,56 @@ public static class AdminEndpoints
             await db.SaveChangesAsync();
             
             return Results.Ok();
+        }).RequireAuthorization();
+
+        dietitianManagementMapGroup.MapGet("getCertificate", async (VitamisDbContext db, HttpContext context, [FromQuery] int userId) =>
+        {
+            var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return Results.Unauthorized();
+            }
+
+            var user = await db.Users
+                .Where(u => u.Email == userEmail)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return Results.NotFound("User not found.");
+            }
+
+            if (user.UserType != UserType.Admin)
+            {
+                return Results.Forbid();
+            }
+            
+            var dietitianDetails = await db.DietitianDetails
+                .Where(d => d.UserId == userId)
+                .FirstOrDefaultAsync();
+
+            if (dietitianDetails == null)
+            {
+                return Results.NotFound("Dietitian details not found.");
+            }
+            
+            var filePath = Path.Combine("Data", "DieticianDocuments", dietitianDetails.DietitianFileName);
+            
+            if (!File.Exists(filePath))
+            {
+                return Results.NotFound("Certificate not found.");
+            }
+            
+            var fileStream = File.OpenRead(filePath);
+
+            var provider = new FileExtensionContentTypeProvider();
+            if (!provider.TryGetContentType(filePath, out var contentType))
+            {
+                contentType = "application/octet-stream";
+            }
+    
+            return Results.File(fileStream, contentType);
         }).RequireAuthorization();
 
     }
