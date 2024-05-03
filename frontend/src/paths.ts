@@ -11,7 +11,9 @@ export const paths = {
     search_food: '/dashboard/search-food',
     confirm_food: '/dashboard/confirm-food',
     add_meal: '/dashboard/add-meal',
-    my_reports: '/dashboard/my-reports'
+    my_reports: '/dashboard/my-reports',
+    confirm_dietitian: '/dashboard/admin-dietitian-confirm',
+    advisee_management: '/dashboard/advisee-management'
   },
   errors: { notFound: '/errors/not-found' },
 } as const;
