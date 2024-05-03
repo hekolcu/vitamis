@@ -6,7 +6,6 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-// import Divider from '@mui/material/Divider';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
@@ -55,7 +54,6 @@ export function AccountDetailsForm(): React.JSX.Element {
     event.preventDefault();
     const token = localStorage.getItem('custom-auth-token');
     if (token === null) {
-      // Handle token not found
       return;
     }
 
