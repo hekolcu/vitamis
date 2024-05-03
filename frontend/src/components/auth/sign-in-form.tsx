@@ -74,7 +74,7 @@ export function SignInForm(): React.JSX.Element {
       <Stack spacing={1}>
         <Typography variant="h4">Oturum Aç</Typography>
         <Typography color="text.secondary" variant="body2">
-          Hesabınız yok mu?{' '}
+          Hesabım yok.{' '}
           <Link component={RouterLink} href={paths.auth.signUp} underline="hover" variant="subtitle2">
             Hesap Aç
           </Link>

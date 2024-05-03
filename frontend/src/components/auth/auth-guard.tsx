@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import Alert from '@mui/material/Alert';
 
 import { paths } from '@/paths';
@@ -14,6 +14,7 @@ export interface AuthGuardProps {
 
 export function AuthGuard({ children }: AuthGuardProps): React.JSX.Element | null {
   const router = useRouter();
+  const pathname = usePathname();
   const { user, error, isLoading } = useUser();
   const [isChecking, setIsChecking] = React.useState<boolean>(true);
 
@@ -30,6 +31,12 @@ export function AuthGuard({ children }: AuthGuardProps): React.JSX.Element | nul
     if (!user) {
       logger.debug('[AuthGuard]: User is not logged in, redirecting to sign in');
       router.replace(paths.auth.signIn);
+      return;
+    }
+
+    if (pathname !== paths.dashboard.account && (user.dateOfBirth === null || user.gender === null)) {
+      logger.debug('[AuthGuard]: User is missing required profile information, redirecting to profile');
+      router.replace(paths.dashboard.account);
       return;
     }
 

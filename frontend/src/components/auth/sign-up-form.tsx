@@ -111,7 +111,7 @@ export function SignUpForm(): React.JSX.Element {
       <Stack spacing={1}>
         <Typography variant="h4">Hesap aç</Typography>
         <Typography color="text.secondary" variant="body2">
-          Zaten hesabın mı var?{' '}
+          Hesabım var.{' '}
           <Link component={RouterLink} href={paths.auth.signIn} underline="hover" variant="subtitle2">
             Oturum Aç
           </Link>
