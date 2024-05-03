@@ -1,5 +1,5 @@
 export type FoodIntakeReport = {
-    startDate: string | null;
+    startDate: string;
     endDate: string | null;
     vitaminSummaries: {
         name: string | null;

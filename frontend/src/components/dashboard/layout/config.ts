@@ -12,5 +12,9 @@ export const navItems = [
   {key: 'confirm-food', title: 'Confirm Food', href: paths.dashboard.confirm_food, icon: 'confirm'},
   {key: 'add-meal', title: 'Add Meal', href: paths.dashboard.add_meal, icon: 'meal'},
   {key: 'my-reports', title: 'My Reports', href: paths.dashboard.my_reports, icon: 'report'},
+  {key: 'admin-dietitian-confirm', title: 'Confirm Dietitian User', href: paths.dashboard.confirm_dietitian, icon: 'admin-confirm'},
+  {key: 'advisee-management', title: 'Danışan Yönetimi', href: paths.dashboard.advisee_management, icon: 'advisee-management'},
+
+
   // { key: 'error', title: 'Error', href: paths.errors.notFound, icon: 'x-square' },
 ] satisfies NavItemConfig[];

@@ -15,15 +15,16 @@ import type { Metadata } from 'next';
 export const metadata = { title: `Search Food | Dashboard | ${config.site.name}` } satisfies Metadata;
 
 export default function Page(): React.JSX.Element {
-
-  return (
-    <Stack width={'100%'} spacing={3}>
-      <div>
-        <Typography variant="h4" color={'#fa8805'} align='center'>Search Food</Typography>
-      </div>
-      <SearchForm></SearchForm>
-    </Stack>
-  );
-}
+    
+    return (
+      <Stack spacing={3}>
+        <Grid container spacing={3} direction="row" justifyContent="center" alignItems="center">
+          <Grid lg={8} md={6} xs={12}>
+            <SearchForm></SearchForm>
+          </Grid>
+        </Grid>
+      </Stack>
+    );
+  }
 
 

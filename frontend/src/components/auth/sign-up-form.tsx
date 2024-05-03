@@ -19,6 +19,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { z as zod } from 'zod';
 import { styled } from '@mui/material/styles';
 
+//import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 import { paths } from '@/paths';
 import { authClient } from '@/lib/auth/client';
 import { useUser } from '@/hooks/use-user';
@@ -27,11 +29,12 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
 const schema = zod.object({
-  firstName: zod.string().min(1, { message: 'First name is required' }),
-  lastName: zod.string().min(1, { message: 'Last name is required' }),
-  email: zod.string().min(1, { message: 'Email is required' }).email(),
-  password: zod.string().min(6, { message: 'Password should be at least 6 characters' }),
-  terms: zod.boolean().refine((value) => value, 'You must accept the terms and conditions'),
+  firstName: zod.string().min(1, { message: 'İlk isim zorunlu bir alan' }),
+  lastName: zod.string().min(1, { message: 'Soy isim zorunlu bir alan' }),
+  email: zod.string().min(1, { message: 'E-posta adresi zorunlu bir alan' }).email(),
+  password: zod.string().min(6, { message: 'Şifrenizin uzunluğu en az 6 olmalıdır' }),
+  terms: zod.boolean().refine((value) => value, 'Aydınlatma metnini kabul etmelisiniz'),
+  // document: zod.any().optional(), // Considering file upload is optional
 });
 
 type Values = zod.infer<typeof schema>;
@@ -87,6 +90,11 @@ export function SignUpForm(): React.JSX.Element {
         }
       }
 
+      // Refresh the auth state
+      // await checkSession?.();
+
+      // UserProvider, for this case, will not refresh the router
+      // After refresh, GuestGuard will handle the redirect
       router.push('/auth/sign-in');
     },
     [checkSession, router, setError]
@@ -101,20 +109,21 @@ export function SignUpForm(): React.JSX.Element {
   return (
     <Stack spacing={3}>
       <Stack spacing={1}>
-        <Typography variant="h4">Sign up</Typography>
+        <Typography variant="h4">Hesap aç</Typography>
         <Typography color="text.secondary" variant="body2">
-          Already have an account?{' '}
+          Zaten hesabın mı var?{' '}
           <Link component={RouterLink} href={paths.auth.signIn} underline="hover" variant="subtitle2">
-            Sign in
+            Oturum Aç
           </Link>
         </Typography>
       </Stack>
 
       <Tabs value={tabIndex} onChange={handleTabChange} aria-label="sign-up form tabs">
-        <Tab label="ADVISEE" />
-        <Tab label="DIETITIAN" />
+        <Tab label="DANİŞAN" />
+        <Tab label="DİYETİSYEN" />
       </Tabs>
 
+      {/* You can now conditionally render form sections based on the selected tab */}
       {tabIndex === 0 && (
         <form onSubmit={handleSubmit(onSubmit)}>
           <Stack spacing={2}>
@@ -123,8 +132,8 @@ export function SignUpForm(): React.JSX.Element {
               name="firstName"
               render={({ field }) => (
                 <FormControl error={Boolean(errors.firstName)}>
-                  <InputLabel>First name</InputLabel>
-                  <OutlinedInput {...field} label="First name" />
+                  <InputLabel>İlk isim</InputLabel>
+                  <OutlinedInput {...field} label="İlk isim" />
                   {errors.firstName ? <FormHelperText>{errors.firstName.message}</FormHelperText> : null}
                 </FormControl>
               )}
@@ -134,8 +143,8 @@ export function SignUpForm(): React.JSX.Element {
               name="lastName"
               render={({ field }) => (
                 <FormControl error={Boolean(errors.firstName)}>
-                  <InputLabel>Last name</InputLabel>
-                  <OutlinedInput {...field} label="Last name" />
+                  <InputLabel>Soy isim</InputLabel>
+                  <OutlinedInput {...field} label="Soy isim" />
                   {errors.firstName ? <FormHelperText>{errors.firstName.message}</FormHelperText> : null}
                 </FormControl>
               )}
@@ -145,8 +154,8 @@ export function SignUpForm(): React.JSX.Element {
               name="email"
               render={({ field }) => (
                 <FormControl error={Boolean(errors.email)}>
-                  <InputLabel>Email address</InputLabel>
-                  <OutlinedInput {...field} label="Email address" type="email" />
+                  <InputLabel>E-posta adresi</InputLabel>
+                  <OutlinedInput {...field} label="E-posta adresi" type="email" />
                   {errors.email ? <FormHelperText>{errors.email.message}</FormHelperText> : null}
                 </FormControl>
               )}
@@ -156,8 +165,8 @@ export function SignUpForm(): React.JSX.Element {
               name="password"
               render={({ field }) => (
                 <FormControl error={Boolean(errors.password)}>
-                  <InputLabel>Password</InputLabel>
-                  <OutlinedInput {...field} label="Password" type="password" />
+                  <InputLabel>Şifre</InputLabel>
+                  <OutlinedInput {...field} label="Şifre" type="password" />
                   {errors.password ? <FormHelperText>{errors.password.message}</FormHelperText> : null}
                 </FormControl>
               )}
@@ -171,7 +180,7 @@ export function SignUpForm(): React.JSX.Element {
                     control={<Checkbox {...field} />}
                     label={
                       <React.Fragment>
-                        I have read the <Link>terms and conditions</Link>
+                        <Link>Aydınlatma metnini</Link> okudum ve kabul ediyorum.
                       </React.Fragment>
                     }
                   />
@@ -181,7 +190,7 @@ export function SignUpForm(): React.JSX.Element {
             />
             {errors.root ? <Alert color="error">{errors.root.message}</Alert> : null}
             <Button disabled={isPending} type="submit" color="warning" variant="contained">
-              Sign up
+              Hesap Aç
             </Button>
           </Stack>
         </form>
@@ -195,8 +204,8 @@ export function SignUpForm(): React.JSX.Element {
               name="firstName"
               render={({ field }) => (
                 <FormControl error={Boolean(errors.firstName)}>
-                  <InputLabel>First name</InputLabel>
-                  <OutlinedInput {...field} label="First name" />
+                  <InputLabel>İlk isim</InputLabel>
+                  <OutlinedInput {...field} label="İlk isim" />
                   {errors.firstName ? <FormHelperText>{errors.firstName.message}</FormHelperText> : null}
                 </FormControl>
               )}
@@ -206,8 +215,8 @@ export function SignUpForm(): React.JSX.Element {
               name="lastName"
               render={({ field }) => (
                 <FormControl error={Boolean(errors.firstName)}>
-                  <InputLabel>Last name</InputLabel>
-                  <OutlinedInput {...field} label="Last name" />
+                  <InputLabel>Soy isim</InputLabel>
+                  <OutlinedInput {...field} label="Soy isim" />
                   {errors.firstName ? <FormHelperText>{errors.firstName.message}</FormHelperText> : null}
                 </FormControl>
               )}
@@ -217,8 +226,8 @@ export function SignUpForm(): React.JSX.Element {
               name="email"
               render={({ field }) => (
                 <FormControl error={Boolean(errors.email)}>
-                  <InputLabel>Email address</InputLabel>
-                  <OutlinedInput {...field} label="Email address" type="email" />
+                  <InputLabel>E-posta adresi</InputLabel>
+                  <OutlinedInput {...field} label="E-posta adresi" type="email" />
                   {errors.email ? <FormHelperText>{errors.email.message}</FormHelperText> : null}
                 </FormControl>
               )}
@@ -228,8 +237,8 @@ export function SignUpForm(): React.JSX.Element {
               name="password"
               render={({ field }) => (
                 <FormControl error={Boolean(errors.password)}>
-                  <InputLabel>Password</InputLabel>
-                  <OutlinedInput {...field} label="Password" type="password" />
+                  <InputLabel>Şifre</InputLabel>
+                  <OutlinedInput {...field} label="Şifre" type="password" />
                   {errors.password ? <FormHelperText>{errors.password.message}</FormHelperText> : null}
                 </FormControl>
               )}
@@ -243,7 +252,7 @@ export function SignUpForm(): React.JSX.Element {
                     control={<Checkbox {...field} />}
                     label={
                       <React.Fragment>
-                        I have read the <Link>terms and conditions</Link>
+                        <Link>Aydınlatma metnini</Link> okudum ve kabul ediyorum.
                       </React.Fragment>
                     }
                   />
@@ -256,8 +265,9 @@ export function SignUpForm(): React.JSX.Element {
               role={undefined}
               variant="contained"
               tabIndex={-1}
+              // startIcon={<CloudUploadIcon />}
             >
-              Upload Document
+              Diploma yükle
               <VisuallyHiddenInput
                 type="file"
                 hidden
@@ -270,7 +280,7 @@ export function SignUpForm(): React.JSX.Element {
             </Button>
             {errors.root ? <Alert color="error">{errors.root.message}</Alert> : null}
             <Button disabled={isPending} type="submit" color="warning" variant="contained">
-              Sign up
+              Hesap aç
             </Button>
           </Stack>
         </form>
