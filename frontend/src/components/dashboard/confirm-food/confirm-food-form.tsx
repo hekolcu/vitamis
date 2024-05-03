@@ -16,6 +16,8 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { Box, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Typography, styled } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { PendingFood } from '@/types/PendingFood';
+import { FoodItem } from '@/types/FoodItem';
+import { FoodDB } from '@/types/FoodDb';
 import Divider from '@mui/material/Divider';
 import { Check } from '@phosphor-icons/react';
 import { X } from '@phosphor-icons/react';
@@ -105,6 +107,29 @@ export function ConfirmFoodForm(): React.JSX.Element {
         }
     }
 
+const generateId = (): string => {
+    const id = `MA-${currentIdCounter}`;
+    currentIdCounter++;
+    return id;
+};
+    const convertFoodItemToFoodDB = (foodItem: FoodItem): FoodDB[] => {
+        const foodDBArray: FoodDB[] = [];
+
+        foodItem.vitamins.forEach(vitamin => {
+            foodDBArray.push({
+                name: foodItem.name,
+                id: generateId(),
+                group: foodItem.group,
+                vitamin: vitamin.vitamin,
+                unit: vitamin.unit,
+                average: vitamin.average,
+                minimum: vitamin.minimum,
+                maximum: vitamin.maximum,
+            });
+        });
+
+        return foodDBArray;
+    };
 
     const handleCheckButtonClick= (item: PendingFood) =>{
         setSelectedFoodItem(item);

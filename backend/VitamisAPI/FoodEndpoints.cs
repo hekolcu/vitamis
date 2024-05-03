@@ -76,7 +76,7 @@ public static class FoodEndpoints
                 return Results.NotFound("User not found.");
             }
             
-            if (user.UserType != UserType.Dietitian || user.UserType != UserType.AcademicianDietitian || user.UserType != UserType.Admin)
+            if (user.UserType != UserType.Dietitian && user.UserType != UserType.AcademicianDietitian && user.UserType != UserType.Admin)
             {
                 return Results.Unauthorized();
             }
