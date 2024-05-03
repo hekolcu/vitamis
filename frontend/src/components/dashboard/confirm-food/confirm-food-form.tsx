@@ -3,9 +3,18 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import CardHeader from '@mui/material/CardHeader';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import Select from '@mui/material/Select';
+import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Unstable_Grid2';
-import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled } from '@mui/material';
+import { Box, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Typography, styled } from '@mui/material';
+import Stack from '@mui/material/Stack';
 import { FoodItem } from '@/types/FoodItem';
 import { FoodDB } from '@/types/FoodDb';
 import Divider from '@mui/material/Divider';
@@ -13,12 +22,12 @@ import { CheckFat } from '@phosphor-icons/react';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
-        padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-        padding: theme.spacing(1),
-    },
+  '& .MuiDialogContent-root': {
+    padding: theme.spacing(2),
+  },
+  '& .MuiDialogActions-root': {
+    padding: theme.spacing(1),
+  },
 }));
 
 interface ConfirmFoodProps {
@@ -33,11 +42,11 @@ export function ConfirmFoodForm({ foodItems }: ConfirmFoodProps): React.JSX.Elem
     const [dialogOpen, setDialogOpen] = React.useState(false);
     const [foodDBArray, setFoodDBArray] = React.useState<FoodDB[]>([]);
 
-    const generateId = (): string => {
-        const id = `MA-${currentIdCounter}`;
-        currentIdCounter++;
-        return id;
-    };
+const generateId = (): string => {
+    const id = `MA-${currentIdCounter}`;
+    currentIdCounter++;
+    return id;
+};
     const convertFoodItemToFoodDB = (foodItem: FoodItem): FoodDB[] => {
         const foodDBArray: FoodDB[] = [];
 
@@ -57,77 +66,55 @@ export function ConfirmFoodForm({ foodItems }: ConfirmFoodProps): React.JSX.Elem
         return foodDBArray;
     };
 
-    const handleButtonClick = (item: FoodItem) => {
+    const handleButtonClick= (item: FoodItem) =>{
         setSelectedFoodItem(item);
         const foodDBArray = convertFoodItemToFoodDB(item);
         console.log(foodDBArray)
         setDialogOpen(true);
     }
-    const handleDialogClose = () => {
+    const handleDialogClose= () =>{
         setFoodDBArray([]);
         currentIdCounter = 1;
         setDialogOpen(false);
-    }
-    const handleDialogConfirm = () => {
+      }
+      const handleDialogConfirm=() =>{
         setDialogOpen(false);
         window.location.reload();
-    }
+      }
     return (
-        <Grid container spacing={2} direction="row">
+        <>
             {foodItems.map((item: FoodItem) => (
-                <Grid xs={12} md={6} lg={6} key={item.name} component="div">
-                    <Card>
+                <Card key={item.name} sx={{ display: 'flex', marginBottom: '8px' }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: '1' }}>
                         <CardContent>
-                            <Typography variant="h5" color={'#fa8805'}>
+                            <Typography component="div" variant="h5">
                                 {item.name}
                             </Typography>
-                            <Typography variant="subtitle1" color="text.secondary" marginBottom={'10px'}>
+                            <Typography variant="subtitle1" color="text.secondary" component="div">
                                 Group: {item.group}
                             </Typography>
-                            <TableContainer>
-                                <Table size="small">
-                                    <TableHead>
-                                        <TableRow>
-                                            <TableCell>Vitamin</TableCell>
-                                            <TableCell align="right">Unit</TableCell>
-                                            <TableCell align="right">Avg</TableCell>
-                                            <TableCell align="right">Min</TableCell>
-                                            <TableCell align="right">Max</TableCell>
-                                        </TableRow>
-                                    </TableHead>
-                                    <TableBody>
-                                        {item.vitamins.map((vitamin, index) => (
-                                            <TableRow key={index}>
-                                                <TableCell component="th" scope="row">
-                                                    {vitamin.vitamin}
-                                                </TableCell>
-                                                <TableCell align="right">{vitamin.unit}</TableCell>
-                                                <TableCell align="right">{vitamin.average}</TableCell>
-                                                <TableCell align="right">{vitamin.minimum}</TableCell>
-                                                <TableCell align="right">{vitamin.maximum}</TableCell>
-                                            </TableRow>
-                                        ))}
-                                    </TableBody>
-                                </Table>
-                            </TableContainer>
-                            <IconButton sx={{
-                                fontSize: '2rem',
-                                backgroundColor: 'orange',
-                                border: '5px solid deepOrange',
-                                m: 1,
-                                p: 1,
-                                ':hover': {
-                                    backgroundColor: '#dcedc8',
-                                },
-                            }} aria-label="check" onClick={() => handleButtonClick(item)}>
-                                <Check color='black' />
-                            </IconButton>
+                            <Typography variant="subtitle1" color="text.secondary" component="div">
+                                Vitamins:
+                            </Typography>
+                            <ul>
+                                {item.vitamins.map((vitamin, index) => (
+                                    <li key={index}>
+                                        {vitamin.vitamin} <br></br>Unit: ({vitamin.unit}) Avg: {vitamin.average} Min: {vitamin.minimum} Max: {vitamin.maximum}
+                                    </li>
+                                ))}
+                            </ul>
                         </CardContent>
-                    </Card>
-                </Grid>
+                        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                            <IconButton aria-label="check" className="checkmark-button" onClick={() => handleButtonClick(item)}>
+
+                                <CheckFat />
+                            </IconButton>
+                        </Box>
+                    </Box>
+                </Card>
             ))}
-            <Dialog open={dialogOpen} onClose={handleDialogClose}>
-                <DialogTitle id="customized-dialog-title">
+            <BootstrapDialog aria-labelledby="customized-dialog-title" open={dialogOpen} onClose={handleDialogClose}>
+                <DialogTitle sx={{ m: 0, p: 2, color:'#fa8805', bgcolor:'white'  }} id="customized-dialog-title">
                     Food Item Details
                 </DialogTitle>
                 <DialogContent dividers>
@@ -141,8 +128,7 @@ export function ConfirmFoodForm({ foodItems }: ConfirmFoodProps): React.JSX.Elem
                         Confirm
                     </Button>
                 </DialogActions>
-            </Dialog>
-        </Grid>
-
+            </BootstrapDialog>
+        </>
     );
 }

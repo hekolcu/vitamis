@@ -19,6 +19,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { z as zod } from 'zod';
 import { styled } from '@mui/material/styles';
 
+//import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 import { paths } from '@/paths';
 import { authClient } from '@/lib/auth/client';
 import { useUser } from '@/hooks/use-user';
@@ -32,6 +34,7 @@ const schema = zod.object({
   email: zod.string().min(1, { message: 'Email is required' }).email(),
   password: zod.string().min(6, { message: 'Password should be at least 6 characters' }),
   terms: zod.boolean().refine((value) => value, 'You must accept the terms and conditions'),
+  // document: zod.any().optional(), // Considering file upload is optional
 });
 
 type Values = zod.infer<typeof schema>;
@@ -87,6 +90,11 @@ export function SignUpForm(): React.JSX.Element {
         }
       }
 
+      // Refresh the auth state
+      // await checkSession?.();
+
+      // UserProvider, for this case, will not refresh the router
+      // After refresh, GuestGuard will handle the redirect
       router.push('/auth/sign-in');
     },
     [checkSession, router, setError]
@@ -115,6 +123,7 @@ export function SignUpForm(): React.JSX.Element {
         <Tab label="DIETITIAN" />
       </Tabs>
 
+      {/* You can now conditionally render form sections based on the selected tab */}
       {tabIndex === 0 && (
         <form onSubmit={handleSubmit(onSubmit)}>
           <Stack spacing={2}>
@@ -256,6 +265,7 @@ export function SignUpForm(): React.JSX.Element {
               role={undefined}
               variant="contained"
               tabIndex={-1}
+              // startIcon={<CloudUploadIcon />}
             >
               Upload Document
               <VisuallyHiddenInput
