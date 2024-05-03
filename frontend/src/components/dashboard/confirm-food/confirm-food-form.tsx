@@ -7,8 +7,9 @@ import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Unstable_Grid2';
 import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, styled } from '@mui/material';
 import { FoodItem } from '@/types/FoodItem';
-import { FoodDB } from '@/types/FoodDB';
-import { Check } from '@mui/icons-material';
+import { FoodDB } from '@/types/FoodDb';
+import Divider from '@mui/material/Divider';
+import { CheckFat } from '@phosphor-icons/react';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
