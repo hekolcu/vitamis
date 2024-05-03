@@ -16,7 +16,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { Box, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Typography, styled } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { FoodItem } from '@/types/FoodItem';
-import { FoodDB } from '@/types/FoodDB';
+import { FoodDB } from '@/types/FoodDb';
 import Divider from '@mui/material/Divider';
 import { CheckFat } from '@phosphor-icons/react';
 
@@ -49,7 +49,7 @@ const generateId = (): string => {
 };
     const convertFoodItemToFoodDB = (foodItem: FoodItem): FoodDB[] => {
         const foodDBArray: FoodDB[] = [];
-    
+
         foodItem.vitamins.forEach(vitamin => {
             foodDBArray.push({
                 name: foodItem.name,
@@ -62,7 +62,7 @@ const generateId = (): string => {
                 maximum: vitamin.maximum,
             });
         });
-    
+
         return foodDBArray;
     };
 

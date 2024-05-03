@@ -23,7 +23,7 @@ export default function DailyVitaminGoalCompletion(): React.JSX.Element {
     const fetchVitamins = async () => {
       const result = await getTrackingDaily(localStorage.getItem('custom-auth-token') as string);
       console.log(result);
-      if (result == null || typeof result === 'string') {
+      if (result === null || typeof result === 'string') {
         console.error(result);
         console.log('Error fetching daily vitamins');
         return;
