@@ -37,11 +37,8 @@ export function SearchForm() {
   };
 
   return (
-    <Stack spacing={3}>
-      <div>
-        <Typography variant="h4" color={'#fa8805'} align='center' marginBottom={'20px'}>Search Food</Typography>
-      </div>
-      <Grid container spacing={2} direction="row" alignItems="center" justifyContent="center">
+    <Stack spacing={2} style={{ width: '100%' }} >
+      <Grid container spacing={3} direction="row" alignItems="center" justifyContent="center">
         <Grid item xs={12} lg={4} md={4}>
           <TextField
             fullWidth
@@ -64,9 +61,9 @@ export function SearchForm() {
           </Button>
         </Grid>
       </Grid>
-      <Grid container spacing={1} direction="row" alignItems="center" justifyContent="center">
+      <Grid container spacing={2} direction="row" alignItems="center" justifyContent="center">
         {searchResults.map((result, index) => (
-          <Grid item xs={12} lg={8} md={8} key={index}>
+          <Grid item xs={12} lg={6} md={6} key={index}>
             <Card style={{ width: '100%', padding: '20px' }}>
               <Typography variant="h6" color={'#fa8805'} style={{ textAlign: 'left' }}>{result.category}</Typography>
               <Typography variant="subtitle1" style={{ textAlign: 'left', marginBottom:'5px' }}>{result.name}</Typography>
