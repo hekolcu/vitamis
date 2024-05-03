@@ -199,10 +199,8 @@ export function AddFoodForm(): React.JSX.Element {
                   </FormControl>
                 </Grid>
                 {foodItem.vitamins.map((vitamin, index) => (
-                {foodItem.vitamins.map((vitamin, index) => (
-                {foodItem.vitamins.map((vitamin, index) => (
                   <React.Fragment key={index}>
-                    <Grid sx={{ marginTop:'10px' }} container rowSpacing={3} alignItems={'center'} justifyContent={'center'} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
+                    <Grid sx={{ marginTop: '10px' }} container rowSpacing={3} alignItems={'center'} justifyContent={'center'} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
                       <Divider />
                       <Grid xs={12} lg={3}>
                         <FormControl fullWidth>
