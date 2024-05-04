@@ -80,7 +80,7 @@ export function AccountDetailsForm(): React.JSX.Element {
       onSubmit={handleSubmit}
     >
       <Card>
-        <CardHeader subheader="Bilgiler düzenlenebilir" title="Profil" />
+        <CardHeader subheader="Bilgiler düzenlenebilir" title="Hesabım" />
         {/* <Divider /> */}
         <CardContent>
           <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
