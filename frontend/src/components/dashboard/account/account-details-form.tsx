@@ -68,7 +68,7 @@ export function AccountDetailsForm(): React.JSX.Element {
       smoking: formValues.smoking === 'Yes',
       dateOfBirth: formValues.dob,
     }).then((response) => {
-      setSnackbarOpen(true); 
+      setSnackbarOpen(true);
       logger.debug(response);
       return response;
     }).catch((error) => {
@@ -82,14 +82,14 @@ export function AccountDetailsForm(): React.JSX.Element {
       onSubmit={handleSubmit}
     >
       <Card>
-        <CardHeader subheader="The information can be edited" title="Profile" />
+        <CardHeader subheader="Bilgiler düzenlenebilir" title="Profil" />
         {/* <Divider /> */}
         <CardContent>
           <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             {/* Height field */}
             <Grid xs={6}>
               <FormControl fullWidth required>
-                <InputLabel htmlFor="height">Height</InputLabel>
+                <InputLabel htmlFor="height">Boy</InputLabel>
                 <OutlinedInput
                   id="height"
                   value={formValues.height}
@@ -103,7 +103,7 @@ export function AccountDetailsForm(): React.JSX.Element {
             {/* Weight field */}
             <Grid xs={6}>
               <FormControl fullWidth required>
-                <InputLabel htmlFor="weight">Weight</InputLabel>
+                <InputLabel htmlFor="weight">Kilo</InputLabel>
                 <OutlinedInput
                   id="weight"
                   value={formValues.weight}
@@ -119,7 +119,7 @@ export function AccountDetailsForm(): React.JSX.Element {
               <FormControl fullWidth required>
                 <TextField
                   id="dob"
-                  label="Date of Birth"
+                  label="Doğum Tarihi"
                   type="date"
                   value={formValues.dob}
                   onChange={(e) => { handleChange('dob')(e.target.value) }}
@@ -132,7 +132,7 @@ export function AccountDetailsForm(): React.JSX.Element {
             {/* Gender field */}
             <Grid xs={6}>
               <FormControl fullWidth required>
-                <InputLabel id="gender-label">Gender</InputLabel>
+                <InputLabel id="gender-label">Cinsiyet</InputLabel>
                 <Select
                   labelId="gender-label"
                   id="gender"
@@ -140,48 +140,48 @@ export function AccountDetailsForm(): React.JSX.Element {
                   label="Gender"
                   onChange={(e) => { handleChange('gender')(e.target.value) }}
                 >
-                  <MenuItem value='Male'>Male</MenuItem>
-                  <MenuItem value='Female'>Female</MenuItem>
+                  <MenuItem value='Male'>Erkek</MenuItem>
+                  <MenuItem value='Female'>Kadın</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
             {/* Sun exposure field */}
             <Grid xs={6}>
               <FormControl fullWidth>
-                <InputLabel id="sun-exposure-label">Sun Exposure</InputLabel>
+                <InputLabel id="sun-exposure-label">Güneşe maruz kalma</InputLabel>
                 <Select
                   labelId="sun-exposure-label"
                   id="sun-exposure"
                   value={formValues.sunExposure}
-                  label="Sun Exposure"
+                  label="Güneşe maruz kalma"
                   onChange={(e) => { handleChange('sunExposure')(e.target.value) }}
                 >
-                  <MenuItem value='Low'>Low</MenuItem>
-                  <MenuItem value='Moderate'>Moderate</MenuItem>
-                  <MenuItem value='High'>High</MenuItem>
+                  <MenuItem value='Low'>Düşük</MenuItem>
+                  <MenuItem value='Moderate'>Orta</MenuItem>
+                  <MenuItem value='High'>Yüksek</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
             {/* Smoking field */}
             <Grid xs={6}>
               <FormControl fullWidth>
-                <InputLabel id="smoking-label">Smoking</InputLabel>
+                <InputLabel id="smoking-label">Sigara kullanma</InputLabel>
                 <Select
                   labelId="smoking-label"
                   id="smoking"
                   value={formValues.smoking}
-                  label="Smoking"
+                  label="Sigara kullanma"
                   onChange={(e) => { handleChange('smoking')(e.target.value) }}
                 >
-                  <MenuItem value='Yes'>Yes</MenuItem>
-                  <MenuItem value='No'>No</MenuItem>
+                  <MenuItem value='Yes'>Evet</MenuItem>
+                  <MenuItem value='No'>Hayır</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
             {/* Disease field */}
             <Grid md={12} xs={12}>
               <FormControl fullWidth>
-                <InputLabel htmlFor="disease">Disease</InputLabel>
+                <InputLabel htmlFor="disease">Hastalık</InputLabel>
                 <OutlinedInput
                   id="disease"
                   value={formValues.disease}
@@ -193,14 +193,13 @@ export function AccountDetailsForm(): React.JSX.Element {
           </Grid>
         </CardContent>
         {/* <Divider /> */}
-        <CardActions sx={{ justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-          <Stack spacing={1} alignItems="center">
-            <Button type="submit" variant="contained" color="warning">
-              Save details
-            </Button>
-            <Typography variant="overline">OR</Typography>
+        <CardActions sx={{ justifyContent: 'center', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+          <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-between" sx={{ padding:'20px', width: '100%' }}>
             <Button type="button" variant="outlined" color="error">
-              Delete Account
+              Hesabı sil
+            </Button>
+            <Button type="submit" variant="contained" color="warning">
+              Ayrıntıları kaydet
             </Button>
           </Stack>
         </CardActions>
@@ -210,9 +209,9 @@ export function AccountDetailsForm(): React.JSX.Element {
           onClose={handleCloseSnackbar}
           severity="success"
           variant="filled"
-          sx={{ bgcolor: 'green', color: 'white'}}
+          sx={{ bgcolor: 'green', color: 'white' }}
         >
-          Saved Successfully!
+          Başarıyla kaydedildi!
         </Alert>
       </Snackbar>
     </form>
