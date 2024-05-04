@@ -145,12 +145,12 @@ export function UserPopover({ anchorEl, onClose, open }: UserPopoverProps): Reac
           </ListItemIcon>
           Çıkış Yap
         </MenuItem>
-        <MenuItem>
+        {/* <MenuItem>
           <FormControlLabel
             control={<MaterialUISwitch checked={darkMode} onChange={handleDarkModeChange} />}
             label={darkMode ? "Açık Mod" : "Karanlık Mod"}
           />
-        </MenuItem>
+        </MenuItem> */}
       </MenuList>
     </Popover>
   );
