@@ -9,14 +9,13 @@ import { useTheme } from '@mui/material/styles';
 import type { SxProps } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import type { Icon } from '@phosphor-icons/react/dist/lib/types';
-
 import { Carrot as CarrotIcon } from '@phosphor-icons/react/dist/ssr/Carrot';
 import {OrangeSlice as OrangeSliceIcon} from '@phosphor-icons/react/dist/ssr/OrangeSlice';
 import {CookingPot as CookingPotIcon} from '@phosphor-icons/react/dist/ssr/CookingPot';
 import type { ApexOptions } from 'apexcharts';
 import { Chart } from '@/components/core/chart';
 
-const iconMapping = { Vegetable: CarrotIcon, Fruit: OrangeSliceIcon, Meal: CookingPotIcon } as Record<string, Icon>;
+const iconMapping = { Sebze: CarrotIcon, Meyve: OrangeSliceIcon, Yemek: CookingPotIcon } as Record<string, Icon>;
 
 export interface TrafficProps {
   chartSeries: number[];
@@ -29,7 +28,7 @@ export function Traffic({ chartSeries, labels, sx }: TrafficProps): React.JSX.El
 
   return (
     <Card sx={sx}>
-      <CardHeader title="Daily Vitamin Intakes" />
+      <CardHeader title="Günlük Vitamin Alımı" />
       <CardContent>
         <Stack spacing={2}>
           <Chart height={300} options={chartOptions} series={chartSeries} type="donut" width="100%" />
