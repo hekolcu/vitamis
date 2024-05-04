@@ -54,21 +54,21 @@ async function registerUser(registrationData: RegistrationData): Promise<boolean
     }
 }
 
-async function uploadFile(registrationData: ExtendedRegistrationData): Promise<boolean> {
-    const endpoint = api + 'Dietitian/upload_DietitianFile';
-    const formData = new FormData();
-    formData.append('file', registrationData.file);
+async function uploadFile(registrationData: ExtendedRegistrationData, email: string): Promise<boolean> {
+  const endpoint = `${api}dietitian/upload-certificate?email=${encodeURIComponent(email)}`;
+  const formData = new FormData();
+  formData.append('file', registrationData.file);
 
-    try {
-        const response = await fetch(endpoint, {
-            method: 'POST',
-            body: formData,
-        });
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      body: formData,
+    });
 
-        return response.ok;
-    } catch (error) {
-        return false;
-    }
+    return response.ok;
+  } catch (error) {
+    return false;
+  }
 }
 
 async function login(loginData: LoginData): Promise<{ token: string | null }> {
