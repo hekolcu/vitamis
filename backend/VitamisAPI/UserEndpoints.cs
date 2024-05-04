@@ -35,7 +35,7 @@ public static class UserEndpoints
                         u.Disease,
                         Smoking = u.Smoking.HasValue ? (u.Smoking.Value ? "Yes" : "No") : "Unknown",
                         SunExposure = u.SunExposure.HasValue ? u.SunExposure.Value.ToString() : "Unknown",
-                        u.UserType,
+                        UserType = u.UserType.ToString(),
                     })
                     .FirstOrDefaultAsync();
 
