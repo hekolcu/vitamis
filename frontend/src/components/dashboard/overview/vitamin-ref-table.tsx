@@ -1,9 +1,8 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import { Table, TableBody, TableContainer, TableHead, TableRow, TableCell, TablePagination, Typography, Card, CardHeader } from '@mui/material';
+import { Table, TableBody, TableContainer, TableHead, TableRow, TableCell, TablePagination, Card, CardHeader } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import { VitaminRecommendation, getRecommendations } from '../../../lib/auth/auth-utils';
-import { borderRadius } from '@mui/system';
 
 function VitaminRefTable() {
   const [page, setPage] = useState(0);
@@ -34,15 +33,15 @@ function VitaminRefTable() {
 
   return (
     <Card>
-      <CardHeader title='Recommended Vitamins' />
+      <CardHeader title='Önerilen Vitaminler' />
       <Paper>
         <TableContainer style={{ borderRadius: '0px 0px 20px 20px' }}>
           <Table>
             <TableHead>
               <TableRow >
-                <TableCell style={{ color: 'white', backgroundColor: '#fb9c0c', fontSize: '16px', fontWeight: 'bold' }}>Vitamin Name</TableCell>
-                <TableCell align='right' style={{ color: 'white', backgroundColor: '#fb9c0c', fontSize: '16px', fontWeight: 'bold' }}>Amount</TableCell>
-                <TableCell align='right' style={{ color: 'white', backgroundColor: '#fb9c0c', fontSize: '16px', fontWeight: 'bold' }}>Unit</TableCell>
+                <TableCell style={{ color: 'white', backgroundColor: '#fb9c0c', fontSize: '16px', fontWeight: 'bold' }}>Vitamin</TableCell>
+                <TableCell align='right' style={{ color: 'white', backgroundColor: '#fb9c0c', fontSize: '16px', fontWeight: 'bold' }}>Miktar</TableCell>
+                <TableCell align='right' style={{ color: 'white', backgroundColor: '#fb9c0c', fontSize: '16px', fontWeight: 'bold' }}>Birim</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
