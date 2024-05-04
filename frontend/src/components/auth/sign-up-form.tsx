@@ -61,6 +61,9 @@ export function SignUpForm(): React.JSX.Element {
   const [isPending, setIsPending] = React.useState<boolean>(false);
   const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
 
+
+  const [tabIndex, setTabIndex] = React.useState(0);
+
   const {
     control,
     handleSubmit,
@@ -75,6 +78,8 @@ export function SignUpForm(): React.JSX.Element {
 
       const { error } = await authClient.signUp(values);
 
+      console.log("signed up");
+
       if (error) {
         setError('root', { type: 'server', message: error });
         setIsPending(false);
@@ -82,9 +87,9 @@ export function SignUpForm(): React.JSX.Element {
       }
 
       if (tabIndex === 1) {
-        const { error } = await authClient.uploadDieticianFile(selectedFile!);
-        if (error) {
-          setError('root', { type: 'server', message: error });
+        const { error: upload_error } = await authClient.uploadDieticianFile(selectedFile!, values.email);
+        if (upload_error) {
+          setError('root', { type: 'server', message: upload_error });
           setIsPending(false);
           return;
         }
@@ -97,10 +102,8 @@ export function SignUpForm(): React.JSX.Element {
       // After refresh, GuestGuard will handle the redirect
       router.push('/auth/sign-in');
     },
-    [checkSession, router, setError]
+    [checkSession, router, setError, tabIndex, selectedFile]
   );
-
-  const [tabIndex, setTabIndex] = React.useState(0);
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     setTabIndex(newValue);
@@ -273,6 +276,7 @@ export function SignUpForm(): React.JSX.Element {
                 hidden
                 onChange={(e: any) => {
                   if (e.target.files) {
+                    console.log(e.target.files[0]);
                     setSelectedFile(e.target.files[0]);
                   }
                 }}

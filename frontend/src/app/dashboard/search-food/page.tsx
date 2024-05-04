@@ -19,9 +19,9 @@ export default function Page(): React.JSX.Element {
   return (
     <Stack width={'100%'} spacing={3}>
       <div>
-        <Typography variant="h4" color={'#fa8805'} align='center'>Search Food</Typography>
+        <Typography variant="h4" color={'#fa8805'} align='center'>Yemek Ara</Typography>
       </div>
-      <SearchForm></SearchForm>
+      <SearchForm />
     </Stack>
   );
 }

@@ -159,12 +159,12 @@ export function AddFoodForm(): React.JSX.Element {
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2} alignItems="center" justifyContent="center">
           <Card style={{ width: '100%' }}>
-            <CardHeader subheader="Submit for confirmation" title="Add Food Item" />
+            <CardHeader subheader="Onay için gönder" title="Yemek Ekle" />
             <CardContent>
               <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }} justifyContent={'center'} alignItems={'center'}>
                 <Grid xs={6}>
                   <FormControl fullWidth>
-                    <InputLabel htmlFor="name">Food Name</InputLabel>
+                    <InputLabel htmlFor="name">Yemek İsmi</InputLabel>
                     <OutlinedInput
                       label="Food Name"
                       id="foodname"
@@ -174,7 +174,7 @@ export function AddFoodForm(): React.JSX.Element {
                 </Grid>
                 <Grid xs={6}>
                   <FormControl fullWidth>
-                    <InputLabel htmlFor="name">Group Name</InputLabel>
+                    <InputLabel htmlFor="name">Grup İsmi</InputLabel>
                     <Select
                       label="Group Name"
                       id="groupname"
@@ -219,7 +219,7 @@ export function AddFoodForm(): React.JSX.Element {
                       </Grid>
                       <Grid xs={12} lg={3} >
                         <FormControl fullWidth>
-                          <InputLabel id={`unit-${index}`}>Unit</InputLabel>
+                          <InputLabel id={`unit-${index}`}>Birim</InputLabel>
                           <Select
                             labelId={`unit-${index}`}
                             label="Unit"
@@ -237,7 +237,7 @@ export function AddFoodForm(): React.JSX.Element {
                         <FormControl fullWidth>
                           <InputLabel id={`average-${index}`}></InputLabel>
                           <TextField
-                            label="Average"
+                            label="Ortalama"
                             type="number"
                             value={vitamin.average}
                             onChange={(e) => handleInputChange(index, 'average', Number(e.target.value))} />
@@ -247,7 +247,7 @@ export function AddFoodForm(): React.JSX.Element {
                         <FormControl fullWidth>
                           <InputLabel id={`minimum-${index}`}></InputLabel>
                           <TextField
-                            label="Minimum"
+                            label="En Düşük"
                             type="number"
                             value={vitamin.minimum}
                             onChange={(e) => handleInputChange(index, 'minimum', Number(e.target.value))} />
@@ -257,7 +257,7 @@ export function AddFoodForm(): React.JSX.Element {
                         <FormControl fullWidth>
                           <InputLabel id={`maximum-${index}`}></InputLabel>
                           <TextField
-                            label="Maximum"
+                            label="En Yüksek"
                             type="number"
                             value={vitamin.maximum}
                             onChange={(e) => handleInputChange(index, 'maximum', Number(e.target.value))} />
@@ -271,10 +271,10 @@ export function AddFoodForm(): React.JSX.Element {
             <CardActions sx={{ justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
               <Stack spacing={1} alignItems="center">
                 <Button variant="contained" color="primary" onClick={addVitamin} disabled={!isVitaminFilled}>
-                  Add Vitamin
+                  Vitamin Ekle
                 </Button>
                 <Button type="submit" variant="contained" color="warning" disabled={!isVitaminFilled}>
-                  Submit
+                  Gönder
                 </Button>
               </Stack>
             </CardActions>

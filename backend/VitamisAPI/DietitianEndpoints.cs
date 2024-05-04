@@ -3,6 +3,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using VitamisAPI.Data;
 using VitamisAPI.Data.Tracking;
+using HttpContext = Microsoft.AspNetCore.Http.HttpContext;
 
 namespace VitamisAPI;
 
@@ -13,13 +14,18 @@ public static class DietitianEndpoints
         var dietitianMapGroup = app.MapGroup("/dietitian");
 
         dietitianMapGroup.MapPost("/upload-certificate",
-                async (IFormFile file, VitamisDbContext db, HttpContext context) =>
+                async (VitamisDbContext db, HttpContext context, IFormFile file, [FromQuery] string email) =>
                 {
+                    if (file.Length > 5 * 1024 * 1024)
+                    {
+                        return Results.BadRequest("File size must be less than 5MB.");
+                    }
+                    
                     if (file.ContentType == "application/pdf" ||
                         file.ContentType == "image/jpeg" ||
                         file.ContentType == "image/png")
                     {
-                        var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+                        var userEmail = email;
 
                         if (string.IsNullOrEmpty(userEmail))
                         {
@@ -35,10 +41,11 @@ public static class DietitianEndpoints
                             return Results.NotFound("User not found.");
                         }
 
-                        // if (user.UserType == UserType.Dietitian)
-                        // {
-                        //     return Results.BadRequest("User is already a dietitian. Cannot upload certificate again.");
-                        // }
+                        if (user.UserType == UserType.Admin || user.UserType == UserType.AcademicianDietitian ||
+                            user.UserType == UserType.Dietitian)
+                        {
+                            return Results.BadRequest("User must be a normal user.");
+                        }
 
                         var fileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
 
@@ -63,8 +70,7 @@ public static class DietitianEndpoints
                     return Results.BadRequest("File must be a PDF, JPEG or PNG.");
                 }
             )
-            .DisableAntiforgery()
-            .RequireAuthorization();
+            .DisableAntiforgery();
 
         dietitianMapGroup.MapGet("/get-certificate",
                 async (VitamisDbContext db, HttpContext context) =>

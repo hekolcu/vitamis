@@ -96,8 +96,8 @@ class AuthClient {
     return {};
   }
 
-  async uploadDieticianFile(file: File): Promise<{ error?: string }> {
-    const success = await uploadFile({file: file});
+  async uploadDieticianFile(file: File, email: string): Promise<{ error?: string }> {
+    const success = await uploadFile({file: file}, email);
     if (!success) {
       return { error: 'Failed to upload file' };
     }
