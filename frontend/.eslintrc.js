@@ -23,9 +23,12 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/prefer-optional-chain': 'off',
+    'import/newline-after-import': 'off',
+    'camelcase': 'off',
+    'no-return-assign': 'off',
+    '@typescript-eslint/no-unnecessary-type-arguments': 'off',
     'jsx-a11y/iframe-has-title': 'off',
     'no-param-reassign': 'off',
-    'import/newline-after-import': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
@@ -70,7 +73,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-shadow': 'off',
-    'import/newline-after-import': 'error',
+    // 'import/newline-after-import': 'error',
     'react/jsx-uses-react': 'error',
     'react/react-in-jsx-scope': 'error',
     'unicorn/filename-case': [
