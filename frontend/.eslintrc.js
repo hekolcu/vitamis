@@ -22,6 +22,10 @@ module.exports = {
     },
   },
   rules: {
+    '@typescript-eslint/prefer-optional-chain': 'off',
+    'jsx-a11y/iframe-has-title': 'off',
+    'no-param-reassign': 'off',
+    'import/newline-after-import': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
