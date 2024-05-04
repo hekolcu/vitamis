@@ -13,5 +13,7 @@ export interface User {
   smoking: string | null,
   sunExposure: string | null
 
+  userType: ('Advisee' | 'Dietitian' | 'AcademicianDietitian' | 'Admin');
+
   [key: string]: unknown;
 }
