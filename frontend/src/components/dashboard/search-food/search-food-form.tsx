@@ -21,17 +21,24 @@ import TableRow from '@mui/material/TableRow';
 export function SearchForm() {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState<FoodSearchItem[]>([]);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   React.useEffect(() => {
     console.log(searchResults);
   }, [searchResults]);
 
   const handleSearch = async () => {
+    if (!query.trim()) {
+      setErrorMessage('Lütfen gerekli alanları doldurunuz');
+      return false;
+    }
+
     try {
       const response = await fetch(`https://api.vitamis.hekolcu.com/food/search?q=${query}`);
       const data = await response.json();
       setSearchResults(data.results);
       console.log(data.results);
+      setErrorMessage(null);
     } catch (error) {
       console.error('Error fetching search results:', error);
     }
@@ -43,7 +50,7 @@ export function SearchForm() {
         <Grid item xs={12} lg={4} md={4}>
           <TextField
             fullWidth
-            label="Search Food"
+            label="Yemek Ara"
             variant="outlined"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -55,10 +62,11 @@ export function SearchForm() {
               ),
             }}
           />
+          {errorMessage && <Typography variant="body2" color="error">{errorMessage}</Typography>}
         </Grid>
         <Grid item>
           <Button variant="contained" color="primary" onClick={handleSearch}>
-            Search
+            Ara
           </Button>
         </Grid>
       </Grid>
@@ -73,9 +81,9 @@ export function SearchForm() {
                   <Table size="small">
                     <TableHead>
                       <TableRow>
-                        <TableCell>Vitamins</TableCell>
-                        <TableCell align="right">Average</TableCell>
-                        <TableCell align="right">Unit</TableCell>
+                        <TableCell>Vitaminler</TableCell>
+                        <TableCell align="right">Ortalama</TableCell>
+                        <TableCell align="right">Birim</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -92,7 +100,7 @@ export function SearchForm() {
                   </Table>
                 </TableContainer>
               ) : (
-                <Typography variant="body2" align='center'>No vitamin information available</Typography>
+                <Typography variant="body2" align='center'>Vitamin bilgisi mevcut değil</Typography>
               )}
             </Card>
           </Grid>
