@@ -32,22 +32,22 @@ export function ConfirmFoodForm(): React.JSX.Element {
         }
     }
 
-    const rejectPendingFood = async (pendingFoodId: number) => {
-        try {
-            const response = await fetch(`https://api.vitamis.hekolcu.com/food/pending/reject?pendingFoodId=${pendingFoodId}`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                },
-            });
-            if (!response.ok) {
-                return;
-            }
-        } catch (error) {
-            console.error('Error rejecting food:', error);
-        }
-    }
+    // const rejectPendingFood = async (pendingFoodId: number) => {
+    //     try {
+    //         const response = await fetch(`https://api.vitamis.hekolcu.com/food/pending/reject?pendingFoodId=${pendingFoodId}`, {
+    //             method: 'GET',
+    //             headers: {
+    //                 'Authorization': `Bearer ${token}`,
+    //                 'Content-Type': 'application/json'
+    //             },
+    //         });
+    //         if (!response.ok) {
+    //             return;
+    //         }
+    //     } catch (error) {
+    //         console.error('Error rejecting food:', error);
+    //     }
+    // }
 
     const getPendingList = async () => {
         try {
@@ -109,17 +109,17 @@ export function ConfirmFoodForm(): React.JSX.Element {
                                 {item.name}
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary" marginBottom={'10px'}>
-                                Group: {item.category}
+                                Grup: {item.category}
                             </Typography>
                             <TableContainer>
                                 <Table size="small">
                                     <TableHead>
                                         <TableRow>
                                             <TableCell>Vitamin</TableCell>
-                                            <TableCell align="right">Unit</TableCell>
-                                            <TableCell align="right">Avg</TableCell>
-                                            <TableCell align="right">Min</TableCell>
-                                            <TableCell align="right">Max</TableCell>
+                                            <TableCell align="right">Birim</TableCell>
+                                            <TableCell align="right">Ortalama</TableCell>
+                                            <TableCell align="right">En Düşük</TableCell>
+                                            <TableCell align="right">En Yüksek</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
@@ -153,20 +153,35 @@ export function ConfirmFoodForm(): React.JSX.Element {
                     </Card>
                 </Grid>
             ))}
-            <Dialog open={dialogOpen} onClose={handleDialogClose}>
+            <Dialog open={dialogOpen} onClose={handleDialogClose} PaperProps={{
+                style: {
+                    padding: '20px',
+                },
+            }}>
                 <DialogTitle id="customized-dialog-title">
-                    Food Item Details
+                    Gıda Maddesi Detayları
                 </DialogTitle>
                 <DialogContent dividers>
-                    <Typography>Do you want to add this food item to the database?</Typography>
+                    <Typography>Bu gıda maddesini veritabanına eklemek istiyor musunuz?</Typography>
                 </DialogContent>
                 <DialogActions>
-                    <Button color="warning" onClick={handleDialogClose}>
-                        Cancel
-                    </Button>
-                    <Button color="warning" autoFocus onClick={() => handleDialogConfirm(selectedFoodItem!)}>
-                        Confirm
-                    </Button>
+                    <Grid container alignItems="center" justifyContent="space-between" width='100%'>
+                        <Button
+                            style={{ color: 'white', backgroundColor: '#ff9800' }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#d62828'}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ff9800'}
+                            onClick={handleDialogClose}
+                        >
+                            Yoksay
+                        </Button>
+                        <Button style={{ color: 'white', backgroundColor: '#4caf50' }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#2d6a4f'}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#4caf50'}
+                            onClick={() => handleDialogConfirm(selectedFoodItem!)}
+                        >
+                            Onayla
+                        </Button>
+                    </Grid>
                 </DialogActions>
             </Dialog>
         </Grid>

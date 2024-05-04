@@ -1,60 +1,117 @@
 'use client';
 
 import * as React from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
-// import Divider from '@mui/material/Divider';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
-// import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
+import { Snackbar, Alert } from '@mui/material';
 
 
 export function UpdatePasswordForm(): React.JSX.Element {
+  const [password, setPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+
+  const handleCloseSnackbar = (event?: Event | React.SyntheticEvent<any, Event>, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSnackbarOpen(false);
+  };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (password === '' || newPassword === '' || confirmPassword === '') {
+      setSnackbarMessage('Alanları doldurunuz !');
+      setSnackbarOpen(true);
+      return;
+    }
+
+    if (newPassword !== confirmPassword) {
+      setSnackbarMessage('Parolalar uyuşmuyor !');
+      setSnackbarOpen(true);
+      return;
+    }
+
+    // TODO: Add code to update the password here.
+
+    setSnackbarMessage('Şifre başarıyla güncellendi.');
+    setSnackbarOpen(true);
+  };
   return (
-    <form
-      onSubmit={(event) => {
-        event.preventDefault();
-      }}
-    >
+    <form onSubmit={handleSubmit}>
       <Card>
-        <CardHeader subheader="Update password" title="Password" />
-        {/* <CardContent>
-          <Stack spacing={2} >
-            <FormControl fullWidth >
-              <InputLabel>Password</InputLabel>
-              <OutlinedInput label="Password" name="password" type="password" />
-            </FormControl>
-            <FormControl fullWidth>
-              <InputLabel>Confirm password</InputLabel>
-              <OutlinedInput label="Confirm password" name="confirmPassword" type="password" />
-            </FormControl>
-          </Stack>
-        </CardContent> */}
+        <CardHeader title="Şifre Güncelle" />
         <CardContent>
-          <Grid container rowSpacing={3}  columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
             <Grid item xs={12}>
               <FormControl fullWidth >
-                <InputLabel>Password</InputLabel>
-                <OutlinedInput label="Password" name="password" type="password" />
+                <InputLabel>Şifre</InputLabel>
+                <OutlinedInput
+                  label="Şifre"
+                  name="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </FormControl>
+            </Grid>
+            <Grid item xs={12}>
+              <FormControl fullWidth >
+                <InputLabel>Yeni Şifre</InputLabel>
+                <OutlinedInput
+                  label="Yeni Şifre"
+                  name="newPassword"
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                />
               </FormControl>
             </Grid>
             <Grid item xs={12}>
               <FormControl fullWidth>
-                <InputLabel>Confirm password</InputLabel>
-                <OutlinedInput label="Confirm password" name="confirmPassword" type="password" />
+                <InputLabel>Şifreni Onayla</InputLabel>
+                <OutlinedInput
+                  label="Şifreni Onayla"
+                  name="confirmPassword"
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
               </FormControl>
             </Grid>
           </Grid>
         </CardContent>
         <CardActions sx={{ justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-          <Button variant="contained" color="warning">Update</Button>
+          <Button type="submit" variant="contained" color="warning">Güncelle</Button>
         </CardActions>
       </Card>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={4000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity={snackbarMessage === 'Şifre başarıyla güncellendi.' ? 'success' : 'error'}
+          variant="filled"
+          sx={{ bgcolor: snackbarMessage === 'Şifre başarıyla güncellendi.' ? 'green' : 'red', color: 'white' }}
+        >
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
     </form >
   );
 }
