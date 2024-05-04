@@ -4,30 +4,23 @@ import Grid from '@mui/material/Unstable_Grid2';
 import dayjs from 'dayjs';
 
 import { config } from '@/config';
-import { Budget } from '@/components/dashboard/overview/budget';
 import { LatestOrders } from '@/components/dashboard/overview/latest-orders';
-import { LatestProducts } from '@/components/dashboard/overview/latest-products';
 import { Sales } from '@/components/dashboard/overview/sales';
-import { TasksProgress } from '@/components/dashboard/overview/tasks-progress';
-import { TotalCustomers } from '@/components/dashboard/overview/total-customers';
-import { TotalProfit } from '@/components/dashboard/overview/total-profit';
 import { Traffic } from '@/components/dashboard/overview/traffic';
 import VitaminRefTable from '@/components/dashboard/overview/vitamin-ref-table';
-import { VitaminGaugeChart } from '@/components/dashboard/overview/vitamin-gauge-chart';
-import { Box, Typography } from '@mui/material';
-import { getTrackingDaily } from '@/lib/auth/auth-utils';
+import { Typography } from '@mui/material';
 import DailyVitaminGoalCompletion from '@/components/dashboard/overview/daily-vitamin-goal-gauge-chart';
 
-export const metadata = { title: `Overview | Dashboard | ${config.site.name}` } satisfies Metadata;
+export const metadata = { title: `Genel Bakış | Gösterge Paneli | ${config.site.name}` } satisfies Metadata;
 
 export default function Page(): React.JSX.Element {
   return (
     <Grid container spacing={3}>
-      <Typography variant="h6" sx={{ mb: 3, pl: 4 }}>Daily Intake</Typography>
+      <Typography variant="h6" sx={{ mb: 3, pl: 4 }}>Günlük Alım</Typography>
       {/* Wrap the Gauge Chart components in a Box for horizontal scrolling */}
       <DailyVitaminGoalCompletion />
       <Grid lg={4} md={6} xs={12}>
-        <Traffic chartSeries={[16, 22, 62]} labels={['Vegetable', 'Fruit', 'Meal']} sx={{ height: '100%' }} />
+        <Traffic chartSeries={[16, 22, 62]} labels={['Sebze', 'Meyve', 'Yemek']} sx={{ height: '100%' }} />
       </Grid>
       <Grid lg={8} xs={12}>
         <Sales
