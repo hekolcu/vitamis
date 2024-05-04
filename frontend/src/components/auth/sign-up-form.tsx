@@ -122,7 +122,7 @@ export function SignUpForm(): React.JSX.Element {
       </Stack>
 
       <Tabs value={tabIndex} onChange={handleTabChange} aria-label="sign-up form tabs">
-        <Tab label="DANİŞAN" />
+        <Tab label="DANIŞAN" />
         <Tab label="DİYETİSYEN" />
       </Tabs>
 
