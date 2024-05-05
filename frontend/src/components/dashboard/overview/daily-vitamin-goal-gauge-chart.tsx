@@ -21,6 +21,12 @@ export default function DailyVitaminGoalCompletion(): React.JSX.Element {
       const vitamins = result.map((vitamin: {vitaminName: string, consumedAmount: number, recommendedAmount: string, percentage: number}) => {
         return { name: vitamin.vitaminName, value: vitamin.percentage.toFixed(2) };
       });
+
+      // sort vitamins based on percentage
+      vitamins.sort((a: any, b: any) => {
+        return b.value - a.value;
+      });
+
       setVitaminValues(vitamins);
     };
 
