@@ -1,6 +1,8 @@
 'use client';
 
 import * as React from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -9,24 +11,43 @@ import CardHeader from '@mui/material/CardHeader';
 import Divider from '@mui/material/Divider';
 import { alpha, useTheme } from '@mui/material/styles';
 import type { SxProps } from '@mui/material/styles';
-// import { ArrowClockwise as ArrowClockwiseIcon } from '@phosphor-icons/react/dist/ssr/ArrowClockwise';
 import { ArrowRight as ArrowRightIcon } from '@phosphor-icons/react/dist/ssr/ArrowRight';
 import type { ApexOptions } from 'apexcharts';
 
 import { Chart } from '@/components/core/chart';
 
-export interface SalesProps {
-  chartSeries: { name: string; data: number[] }[];
+export interface TwoWeekVitaminGoalsProps {
   sx?: SxProps;
 }
 
-export function Sales({ chartSeries, sx }: SalesProps): React.JSX.Element {
+export function TwoWeekVitaminGoals({ sx }: TwoWeekVitaminGoalsProps): React.JSX.Element {
+  const [chartSeries, setChartSeries] = useState<{ name: string; data: number[] }[]>([]);
   const chartOptions = useChartOptions();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const token = localStorage.getItem('custom-auth-token') as string;
+      const response = await axios.get('https://api.vitamis.hekolcu.com/tracking/twoWeeksReport', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      const data = response.data.map((item: any) => ({
+        x: new Date(item.date).toLocaleDateString('tr-TR'),
+        y: Math.ceil(item.goalAchievementPercentage)
+      }));
+
+      setChartSeries([{ name: 'Goal Achievement', data }]);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <Card sx={sx}>
       <CardHeader
-        title="Vitamin Intake Goals"
+        title="Vitamin Hedef Tamamlama Oranı"
       />
       <CardContent>
         <Chart height={350} options={chartOptions} series={chartSeries} type="bar" width="100%" />
@@ -62,12 +83,18 @@ function useChartOptions(): ApexOptions {
     xaxis: {
       axisBorder: { color: theme.palette.divider, show: true },
       axisTicks: { color: theme.palette.divider, show: true },
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      labels: { offsetY: 5, style: { colors: theme.palette.text.secondary } },
+      labels: {
+        rotate: -45, // Rotate labels to prevent overlap
+        offsetY: 5,
+        style: { colors: theme.palette.text.secondary }
+      },
     },
     yaxis: {
+      min: 0, // Minimum value
+      max: 100, // Maximum value
+      tickAmount: 10, // Number of tick intervals
       labels: {
-        formatter: (value) => (value > 0 ? `${value}K` : `${value}`),
+        formatter: (value) => value.toString() + '%',
         offsetX: -10,
         style: { colors: theme.palette.text.secondary },
       },
