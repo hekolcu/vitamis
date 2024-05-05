@@ -33,7 +33,7 @@ function VitaminRefTable() {
 
   return (
     <Card>
-      <CardHeader title='Önerilen Vitaminler' />
+      <CardHeader title={'Önerilen Vitaminler  (' + products?.groupName + ')'} />
       <Paper>
         <TableContainer style={{ borderRadius: '0px 0px 20px 20px' }}>
           <Table>
