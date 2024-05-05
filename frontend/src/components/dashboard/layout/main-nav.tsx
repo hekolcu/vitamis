@@ -16,9 +16,12 @@ import { usePopover } from '@/hooks/use-popover';
 
 import { MobileNav } from './mobile-nav';
 import { UserPopover } from './user-popover';
+import { useUser } from '@/hooks/use-user';
 
 export function MainNav(): React.JSX.Element {
   const [openNav, setOpenNav] = React.useState<boolean>(false);
+
+  const { user } = useUser();
 
   const userPopover = usePopover<HTMLDivElement>();
 
@@ -55,11 +58,11 @@ export function MainNav(): React.JSX.Element {
             </Tooltip> */}
           </Stack>
           <Stack sx={{ alignItems: 'center' }} direction="row" spacing={2}>
-            <Tooltip title="Danışanlar">
+            {["Dietitian", "AcademicianDietitian"].includes(user?.userType!) ? <Tooltip title="Danışanlar">
               <IconButton>
                 <UsersIcon />
               </IconButton>
-            </Tooltip>
+            </Tooltip> : null}
             {/* <Tooltip title="Notifications">
               <Badge badgeContent={4} color="success" variant="dot">
                 <IconButton>
