@@ -11,14 +11,14 @@ namespace VitamisAPI.Data.LoadData
         public FoodVitaminAndNutritionalDataLoader(VitamisDbContext dbContext)
         {
             _dbContext = dbContext;
-            _dbContext.FoodNutritions.RemoveRange(_dbContext.FoodNutritions);
-            _dbContext.SaveChanges();
+            // _dbContext.FoodNutritions.RemoveRange(_dbContext.FoodNutritions);
+            // _dbContext.SaveChanges();
             
-            _dbContext.FoodVitamins.RemoveRange(_dbContext.FoodVitamins);
-            _dbContext.SaveChanges();
+            // _dbContext.FoodVitamins.RemoveRange(_dbContext.FoodVitamins);
+            // _dbContext.SaveChanges();
             
-            _dbContext.Foods.RemoveRange(_dbContext.Foods);
-            _dbContext.SaveChanges();
+            // _dbContext.Foods.RemoveRange(_dbContext.Foods);
+            // _dbContext.SaveChanges();
         }
 
         public void LoadFoodData()
