@@ -71,6 +71,18 @@ export function FoodIntakeHistory({ sx }: FoodIntakeHistoryProps): React.JSX.Ele
       .then(data => {
         const arr = Array.from<FoodIntake>(data);
         const multipliedData = arr.flatMap(item => Array(1).fill(item));
+
+        // sort the data by date
+        multipliedData.sort((a, b) => {
+          if (a.date < b.date) {
+            return 1;
+          }
+          if (a.date > b.date) {
+            return -1;
+          }
+          return 0;
+        });
+
         setFoodIntakes(multipliedData);
 
         if (multipliedData.length < rowsPerPage) {
