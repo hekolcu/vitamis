@@ -28,6 +28,7 @@ interface GetUserDetailResponseBody {
     disease?: string;
     smoking?: string;
     sunExposure?: string;
+    userType: string;
   }
 
 interface VitaminRecommendation {
@@ -123,6 +124,7 @@ async function getUserDetails(token: string): Promise<User | null> {
                 disease: responseBody.disease ?? null,
                 smoking: responseBody.smoking ?? null,
                 sunExposure: responseBody.sunExposure ?? null,
+                userType: responseBody.userType as "Advisee" | "Dietitian" | "AcademicianDietitian" | "Admin"
             };
 
             return userDetails;

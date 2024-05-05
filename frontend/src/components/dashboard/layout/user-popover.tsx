@@ -120,9 +120,9 @@ export function UserPopover({ anchorEl, onClose, open }: UserPopoverProps): Reac
       slotProps={{ paper: { sx: { width: '240px' } } }}
     >
       <Box sx={{ p: '16px 20px ' }}>
-        <Typography variant="subtitle1">{user ? user.fullname : 'No user details available'}</Typography>
+        <Typography variant="subtitle1">{user ? user.fullname : 'Kullanıcı ayrıntıları mevcut değil'}</Typography>
         <Typography color="text.secondary" variant="body2">
-          {user ? user.email : 'No user details available'}
+          {user ? user.email : 'Kullanıcı ayrıntıları mevcut değil'}
         </Typography>
       </Box>
       <Divider />
@@ -131,26 +131,26 @@ export function UserPopover({ anchorEl, onClose, open }: UserPopoverProps): Reac
           <ListItemIcon>
             <GearSixIcon fontSize="var(--icon-fontSize-md)" />
           </ListItemIcon>
-          Settings
+          Ayarlar
         </MenuItem>
         <MenuItem component={RouterLink} href={paths.dashboard.account} onClick={onClose}>
           <ListItemIcon>
             <UserIcon fontSize="var(--icon-fontSize-md)" />
           </ListItemIcon>
-          Profile
+          Hesabım
         </MenuItem>
         <MenuItem onClick={handleSignOut}>
           <ListItemIcon>
             <SignOutIcon fontSize="var(--icon-fontSize-md)" />
           </ListItemIcon>
-          Sign out
+          Çıkış Yap
         </MenuItem>
-        <MenuItem>
+        {/* <MenuItem>
           <FormControlLabel
             control={<MaterialUISwitch checked={darkMode} onChange={handleDarkModeChange} />}
-            label={darkMode ? "Light mode" : "Dark mode"}
+            label={darkMode ? "Açık Mod" : "Karanlık Mod"}
           />
-        </MenuItem>
+        </MenuItem> */}
       </MenuList>
     </Popover>
   );

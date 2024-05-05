@@ -44,13 +44,13 @@ export function Layout({ children }: LayoutProps): React.JSX.Element {
         <Stack spacing={3}>
           <Stack spacing={1}>
             <Typography color="inherit" sx={{ fontSize: '24px', lineHeight: '32px', textAlign: 'center' }} variant="h1">
-              Welcome to{' '}
               <Box component="span" sx={{ color: '#FF6100' }}>
                 Vitamis
               </Box>
+              {'\'e '}hoş geldiniz!
             </Typography>
             <Typography align="center" variant="subtitle1">
-              A professional application for tracing your daily intakes.
+              Günlük alımlarınızı takip etmek için profesyonel bir uygulama.
             </Typography>
           </Stack>
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>

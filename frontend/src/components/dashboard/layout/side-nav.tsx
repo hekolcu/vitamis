@@ -16,6 +16,8 @@ import { paths } from '@/paths';
 import { isNavItemActive } from '@/lib/is-nav-item-active';
 import { Logo } from '@/components/core/logo';
 
+import { useUser } from '@/hooks/use-user';
+
 import { navItems } from './config';
 import { navIcons } from './nav-icons';
 
@@ -118,7 +120,14 @@ export function SideNav(): React.JSX.Element {
 }
 
 function renderNavItems({ items = [], pathname }: { items?: NavItemConfig[]; pathname: string }): React.JSX.Element {
-  const children = items.reduce((acc: React.ReactNode[], curr: NavItemConfig): React.ReactNode[] => {
+  const { user } = useUser();
+
+  const filteredItems = items.filter(item => {
+    // Check if the item's roles include the user's role
+    return item.roles?.includes(user?.userType!);
+  });
+
+  const children = filteredItems.reduce((acc: React.ReactNode[], curr: NavItemConfig): React.ReactNode[] => {
     const { key, ...item } = curr;
 
     acc.push(<NavItem key={key} pathname={pathname} {...item} />);

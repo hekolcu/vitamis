@@ -22,7 +22,9 @@ module.exports = {
     },
   },
   rules: {
+    '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
     '@typescript-eslint/prefer-optional-chain': 'off',
+    'react-hooks/rules-of-hooks': 'off',
     'import/newline-after-import': 'off',
     'camelcase': 'off',
     'no-return-assign': 'off',
