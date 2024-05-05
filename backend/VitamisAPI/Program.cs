@@ -96,27 +96,27 @@ builder.WebHost.ConfigureKestrel(options =>
 // });
 
 // Uncomment below lines if inserting data for the first time.
-builder.Services.AddScoped<VitaminReferenceDataLoader>();
-builder.Services.AddScoped<FoodVitaminAndNutritionalDataLoader>();
+// builder.Services.AddScoped<VitaminReferenceDataLoader>();
+// builder.Services.AddScoped<FoodVitaminAndNutritionalDataLoader>();
 
 var app = builder.Build();
 
 // Uncomment below lines if inserting data for the first time.
-using (var scope = app.Services.CreateScope())
-{
-    try
-    {
-        scope.ServiceProvider.GetRequiredService<VitaminReferenceDataLoader>()
-            .LoadVitaminData();
-
-        scope.ServiceProvider.GetRequiredService<FoodVitaminAndNutritionalDataLoader>()
-            .LoadFoodData();
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine(ex.ToString());
-    }
-}
+// using (var scope = app.Services.CreateScope())
+// {
+//     try
+//     {
+//         scope.ServiceProvider.GetRequiredService<VitaminReferenceDataLoader>()
+//             .LoadVitaminData();
+//
+//         scope.ServiceProvider.GetRequiredService<FoodVitaminAndNutritionalDataLoader>()
+//             .LoadFoodData();
+//     }
+//     catch (Exception ex)
+//     {
+//         Console.WriteLine(ex.ToString());
+//     }
+// }
 
 app.UseCors();
 
