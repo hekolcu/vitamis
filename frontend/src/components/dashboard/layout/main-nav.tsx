@@ -9,8 +9,9 @@ import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import { Bell as BellIcon } from '@phosphor-icons/react/dist/ssr/Bell';
 import { List as ListIcon } from '@phosphor-icons/react/dist/ssr/List';
-import { MagnifyingGlass as MagnifyingGlassIcon } from '@phosphor-icons/react/dist/ssr/MagnifyingGlass';
+import { Scroll as ScrollIcon } from '@phosphor-icons/react/dist/ssr/Scroll';
 import { Users as UsersIcon } from '@phosphor-icons/react/dist/ssr/Users';
+import TextField from '@mui/material/TextField';
 
 import { usePopover } from '@/hooks/use-popover';
 
@@ -24,6 +25,14 @@ export function MainNav(): React.JSX.Element {
   const { user } = useUser();
 
   const userPopover = usePopover<HTMLDivElement>();
+
+  /* const [search, setSearch] = React.useState<string>('');
+
+  const handleSearch = (event: React.KeyboardEvent<HTMLDivElement>): void => {
+    if (event.key === 'Enter') {
+      window.open(`https://api.vitamis.hekolcu.com:8443/index.php?search=${search}`, '_blank');
+    }
+  }; */
 
   return (
     <React.Fragment>
@@ -51,11 +60,21 @@ export function MainNav(): React.JSX.Element {
             >
               <ListIcon />
             </IconButton>
-            {/* <Tooltip title="Search">
+            <Tooltip title="Makaleler" onClick={() => {
+              window.open('https://api.vitamis.hekolcu.com:8443/index.php/Vitamis', '_blank');
+            }}>
               <IconButton>
-                <MagnifyingGlassIcon />
+                <ScrollIcon />
               </IconButton>
-            </Tooltip> */}
+            </Tooltip>
+            {/* <TextField
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyDown={handleSearch}
+              variant="outlined"
+              size="small"
+              placeholder="Makale Ara"
+            /> */}
           </Stack>
           <Stack sx={{ alignItems: 'center' }} direction="row" spacing={2}>
             {["Dietitian", "AcademicianDietitian"].includes(user?.userType!) ? <Tooltip title="Danışanlar">
