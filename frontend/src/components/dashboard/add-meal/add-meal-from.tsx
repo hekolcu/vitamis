@@ -10,6 +10,8 @@ import { InputAdornment, List, ListItem, ListItemSecondaryAction, ListItemText }
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useRouter } from 'next/navigation';
+import { paths } from '@/paths';
 
 export function AddMealForm() {
     const [query, setQuery] = useState('');
@@ -23,6 +25,7 @@ export function AddMealForm() {
     const [searchPerformed, setSearchPerformed] = useState(false);
     const [itemAdded, setItemAdded] = useState(false);
     const [showError, setShowError] = useState(false);
+    const router = useRouter();
 
     const handleDelete = (index: number) => {
         const newItems = [...addedItems];
@@ -76,11 +79,13 @@ export function AddMealForm() {
         setAddedItems([]);
     };
 
-    const handleSubmit = () => {
-        console.log(addedItems)
-        addedItems.forEach((item, index) => {
-            handleAddFoodIntake(item.foodId, item.gram);
-        });
+    const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
+      e.preventDefault();
+      console.log(addedItems)
+      for (const item of addedItems) {
+        await handleAddFoodIntake(item.foodId, item.gram);
+      }
+      router.push(paths.dashboard.overview);
     };
     const handleAdd = () => {
     if (selectedFoodItem && gram > 0) {
