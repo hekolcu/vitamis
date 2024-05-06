@@ -12,7 +12,8 @@ import type { Metadata } from 'next';
 
 
 
-export const metadata = { title: `Öğün Ara | Gösterge Paneli | ${config.site.name}` } satisfies Metadata;
+export const metadata = { title: `Yiyecek Ara | Gösterge Paneli | ${config.site.name}` } satisfies Metadata;
+
 
 export default function Page(): React.JSX.Element {
 
