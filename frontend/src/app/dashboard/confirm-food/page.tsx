@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import { config } from '@/config';
 import { ConfirmFoodForm } from '@/components/dashboard/confirm-food/confirm-food-form';
 
-export const metadata = { title: `Confirm Food | Dashboard | ${config.site.name}` } satisfies Metadata;
+export const metadata = { title: `Yeni Yiyecek Onayı | Gösterge Paneli | ${config.site.name}` } satisfies Metadata;
 
 export default function Page(): React.JSX.Element {
 
