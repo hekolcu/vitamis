@@ -6,7 +6,7 @@ import { config } from '@/config';
 import { UpdatePasswordForm } from '@/components/dashboard/settings/update-password-form';
 import Grid from '@mui/material/Unstable_Grid2';
 
-export const metadata = { title: `Ayarlarım | Gösterge Paneli | ${config.site.name}` } satisfies Metadata;
+export const metadata = { title: `Ayarlar | Gösterge Paneli | ${config.site.name}` } satisfies Metadata;
 
 export default function Page(): React.JSX.Element {
   return (
