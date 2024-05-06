@@ -12,15 +12,17 @@ import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Grid from '@mui/material/Grid';
 import { Snackbar, Alert } from '@mui/material';
+import { useUser } from '@/hooks/use-user';
 
 
 export function UpdatePasswordForm(): React.JSX.Element {
+  const token = localStorage.getItem('custom-auth-token');
   const [password, setPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
-
+  const { user } = useUser();
   const handleCloseSnackbar = (event?: Event | React.SyntheticEvent<any, Event>, reason?: string) => {
     if (reason === 'clickaway') {
       return;
@@ -28,6 +30,36 @@ export function UpdatePasswordForm(): React.JSX.Element {
 
     setSnackbarOpen(false);
   };
+  const changePassword = async (email: string | undefined, currentPassword: string, newPassword: string) => {
+    try {
+        const requestBody = {
+            email: email,
+            currentPassword: currentPassword,
+            newPassword: newPassword
+        };
+
+        const response = await fetch('https://api.vitamis.hekolcu.com/auth/password', {
+            method: 'PATCH', 
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        if (!response.ok) {
+            console.error('Şifre güncellenemedi:', response.statusText);
+            return false;
+        }
+
+        console.log('Password changed successfully for', email);
+        return true;
+    } catch (error) {
+        console.error('Error changing password:', error);
+        return false;
+    }
+};
+
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -44,8 +76,7 @@ export function UpdatePasswordForm(): React.JSX.Element {
       return;
     }
 
-    // TODO: Add code to update the password here.
-
+    changePassword(user?.email,password,newPassword)
     setSnackbarMessage('Şifre başarıyla güncellendi.');
     setSnackbarOpen(true);
   };
