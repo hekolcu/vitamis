@@ -340,6 +340,71 @@ public static class NutritionTrackingEndpoints
 
             return Results.Ok(dailyReports);
         }).RequireAuthorization();
+
+        trackingMapGroup.MapGet("/dailyFoodGroups", async (VitamisDbContext db, HttpContext context) =>
+            {
+                var userEmail = context.User.FindFirst(ClaimTypes.Email)?.Value;
+
+                if (string.IsNullOrEmpty(userEmail))
+                {
+                    return Results.Unauthorized();
+                }
+
+                var user = await db.Users
+                    .Where(u => u.Email == userEmail)
+                    .FirstOrDefaultAsync();
+
+                if (user == null)
+                {
+                    return Results.NotFound("User not found.");
+                }
+                
+                var today = DateTime.Today;
+                var records = await db.FoodIntakeRecords
+                    .Where(r => r.User.UserId == user.UserId && r.Date.Date == today)
+                    .Include(r => r.Food)
+                    .ToListAsync();
+                
+                var categoryMap = new Dictionary<string, string>
+                {
+                    { "Meyve ve meyve ürünleri", "Meyve" },
+                    { "Sebze ve sebze ürünleri", "Sebze" },
+                    { "Yumurta ve yumurta ürünleri", "Diğer" },
+                    { "Et ve et ürünleri", "Diğer" },
+                    { "Balık ve su ürünleri", "Diğer" },
+                    { "Sıvı ve katı yağlar", "Diğer" },
+                    { "Tahıl ve tahıl ürünleri", "Diğer" },
+                    { "Yağlı tohumlar ve kuru baklagiller", "Diğer" },
+                    { "İçecekler", "Diğer" },
+                    { "Muhtelif gıda", "Diğer" },
+                    { "Geleneksel gıdalar", "Diğer" },
+                    { "Süt ve süt ürünleri", "Diğer" },
+                    { "Özel beslenme amaçlı gıdalar", "Diğer" }
+                };
+                
+                // Initialize a dictionary with the new categories and their values set to 0
+                var foodGroupPercentages = new Dictionary<string, double>
+                {
+                    { "Meyve", 0 },
+                    { "Sebze", 0 },
+                    { "Diğer", 0 }
+                };
+
+                // group the food intakes by the new categories
+                var foodGroups = records.GroupBy(r => categoryMap[r.Food.Category]);
+
+                // calculate the total percentage of each food group based on grams consumed
+                var totalGrams = records.Sum(r => r.Amount);
+                foreach (var group in foodGroups)
+                {
+                    var totalGroupGrams = group.Sum(r => r.Amount);
+                    var percentage = totalGroupGrams / totalGrams * 100;
+                    foodGroupPercentages[group.Key] = percentage;
+                }
+
+                return Results.Ok(foodGroupPercentages);
+            })
+            .RequireAuthorization();
     }
 
     private class FoodIntakeRecordDto
