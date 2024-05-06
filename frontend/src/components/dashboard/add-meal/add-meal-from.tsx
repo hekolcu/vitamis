@@ -77,19 +77,19 @@ export function AddMealForm() {
         });
     };
     const handleAdd = () => {
-        if (selectedFoodItem) {
-            const newItem = {
-                name: selectedFoodItem.name ?? '',
-                gram: gram ?? 0,
-                foodId: selectedFoodItem.foodId ?? 0,
-            };
-            setAddedItems([...addedItems, newItem]);
-            setSelectedFoodItem(null);
-            setText('');
-            setGram(gram);
-        }
+    if (selectedFoodItem && gram > 0) {
+        const newItem = {
+            name: selectedFoodItem.name ?? '',
+            gram: gram ?? 0,
+            foodId: selectedFoodItem.foodId ?? 0,
+        };
+        setAddedItems([...addedItems, newItem]);
+        setSelectedFoodItem(null);
+        setText('');
+        setGram(0);
         setItemAdded(true);
-    };
+    }
+};
 
     return (
         <form onSubmit={handleSubmit}>
