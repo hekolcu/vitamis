@@ -17,7 +17,7 @@ import { usePopover } from '@/hooks/use-popover';
 import { MobileNav } from './mobile-nav';
 import { UserPopover } from './user-popover';
 import { useUser } from '@/hooks/use-user';
-import { Link } from '@mui/material';
+import { Link, Typography } from '@mui/material';
 import { paths } from '@/paths';
 export function MainNav(): React.JSX.Element {
   const [openNav, setOpenNav] = React.useState<boolean>(false);
@@ -60,11 +60,12 @@ export function MainNav(): React.JSX.Element {
             >
               <ListIcon />
             </IconButton>
-            <Tooltip title="Makaleler" onClick={() => {
+            <Tooltip title='' onClick={() => {
               window.open('https://api.vitamis.hekolcu.com:8443/index.php/Vitamis', '_blank');
             }}>
-              <IconButton>
-                <ScrollIcon />
+              <IconButton sx={{ borderRadius: '10px' }}>
+                <ScrollIcon color='black' />
+                <Typography color='black' variant='caption' marginLeft='5px'>Makaleler</Typography>
               </IconButton>
             </Tooltip>
             {/* <TextField
