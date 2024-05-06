@@ -130,7 +130,7 @@ export function AddMealForm() {
                             ),
                         }}
                     />
-                    {showError && <Typography color="error">Please fill in the search field!</Typography>}
+                    {showError && <Typography color="error">Lütfen gerekli alanları doldurunuz!</Typography>}
                 </Grid>
                 <Grid item>
                     <Button variant="contained" color="primary" onClick={handleSearch}>
