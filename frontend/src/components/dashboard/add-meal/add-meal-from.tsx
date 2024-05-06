@@ -4,14 +4,12 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import React, { useState } from 'react';
 import { FoodSearchItem } from '@/types/FoodSearchItem';
-import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
-import { Box, Card, CardContent, CardHeader, FormControl, IconButton, InputLabel, MenuItem, Select } from '@mui/material';
-import { CheckFat } from '@phosphor-icons/react';
-import { get } from 'http';
-
-
-
+import { Box, Card, CardContent, IconButton } from '@mui/material';
+import { InputAdornment, List, ListItem, ListItemSecondaryAction, ListItemText } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export function AddMealForm() {
     const [query, setQuery] = useState('');
@@ -22,8 +20,22 @@ export function AddMealForm() {
     const [addedItems, setAddedItems] = useState<{ name: string; gram: number; foodId: number }[]>([]);
     const isAddButtonDisabled = !selectedFoodItem || !gram;
     const token = localStorage.getItem('custom-auth-token');
+    const [searchPerformed, setSearchPerformed] = useState(false);
+    const [itemAdded, setItemAdded] = useState(false);
+    const [showError, setShowError] = useState(false);
+
+    const handleDelete = (index: number) => {
+        const newItems = [...addedItems];
+        newItems.splice(index, 1);
+        setAddedItems(newItems);
+    };
 
     const handleSearch = async () => {
+        if (!query) {
+            setShowError(true);
+            return;
+        }
+        setShowError(false);
         try {
             const response = await fetch(`https://api.vitamis.hekolcu.com/food/search?q=${query}`);
             const data = await response.json();
@@ -31,8 +43,8 @@ export function AddMealForm() {
         } catch (error) {
             console.error('Error fetching search results:', error);
         }
+        setSearchPerformed(true);
     };
-
 
     const handleAddFoodIntake = async (foodId: number, amount: number) => {
         try {
@@ -71,105 +83,144 @@ export function AddMealForm() {
         });
     };
     const handleAdd = () => {
-        if (selectedFoodItem) {
-            const newItem = {
-                name: selectedFoodItem.name ?? '',
-                gram: gram ?? 0,
-                foodId: selectedFoodItem.foodId ?? 0 , 
-            };
-            setAddedItems([...addedItems, newItem]);
-            setSelectedFoodItem(null);
-            setText('');
-            setGram(gram);
-        }
-    };
+    if (selectedFoodItem && gram > 0) {
+        const newItem = {
+            name: selectedFoodItem.name ?? '',
+            gram: gram ?? 0,
+            foodId: selectedFoodItem.foodId ?? 0,
+        };
+        setAddedItems([...addedItems, newItem]);
+        setSelectedFoodItem(null);
+        setText('');
+        setGram(0);
+        setItemAdded(true);
+    }
+};
 
     return (
         <form onSubmit={handleSubmit}>
-        <Stack spacing={3}>
-            <div>
-            </div>
-            <Card>
-            <CardHeader subheader="Add Food to Your Meal!" title="Create Meal" />
-                <CardContent>
-            <Grid container spacing={3} direction="column" >
-                <Grid item xs={12} lg={8} md={8}>
-                    <TextField
-                        disabled
-                        value={selectedFoodItem ? selectedFoodItem.name : "Food (Use the Search Function Below)"}
-                        variant="outlined"
-                        style={{ marginTop:'20px'}}
-                        fullWidth
-                    />
-               </Grid>
-               <Grid item xs={12} lg={8} md={8}>
-              <TextField
-                        label= "Grams"
-                        variant="outlined"
-                        type="number"
-                        onChange={(e) => setGram(parseInt(e.target.value))}
-                        fullWidth
-                    />
-                    
-                </Grid>
-                <Grid item xs={12} lg={8} md={8} >
-                <Button variant="contained" color="primary" onClick={handleAdd} style={{marginTop: '10px' }} fullWidth disabled={isAddButtonDisabled}>
-                        Add
-                    </Button>
-                </Grid>
+            <Grid container spacing={3} direction="row" alignItems="center" justifyContent="center">
                 <Grid item xs={12} lg={8} md={8}>
                     <TextField
                         fullWidth
-                        style={{marginTop:'20px', marginBottom:'10px'}}
-                        label="Search Food"
+                        label="Yiyecek Ara"
                         variant="outlined"
                         value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                    />  
+                        onChange={(e) => {
+                            setQuery(e.target.value);
+                            setShowError(false);
+                        }}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                e.preventDefault();
+                            }
+                        }}
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <IconButton>
+                                        <SearchIcon />
+                                    </IconButton>
+                                </InputAdornment>
+                            ),
+                        }}
+                    />
+                    {showError && <Typography color="error">Please fill in the search field!</Typography>}
                 </Grid>
-                <Grid item xs={12} lg={8} md={8} marginBottom={5}>
-                    <Button variant="contained" color="primary" onClick={handleSearch} fullWidth >
-                        Search
+                <Grid item>
+                    <Button variant="contained" color="primary" onClick={handleSearch}>
+                        Ara
                     </Button>
                 </Grid>
-            </Grid>
-            <div>
-                {searchResults.map((result, index) => (
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop:'10px', marginBottom:'10px'}} key={index}>
+                {searchPerformed && (searchResults.length > 0 ? (
+                    <Grid item xs={12}>
                         <Card>
                             <CardContent>
-                            <Typography variant="h6" style={{ textAlign: 'center' }}>{result.name}</Typography>
-                            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                                <IconButton aria-label="check" className="checkmark-button" onClick={() => handleButtonClick(result)}>
-                                    <CheckFat />
-                                </IconButton>
-                            </Box>
+                                <List>
+                                    {searchResults.map((result, index) => (
+                                        <ListItem button key={index} selected={selectedFoodItem === result} onClick={() => handleButtonClick(result)}>
+                                            <ListItemText primary={result.name} />
+                                        </ListItem>
+                                    ))}
+                                </List>
                             </CardContent>
                         </Card>
-                    </div>
+                    </Grid>
+                ) : (
+                    <Grid item xs={12}>
+                        <Typography variant="body1" align='center'>Vitamin bilgisi mevcut değil</Typography>
+                    </Grid>
                 ))}
-            </div>
-            </CardContent>
-            </Card>
-            <Card>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <Typography variant="h6">Added Items:</Typography>
-                <ul>
-                    {addedItems.map((item, index) => (
-                        <li key={index}>
-                            {item.name} - {item.gram}g
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            </Card>
-            <Button variant="contained" color="primary" onClick={handleClear}>
-                        Clear
-            </Button>
-            <Button type="submit" variant="contained" color="warning" disabled={addedItems.length===0}>
-                        Finalize
-            </Button>
-        </Stack>
+                {selectedFoodItem && (
+                    <Grid container spacing={1} direction="row" alignItems="center" justifyContent="center" sx={{ marginTop: '20px' }}>
+                        <Grid item xs={12} lg={8} md={8}>
+                            <TextField
+                                fullWidth
+                                label="Gram"
+                                variant="outlined"
+                                type="number"
+                                onChange={(e) => setGram(parseInt(e.target.value))}
+                            />
+                        </Grid>
+                        <Grid item>
+                            <Button variant="contained" color="primary" onClick={handleAdd} disabled={isAddButtonDisabled}>
+                                <AddIcon />
+                            </Button>
+                        </Grid>
+                    </Grid>
+                )}
+                {itemAdded && addedItems.length > 0 && (
+                    <>
+                        <Grid item xs={12}>
+                            <Card>
+                                <CardContent>
+                                    <Typography variant="h6" align="center" alignItems="center" justifyContent="center">Eklenen öğünler</Typography>
+                                    <List>
+                                        {addedItems.map((item, index) => (
+                                            <ListItem key={index}>
+                                                <ListItemText primary={`${item.name} - ${item.gram}g`} />
+                                                <ListItemSecondaryAction>
+                                                    <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(index)}>
+                                                        <DeleteIcon />
+                                                    </IconButton>
+                                                </ListItemSecondaryAction>
+                                            </ListItem>
+                                        ))}
+                                    </List>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={12} lg={8} md={8}>
+                            <Box display="flex" justifyContent="space-between" flexDirection="row">
+                                <Button
+                                    variant="contained"
+                                    sx={{
+                                        backgroundColor: "#ba000d",
+                                        color: 'white',
+                                        '&:hover': {
+                                            backgroundColor: '#9a0007',
+                                        },
+                                    }}
+                                    onClick={handleClear}>
+                                    Sıfırla
+                                </Button>
+                                <Button
+                                    type="submit"
+                                    variant="contained"
+                                    color="warning"
+                                    disabled={addedItems.length === 0}
+                                    sx={{
+                                        '&:hover': {
+                                            backgroundColor: '#f57f17',
+                                        },
+                                    }}>
+                                    Kaydet
+                                </Button>
+                            </Box>
+                        </Grid>
+                    </>
+                )}
+            </Grid>
         </form>
     );
 }
