@@ -92,7 +92,7 @@ export function FoodIntakeHistory({ sx }: FoodIntakeHistoryProps): React.JSX.Ele
       });
   }, []);
 
-  const titleStyle = { color: 'white', backgroundColor: '#fb9c0c', fontSize: '16px', fontWeight: 'bold' };
+  const titleStyle: React.CSSProperties | undefined = { color: 'white', backgroundColor: '#fb9c0c', fontSize: '16px', fontWeight: 'bold', whiteSpace: 'nowrap' };
 
   return (
     <Card sx={sx}>
@@ -105,7 +105,7 @@ export function FoodIntakeHistory({ sx }: FoodIntakeHistoryProps): React.JSX.Ele
               <TableRow>
                 <TableCell style={titleStyle}>Yiyecek</TableCell>
                 <TableCell style={titleStyle}>Grup</TableCell>
-                <TableCell align='right' style={titleStyle}>Miktar (gram)</TableCell>
+                <TableCell align='right' style={titleStyle}>Miktar (gr)</TableCell>
                 <TableCell align='right' style={titleStyle}>Tarih</TableCell>
               </TableRow>
             </TableHead>
