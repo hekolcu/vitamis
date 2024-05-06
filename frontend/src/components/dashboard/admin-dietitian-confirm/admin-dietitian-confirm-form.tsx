@@ -197,7 +197,7 @@ export function ConfirmDietitianForm(): React.JSX.Element {
                                         <img src={certificateUrls[item.userId]} alt={item.fullname + " Diploma"} />
                                     ) : (
                                         
-                                        <iframe src={certificateUrls[item.userId]} width="100%" height="500px"></iframe>
+                                        <iframe src={certificateUrls[item.userId]} width="100%" height="500px" title={item.fullname + " Diploma"}></iframe>
                                     )}
                                 </Typography>
                             )}
