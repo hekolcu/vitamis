@@ -326,7 +326,7 @@ public static class NutritionTrackingEndpoints
                     double recommendedInStandardUnit = IntakeReport.ConvertToStandardUnit(double.Parse(rv.Amount), recommendedUnitInCode, vitaminNameInCode);
 
                     var percentage = consumed != null ? (consumedInStandardUnit / recommendedInStandardUnit) * 100 : 0;
-                    totalPercentage += percentage;
+                    totalPercentage += Math.Min(percentage, 100.0);
                 }
 
                 var averagePercentage = totalPercentage / recommendedVitamins.Count;
