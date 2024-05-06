@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Unstable_Grid2';
 import { config } from '@/config';
 import { AdviseeManagement } from '@/components/dashboard/advisee-management/advisee-management-component';
-export const metadata = { title: `Advisee Management | Dashboard | ${config.site.name}` } satisfies Metadata;
+export const metadata = { title: `Danışan Yönetimi | Gösterge Paneli | ${config.site.name}` } satisfies Metadata;
 
 export default function Page(): React.JSX.Element {
 
@@ -17,7 +17,7 @@ export default function Page(): React.JSX.Element {
         </div>
         <Grid container spacing={3} direction="row" justifyContent="center" alignItems="center">
           <Grid lg={8} md={6} xs={12}>
-            <AdviseeManagement></AdviseeManagement>
+            <AdviseeManagement />
           </Grid>
         </Grid>
       </Stack>
