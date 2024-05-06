@@ -22,6 +22,7 @@ module.exports = {
     },
   },
   rules: {
+    '@typescript-eslint/consistent-indexed-object-style': 'off',
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
     '@typescript-eslint/prefer-optional-chain': 'off',
     'react-hooks/rules-of-hooks': 'off',
