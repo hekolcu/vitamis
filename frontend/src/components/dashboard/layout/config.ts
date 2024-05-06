@@ -1,13 +1,13 @@
 import type { NavItemConfig } from '@/types/nav';
 import { paths } from '@/paths';
 
-export const navItems = [
+export const navItems = ([
   {
     key: 'overview',
     title: 'Gösterge Paneli',
     href: paths.dashboard.overview,
     icon: 'chart-pie',
-    roles: ['Advisee'],
+    roles: ['Advisee', 'Dietitian', 'AcademicianDietitian', 'Admin'],
   },
   {
     key: 'settings',
@@ -16,8 +16,9 @@ export const navItems = [
     icon: 'gear-six',
     roles: ['Advisee', 'Dietitian', 'AcademicianDietitian', 'Admin'],
   },
-  { key: 'account',
-    title: 'Profilim',
+  {
+    key: 'account',
+    title: 'Hesabım',
     href: paths.dashboard.account,
     icon: 'user',
     roles: ['Advisee', 'Dietitian', 'AcademicianDietitian', 'Admin'],
@@ -48,14 +49,14 @@ export const navItems = [
     title: 'Öğün Ekle',
     href: paths.dashboard.add_meal,
     icon: 'meal',
-    roles: ['Advisee'],
+    roles: ['Advisee', 'Dietitian', 'AcademicianDietitian', 'Admin'],
   },
   {
     key: 'my-reports',
     title: 'Raporlarım',
     href: paths.dashboard.my_reports,
     icon: 'report',
-    roles: ['Advisee'],
+    roles: ['Advisee', 'Dietitian', 'AcademicianDietitian', 'Admin'],
   },
   {
     key: 'admin-dietitian-confirm',
@@ -64,7 +65,6 @@ export const navItems = [
     icon: 'admin-confirm',
     roles: ['Admin'],
   },
-  /*
   {
     key: 'advisee-management',
     title: 'Danışan Yönetimi',
@@ -72,7 +72,13 @@ export const navItems = [
     icon: 'advisee-management',
     roles: ['Dietitian', 'AcademicianDietitian'],
   },
-*/
 
   // { key: 'error', title: 'Error', href: paths.errors.notFound, icon: 'x-square' },
-] satisfies NavItemConfig[];
+] satisfies NavItemConfig[]).sort((a, b) => {
+  // sort by roles. if admin then at the end
+  // if academician dietitian then before admin
+  // if dietitian then before academician dietitian
+  // if advisee then before dietitian
+  const roles = ['Advisee', 'Dietitian', 'AcademicianDietitian', 'Admin'];
+  return roles.indexOf(a.roles[0]) - roles.indexOf(b.roles[0]);
+});
