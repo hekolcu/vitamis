@@ -14,17 +14,33 @@ import {OrangeSlice as OrangeSliceIcon} from '@phosphor-icons/react/dist/ssr/Ora
 import {CookingPot as CookingPotIcon} from '@phosphor-icons/react/dist/ssr/CookingPot';
 import type { ApexOptions } from 'apexcharts';
 import { Chart } from '@/components/core/chart';
+import { useEffect, useState } from 'react';
 
-const iconMapping = { Sebze: CarrotIcon, Meyve: OrangeSliceIcon, Yemek: CookingPotIcon } as Record<string, Icon>;
+const iconMapping = { Sebze: CarrotIcon, Meyve: OrangeSliceIcon, 'Diğer': CookingPotIcon } as Record<string, Icon>;
 
 export interface TrafficProps {
-  chartSeries: number[];
-  labels: string[];
   sx?: SxProps;
 }
 
-export function Traffic({ chartSeries, labels, sx }: TrafficProps): React.JSX.Element {
+export function FoodGroup({ sx }: TrafficProps): React.JSX.Element {
+  const [chartData, setChartData] = useState<{ [key: string]: number }>({});
+  const labels = Object.keys(chartData);
+  const chartSeries = Object.values(chartData);
   const chartOptions = useChartOptions(labels);
+
+  useEffect(() => {
+    const token = localStorage.getItem('custom-auth-token');
+    fetch('https://api.vitamis.hekolcu.com/tracking/dailyFoodGroups', {
+      method: 'GET',
+      headers: {
+        'accept': '*/*',
+        'Authorization': 'Bearer ' + token,
+      },
+    })
+      .then(response => response.json())
+      .then(data => setChartData(data))
+      .catch(error => console.error(error));
+  }, []);
 
   return (
     <Card sx={sx}>
@@ -42,7 +58,7 @@ export function Traffic({ chartSeries, labels, sx }: TrafficProps): React.JSX.El
                   {Icon ? <Icon fontSize="var(--icon-fontSize-lg)" /> : null}
                   <Typography variant="h6">{label}</Typography>
                   <Typography color="text.secondary" variant="subtitle2">
-                    {item}%
+                    {item.toFixed(2)}%
                   </Typography>
                 </Stack>
               );
