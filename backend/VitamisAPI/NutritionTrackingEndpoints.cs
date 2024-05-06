@@ -57,7 +57,11 @@ public static class NutritionTrackingEndpoints
 
                 if (success)
                 {
-                    double averageForAmount = average * amount / 100.0;
+                    string vitaminNameInCode = IntakeReport.vitaminNameMap[fv.Vitamin.Name];
+                    string unitInCode = IntakeReport.unitMap[fv.Unit];
+                    double averageInStandardUnit = IntakeReport.ConvertToStandardUnit(average, unitInCode, vitaminNameInCode);
+
+                    double averageForAmount = averageInStandardUnit * amount / 100.0;
                     return new FoodEndpoints.VitaminInfo
                     {
                         Name = fv.Vitamin.Name,
@@ -131,8 +135,11 @@ public static class NutritionTrackingEndpoints
 
                         if (success)
                         {
-                            double averageForAmount = average * r.Amount / 100.0;
-                            app.Logger.Log(LogLevel.Information, average.ToString("F"));
+                            string vitaminNameInCode = IntakeReport.vitaminNameMap[fv.Vitamin.Name];
+                            string unitInCode = IntakeReport.unitMap[fv.Unit];
+                            double averageInStandardUnit = IntakeReport.ConvertToStandardUnit(average, unitInCode, vitaminNameInCode);
+
+                            double averageForAmount = averageInStandardUnit * r.Amount / 100.0;
                             return new FoodEndpoints.VitaminInfo
                             {
                                 Name = fv.Vitamin.Name,
@@ -222,13 +229,27 @@ public static class NutritionTrackingEndpoints
             var allVitaminPercentages = recommendedVitamins.Select(rv =>
             {
                 var consumed = vitaminSummaries.FirstOrDefault(vs => vs.Name == rv.Vitamin.Name);
-                var percentage = consumed != null ? (consumed.TotalAmount / double.Parse(rv.Amount)) * 100 : 0;
+                double consumedInStandardUnit = 0;
+                string vitaminNameInCode = "";
+                if (consumed != null)
+                {
+                    vitaminNameInCode = IntakeReport.vitaminNameMap[rv.Vitamin.Name];
+                    string unitInCode = IntakeReport.unitMap[consumed.Unit];
+                    consumedInStandardUnit = IntakeReport.ConvertToStandardUnit(consumed.TotalAmount, unitInCode, vitaminNameInCode);
+                }
+
+                string recommendedUnitInCode = IntakeReport.unitMap[rv.Unit];
+                double recommendedInStandardUnit = IntakeReport.ConvertToStandardUnit(double.Parse(rv.Amount), recommendedUnitInCode, vitaminNameInCode);
+
+                var percentage = consumed != null ? (consumedInStandardUnit / recommendedInStandardUnit) * 100 : 0;
 
                 return new
                 {
                     VitaminName = rv.Vitamin.Name,
                     ConsumedAmount = consumed?.TotalAmount ?? 0,
+                    ConsumedUnit = consumed?.Unit ?? "",
                     RecommendedAmount = rv.Amount,
+                    RecommendedUnit = rv.Unit,
                     Percentage = percentage
                 };
             }).ToList();
@@ -291,8 +312,21 @@ public static class NutritionTrackingEndpoints
                 foreach (var rv in recommendedVitamins)
                 {
                     var consumed = vitaminSummaries.FirstOrDefault(vs => vs.Name == rv.Vitamin.Name);
-                    var percentage = consumed != null ? (consumed.TotalAmount / double.Parse(rv.Amount)) * 100 : 0;
-                    totalPercentage += percentage;
+                    double consumedInStandardUnit = 0;
+                    string vitaminNameInCode = "";
+                    string unitInCode = "";
+                    if (consumed != null)
+                    {
+                        vitaminNameInCode = IntakeReport.vitaminNameMap[rv.Vitamin.Name];
+                        unitInCode = IntakeReport.unitMap[consumed.Unit];
+                        consumedInStandardUnit = IntakeReport.ConvertToStandardUnit(consumed.TotalAmount, unitInCode, vitaminNameInCode);
+                    }
+
+                    string recommendedUnitInCode = IntakeReport.unitMap[rv.Unit];
+                    double recommendedInStandardUnit = IntakeReport.ConvertToStandardUnit(double.Parse(rv.Amount), recommendedUnitInCode, vitaminNameInCode);
+
+                    var percentage = consumed != null ? (consumedInStandardUnit / recommendedInStandardUnit) * 100 : 0;
+                    totalPercentage += Math.Min(percentage, 100.0);
                 }
 
                 var averagePercentage = totalPercentage / recommendedVitamins.Count;
