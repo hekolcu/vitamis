@@ -7,12 +7,13 @@ import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Unstable_Grid2';
 import { Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { PendingFood } from '@/types/PendingFood';
-import { Check } from '@phosphor-icons/react';
+import { Check, X } from '@phosphor-icons/react';
 
 export function ConfirmFoodForm(): React.JSX.Element {
     const token = localStorage.getItem('custom-auth-token');
     const [selectedFoodItem, setSelectedFoodItem] = React.useState<PendingFood | null>(null);
     const [dialogOpen, setDialogOpen] = React.useState(false);
+    const [crossDialogOpen, setCrossDialogOpen] = React.useState(false);
     const [pendingList, setPendingList] = React.useState<PendingFood[]>([]);
 
     const confirmPendingFood = async (pendingFoodId: number) => {
@@ -32,22 +33,22 @@ export function ConfirmFoodForm(): React.JSX.Element {
         }
     }
 
-    // const rejectPendingFood = async (pendingFoodId: number) => {
-    //     try {
-    //         const response = await fetch(`https://api.vitamis.hekolcu.com/food/pending/reject?pendingFoodId=${pendingFoodId}`, {
-    //             method: 'GET',
-    //             headers: {
-    //                 'Authorization': `Bearer ${token}`,
-    //                 'Content-Type': 'application/json'
-    //             },
-    //         });
-    //         if (!response.ok) {
-    //             return;
-    //         }
-    //     } catch (error) {
-    //         console.error('Error rejecting food:', error);
-    //     }
-    // }
+     const rejectPendingFood = async (pendingFoodId: number) => {
+         try {
+             const response = await fetch(`https://api.vitamis.hekolcu.com/food/pending/reject?pendingFoodId=${pendingFoodId}`, {
+                 method: 'GET',
+                 headers: {
+                     'Authorization': `Bearer ${token}`,
+                     'Content-Type': 'application/json'
+                 },
+             });
+             if (!response.ok) {
+                 return;
+             }
+         } catch (error) {
+             console.error('Error rejecting food:', error);
+         }
+    }
 
     const getPendingList = async () => {
         try {
@@ -81,7 +82,7 @@ export function ConfirmFoodForm(): React.JSX.Element {
             console.error('Error retrieving list:', error);
         }
     }
-
+    //Check
     const handleCheckButtonClick = (item: PendingFood) => {
         setSelectedFoodItem(item);
         setDialogOpen(true);
@@ -94,7 +95,19 @@ export function ConfirmFoodForm(): React.JSX.Element {
         window.location.reload();
         setDialogOpen(false);
     }
-
+    //Cross
+    const handleCrossButtonClick = (item: PendingFood) => {
+        setSelectedFoodItem(item);
+        setCrossDialogOpen(true);
+    }
+    const handleCrossDialogClose = () => {
+        setCrossDialogOpen(false);
+    }
+    const handleCrossDialogConfirm = (item: PendingFood) => {
+        rejectPendingFood(item.foodId)
+        window.location.reload();
+        setCrossDialogOpen(false);
+    }
     React.useEffect(() => {
         getPendingList();
     }, []);
@@ -149,6 +162,18 @@ export function ConfirmFoodForm(): React.JSX.Element {
                             }} aria-label="check" onClick={() => handleCheckButtonClick(item)}>
                                 <Check color="primary" />
                             </IconButton>
+                            <IconButton sx={{
+                                fontSize: '2rem',
+                                backgroundColor: 'orange',
+                                border: '5px solid deepOrange',
+                                m: 1,
+                                p: 1,
+                                ':hover': {
+                                    backgroundColor: '#dcedc8',
+                                },
+                            }} aria-label="check" onClick={() => handleCrossButtonClick(item)}>
+                                <X color="primary" />
+                            </IconButton>
                         </CardContent>
                     </Card>
                 </Grid>
@@ -180,6 +205,37 @@ export function ConfirmFoodForm(): React.JSX.Element {
                             onClick={() => handleDialogConfirm(selectedFoodItem!)}
                         >
                             Onayla
+                        </Button>
+                    </Grid>
+                </DialogActions>
+            </Dialog>
+            <Dialog open={crossDialogOpen} onClose={handleCrossDialogClose} PaperProps={{
+                style: {
+                    padding: '20px',
+                },
+            }}>
+                <DialogTitle id="customized-dialog-title">
+                    Gıda Maddesi Detayları
+                </DialogTitle>
+                <DialogContent dividers>
+                    <Typography>Bu gıda maddesi önerisini silmek istiyor musunuz?</Typography>
+                </DialogContent>
+                <DialogActions>
+                    <Grid container alignItems="center" justifyContent="space-between" width='100%'>
+                        <Button
+                            style={{ color: 'white', backgroundColor: '#ff9800' }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#d62828'}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#ff9800'}
+                            onClick={handleCrossDialogClose}
+                        >
+                            Yoksay
+                        </Button>
+                        <Button style={{ color: 'white', backgroundColor: '#4caf50' }}
+                            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#2d6a4f'}
+                            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#4caf50'}
+                            onClick={() => handleCrossDialogConfirm(selectedFoodItem!)}
+                        >
+                            Sil
                         </Button>
                     </Grid>
                 </DialogActions>

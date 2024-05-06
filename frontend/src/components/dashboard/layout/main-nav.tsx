@@ -1,5 +1,4 @@
 'use client';
-
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Badge from '@mui/material/Badge';
@@ -18,7 +17,8 @@ import { usePopover } from '@/hooks/use-popover';
 import { MobileNav } from './mobile-nav';
 import { UserPopover } from './user-popover';
 import { useUser } from '@/hooks/use-user';
-
+import { Link } from '@mui/material';
+import { paths } from '@/paths';
 export function MainNav(): React.JSX.Element {
   const [openNav, setOpenNav] = React.useState<boolean>(false);
 
@@ -78,9 +78,11 @@ export function MainNav(): React.JSX.Element {
           </Stack>
           <Stack sx={{ alignItems: 'center' }} direction="row" spacing={2}>
             {["Dietitian", "AcademicianDietitian"].includes(user?.userType!) ? <Tooltip title="Danışanlar">
+            <Link href={paths.dashboard.advisee_management} underline='none'>
               <IconButton>
                 <UsersIcon />
               </IconButton>
+              </Link>
             </Tooltip> : null}
             {/* <Tooltip title="Notifications">
               <Badge badgeContent={4} color="success" variant="dot">
