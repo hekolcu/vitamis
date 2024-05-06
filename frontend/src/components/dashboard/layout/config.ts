@@ -7,7 +7,7 @@ export const navItems = [
     title: 'Gösterge Paneli',
     href: paths.dashboard.overview,
     icon: 'chart-pie',
-    roles: ['Advisee', 'Dietitian', 'AcademicianDietitian', 'Admin'],
+    roles: ['Advisee'],
   },
   {
     key: 'settings',
@@ -24,7 +24,7 @@ export const navItems = [
   },
   {
     key: 'add-food',
-    title: 'Yiycek Ekle',
+    title: 'Yiyecek Ekle',
     href: paths.dashboard.add_food,
     icon: 'plus-square',
     roles: ['Dietitian', 'AcademicianDietitian', 'Admin'],
@@ -48,30 +48,31 @@ export const navItems = [
     title: 'Öğün Ekle',
     href: paths.dashboard.add_meal,
     icon: 'meal',
-    roles: ['Advisee', 'Dietitian', 'AcademicianDietitian', 'Admin'],
+    roles: ['Advisee'],
   },
   {
     key: 'my-reports',
     title: 'Raporlarım',
     href: paths.dashboard.my_reports,
     icon: 'report',
-    roles: ['Advisee', 'Dietitian', 'AcademicianDietitian', 'Admin'],
+    roles: ['Advisee'],
   },
   {
     key: 'admin-dietitian-confirm',
-    title: 'Dietisyen Hesap Onayı',
+    title: 'Diyetisyen Hesap Onayı',
     href: paths.dashboard.confirm_dietitian,
     icon: 'admin-confirm',
     roles: ['Admin'],
   },
+  /*
   {
     key: 'advisee-management',
     title: 'Danışan Yönetimi',
     href: paths.dashboard.advisee_management,
     icon: 'advisee-management',
-    roles: ['Admin'],
+    roles: ['Dietitian', 'AcademicianDietitian'],
   },
-
+*/
 
   // { key: 'error', title: 'Error', href: paths.errors.notFound, icon: 'x-square' },
 ] satisfies NavItemConfig[];
