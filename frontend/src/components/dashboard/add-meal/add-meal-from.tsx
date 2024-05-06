@@ -22,6 +22,7 @@ export function AddMealForm() {
     const token = localStorage.getItem('custom-auth-token');
     const [searchPerformed, setSearchPerformed] = useState(false);
     const [itemAdded, setItemAdded] = useState(false);
+    const [showError, setShowError] = useState(false);
 
     const handleDelete = (index: number) => {
         const newItems = [...addedItems];
@@ -30,6 +31,11 @@ export function AddMealForm() {
     };
 
     const handleSearch = async () => {
+        if (!query) {
+            setShowError(true);
+            return;
+        }
+        setShowError(false);
         try {
             const response = await fetch(`https://api.vitamis.hekolcu.com/food/search?q=${query}`);
             const data = await response.json();
@@ -100,7 +106,10 @@ export function AddMealForm() {
                         label="Yiyecek Ara"
                         variant="outlined"
                         value={query}
-                        onChange={(e) => setQuery(e.target.value)}
+                        onChange={(e) => {
+                            setQuery(e.target.value);
+                            setShowError(false);
+                        }}
                         onKeyDown={(e) => {
                             if (e.key === 'Enter') {
                                 e.preventDefault();
@@ -116,6 +125,7 @@ export function AddMealForm() {
                             ),
                         }}
                     />
+                    {showError && <Typography color="error">Please fill in the search field!</Typography>}
                 </Grid>
                 <Grid item>
                     <Button variant="contained" color="primary" onClick={handleSearch}>
@@ -142,7 +152,7 @@ export function AddMealForm() {
                     </Grid>
                 ))}
                 {selectedFoodItem && (
-                    <Grid container spacing={1} direction="row" alignItems="center" justifyContent="center" sx={{ marginTop:'20px' }}>
+                    <Grid container spacing={1} direction="row" alignItems="center" justifyContent="center" sx={{ marginTop: '20px' }}>
                         <Grid item xs={12} lg={8} md={8}>
                             <TextField
                                 fullWidth
