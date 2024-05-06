@@ -283,10 +283,10 @@ export function AddFoodForm(): React.JSX.Element {
       </form>
       <Dialog aria-labelledby="customized-dialog-title" open={dialogOpen} onClose={handleDialogClose}>
         <DialogTitle id="customized-dialog-title2" sx={{ m: 0, p: 2, color: '#fa8805', bgcolor: 'white' }}>
-          Confirmation
+          Onayla
         </DialogTitle>
         <DialogContent dividers>
-          <Typography>Do you want to suggest this food item?</Typography>
+          <Typography>Bu yemeği önermek istiyor musunuz?</Typography>
         </DialogContent>
         <DialogActions>
           <Button color="warning" autoFocus onClick={handleDialogClose}>
