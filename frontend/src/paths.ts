@@ -15,7 +15,8 @@ export const paths = {
     add_meal: '/dashboard/add-meal',
     my_reports: '/dashboard/my-reports',
     confirm_dietitian: '/dashboard/admin-dietitian-confirm',
-    advisee_management: '/dashboard/advisee-management'
+    advisee_management: '/dashboard/advisee-management',
+    mediawiki: '/dashboard/articles',
   },
   errors: {
     notFound: '/errors/not-found'

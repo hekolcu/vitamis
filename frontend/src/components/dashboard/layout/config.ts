@@ -72,6 +72,13 @@ export const navItems = ([
     icon: 'advisee-management',
     roles: ['Dietitian', 'AcademicianDietitian'],
   },
+  {
+    key: 'articles',
+    title: 'Makaleler',
+    href: paths.dashboard.mediawiki,
+    icon: 'articles',
+    roles: ['Advisee', 'Dietitian', 'AcademicianDietitian', 'Admin'],
+  }
 
   // { key: 'error', title: 'Error', href: paths.errors.notFound, icon: 'x-square' },
 ] satisfies NavItemConfig[]).sort((a, b) => {

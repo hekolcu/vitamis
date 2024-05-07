@@ -25,6 +25,7 @@ export const navIcons = {
   'report': Article,
   'admin-confirm': Users,
   'advisee-management': UserList,
+  'articles': Article,
   user: UserIcon,
   users: UsersIcon,
 } as Record<string, Icon>;
