@@ -339,9 +339,9 @@ export function AdviseeManagement(): React.JSX.Element {
                 {dailyReport.map((item, index) => (
                   <TableRow key={index}>
                     <TableCell>{item.vitaminName}</TableCell>
-                    <TableCell>{item.consumedAmount}</TableCell>
+                    <TableCell>{item.consumedAmount.toFixed(2)}</TableCell>
                     <TableCell>{item.recommendedAmount}</TableCell>
-                    <TableCell>{item.percentage}</TableCell>
+                    <TableCell>%{item.percentage.toFixed(2)}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
