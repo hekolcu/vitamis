@@ -18,7 +18,7 @@ import Stack from '@mui/material/Stack';
 import { updateProfile } from '../../../lib/auth/auth-utils';
 import { useUser } from '@/hooks/use-user';
 import { logger } from '@/lib/default-logger';
-import { Snackbar, Alert } from '@mui/material';
+import { Snackbar, Alert, FormHelperText } from '@mui/material';
 
 export function AccountDetailsForm(): React.JSX.Element {
   const { user } = useUser();
@@ -37,6 +37,43 @@ export function AccountDetailsForm(): React.JSX.Element {
     gender: user?.gender ? user.gender : '',
   });
 
+  const [formErrors, setFormErrors] = React.useState({
+    height: '',
+    weight: '',
+    dob: '',
+    gender: '',
+  });
+
+  const validateForm = () => {
+    let errors = {
+      height: '',
+      weight: '',
+      dob: '',
+      gender: '',
+    };
+
+    if (!formValues.height) {
+      errors.height = 'Lütfen boyunuzu girin';
+    }
+
+    if (!formValues.weight) {
+      errors.weight = 'Lütfen kilonuzu girin';
+    }
+
+    if (!formValues.dob) {
+      errors.dob = 'Doğum tarihi gereklidir';
+    }
+
+    if (!formValues.gender) {
+      errors.gender = 'Cinsiyet gereklidir';
+    }
+
+    setFormErrors(errors);
+
+    // If any error message is not empty, the form is invalid
+    return !Object.values(errors).some(x => x !== '');
+  };
+
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
 
   // Handle changes in form inputs
@@ -51,6 +88,11 @@ export function AccountDetailsForm(): React.JSX.Element {
   // Handle form submission
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     const token = localStorage.getItem('custom-auth-token');
     if (token === null) {
       // Handle token not found
@@ -66,8 +108,11 @@ export function AccountDetailsForm(): React.JSX.Element {
       smoking: formValues.smoking === 'Yes',
       dateOfBirth: formValues.dob,
     }).then((response) => {
+      if (!response) {
+        return;
+      }
       setSnackbarOpen(true);
-      logger.debug(response);
+      window.location.reload();
       return response;
     }).catch((error) => {
       logger.error(error);
@@ -96,6 +141,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   label="Height"
                   type="number"
                 />
+                {formErrors.height && <FormHelperText>{formErrors.height}</FormHelperText>}
               </FormControl>
             </Grid>
             {/* Weight field */}
@@ -110,6 +156,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   label="Weight"
                   type="number"
                 />
+                {formErrors.weight && <FormHelperText>{formErrors.weight}</FormHelperText>}
               </FormControl>
             </Grid>
             {/* Date of Birth field */}
@@ -125,6 +172,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                     shrink: true,
                   }}
                 />
+                {formErrors.dob && <FormHelperText>{formErrors.dob}</FormHelperText>}
               </FormControl>
             </Grid>
             {/* Gender field */}
@@ -141,6 +189,7 @@ export function AccountDetailsForm(): React.JSX.Element {
                   <MenuItem value='Male'>Erkek</MenuItem>
                   <MenuItem value='Female'>Kadın</MenuItem>
                 </Select>
+                {formErrors.gender && <FormHelperText>{formErrors.gender}</FormHelperText>}
               </FormControl>
             </Grid>
             {/* Sun exposure field */}
