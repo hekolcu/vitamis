@@ -29,7 +29,7 @@ export function SearchForm() {
   }, [searchResults]);
 
   const handleSearch = async () => {
-    
+
     if (!query.trim()) {
       setErrorMessage('Lütfen gerekli alanları doldurunuz');
       return false;
@@ -80,7 +80,7 @@ export function SearchForm() {
             <Grid item xs={12} lg={6} md={6} key={index}>
               <Card style={{ width: '100%', padding: '20px' }}>
                 <Typography variant="h6" color={'#fa8805'} style={{ textAlign: 'left' }}>{result.category}</Typography>
-                <Typography variant="subtitle1" style={{ textAlign: 'left', marginBottom: '5px' }}>{result.name}</Typography>
+                <Typography variant="subtitle1" style={{ textAlign: 'left', marginBottom: '5px' }}>{result.name} (100 gram)</Typography>
                 {result.vitamins.length > 0 ? (
                   <TableContainer>
                     <Table size="small">
