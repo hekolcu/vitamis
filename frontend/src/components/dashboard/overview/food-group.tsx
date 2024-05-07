@@ -10,11 +10,13 @@ import type { SxProps } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import type { Icon } from '@phosphor-icons/react/dist/lib/types';
 import { Carrot as CarrotIcon } from '@phosphor-icons/react/dist/ssr/Carrot';
-import {OrangeSlice as OrangeSliceIcon} from '@phosphor-icons/react/dist/ssr/OrangeSlice';
-import {CookingPot as CookingPotIcon} from '@phosphor-icons/react/dist/ssr/CookingPot';
+import { OrangeSlice as OrangeSliceIcon } from '@phosphor-icons/react/dist/ssr/OrangeSlice';
+import { CookingPot as CookingPotIcon } from '@phosphor-icons/react/dist/ssr/CookingPot';
 import type { ApexOptions } from 'apexcharts';
 import { Chart } from '@/components/core/chart';
 import { useEffect, useState } from 'react';
+import { AlignCenterHorizontal } from '@phosphor-icons/react';
+import { Box } from '@mui/material';
 
 const iconMapping = { Sebze: CarrotIcon, Meyve: OrangeSliceIcon, 'Diğer': CookingPotIcon } as Record<string, Icon>;
 
@@ -41,6 +43,30 @@ export function FoodGroup({ sx }: TrafficProps): React.JSX.Element {
       .then(data => setChartData(data))
       .catch(error => console.error(error));
   }, []);
+
+  const total = chartSeries.reduce((a, b) => a + b, 0);
+
+  if (total === 0) {
+    return (
+      <Card sx={sx}>
+        <CardHeader title="Günlük Vitamin Alımı" />
+        <CardContent sx={{ alignContent: 'center', justifyContent: 'center' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+            <Typography variant="h6" align="center">
+              Günlük Veri mevcut değil
+            </Typography>
+            <Chart
+              height={300}
+              options={{ ...chartOptions, colors: ['#E4E4E3'], labels: ['No data'] }}
+              series={[100]}
+              type="donut"
+              width="100%"
+            />
+          </Box>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card sx={sx}>
