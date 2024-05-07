@@ -27,6 +27,7 @@ import { useUser } from '@/hooks/use-user';
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import { TextField } from '@mui/material';
 
 const schema = zod.object({
   firstName: zod.string().min(1, { message: 'İlk isim zorunlu bir alan' }),
@@ -61,6 +62,7 @@ export function SignUpForm(): React.JSX.Element {
   const [isPending, setIsPending] = React.useState<boolean>(false);
   const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
 
+  const [fileName, setFileName] = React.useState<string | null>(null);
 
   const [tabIndex, setTabIndex] = React.useState(0);
 
@@ -274,14 +276,25 @@ export function SignUpForm(): React.JSX.Element {
               <VisuallyHiddenInput
                 type="file"
                 hidden
-                onChange={(e: any) => {
-                  if (e.target.files) {
-                    console.log(e.target.files[0]);
-                    setSelectedFile(e.target.files[0]);
+                onChange={(event: any) => {
+                  if (event.target.files) {
+                    console.log(event.target.files[0]);
+                    setSelectedFile(event.target.files[0]);
+                    const fileSizeInMB = (event.target.files[0].size / (1024*1024)).toFixed(2);
+                    setFileName(event.target.files[0].name + ' (' + fileSizeInMB + ' MB)');
                   }
                 }}
               />
             </Button>
+            {fileName && (
+              <TextField
+                disabled
+                variant="outlined"
+                margin="normal"
+                fullWidth
+                value={fileName}
+              />
+            )}
             {errors.root ? <Alert color="error">{errors.root.message}</Alert> : null}
             <Button disabled={isPending} type="submit" color="warning" variant="contained">
               Hesap aç

@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 import { config } from '@/config';
 import { FoodIntakeHistory } from '@/components/dashboard/overview/food-intake-history';
 import { TwoWeekVitaminGoals } from '@/components/dashboard/overview/two-week-vitamin-goals';
-import { Traffic } from '@/components/dashboard/overview/traffic';
+import { FoodGroup } from '@/components/dashboard/overview/food-group';
 import VitaminRefTable from '@/components/dashboard/overview/vitamin-ref-table';
 import { Typography } from '@mui/material';
 import DailyVitaminGoalCompletion from '@/components/dashboard/overview/daily-vitamin-goal-gauge-chart';
@@ -20,7 +20,7 @@ export default function Page(): React.JSX.Element {
       {/* Wrap the Gauge Chart components in a Box for horizontal scrolling */}
       <DailyVitaminGoalCompletion />
       <Grid lg={4} md={6} xs={12}>
-        <Traffic chartSeries={[16, 22, 62]} labels={['Sebze', 'Meyve', 'Yemek']} sx={{ height: '100%' }} />
+        <FoodGroup sx={{ height: '100%' }} />
       </Grid>
       <Grid lg={8} xs={12}>
         <TwoWeekVitaminGoals
