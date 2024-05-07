@@ -20,7 +20,7 @@ public static class DietitianEndpoints
                     {
                         return Results.BadRequest("File size must be less than 5MB.");
                     }
-                    
+
                     if (file.ContentType == "application/pdf" ||
                         file.ContentType == "image/jpeg" ||
                         file.ContentType == "image/png")
@@ -336,13 +336,29 @@ public static class DietitianEndpoints
                 var allVitaminPercentages = recommendedVitamins.Select(rv =>
                 {
                     var consumed = vitaminSummaries.FirstOrDefault(vs => vs.Name == rv.Vitamin.Name);
-                    var percentage = consumed != null ? (consumed.TotalAmount / double.Parse(rv.Amount)) * 100 : 0;
+                    double consumedInStandardUnit = 0;
+                    string vitaminNameInCode = "";
+                    if (consumed != null)
+                    {
+                        vitaminNameInCode = IntakeReport.vitaminNameMap[rv.Vitamin.Name];
+                        string unitInCode = IntakeReport.unitMap[consumed.Unit];
+                        consumedInStandardUnit =
+                            IntakeReport.ConvertToStandardUnit(consumed.TotalAmount, unitInCode, vitaminNameInCode);
+                    }
+
+                    string recommendedUnitInCode = IntakeReport.unitMap[rv.Unit];
+                    double recommendedInStandardUnit = IntakeReport.ConvertToStandardUnit(double.Parse(rv.Amount),
+                        recommendedUnitInCode, vitaminNameInCode);
+
+                    var percentage = consumed != null ? (consumedInStandardUnit / recommendedInStandardUnit) * 100 : 0;
 
                     return new
                     {
                         VitaminName = rv.Vitamin.Name,
                         ConsumedAmount = consumed?.TotalAmount ?? 0,
+                        ConsumedUnit = consumed?.Unit ?? "",
                         RecommendedAmount = rv.Amount,
+                        RecommendedUnit = rv.Unit,
                         Percentage = percentage
                     };
                 }).ToList();
